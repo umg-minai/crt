@@ -1,0 +1,14 @@
+```{r knitr_setup, include = FALSE}
+knitr::write_bib(
+    c(
+        "base",
+        "gtsummary",
+        "survival"
+    ),
+    file = rprojroot::find_root_file(
+        "bibliography", "rpackages.bib",
+        criterion = ".editorconfig",
+        path = "."
+    )
+)
+```

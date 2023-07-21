@@ -1,3 +1,4 @@
 data/intdata/*
 data/scripts
 output/
+dist/

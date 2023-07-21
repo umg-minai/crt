@@ -2,23 +2,39 @@ GUIX:=/usr/local/bin/guix
 GUIXTM:=${GUIX} time-machine --channels=guix/channels.scm -- \
 		shell --manifest=guix/manifest.scm
 DATA:=data/extdata/cvc.csv
+MANUSCRIPT:=manuscript
 OUTPUTDIR:=output
+DISTDIR:=distribute
+SECTIONDIR:=sections
+RMD=$(wildcard $(SECTIONDIR)/*.Rmd)
+
+DATE=$(shell date +'%Y%m%d')
+GITHEAD=$(shell git rev-parse --short HEAD)
 
 .DELETE_ON_ERROR:
 
-.PHONEY: clean guix-pin-channels work
+.PHONEY: clean clean-dist clean-output dist guix-pin-channels work
 
 all: manuscript
 
-manuscript: $(OUTPUTDIR)/manuscript.html
+manuscript: $(OUTPUTDIR)/$(MANUSCRIPT).html
 
-$(OUTPUTDIR)/%.html: %.Rmd
+$(OUTPUTDIR):
+	@mkdir -p $(OUTPUTDIR)
+
+$(OUTPUTDIR)/%.html: %.Rmd $(RMD) $(DATA) | $(OUTPUTDIR)
 	${GUIXTM} -- \
 		Rscript -e "rmarkdown::render('$<', output_dir = '$(OUTPUTDIR)')"
 
-$(OUTPUTDIR)/%.docx: %.Rmd
+$(OUTPUTDIR)/%.docx: %.Rmd $(RMD) $(DATA) | $(OUTPUTDIR)
 	${GUIXTM} -- \
 		Rscript -e "rmarkdown::render('$<', output_format = 'bookdown::word_document2', output_dir = '$(OUTPUTDIR)')"
+
+$(DISTDIR):
+	@mkdir -p $(DISTDIR)
+
+dist: $(OUTPUTDIR)/$(MANUSCRIPT).docx | $(DISTDIR)
+	@cp $< $(DISTDIR)/"$(DATE)_$(GITHEAD)_$(MANUSCRIPT).docx"
 
 ## start guix development environment
 work: guix/channels.pinned.scm
@@ -41,4 +57,10 @@ $(DATA): \
 		shell --manifest=guix/manifest-data-preparation.scm -- \
 		Rscript data/scripts/01-anonymize-and-prepare.R
 
-clean:
+clean: clean-output clean-dist
+
+clean-dist:
+	@rm -rf $(DISTDIR)
+
+clean-output:
+	@rm -rf $(OUTPUTDIR)
