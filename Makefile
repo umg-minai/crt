@@ -1,5 +1,5 @@
 GUIX:=/usr/local/bin/guix
-GUIXTM:=${GUIX} time-machine --channels=guix/channels.scm -- \
+GUIXTM:=${GUIX} time-machine --channels=guix/channels.pinned.scm -- \
 		shell --manifest=guix/manifest.scm
 DATA:=data/extdata/cvc.csv
 MANUSCRIPT:=manuscript
@@ -53,7 +53,7 @@ anonymize-data: $(DATA)
 $(DATA): \
 	data/intdata/ZVK-Doku.xlsx \
 	data/scripts/01-anonymize-and-prepare.R
-	${GUIX} time-machine --channels=guix/channels.scm -- \
+	${GUIX} time-machine --channels=guix/channels.pinned.scm -- \
 		shell --manifest=guix/manifest-data-preparation.scm -- \
 		Rscript data/scripts/01-anonymize-and-prepare.R
 
