@@ -10,6 +10,12 @@
 sudo apt install make guix
 ```
 
+## Build manuscript
+
+```bash
+make
+```
+
 ## Contact/Contribution
 
 You are welcome to:
