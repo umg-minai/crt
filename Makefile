@@ -8,7 +8,9 @@ OUTPUTDIR:=output
 
 .PHONEY: clean guix-pin-channels work
 
-all: work
+all: manuscript
+
+manuscript: $(OUTPUTDIR)/manuscript.html
 
 $(OUTPUTDIR)/%.html: %.Rmd
 	${GUIXTM} -- \
