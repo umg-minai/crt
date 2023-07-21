@@ -1,0 +1,61 @@
+---
+title: >
+    TBD
+abstract: >
+  **Objectives**:
+
+  **Methods**:
+
+  **Results**:
+
+  **Conclusion**:
+
+  **Keywords**:
+
+institute:
+    - KAINS: Department of Anesthesiology and Intensive Care Medicine, University Hospital Greifswald, Ferdinand-Sauerbruch-Straße, D-17475 Greifswald, Germany.
+author:
+    - 'Sebastian Gibb, MD':
+        email: mail@sebastiangibb.de
+        institute: [KAINS]
+        correspondence: true
+    - 'Sebastian Engelhardt':
+        email: sebastian.engelhardt@med.uni-greifswald.de
+        institute: [KAINS]
+        correspondence: false
+    - 'Sven-Olaf Kuhn, MD':
+        email: sven-olaf.kuhn@med.uni-greifswald.de
+        institute: [KAINS]
+        correspondence: false
+
+bibliography:
+    - bibliography/bibliography.bib
+    - bibliography/rpackages.bib
+output:
+    bookdown::html_document2:
+        pandoc_args:
+            - --lua-filter=pandoc/lua-filters/scholarly-metadata.lua
+            - --lua-filter=pandoc/lua-filters/author-info-blocks.lua
+            - --lua-filter=pandoc/lua-filters/wordcount.lua
+    bookdown::word_document2:
+        pandoc_args:
+            - --lua-filter=pandoc/lua-filters/scholarly-metadata.lua
+            - --lua-filter=pandoc/lua-filters/author-info-blocks.lua
+            - --lua-filter=pandoc/lua-filters/wordcount.lua
+---
+
+```{r knitr_setup, include = FALSE}
+knitr::write_bib(
+    c(
+        "base",
+        "gtsummary",
+        "survival"
+    ),
+    file = file.path("bibliography", "rpackages.bib")
+)
+```
+
+```{r import, message = FALSE, echo = FALSE, warning = FALSE}
+```
+
+# References

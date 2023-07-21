@@ -3,6 +3,7 @@
     "coreutils"
     "nss-certs"
     "r-minimal"
+    "r-bookdown"
     "r-gtsummary"
     "r-rprojroot"
     "r-viridislite"))
