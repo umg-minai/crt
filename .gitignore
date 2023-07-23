@@ -1,4 +1,7 @@
 data/intdata/*
 data/scripts
-output/
 dist/
+ethik/
+images/
+output/
+reviewer
