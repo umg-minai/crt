@@ -14,4 +14,4 @@
         (url "https://github.com/umg-minai/guix-minai.git")
         (branch "main")
         (commit
-          "3fbd6eb1c5599e3b81beff4d62444c50010d1aaa")))
+          "7479248dd9975de8d0dcae45d16ce9c337f278d8")))

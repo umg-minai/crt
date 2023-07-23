@@ -4,6 +4,9 @@
     "nss-certs"
     "r-minimal"
     "r-bookdown"
+    "r-codetools"
+    "r-consort"
     "r-gtsummary"
     "r-rprojroot"
+    "r-survival"
     "r-viridislite"))
