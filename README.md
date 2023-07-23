@@ -2,6 +2,8 @@
 
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
 
+We use [guix](https://guix.gnu.org) to ensure an reproducible computing environment.
+
 ## Bootstrap
 
 ### Guix on debian
@@ -11,6 +13,9 @@ sudo apt install make guix
 ```
 
 ## Build manuscript
+
+Running `make` the first time will take some time because
+`guix` hast to download the given state and build the image.
 
 ```bash
 make
