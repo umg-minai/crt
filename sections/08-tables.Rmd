@@ -71,5 +71,3 @@ modify_caption(
     )
 )
 ```
-
-# Figures
