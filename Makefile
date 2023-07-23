@@ -3,9 +3,10 @@ GUIXTM:=${GUIX} time-machine --channels=guix/channels.pinned.scm -- \
 		shell --manifest=guix/manifest.scm
 DATA:=data/extdata/cvc.csv
 MANUSCRIPT:=manuscript
+SECTIONDIR:=sections
 OUTPUTDIR:=output
 DISTDIR:=distribute
-SECTIONDIR:=sections
+CACHEDIR:=cache
 RMD=$(wildcard $(SECTIONDIR)/*.Rmd)
 
 DATE=$(shell date +'%Y%m%d')
@@ -57,7 +58,10 @@ $(DATA): \
 		shell --manifest=guix/manifest-data-preparation.scm -- \
 		Rscript data/scripts/01-anonymize-and-prepare.R
 
-clean: clean-output clean-dist
+clean: clean-cache clean-dist clean-output
+
+clean-cache:
+	@rm -rf $(CACHEDIR)
 
 clean-dist:
 	@rm -rf $(DISTDIR)
