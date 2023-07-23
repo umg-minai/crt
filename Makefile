@@ -37,7 +37,7 @@ dist: $(OUTPUTDIR)/$(MANUSCRIPT).docx | $(DISTDIR)
 	@cp $< $(DISTDIR)/"$(DATE)_$(GITHEAD)_$(MANUSCRIPT).docx"
 
 ## start guix development environment
-work: guix/channels.pinned.scm
+env: guix/channels.pinned.scm
 	${GUIXTM}
 
 ## pinning guix channels to latest commits
