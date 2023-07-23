@@ -1,14 +1,29 @@
 ```{r knitr_setup, include = FALSE}
+frf <- function(...)
+    rprojroot::find_root_file(..., criterion = ".editorconfig", path = ".")
+
 knitr::write_bib(
     c(
         "base",
         "gtsummary",
         "survival"
     ),
-    file = rprojroot::find_root_file(
-        "bibliography", "rpackages.bib",
-        criterion = ".editorconfig",
-        path = "."
-    )
+    file = frf("bibliography", "rpackages.bib")
 )
+```
+
+```{r import, include = FALSE}
+cvc <- read.csv(frf("data", "extdata", "cvc.csv"))
+```
+
+```{r conversion, include = FALSE}
+cvc$Experience[!nchar(cvc$Experience)] <- NA
+cvc$FirstExam <- as.numeric(cvc$FirstExam)
+
+fcts <- c(
+    "Sex", "Manufacturer", "Site", "Side", "Incision", "Attempts2",
+    "Experience", "Speciality", "AdmissionType",
+    "AnticoagulationGroup"
+)
+cvc[fcts] <- lapply(cvc[fcts], as.factor)
 ```
