@@ -1,1 +1,39 @@
 # Figures
+
+```{r consortplot, echo = FALSE}
+consort_plot(
+    consort_df,
+    orders = c(
+        trialno = "Population",
+        exc1 = "Exclusion",
+        arm = "Analysis",
+        trialno = "Survival analysis"
+    ),
+    allocation = "arm",
+    side_box = "exc1"
+)
+```
+
+```{r survplotml3, echo = FALSE}
+plot(
+    ml3$srv,
+    mark.time = TRUE,
+    lwd = 2,
+    col = 1:2,
+    main = "Thrombus free time",
+    xlab = "time [days]",
+    conf.int = TRUE
+)
+```
+
+```{r survplotml5, echo = FALSE}
+plot(
+    ml5$srv,
+    mark.time = TRUE,
+    lwd = 2,
+    col = 1:2,
+    main = "Thrombus free time",
+    xlab = "time [days]",
+    conf.int = TRUE
+)
+```

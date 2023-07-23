@@ -12,18 +12,73 @@ knitr::write_bib(
 )
 ```
 
+```{r libraries, include = FALSE}
+library("survival")
+library("gtsummary")
+library("consort")
+```
+
 ```{r import, include = FALSE}
 cvc <- read.csv(frf("data", "extdata", "cvc.csv"))
 ```
 
 ```{r conversion, include = FALSE}
-cvc$Experience[!nchar(cvc$Experience)] <- NA
 cvc$FirstExam <- as.numeric(cvc$FirstExam)
 
 fcts <- c(
     "Sex", "Manufacturer", "Site", "Side", "Incision", "Attempts2",
-    "Experience", "Speciality", "AdmissionType",
+    "Speciality", "AdmissionType",
     "AnticoagulationGroup"
 )
 cvc[fcts] <- lapply(cvc[fcts], as.factor)
+
+cvc$Experience[!nchar(cvc$Experience)] <- NA
+cvc$Experience <- factor(
+    cvc$Experience,
+    levels = c("<25", "25-50", ">50"),
+    ordered = TRUE
+)
+```
+
+```{r preparation, include = FALSE}
+consort_df <- data.frame(
+    trialno = cvc$Id,
+    exc1 = NA_character_
+)
+
+consort_df$exc1[cvc$Site != "IJV"] <- as.character(cvc$Site[cvc$Site != "IJV"])
+consort_df$exc1[cvc$Lumens == 4] <- "4 Lumen"
+consort_df$exc1[cvc$Lumens == 7] <- "7 Lumen"
+consort_df$exc1[cvc$Manufacturer == "Braun" & cvc$Lumens == 5] <-
+    "Braun, 5 Lumen"
+
+cvc$isExcluded <- !is.na(consort_df$exc1)
+consort_df$arm <- as.factor(
+    ifelse(
+        cvc$isExcluded,
+        NA_character_,
+        paste0(cvc$Lumens, " Lumens")
+    )
+)
+```
+
+```{r modelhelper, include = FALSE}
+.modelbylumen <- function(x, nlumens) {
+    x <- x[x$Lumens == nlumens & !x$isExcluded,]
+    x$CRT <- x$CRT == "CRT"
+    x$FUP <- ifelse(x$CRT, x$CRTday, x$FollowUp)
+
+    srv <- survfit(Surv(FUP, CRT) ~ Manufacturer, data = x)
+    svd <- survdiff(Surv(FUP, CRT) ~ Manufacturer, data = x, rho = 1)
+
+    list(data = x, srv = srv, svd = svd)
+}
+```
+
+```{r model3, include = FALSE}
+ml3 <- .modelbylumen(cvc, 3)
+```
+
+```{r model5, include = FALSE}
+ml5 <- .modelbylumen(cvc, 5)
 ```
