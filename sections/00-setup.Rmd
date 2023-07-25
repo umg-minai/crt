@@ -57,6 +57,7 @@ consort_df$exc1[cvc$Lumens == 4] <- "4 Lumen"
 consort_df$exc1[cvc$Lumens == 7] <- "7 Lumen"
 consort_df$exc1[cvc$Manufacturer == "Braun" & cvc$Lumens == 5] <-
     "Braun, 5 Lumen"
+consort_df$exc1[duplicated(cvc$CaseId)] <- "Not the first CVC"
 
 cvc$isExcluded <- !is.na(consort_df$exc1)
 consort_df$arm <- as.factor(
