@@ -9,7 +9,13 @@ We use [guix](https://guix.gnu.org) to ensure an reproducible computing environm
 ### Guix on debian
 
 ```bash
-sudo apt install make guix
+sudo apt install make git guix
+```
+
+### Fetch sources
+
+```bash
+git clone https://github.com/umg-minai/crt.git
 ```
 
 ## Build manuscript
