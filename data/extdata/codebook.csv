@@ -1,5 +1,6 @@
 Variable,Comment
 Id,CVC id
+CaseId,Case id
 Sex,male/female
 Age,Age in years
 BMI,BMI
