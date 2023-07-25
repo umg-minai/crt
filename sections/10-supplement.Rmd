@@ -1,2 +1,7 @@
 # Supplement
 
+## R session information
+
+```{r sessioninfo}
+sessionInfo()
+```
