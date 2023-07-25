@@ -70,3 +70,13 @@ modify_caption(
     )
 )
 ```
+
+```{r tblml3, echo = FALSE}
+ml3$srv
+ml3$svd
+```
+
+```{r tblml5, echo = FALSE}
+ml5$srv
+ml5$svd
+```
