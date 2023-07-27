@@ -15,7 +15,7 @@ sudo apt install make git guix
 ### Fetch sources
 
 ```bash
-git clone https://github.com/umg-minai/crt.git
+git clone git@github.com:umg-minai/crt.git
 ```
 
 ## Build manuscript
