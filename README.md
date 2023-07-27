@@ -33,11 +33,17 @@ All the work has to be done in the `sections/*.Rmd` files.
 
 ## Make targets
 
-- `make` or `make manuscript` produces an `.html` file in `output`.
-- `make dist` produces a `.docx` in `output` which could be send to the
+- `make` or `make manuscript` produces an `.html` file in `output/`.
+- `make dist` produces a `.docx` in `output/` which could be send to the
   co-authors.
 - `make clean` removes all generated files.
 - `make env` runs a shell in the `guix` generated environment.
+
+## Update data
+
+If the raw data changed, you have to call `make regenerate-data` manually
+(The data file doesn't depend on the raw data to avoid errors if
+others who don't own the raw data checkout the repository.)
 
 ## Contact/Contribution
 

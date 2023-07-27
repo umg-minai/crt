@@ -14,7 +14,10 @@ GITHEAD=$(shell git rev-parse --short HEAD)
 
 .DELETE_ON_ERROR:
 
-.PHONEY: clean clean-dist clean-output dist guix-pin-channels work
+.PHONEY: \
+	clean clean-dist clean-output \
+	dist guix-pin-channels \
+	regenerate-data work
 
 all: manuscript
 
@@ -49,9 +52,7 @@ guix/channels.pinned.scm: guix/channels.scm
 		describe -f channels > guix/channels.pinned.scm
 
 ## data/intdata and data/scripts are not part of the git repository
-anonymize-data: $(DATA)
-
-$(DATA): \
+regenerate-data: \
 	data/intdata/ZVK-Doku.xlsx \
 	data/scripts/01-anonymize-and-prepare.R
 	${GUIX} time-machine --channels=guix/channels.pinned.scm -- \
