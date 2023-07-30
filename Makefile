@@ -47,9 +47,10 @@ env: guix/channels.pinned.scm
 ## pinning guix channels to latest commits
 guix-pin-channels: guix/channels.pinned.scm
 
-guix/channels.pinned.scm: guix/channels.scm
+guix/channels.pinned.scm: guix/channels.scm FORCE
 	${GUIX} time-machine --channels=guix/channels.scm -- \
 		describe -f channels > guix/channels.pinned.scm
+FORCE:
 
 ## data/intdata and data/scripts are not part of the git repository
 regenerate-data: \
