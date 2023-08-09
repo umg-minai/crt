@@ -21,7 +21,8 @@ knitr::write_bib(
 ```{r libraries, include = FALSE}
 library("survival")
 library("gtsummary")
-library("consort")
+library("DiagrammeR")
+library("DiagrammeRsvg")
 ```
 
 ```{r import, include = FALSE}
@@ -47,26 +48,15 @@ cvc$Experience <- factor(
 ```
 
 ```{r preparation, include = FALSE}
-consort_df <- data.frame(
-    trialno = cvc$Id,
-    exc1 = NA_character_
-)
+cvc$ExclusionReason[cvc$Site != "IJV"] <-
+    paste("Site:", as.character(cvc$Site[cvc$Site != "IJV"]))
+cvc$ExclusionReason[cvc$Lumens == 4] <- "Lumen: 4"
+cvc$ExclusionReason[cvc$Lumens == 7] <- "Lumen: 7"
+cvc$ExclusionReason[cvc$Manufacturer == "Braun" & cvc$Lumens == 5] <-
+    "Lumen: 5, Braun"
+cvc$ExclusionReason[duplicated(cvc$CaseId)] <- "Not the first CVC"
 
-consort_df$exc1[cvc$Site != "IJV"] <- as.character(cvc$Site[cvc$Site != "IJV"])
-consort_df$exc1[cvc$Lumens == 4] <- "4 Lumen"
-consort_df$exc1[cvc$Lumens == 7] <- "7 Lumen"
-consort_df$exc1[cvc$Manufacturer == "Braun" & cvc$Lumens == 5] <-
-    "Braun, 5 Lumen"
-consort_df$exc1[duplicated(cvc$CaseId)] <- "Not the first CVC"
-
-cvc$isExcluded <- !is.na(consort_df$exc1)
-consort_df$arm <- as.factor(
-    ifelse(
-        cvc$isExcluded,
-        NA_character_,
-        paste0(cvc$Lumens, " Lumens")
-    )
-)
+cvc$isExcluded <- !is.na(cvc$ExclusionReason)
 ```
 
 ```{r modelhelper, include = FALSE}

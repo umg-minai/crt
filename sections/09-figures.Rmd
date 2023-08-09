@@ -1,17 +1,79 @@
 # Figures
 
-```{r consortplot, echo = FALSE}
-consort_plot(
-    consort_df,
-    orders = c(
-        trialno = "Population",
-        exc1 = "Exclusion",
-        arm = "Analysis",
-        trialno = "Survival analysis"
-    ),
-    allocation = "arm",
-    side_box = "exc1"
-)
+```{r consort-flowchart, echo = FALSE, fig.cap = "The flowchart depicts the inclusion and exclusion criteria. CVC: central venous catheter; FV: femoral vene; SCV: subclavian vene."}
+tbl_excl <- table(cvc$ExclusionReason)
+nfc <- grepl("Not the first", names(tbl_excl))
+tbl_excl <- c(tbl_excl[!nfc], tbl_excl[nfc])
+excl_str <- paste0(names(tbl_excl), " (n=", tbl_excl, ")")
+graph <- "
+digraph flowchart
+{
+    layout=dot
+    labelloc = 't'
+    graph [splines='ortho']
+
+    node [shape = box, style = 'rounded,filled', width = 2, height = 0.5, fillcolor = '#7589af'];
+    Enrollment [label = 'Enrollment']
+    Allocation [label = 'Allocation']
+    Analysis [label = 'Analysis']
+
+    edge [weight=1000]
+
+    Enrollment -> Allocation -> Analysis [style = invis]
+
+    node [shape = box, style = rectangle, width = 2, height = 0.5];
+    All [label = 'Screened CVCs\\n(n = @@1-1)']
+    Excl [label = 'Excluded (n = @@2-1):\\l- @@2-2\\l- @@2-3\\l- @@2-4\\l- @@2-5\\l- @@2-6'];
+    CVC [label = 'Eligible CVCs\\n(n = @@3-1)']
+    C3VC [label = '3 Lumen CVCs\\n(n = @@4-1)']
+    C3VCA [label = '3 Lumen CVCs\\nArrow\\n(n = @@4-1)']
+    C3VCB [label = '3 Lumen CVCs\\nBraun\\n(n = @@4-2)']
+    C5VC [label = '5 Lumen CVCs\\n(n = @@5-1)']
+    C5VCA [label = '5 Lumen CVCs\\nArrow\\n(n = @@5-1)']
+    C5VCV [label = '5 Lumen CVCs\\nVygon\\n(n = @@5-2)']
+
+    node [shape = point, width = 0, height = 0, style = invis];
+    pAllo;
+    pCVC;
+    pC3VC;
+    pC5VC;
+
+    node [shape = box, style = invis, width = 2, height = 0.5];
+    iC35VCa;
+    iC35VCb;
+    iC3VC;
+    iC5VC;
+
+    {rank = same; Enrollment -> All [minlen=23, style = invis]; rankdir = LR;};
+    {rank = same; Allocation -> CVC [minlen=23, style = invis]; rankdir = LR;};
+    {rank = same; C3VC -> iC35VCa -> iC35VCb -> C5VC [style = invis]; rankdir = LR;};
+
+    All -> pAllo [arrowhead = none]
+    pAllo -> CVC
+    {rank = same; pAllo -> Excl[minlen=9]; rankdir = LR;}
+    CVC -> pCVC [arrowhead = none]
+    pCVC -> C3VC;
+    pCVC -> C5VC;
+
+    C3VC -> pC3VC [arrowhead = none];
+    pC3VC -> C3VCB;
+    pC3VC -> iC3VC [style = invis];
+    pC3VC -> C3VCA;
+
+    C5VC -> pC5VC [arrowhead = none]
+    pC5VC -> C5VCV;
+    pC5VC -> iC5VC [style = invis];
+    pC5VC -> C5VCA;
+
+    {rank = same; Analysis -> C3VCB -> iC3VC -> C3VCA -> C5VCV -> iC5VC -> C5VCA [style = invis]; rankdir = LR;};
+}
+[1]: nrow(cvc)
+[2]: c(sum(cvc$isExcluded), excl_str)
+[3]: sum(!cvc$isExcluded)
+[4]: c(sum(cvc$Lumens == 3 & !cvc$isExcluded), sum(cvc$Lumens == 3 & !cvc$isExcluded & cvc$Manufacturer == 'Arrow'), sum(cvc$Lumens == 3 & !cvc$isExcluded & cvc$Manufacturer == 'Braun'))
+[5]: c(sum(cvc$Lumens == 5 & !cvc$isExcluded), sum(cvc$Lumens == 5 & !cvc$isExcluded & cvc$Manufacturer == 'Arrow'), sum(cvc$Lumens == 5 & !cvc$isExcluded & cvc$Manufacturer == 'Vygon'))
+"
+grViz(graph)
 ```
 
 ```{r survplotml3, echo = FALSE}
