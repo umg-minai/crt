@@ -8,3 +8,8 @@ data analysis, S.G.;
 writing - draft preparation, S.G.;
 writing - review and editing, S.E., S.K. and S.G.;
 All authors have read and agreed to the published version of the manuscript.
+
+# Data and software availability
+
+The complete data, code and reproducible analysis can be found at
+https://github.com/umg-minai/crt.
