@@ -11,4 +11,5 @@
     "r-gtsummary"
     "r-rprojroot"
     "r-survival"
+    "r-survminer"
     "r-viridislite"))

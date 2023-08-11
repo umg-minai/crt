@@ -12,7 +12,8 @@ knitr::write_bib(
     c(
         "base",
         "gtsummary",
-        "survival"
+        "survival",
+        "survminer"
     ),
     file = frf("bibliography", "rpackages.bib")
 )
@@ -21,6 +22,7 @@ knitr::write_bib(
 ```{r libraries, include = FALSE}
 library("survival")
 library("gtsummary")
+library("survminer")
 library("DiagrammeR")
 library("DiagrammeRsvg")
 ```
