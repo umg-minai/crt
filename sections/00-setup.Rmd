@@ -80,7 +80,7 @@ cvc$isExcluded <- !is.na(cvc$ExclusionReason)
     x$FUP <- ifelse(x$CRT, x$CRTday, x$FollowUp)
 
     srv <- survfit(Surv(FUP, CRT) ~ Manufacturer, data = x)
-    svd <- survdiff(Surv(FUP, CRT) ~ Manufacturer, data = x, rho = 1)
+    svd <- survdiff(Surv(FUP, CRT) ~ Manufacturer, data = x, rho = 0)
 
     list(data = x, srv = srv, svd = svd)
 }
@@ -91,7 +91,7 @@ cvc$isExcluded <- !is.na(cvc$ExclusionReason)
     x$FUP <- ifelse(x$CRT, x$CRTday, x$FollowUp)
 
     srv <- survfit(Surv(FUP, CRT) ~ Lumens, data = x)
-    svd <- survdiff(Surv(FUP, CRT) ~ Lumens, data = x, rho = 1)
+    svd <- survdiff(Surv(FUP, CRT) ~ Lumens, data = x, rho = 0)
 
     list(data = x, srv = srv, svd = svd)
 }
