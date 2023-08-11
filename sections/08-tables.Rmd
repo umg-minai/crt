@@ -4,6 +4,7 @@
 theme_gtsummary_journal()
 theme_gtsummary_compact(font_size = 8L)
 tbl1 <- cvc |>
+dplyr::filter(!isExcluded) |>
 select(
     CRT,
     Sex,
