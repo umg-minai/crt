@@ -27,7 +27,7 @@ library("DiagrammeR")
 library("DiagrammeRsvg")
 ```
 
-```{r definitions}
+```{r definitions, include = FALSE}
 ## manufacturer's colors
 mcol <- c(
     Arrow = "#115dce",
