@@ -79,7 +79,7 @@ grViz(graph)
 ```{r survplotml3, echo = FALSE, fig.width = 12, fig.height = 8}
 nms <- c("Arrow", "Braun")
 ggsurvplot(
-    ml3$srv,
+    ml3$svf,
     data = ml3$data,
     palette = unname(mcol[nms]),
     pval = TRUE,
@@ -98,7 +98,7 @@ ggsurvplot(
 ```{r survplotml5, echo = FALSE, fig.width = 12, fig.height = 8}
 nms <- c("Arrow", "Vygon")
 ggsurvplot(
-    ml5$srv,
+    ml5$svf,
     data = ml5$data,
     palette = unname(mcol[nms]),
     pval = TRUE,
@@ -117,7 +117,7 @@ ggsurvplot(
 ```{r survplotmlA, echo = FALSE, fig.width = 12, fig.height = 8}
 nms <- c("3 Lumens", "5 Lumens")
 ggsurvplot(
-    mlA$srv,
+    mlA$svf,
     data = mlA$data,
     pval = TRUE,
     censor = TRUE,

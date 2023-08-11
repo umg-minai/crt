@@ -74,26 +74,27 @@ cvc$isExcluded <- !is.na(cvc$ExclusionReason)
 ```
 
 ```{r modelhelper, include = FALSE}
+.followup <- function(x)ifelse(x$CRT, x$CRTday, x$FollowUp)
 .modelbylumen <- function(x, nlumens) {
     x <- x[x$Lumens == nlumens & !x$isExcluded,]
     x$CRT <- x$CRT == "CRT"
-    x$FUP <- ifelse(x$CRT, x$CRTday, x$FollowUp)
+    x$FUP <- .followup(x)
 
-    srv <- survfit(Surv(FUP, CRT) ~ Manufacturer, data = x)
+    svf <- survfit(Surv(FUP, CRT) ~ Manufacturer, data = x)
     svd <- survdiff(Surv(FUP, CRT) ~ Manufacturer, data = x, rho = 0)
 
-    list(data = x, srv = srv, svd = svd)
+    list(data = x, svf = svf, svd = svd)
 }
 
 .modelbymanufacturer <- function(x, manufacturer) {
     x <- x[x$Manufacturer == manufacturer & !x$isExcluded,]
     x$CRT <- x$CRT == "CRT"
-    x$FUP <- ifelse(x$CRT, x$CRTday, x$FollowUp)
+    x$FUP <- .followup(x)
 
-    srv <- survfit(Surv(FUP, CRT) ~ Lumens, data = x)
+    svf <- survfit(Surv(FUP, CRT) ~ Lumens, data = x)
     svd <- survdiff(Surv(FUP, CRT) ~ Lumens, data = x, rho = 0)
 
-    list(data = x, srv = srv, svd = svd)
+    list(data = x, svf = svf, svd = svd)
 }
 
 .nrisk <- function(x, times = c(1, 3, 5, 7, 9, 11, 13)) {
