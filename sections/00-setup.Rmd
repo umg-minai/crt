@@ -25,6 +25,18 @@ library("DiagrammeR")
 library("DiagrammeRsvg")
 ```
 
+```{r definitions}
+## manufacturer's colors
+mcol <- c(
+    Arrow = "#115dce",
+    Braun = "#108f34",
+    Vygon = "#8f061a"
+)
+
+## days of interest
+times <- c(1, 3, 5, 7, 9, 11, 13)
+```
+
 ```{r import, include = FALSE}
 cvc <- read.csv(frf("data", "extdata", "cvc.csv"))
 ```
@@ -70,6 +82,41 @@ cvc$isExcluded <- !is.na(cvc$ExclusionReason)
 
     list(data = x, srv = srv, svd = svd)
 }
+
+.modelbymanufacturer <- function(x, manufacturer) {
+    x <- x[x$Manufacturer == manufacturer & !x$isExcluded,]
+    x$CRT <- x$CRT == "CRT"
+    x$FUP <- ifelse(x$CRT, x$CRTday, x$FollowUp)
+
+    srv <- survfit(Surv(FUP, CRT) ~ Lumens, data = x)
+    svd <- survdiff(Surv(FUP, CRT) ~ Lumens, data = x, rho = 1)
+
+    list(data = x, srv = srv, svd = svd)
+}
+
+.nrisk <- function(x, times = c(1, 3, 5, 7, 9, 11, 13)) {
+    ncol <- 2L
+    m <- matrix(
+        NA_real_,
+        ncol = ncol, nrow = length(times),
+        dimnames = list(times, gsub("^.*=", "", names(x$srv$strata)))
+    )
+    sm <- summary(x$srv, times = times)
+    m[seq_along(sm$n.risk)] <- sm$n.risk
+    m
+}
+
+.ncumevents <- function(x, times = c(1, 3, 5, 7, 9, 11, 13)) {
+    ncol <- 2L
+    m <- matrix(
+        NA_real_,
+        ncol = ncol, nrow = length(times),
+        dimnames = list(times, gsub("^.*=", "", names(x$srv$strata)))
+    )
+    sm <- summary(x$srv, times = times)
+    m[seq_along(sm$n.event)] <- sm$n.event
+    apply(m, 2, cumsum)
+}
 ```
 
 ```{r model3, include = FALSE}
@@ -78,4 +125,8 @@ ml3 <- .modelbylumen(cvc, 3)
 
 ```{r model5, include = FALSE}
 ml5 <- .modelbylumen(cvc, 5)
+```
+
+```{r modelA, include = FALSE}
+mlA <- .modelbymanufacturer(cvc, "Arrow")
 ```
