@@ -61,13 +61,16 @@ tbl_summary(
 add_overall() |>
 add_p(test.args = c(Speciality) ~ list(simulate.p.value = TRUE))
 
+uvar <- unique(sort(c(tbl1$table_body$variable, tbl1$table_body$label)))
+.abbr <- Filter(nchar, abbr[uvar])
+
 tbl1 |>
 modify_caption(
     paste0(
         "Baseline characteristics.<br />",
         "Values are given as ",
         "median (lower quartile - upper quartile) or n (percent).<br />",
-        "TODO ADD ABBREVIATIONS"
+        paste(names(.abbr), .abbr, sep = ", ", collapse = "; ")
     )
 )
 ```

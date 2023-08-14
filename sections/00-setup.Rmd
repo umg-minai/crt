@@ -42,6 +42,23 @@ times <- c(1, 3, 5, 7, 9, 11, 13)
 ```{r import, include = FALSE}
 cvc <- read.csv(frf("data", "extdata", "cvc.csv"))
 ```
+```{r abbreviations, include = FALSE}
+abbr <- setNames(character(ncol(cvc)), colnames(cvc))
+
+## labels where the column names are identical to the abbreviation
+abbr["BMI"] <- "body mass index"
+abbr["DVT"] <- "deep vene thrombosis"
+abbr <- c(abbr,
+    WBC = "white blood counts",
+    CRP = "C-related peptide",
+    FV = "femoral vene",
+    IJV = "internal jugular vene",
+    SCV = "subclavian vene",
+    DOAC = "direct oral anticoagulation",
+    LMWH = "low molecular weight heparin",
+    UFH = "unfractionated heparin"
+)
+```
 
 ```{r conversion, include = FALSE}
 cvc$FirstExam <- as.numeric(cvc$FirstExam)
