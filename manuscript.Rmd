@@ -46,5 +46,3 @@ output:
 
 ```{r children, child = list.files(rprojroot::find_root_file("sections", criterion = ".editorconfig", path = "."), pattern = "[0-9][0-9].*\\.Rmd", recursive = TRUE, full.names = TRUE)}
 ```
-
-# References
