@@ -49,8 +49,8 @@ others who don't own the raw data checkout the repository.)
 
 You are welcome to:
 
-- submit suggestions and bug-reports at: <https://github.com/sgibb/MALDIquant/issues>
-- send a pull request on: <https://github.com/sgibb/MALDIquant/>
+- submit suggestions and bug-reports at: <https://github.com/umg-minai/crt/issues>
+- send a pull request on: <https://github.com/umg-minai/crt/>
 - compose an e-mail to: <mail@sebastiangibb.de>
 
 We try to follow:
