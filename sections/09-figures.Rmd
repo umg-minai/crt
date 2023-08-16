@@ -1,5 +1,7 @@
 # Figures
 
+## Flowchart
+
 ```{r consort-flowchart, echo = FALSE, fig.cap = "The flowchart depicts the inclusion and exclusion criteria. CVC, central venous catheter; FV, femoral vene; SCV, subclavian vene."}
 tbl_excl <- table(cvc$ExclusionReason)
 nfc <- grepl("Not the first", names(tbl_excl))
@@ -76,6 +78,8 @@ digraph flowchart
 grViz(graph)
 ```
 
+## Survival plots
+
 ```{r survplotml3, echo = FALSE, fig.width = 12, fig.height = 8}
 nms <- c("Arrow", "Braun")
 ggsurvplot(
@@ -132,6 +136,8 @@ ggsurvplot(
 )
 ```
 
+## Regression
+
 ```{r forestplot, echo = FALSE, fig.width = 12, fig.height = 8}
 ml <- cvc[!cvc$isExcluded,]
 ml$CRT <- ml$CRT == "CRT"
@@ -160,3 +166,38 @@ rgcx <- coxph(
 
 ggforest(rgcx, data = ml)
 ```
+
+## EM images
+
+### Arrow 3L vs Braun 3L
+
+:::columns
+
+:::column
+![](images/electron-microscopic-images/SEN1_1-1_A3L_100x.png)
+![](images/electron-microscopic-images/SEN1_1-3_A3L_1000x.png)
+:::
+
+:::column
+![](images/electron-microscopic-images/SEN1_5-1_B3L_100x.png)
+![](images/electron-microscopic-images/SEN1_5-2_B3L_1000x.png)
+:::
+
+:::
+
+### Arrow 5L vs Vygon 5L
+
+:::columns
+
+:::column
+![](images/electron-microscopic-images/SEN1_3-1_A5L_100x.png)
+![](images/electron-microscopic-images/SEN1_3-2_A5L_1000x.png)
+:::
+
+:::column
+![](images/electron-microscopic-images/SEN1_4-1_V5L_100x.png)
+![](images/electron-microscopic-images/SEN1_4-2_V5L_1000x.png)
+:::
+
+:::
+
