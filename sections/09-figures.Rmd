@@ -150,21 +150,35 @@ ml$Incision <- droplevels(factor(ml$Incision, levels = c("no", "yes", "NA")))
 ml$Sepsis <- factor(ml$Sepsis, levels = c(0, 1), labels = c("no", "yes"))
 ml$Cancer <- factor(ml$Cancer, levels = c(0, 1), labels = c("no", "yes"))
 ml$AdmissionType <- relevel(ml$AdmissionType, ref = "surgical")
+ml$AnticoagulationGroup <- droplevels(ml$AnticoagulationGroup)
+ml$AnticoagulationGroup <- relevel(ml$AnticoagulationGroup, ref = "LMWH")
 ml$WBC1 <- log(ml$WBC1)
 ml$CRP1 <- log(ml$CRP1)
 ml$DDimer1 <- log(ml$DDimer1)
 ml$DDimer1[is.infinite(ml$DDimer1)] <- NA
 
+
 rgcx <- coxph(
     Surv(FUP, CRT) ~
         Sex + Age + BMI + Manufacturer + Lumens +
+        Side + AdmissionType +
+        Sepsis + Cancer + DVT + AnticoagulationGroup,
+    data = ml
+)
+rgcx
+
+ggforest(rgcx, data = ml)
+
+rgcxlab <- coxph(
+    Surv(FUP, CRT) ~
+        Sex + Age + BMI + Manufacturer + Lumens +
         Side + Attempts2 + Incision + Experience + AdmissionType +
-        Sepsis + Cancer + DVT +
+        Sepsis + Cancer + DVT + AnticoagulationGroup +
         WBC1 + CRP1 + DDimer1,
     data = ml
 )
-
-ggforest(rgcx, data = ml)
+rgcxlab
+ggforest(rgcxlab, data = ml)
 ```
 
 ## EM images
