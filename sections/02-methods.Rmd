@@ -1,1 +1,47 @@
 # Methods
+
+## Study design and population
+
+- prospective singlecenter observational study
+- criticall ill patients, surgical ICU
+- six month period, March 2022 to August 2022
+- enrolled consecutive adult patients with a CVC on our ICU
+
+- CVCs placed with ultrasound in the OR or on the ICU
+- documented: manufacturer, serial number, lumens, site, side, number of attempts, complications, expertise
+- additional laboratory values (WBC, CRP, DDimer) at every screening day
+
+The Ethics Committee at the University Medicine Greifswald
+approved this study (reference number: B006/22).
+
+## Ultrasound assessment
+
+- No screening of arterial catheters or catheters for renal replacement or extracorporeal membrane oxygenation therapy
+- Screening every second day, starting within 24 hours after placement
+- linear probe 8-12 MHz
+- examination performed by one of the authors (SE), independent (not involved in placement of the CVCs or treatment of the patients), trained in point-of-care ultrasound
+- patients examined in the supine position
+- images were recorded if thrombosis detected and/or it size changed in short- and long-axis view
+- images were reviewed by second intensivist (SG)
+- CRT was diagnosed if an echogenic structure attached to the CVC was detected that is non-compressible and showed an pathological (gap in the) color doppler image
+- thrombosis size was measured by the largest diameter in short-axis and longest lenght in long-axis
+- findings not communicated to the treating clinicians
+
+## Catheter types (TODO: Sebastian Engelhard)
+
+- Braun: TODO: certofix trio and quinto
+- Vygon: multicath up 5
+- Arrow: CVC 3 and 5 lumens, CVC ARROWgard blue (1st generation; chlorhexidine acetate and silver sulfadiazine) 4 lumens
+
+## Electron microscopic images (TODO: Sebastian Engelhardt)
+
+- unused CVCs: Braun certofix trio, Arrow CVC 3, Vygon multicath up 5 and Arrow 5 CVC
+- no information, TODO: Sebastian Engelhardt
+
+## Statistical analysis
+
+- analysis in R, using survival package, summary tables gtsummary
+- log transformation of lab values, approximate normal distribution
+- CRT free time modelled using Kaplan-Meier estimate
+- (univariate) Comparison between different manufacturer Gehan-Wilcoxon test, p < 0.05 sign.
+- multiple regression to estimate hazard ratios for different variables

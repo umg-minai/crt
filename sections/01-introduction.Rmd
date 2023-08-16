@@ -1,1 +1,10 @@
 # Introduction
+
+- Central venous catheters (CVC) commonly used in surgery and ICU
+- Catheter-related thrombosis (CRT) are major complications/risk factors for PE/bloodstream infections
+- Incidence varies widely (6 - 56 %) medical vs surgical patients
+- No screening: time to CRT unknown, except study Wu et al 2023 in medical critical ill patients: median time 4 days ~ 17 % CRT
+- Incidence in surgical patients higher, time to onset not investigated
+- No information about different manufacturers of CVCs
+- Therefore, we designed a prospective single center study to detect the onset of CRT and its dependency on the material or manufacturer of the CVCs in critical ill surgical patients.
+
