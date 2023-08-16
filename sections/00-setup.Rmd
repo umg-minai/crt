@@ -86,6 +86,7 @@ cvc$ExclusionReason[cvc$Lumens == 7] <- "Lumen: 7"
 cvc$ExclusionReason[cvc$Manufacturer == "Braun" & cvc$Lumens == 5] <-
     "Lumen: 5, Braun"
 cvc$ExclusionReason[duplicated(cvc$CaseId)] <- "Not the first CVC"
+cvc$ExclusionReason[cvc$AnticoagulationGroup == "DOAC"] <- "Anticoagulation: DOAC"
 
 cvc$isExcluded <- !is.na(cvc$ExclusionReason)
 ```

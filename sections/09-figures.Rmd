@@ -25,7 +25,7 @@ digraph flowchart
 
     node [shape = box, style = rectangle, width = 2, height = 0.5];
     All [label = 'Screened CVCs\\n(n = @@1-1)']
-    Excl [label = 'Excluded (n = @@2-1):\\l- @@2-2\\l- @@2-3\\l- @@2-4\\l- @@2-5\\l- @@2-6'];
+    Excl [label = 'Excluded (n = @@2-1):\\l- @@2-2\\l- @@2-3\\l- @@2-4\\l- @@2-5\\l- @@2-6\\l- @@2-7'];
     CVC [label = 'Eligible CVCs\\n(n = @@3-1)']
     C3VC [label = '3 Lumen CVCs\\n(n = @@4-1)']
     C3VCA [label = '3 Lumen CVCs\\nArrow\\n(n = @@4-1)']
