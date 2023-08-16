@@ -35,7 +35,8 @@ tbl_summary(
         Sex ~ "dichotomous",
         DVT ~ "dichotomous",
         Side ~ "dichotomous",
-        Attempts2 ~ "dichotomous"
+        Attempts2 ~ "dichotomous",
+        AnticoagulationGroup ~ "categorical"
     ),
     label = list(
         Sex ~ "Sex (male)",
