@@ -12,4 +12,5 @@
     "r-rprojroot"
     "r-survival"
     "r-survminer"
-    "r-viridislite"))
+    "r-viridislite"
+    "r-webshot"))
