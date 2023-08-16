@@ -26,11 +26,11 @@ manuscript: $(OUTPUTDIR)/$(MANUSCRIPT).html
 $(OUTPUTDIR):
 	@mkdir -p $(OUTPUTDIR)
 
-$(OUTPUTDIR)/%.html: %.Rmd $(RMD) $(DATA) | $(OUTPUTDIR)
+$(OUTPUTDIR)/%.html: %.Rmd $(RMD) $(DATA) guix/channels.pinned.scm guix/manifest.scm | $(OUTPUTDIR)
 	${GUIXTM} -- \
 		Rscript -e "rmarkdown::render('$<', output_dir = '$(OUTPUTDIR)')"
 
-$(OUTPUTDIR)/%.docx: %.Rmd $(RMD) $(DATA) | $(OUTPUTDIR)
+$(OUTPUTDIR)/%.docx: %.Rmd $(RMD) $(DATA) guix/channels.pinned.scm guix/manifest.scm | $(OUTPUTDIR)
 	${GUIXTM} -- \
 		Rscript -e "rmarkdown::render('$<', output_format = 'bookdown::word_document2', output_dir = '$(OUTPUTDIR)')"
 
@@ -44,13 +44,15 @@ dist: $(OUTPUTDIR)/$(MANUSCRIPT).docx | $(DISTDIR)
 env: guix/channels.pinned.scm
 	${GUIXTM}
 
-## pinning guix channels to latest commits
-guix-pin-channels: guix/channels.pinned.scm
-
-guix/channels.pinned.scm: guix/channels.scm FORCE
+## manual pinning guix channels to latest commits
+guix-pin-channels: FORCE guix/channels.pinned.scm
 	${GUIX} time-machine --channels=guix/channels.scm -- \
 		describe -f channels > guix/channels.pinned.scm
 FORCE:
+
+guix/channels.pinned.scm: guix/channels.scm
+	${GUIX} time-machine --channels=guix/channels.scm -- \
+		describe -f channels > guix/channels.pinned.scm
 
 ## data/intdata and data/scripts are not part of the git repository
 regenerate-data: \
