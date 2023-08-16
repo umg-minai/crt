@@ -1,7 +1,7 @@
 cache/
 data/intdata/*
 data/scripts
-dist/
+distribute/
 ethik/
 images/
 output/
