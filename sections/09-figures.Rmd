@@ -67,7 +67,7 @@ digraph flowchart
     pC5VC -> iC5VC [style = invis];
     pC5VC -> C5VCA;
 
-    {rank = same; Analysis -> C3VCB -> iC3VC -> C3VCA -> C5VCV -> iC5VC -> C5VCA [style = invis]; rankdir = LR;};
+    {rank = same; Analysis -> C3VCA -> iC3VC -> C3VCB -> C5VCA -> iC5VC -> C5VCV [style = invis]; rankdir = LR;};
 }
 [1]: nrow(cvc)
 [2]: c(sum(cvc$isExcluded), excl_str)
