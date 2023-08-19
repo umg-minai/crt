@@ -1,7 +1,144 @@
 # Supplement
 
+## CRT size over time
+
+```{r crtplots, include = FALSE}
+.cmain <- function(main, col.main = rep(1, length(main)), ...) {
+    n <- length(main)
+
+    if (n != length(col.main))
+        stop("'main' and 'col.main' have to have the same length.")
+
+    p <- function(...)paste0(..., collapse = "")
+
+    for (i in seq_along(main)) {
+        left <- seq_len(i - 1)
+        right <- i + seq_len(n - i)
+        title(
+            bquote(bold(
+                phantom(.(p(main[left])))*.(main[i])*phantom(.(p(main[right])))
+            )),
+            col.main = col.main[i],
+            ...
+        )
+    }
+}
+.crtplots <- function(x, col = mcol,
+                      main = NULL, xlab = NULL, ylab = NULL, ...) {
+    l <- reshape(
+        x,
+        idvar = "Id",
+        timevar = "Day",
+        v.names = "Size",
+        varying = list(seq_len(ncol(x))[-(1:2)]),
+        direction = "long"
+    )
+
+    # we screened on day 1, 3, 5, ...
+    l$Day <- (2 * l$Day) - 1L
+
+    old.par <- par(no.readonly = TRUE)
+    on.exit(par(old.par))
+
+    at.bp <- seq_len(ceiling(max(l$Day[!is.na(l$Size)]) / 2) * 4L)
+    at.bp <- at.bp[as.logical(at.bp %% 4)]
+
+    boxplot(
+        Size ~ Manufacturer + Day,
+        data = l,
+        at = at.bp,
+        col = paste0(col, "66"),
+        pch = 20,
+        frame = FALSE, xaxt = "n", yaxt = "n",
+        main = NULL, xlab = NULL, ylab = NULL
+    )
+    beeswarm::beeswarm(
+        Size ~ Manufacturer + Day,
+        data = l,
+        at = at.bp,
+        add = TRUE,
+        col = col,
+        pch = 20
+    )
+    legend(
+        "topright",
+        legend = levels(l$Manufacturer),
+        col = col,
+        pch = 20,
+        bty = "n"
+    )
+    title(main = main, adj = 0L)
+    title(xlab = xlab, adj = 1L)
+    title(ylab = ylab, adj = 1L)
+    axis(
+        1L,
+        at = seq(from = 2, to = tail(at.bp, 1), by = 4),
+        labels = unique(l$Day[!is.na(l$Size)]),
+        lwd.ticks = 0,
+        col = "#808080"
+    )
+    axis(2L, col = "#808080", las = 2)
+}
+```
+
+## CRT height
+
+```{r crtheight, fig.width = 15, fig.height = 10, echo = FALSE}
+.crtplots(
+    cvc[c("Id", "Manufacturer", paste0("Height", 1:17))],
+    xlab = "Day",
+    ylab = "Height [mm]"
+)
+.cmain(
+    c(
+        "CRT height over time for ",
+        "Arrow", ", ", "Braun", " and ", "Vygon"
+    ),
+    c(
+        "black",
+        mcol["Arrow"], "black", mcol["Braun"], "black", mcol["Vygon"]
+    ),
+    adj = 0L
+)
+```
+
+## CRT width
+
+```{r crtwidth, fig.width = 15, fig.height = 10, echo = FALSE}
+.crtplots(
+    cvc[c("Id", "Manufacturer", paste0("Width", 1:17))],
+    xlab = "Day",
+    ylab = "Width [mm]"
+)
+.cmain(
+    c(
+        "CRT width over time for ",
+        "Arrow", ", ", "Braun", " and ", "Vygon"
+    ),
+    c(
+        "black",
+        mcol["Arrow"], "black", mcol["Braun"], "black", mcol["Vygon"]
+    ),
+    adj = 0L
+)
+```
+
+## LOT numbers
+
+```{r lottable, echo = FALSE}
+lottbl <- cvc[c("Id", "Lumens", "Manufacturer", "LOT", "isExcluded")]
+lottbl$isExcluded <- factor(
+    lottbl$isExcluded, levels = c(TRUE, FALSE), labels = c("yes", "no")
+)
+knitr::kable(
+    lottbl,
+    col.names = c("Id", "Lumens", "Manufacturer", "LOT", "Excluded"),
+    caption = "LOT numbers of screened central venous catheters."
+)
+```
+
 ## R session information
 
-```{r sessioninfo}
+```{r sessioninfo, echo = FALSE}
 sessionInfo()
 ```
