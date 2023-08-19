@@ -3,6 +3,7 @@
     "coreutils"
     "nss-certs"
     "r-minimal"
+    "r-beeswarm"
     "r-bookdown"
     "r-codetools"
     "r-diagrammer"
