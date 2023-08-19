@@ -151,3 +151,10 @@ ml5 <- .modelbylumen(cvc, 5)
 ```{r modelA, include = FALSE}
 mlA <- .modelbymanufacturer(cvc, "Arrow")
 ```
+
+```{r helper, include = FALSE}
+.medLU <- function(x) {
+    q <- quantile(x, probs = c(0.5, 0.25, 0.75), na.rm = TRUE)
+    sprintf("%.1f (%.1f, %.1f)", q[1L], q[2L], q[3L])
+}
+```

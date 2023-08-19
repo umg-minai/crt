@@ -1,6 +1,8 @@
 # Results
 
-## Analaysis
+\@ref(fig:consort-flowchart)
+
+## Exclusion
 
 - no randomisation due to supply shortage
 - on ICU only Arrow/Braun CVCs placed
@@ -11,9 +13,17 @@
 - Site: SCV excluded because of difficult ultrasound assessment
 - AnticoagulationGroup: DOAC excluded because of small sample size
 - consecutive CVC excluded, not independent, may thrombosis caused by patient-intrinsic factors, seen (but not shown), if there was a thrombosis the next catheter is more likely to get a thrombosis as well
-- nearly half the screened CVCs excluded
-- divided in four groups, comparison Arrow 3 lumens vs Braun 3 lumens and Arrow 5 lumens vs Vygon 5 lumens
-- 3 lumens: no diff Arrow vs Braun, ca. 50 % CRT on day 1
-- 5 lumens: diff Arrow vs Vygon, ca 40 vs 65 % CRT on day 1
-- multiple regression with all 106 analysed CVCs, (some 7 excluded due to missing BMI)
+- nearly half of the screened CVCs excluded
+
+## Patient/CVC characteristics
+
+- describe patient/CVC characteristics (see \@ref(tab:table1))
+- median time (Q1, Q3) to first exam in hours `r .medLU(cvc$FirstExam[!cvc$isExcluded])`
 - complications: 1 CLABSI, 1 PE (but thrombosis elsewhere)
+
+## Survival analysis
+
+- divided in four groups, comparison Arrow 3 lumens vs Braun 3 lumens and Arrow 5 lumens vs Vygon 5 lumens
+- 3 lumens: no diff Arrow vs Braun, ca. 50 % CRT on day 1 (see \@ref(fig:survplotml3))
+- 5 lumens: diff Arrow vs Vygon, ca 40 vs 65 % CRT on day 1, median day 5 vs 1 (see \@ref(fig:survplotml5))
+- multiple regression with all 106 analysed CVCs, (some 7 excluded due to missing BMI; \@ref(fig:forestplot))

@@ -3,12 +3,15 @@
 TODO: find material of CVCs, may ask manufacturers
 
 - incidence higher than previously reported, especially in comparison to medical critical ill patients
-- most CRT already on first day (just a few hours after placement) -> chose indication wisely
-- difference between manufacturers
--
+- compare incidence, incidence over time and size against [@wu2023]
+- most CRT already on first day (just a few hours after placement) -> chose indication wisely, remove early
+- difference between manufacturers (difference in material?)
 - no communication to clinicians, CRT without treatment didn't yield negative outcome
-- guidelines suggest catheter removal, no negative outcome, unnecessary, following CVC with CRT in a few hours, even under anticoagulation, additional vessel with thrombosis, conclusion just leave in place if no critical symptom (intracranial edema, CLABSI, ...)
+- guidelines suggest catheter removal, no negative outcome, unnecessary, following CVC with CRT in a few hours, even under anticoagulation, additional vessel with thrombosis, conclusion just leave in place if without critical symptoms (intracranial edema, CLABSI, ...)
 
+TODO: what to say about the EM images?
+
+- surface Braun/Vygon rougher than Arrow? (but Braun seems rougher than Vygon ...)
 
 ## Limitations
 

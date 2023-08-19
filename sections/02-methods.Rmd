@@ -27,7 +27,7 @@ approved this study (reference number: B006/22).
 - thrombosis size was measured by the largest diameter in short-axis and longest lenght in long-axis
 - findings not communicated to the treating clinicians
 
-## Catheter types (TODO: Sebastian Engelhard)
+## Catheter types (TODO: Sebastian Engelhardt)
 
 - Braun: TODO: certofix trio and quinto
 - Vygon: multicath up 5
