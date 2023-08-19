@@ -80,7 +80,7 @@ grViz(graph)
 
 ## Survival plots
 
-```{r survplotml3, echo = FALSE, fig.width = 12, fig.height = 8}
+```{r survplotml3, echo = FALSE, fig.width = 12, fig.height = 8, fig.cap = "Survival plot showing CRT-free time for 3 lumen CVCs by Arrow and Braun."}
 nms <- c("Arrow", "Braun")
 ggsurvplot(
     ml3$svf,
@@ -88,18 +88,21 @@ ggsurvplot(
     palette = unname(mcol[nms]),
     pval = TRUE,
     censor = TRUE,
+    censor.shape = 124,
     conf.int = TRUE,
+    conf.int.style = "ribbon",
     xlim = c(0, 14),
     pval.coord = c(12, 0.8),
     break.time.by = 2,
     risk.table = TRUE,
     ggtheme = theme_minimal(),
     risk.table.y.text.col = TRUE,
-    risk.table.y.text = TRUE
+    risk.table.y.text = TRUE,
+    surv.median.line = "v"
 )
 ```
 
-```{r survplotml5, echo = FALSE, fig.width = 12, fig.height = 8}
+```{r survplotml5, echo = FALSE, fig.width = 12, fig.height = 8, fig.cap = "Survival plot showing CRT-free time for 5 lumen CVCs by Arrow and Vygon."}
 nms <- c("Arrow", "Vygon")
 ggsurvplot(
     ml5$svf,
@@ -108,13 +111,16 @@ ggsurvplot(
     pval = TRUE,
     pval.coord = c(12, 0.8),
     censor = TRUE,
+    censor.shape = 124,
     conf.int = TRUE,
+    conf.int.style = "ribbon",
     xlim = c(0, 14),
     break.time.by = 2,
     risk.table = TRUE,
     ggtheme = theme_minimal(),
     risk.table.y.text.col = TRUE,
-    risk.table.y.text = TRUE
+    risk.table.y.text = TRUE,
+    surv.median.line = "v"
 )
 ```
 
@@ -138,7 +144,7 @@ ggsurvplot(
 
 ## Regression
 
-```{r forestplot, echo = FALSE, fig.width = 12, fig.height = 8}
+```{r forestplot, echo = FALSE, fig.width = 12, fig.height = 8, fig.cap = "Hazard ratios"}
 ml <- cvc[!cvc$isExcluded,]
 ml$CRT <- ml$CRT == "CRT"
 ml$FUP <- .followup(ml)
@@ -157,7 +163,6 @@ ml$CRP1 <- log(ml$CRP1)
 ml$DDimer1 <- log(ml$DDimer1)
 ml$DDimer1[is.infinite(ml$DDimer1)] <- NA
 
-
 rgcx <- coxph(
     Surv(FUP, CRT) ~
         Sex + Age + BMI + Manufacturer + Lumens +
@@ -168,7 +173,9 @@ rgcx <- coxph(
 rgcx
 
 ggforest(rgcx, data = ml)
+```
 
+```{r forestplot2, echo = FALSE, fig.width = 12, fig.height = 8}
 rgcxlab <- coxph(
     Surv(FUP, CRT) ~
         Sex + Age + BMI + Manufacturer + Lumens +
