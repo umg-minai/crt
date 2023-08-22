@@ -149,6 +149,7 @@ ml <- cvc[!cvc$isExcluded,]
 ml$CRT <- ml$CRT == "CRT"
 ml$FUP <- .followup(ml)
 ml$Side <- relevel(ml$Side, ref = "right")
+ml$PerioperativePlacement <- factor(ml$PerioperativePlacement, levels = c("no", "yes"))
 ml$Lumens <- factor(ml$Lumens)
 ml$Experience <- factor(ml$Experience, levels = c("<25", "25-50", ">50"), ordered = FALSE)
 ml$Attempts2 <- droplevels(factor(ml$Attempts2, levels = c("1", ">1", "NA")))
@@ -166,7 +167,7 @@ ml$DDimer1[is.infinite(ml$DDimer1)] <- NA
 rgcx <- coxph(
     Surv(FUP, CRT) ~
         Sex + Age + BMI + Manufacturer + Lumens +
-        Side + AdmissionType +
+        Side + PerioperativePlacement + PerioperativePlacement +
         Sepsis + Cancer + DVT + AnticoagulationGroup,
     data = ml
 )
@@ -179,8 +180,8 @@ ggforest(rgcx, data = ml)
 rgcxlab <- coxph(
     Surv(FUP, CRT) ~
         Sex + Age + BMI + Manufacturer + Lumens +
-        Side + Attempts2 + Incision + Experience + AdmissionType +
-        Sepsis + Cancer + DVT + AnticoagulationGroup +
+        Side + Attempts2 + Incision + Experience + PerioperativePlacement +
+        AdmissionType + Sepsis + Cancer + DVT + AnticoagulationGroup +
         WBC1 + CRP1 + DDimer1,
     data = ml
 )
@@ -221,4 +222,3 @@ ggforest(rgcxlab, data = ml)
 :::
 
 :::
-

@@ -12,11 +12,11 @@ select(
     BMI,
     Manufacturer,
     Lumens,
-    Site,
     Side,
     Incision,
     Attempts2,
     Experience,
+    PerioperativePlacement,
     AdmissionType,
     Speciality,
     Sepsis,
@@ -42,8 +42,8 @@ tbl_summary(
         Sex ~ "Sex (male)",
         DVT ~ "History of venous thrombosis",
         Side ~ "Side of insertion (left)",
-        Site ~ "Site of insertion",
         Attempts2 ~ "More than one insertion attempt",
+        PerioperativePlacement ~ "Perioperative placement",
         Lumens ~ "Number of catheter lumens",
         AnticoagulationGroup ~ "Type of anticoagulation drug",
         FirstExam ~ "Time to first exam [hours]",
@@ -68,7 +68,7 @@ uvar <- unique(sort(c(tbl1$table_body$variable, tbl1$table_body$label)))
 tbl1 |>
 modify_caption(
     paste0(
-        "Baseline characteristics.<br />",
+        "Baseline characteristics of all analysed central venous catheters in the internal jugular vene.<br />",
         "Values are given as ",
         "median (lower quartile - upper quartile) or n (percent).<br />",
         paste(names(.abbr), .abbr, sep = ", ", collapse = "; ")
