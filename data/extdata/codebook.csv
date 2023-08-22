@@ -13,6 +13,7 @@ Side,"Side of CVC, left/right"
 Incision,Incision with scapel or just dilatation without any cut?
 Attempts,Number of attempts to place the CVC
 Attempts2,More than one attempt?
+PerioperativePlacement,Placement of the CVC before/during/after surgery?
 Experience,"Experience of the CVC placing phyisician, < 25 CVCs, 25-50 CVCs, > 50 CVCs"
 Speciality,"Type of speciality treating the patient (general surgery, medical, …)"
 AdmissionType,Admitted to the medical or any surgical speciality (medical/surgical)
