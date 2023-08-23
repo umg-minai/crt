@@ -124,24 +124,6 @@ ggsurvplot(
 )
 ```
 
-```{r survplotmlA, echo = FALSE, fig.width = 12, fig.height = 8}
-nms <- c("3 Lumens", "5 Lumens")
-ggsurvplot(
-    mlA$svf,
-    data = mlA$data,
-    pval = TRUE,
-    censor = TRUE,
-    conf.int = TRUE,
-    xlim = c(0, 14),
-    pval.coord = c(12, 0.8),
-    break.time.by = 2,
-    risk.table = TRUE,
-    ggtheme = theme_minimal(),
-    risk.table.y.text.col = TRUE,
-    risk.table.y.text = TRUE
-)
-```
-
 ## Regression
 
 ```{r forestplot, echo = FALSE, fig.width = 12, fig.height = 8, fig.cap = "Hazard ratios"}

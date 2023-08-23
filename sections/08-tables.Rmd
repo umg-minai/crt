@@ -85,8 +85,3 @@ ml3$svd
 ml5$sft
 ml5$svd
 ```
-
-```{r tblmlA, echo = FALSE}
-mlA$sft
-mlA$svd
-```
