@@ -1,79 +1,93 @@
 # Tables
 
-```{r table1, echo = FALSE, warning = FALSE, message = FALSE, cache = TRUE}
-theme_gtsummary_journal()
-theme_gtsummary_compact(font_size = 8L)
-tbl1 <- cvc |>
-dplyr::filter(!isExcluded) |>
-select(
-    CRT,
-    Sex,
-    Age,
-    BMI,
-    Manufacturer,
-    Lumens,
-    Side,
-    Incision,
-    Attempts2,
-    Experience,
-    PerioperativePlacement,
-    AdmissionType,
-    Speciality,
-    Sepsis,
-    Cancer,
-    DVT,
-    AnticoagulationGroup,
-    FirstExam,
-    WBC1,
-    CRP1,
-    DDimer1
-) |>
-tbl_summary(
-    by = CRT,
-    missing_text = "(Missing)",
-    type = list(
-        Sex ~ "dichotomous",
-        DVT ~ "dichotomous",
-        Side ~ "dichotomous",
-        Attempts2 ~ "dichotomous",
-        AnticoagulationGroup ~ "categorical"
-    ),
-    label = list(
-        Sex ~ "Sex (male)",
-        DVT ~ "History of venous thrombosis",
-        Side ~ "Side of insertion (left)",
-        Attempts2 ~ "More than one insertion attempt",
-        PerioperativePlacement ~ "Perioperative placement",
-        Lumens ~ "Number of catheter lumens",
-        AnticoagulationGroup ~ "Type of anticoagulation drug",
-        FirstExam ~ "Time to first exam [hours]",
-        WBC1 ~ "WBC day 1 [Gpt/L]",
-        DDimer1 ~ "D-dimer day 1 [mg/L]",
-        CRP1 ~ "CRP day 1 [mg/L]"
-    ),
-    value = list(
-        Sex ~ "male",
-        DVT ~ "yes",
-        Side ~ "left",
-        Attempts2 ~ ">1",
-        Incision ~ "yes"
-    )
-) |>
-add_overall() |>
-add_p(test.args = c(Speciality) ~ list(simulate.p.value = TRUE))
+```{r table1-helper, include = FALSE}
+.tbl1 <- function(x) {
+    tbl1 <- x |>
+    dplyr::filter(!isExcluded) |>
+    select(
+        CRT,
+        Sex,
+        Age,
+        BMI,
+        Manufacturer,
+        Side,
+        Incision,
+        Attempts2,
+        Experience,
+        PerioperativePlacement,
+        AdmissionType,
+        Speciality,
+        Sepsis,
+        Cancer,
+        DVT,
+        AnticoagulationGroup,
+        FirstExam,
+        WBC1,
+        CRP1,
+        DDimer1
+    ) |>
+    tbl_summary(
+        by = CRT,
+        missing_text = "(Missing)",
+        type = list(
+            Sex ~ "dichotomous",
+            DVT ~ "dichotomous",
+            Side ~ "dichotomous",
+            Attempts2 ~ "dichotomous",
+            AnticoagulationGroup ~ "categorical"
+        ),
+        label = list(
+            Sex ~ "Sex (male)",
+            DVT ~ "History of venous thrombosis",
+            Side ~ "Side of insertion (left)",
+            Attempts2 ~ "More than one insertion attempt",
+            PerioperativePlacement ~ "Perioperative placement",
+            AnticoagulationGroup ~ "Type of anticoagulation drug",
+            FirstExam ~ "Time to first exam [hours]",
+            WBC1 ~ "WBC day 1 [Gpt/L]",
+            DDimer1 ~ "D-dimer day 1 [mg/L]",
+            CRP1 ~ "CRP day 1 [mg/L]"
+        ),
+        value = list(
+            Sex ~ "male",
+            DVT ~ "yes",
+            Side ~ "left",
+            Attempts2 ~ ">1",
+            Incision ~ "yes"
+        )
+    ) |>
+    add_overall() |>
+    add_p(test.args = c(Speciality) ~ list(simulate.p.value = TRUE))
 
-uvar <- unique(sort(c(tbl1$table_body$variable, tbl1$table_body$label)))
-.abbr <- Filter(nchar, abbr[uvar])
+    uvar <- unique(sort(c(tbl1$table_body$variable, tbl1$table_body$label)))
+    .abbr <- Filter(nchar, abbr[uvar])
 
-tbl1 |>
-modify_caption(
+    tbl1 |>
+    modify_caption(
     paste0(
-        "Baseline characteristics of all analysed central venous catheters in the internal jugular vene.<br />",
+        "Baseline characteristics of all analysed central venous catheters ",
+        "with ", unique(x$Lumens), " lumens ",
+        "in the internal jugular vene.<br />",
         "Values are given as ",
         "median (lower quartile - upper quartile) or n (percent).<br />",
         paste(names(.abbr), .abbr, sep = ", ", collapse = "; ")
     )
 )
+}
+```
+
+```{r table3, echo = FALSE, warning = FALSE, message = FALSE, cache = TRUE}
+theme_gtsummary_journal()
+theme_gtsummary_compact(font_size = 8L)
+
+.tbl1(cvc[!cvc$isExcluded & cvc$Lumens == 3,])
+```
+
+```{r table5, echo = FALSE, warning = FALSE, message = FALSE, cache = TRUE}
+theme_gtsummary_journal()
+theme_gtsummary_compact(font_size = 8L)
+
+.tbl1(cvc[!cvc$isExcluded & cvc$Lumens == 5,])
 ```
 
 ```{r tblml3, echo = FALSE}
