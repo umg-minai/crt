@@ -81,8 +81,11 @@ cvc$Experience <- factor(
 ```{r preparation, include = FALSE}
 cvc$ExclusionReason[cvc$Site != "IJV"] <-
     paste("Site:", as.character(cvc$Site[cvc$Site != "IJV"]))
-cvc$ExclusionReason[cvc$Lumens == 4] <- "Lumen: 4"
 cvc$ExclusionReason[cvc$Lumens == 7] <- "Lumen: 7"
+cvc$ExclusionReason[cvc$Manufacturer == "Braun" & cvc$Lumens == 4] <-
+    "Lumen: 4, Braun"
+cvc$ExclusionReason[cvc$Manufacturer == "Vygon" & cvc$Lumens == 4] <-
+    "Lumen: 4, Vygon"
 cvc$ExclusionReason[cvc$Manufacturer == "Braun" & cvc$Lumens == 5] <-
     "Lumen: 5, Braun"
 cvc$ExclusionReason[duplicated(cvc$CaseId)] <- "Not the first CVC"
