@@ -97,24 +97,13 @@ cvc$isExcluded <- !is.na(cvc$ExclusionReason)
 
 ```{r modelhelper, include = FALSE}
 .followup <- function(x)ifelse(x$CRT, x$CRTday, x$FollowUp)
-.modelbylumen <- function(x, nlumens) {
-    x <- x[x$Lumens == nlumens & !x$isExcluded,]
+.model <- function(x) {
+    x <- x[!x$isExcluded,]
     x$CRT <- x$CRT == "CRT"
     x$FUP <- .followup(x)
 
-    svf <- survfit(Surv(FUP, CRT) ~ Manufacturer, data = x)
-    svd <- survdiff(Surv(FUP, CRT) ~ Manufacturer, data = x, rho = 0)
-
-    list(data = x, svf = svf, svd = svd)
-}
-
-.modelbymanufacturer <- function(x, manufacturer) {
-    x <- x[x$Manufacturer == manufacturer & !x$isExcluded,]
-    x$CRT <- x$CRT == "CRT"
-    x$FUP <- .followup(x)
-
-    svf <- survfit(Surv(FUP, CRT) ~ Lumens, data = x)
-    svd <- survdiff(Surv(FUP, CRT) ~ Lumens, data = x, rho = 0)
+    svf <- survfit(Surv(FUP, CRT) ~ ManLu, data = x)
+    svd <- survdiff(Surv(FUP, CRT) ~ ManLu, data = x, rho = 0)
 
     list(data = x, svf = svf, svd = svd)
 }
@@ -142,18 +131,6 @@ cvc$isExcluded <- !is.na(cvc$ExclusionReason)
     m[seq_along(sm$n.event)] <- sm$n.event
     apply(m, 2, cumsum)
 }
-```
-
-```{r model3, include = FALSE}
-ml3 <- .modelbylumen(cvc, 3)
-```
-
-```{r model5, include = FALSE}
-ml5 <- .modelbylumen(cvc, 5)
-```
-
-```{r modelA, include = FALSE}
-mlA <- .modelbymanufacturer(cvc, "Arrow")
 ```
 
 ```{r helper, include = FALSE}
