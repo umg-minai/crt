@@ -76,18 +76,19 @@ cvc$Experience <- factor(
     levels = c("<25", "25-50", ">50"),
     ordered = TRUE
 )
+
+cvc$ManLu <- factor(paste0(cvc$Manufacturer, cvc$Lumens))
 ```
 
-```{r preparation, include = FALSE}
+```{r exclusion, include = FALSE}
 cvc$ExclusionReason[cvc$Site != "IJV"] <-
     paste("Site:", as.character(cvc$Site[cvc$Site != "IJV"]))
-cvc$ExclusionReason[cvc$Lumens == 7] <- "Lumen: 7"
-cvc$ExclusionReason[cvc$Manufacturer == "Braun" & cvc$Lumens == 4] <-
-    "Lumen: 4, Braun"
-cvc$ExclusionReason[cvc$Manufacturer == "Vygon" & cvc$Lumens == 4] <-
-    "Lumen: 4, Vygon"
-cvc$ExclusionReason[cvc$Manufacturer == "Braun" & cvc$Lumens == 5] <-
-    "Lumen: 5, Braun"
+
+nManLu <- table(cvc$ManLu)
+isLowN <- cvc$ManLu %in% names(nManLu)[nManLu < 5]
+cvc$ExclusionReason[isLowN] <-
+    paste0("Lumen: ", cvc$Lumens[isLowN], ", ", cvc$Manufacturer[isLowN])
+
 cvc$ExclusionReason[duplicated(cvc$CaseId)] <- "Not the first CVC"
 cvc$ExclusionReason[cvc$AnticoagulationGroup == "DOAC"] <- "Anticoagulation: DOAC"
 
