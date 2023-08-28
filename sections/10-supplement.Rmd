@@ -125,11 +125,24 @@
 
 ## Hazard ratios
 
-```{r hrtable, echo = FALSE, message = FALSE}
+### Tables
+
+```{r supplhrtable, echo = FALSE, message = FALSE}
 theme_gtsummary_journal()
 theme_gtsummary_compact(font_size = 8L)
 
 tbl_regression(rgcx, exponentiate = TRUE)
+```
+
+```{r supplhrtablefull, echo = FALSE, message = FALSE}
+theme_gtsummary_journal()
+theme_gtsummary_compact(font_size = 8L)
+
+tbl_regression(rgcx.full, exponentiate = TRUE)
+```
+
+```{r forestplotfull, echo = FALSE, fig.width = 12, fig.height = 8, fig.cap = "Hazard ratios"}
+ggforest(rgcx.full, data = rd)
 ```
 
 ## LOT numbers

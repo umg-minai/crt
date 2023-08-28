@@ -252,12 +252,45 @@ m <- .model(cvc)
 ```{r regression, include = FALSE}
 rd <- droplevels(m$data)
 rd$WBC1 <- log(rd$WBC1)
+rd$CRP1 <- log(rd$CRP1)
+rd$DDimer1 <- log(rd$DDimer1 + 1)
 
+## complete cases
 rgcx <- coxph(
     Surv(FUP, CRT) ~
-        Sex + Age + BMI + ManLu +
+        Sex + Age + ManLu +
         Side + PerioperativePlacement +
         Sepsis + Cancer + DVT + AnticoagulationGroup,
     data = rd
 )
+
+rd$Experience <- factor(rd$Experience, ordered = FALSE)
+
+## all variables (reduced N, due to NA)
+rgcx.full <- coxph(
+    Surv(FUP, CRT) ~
+        Sex + Age + BMI + ManLu +
+        Side + PerioperativePlacement +
+        Incision + Attempts2 + Experience +
+        Sepsis + Cancer + DVT +
+        AnticoagulationGroup +
+        WBC1 + DDimer1 + CRP1,
+    data = rd
+)
+```
+
+```{r glmnet, include = FALSE}
+#x <- model.matrix(
+#    Surv(FUP, CRT) ~
+#        Sex + Age + BMI + ManLu +
+#        Side + PerioperativePlacement +
+#        Incision + Experience +
+#        Sepsis + Cancer + DVT + DVT.CVC +
+#        AnticoagulationGroup + WBC1,
+#    data = rd
+#)[, -1]
+#i <- rownames(rd) %in% rownames(x)
+#y <- Surv(rd$FUP[i], rd$CRT[i])
+#fit <- ameld::rcv.glmnet(x = x, y = y, family = "cox")
+#coef(fit, s = "lambda.min")
 ```
