@@ -1,6 +1,7 @@
 GUIX:=/usr/local/bin/guix
 GUIXTM:=${GUIX} time-machine --channels=guix/channels.pinned.scm -- \
 		shell --manifest=guix/manifest.scm
+RSCRIPT=Rscript --vanilla
 DATA:=data/extdata/cvc.csv
 MANUSCRIPT:=manuscript
 SECTIONDIR:=sections
@@ -28,11 +29,11 @@ $(OUTPUTDIR):
 
 $(OUTPUTDIR)/%.html: %.Rmd $(RMD) $(DATA) guix/channels.pinned.scm guix/manifest.scm | $(OUTPUTDIR)
 	${GUIXTM} -- \
-		Rscript -e "rmarkdown::render('$<', output_dir = '$(OUTPUTDIR)')"
+		${RSCRIPT} -e "rmarkdown::render('$<', output_dir = '$(OUTPUTDIR)')"
 
 $(OUTPUTDIR)/%.docx: %.Rmd $(RMD) $(DATA) guix/channels.pinned.scm guix/manifest.scm | $(OUTPUTDIR)
 	${GUIXTM} -- \
-		Rscript -e "rmarkdown::render('$<', output_format = 'bookdown::word_document2', output_dir = '$(OUTPUTDIR)')"
+		${RSCRIPT} -e "rmarkdown::render('$<', output_format = 'bookdown::word_document2', output_dir = '$(OUTPUTDIR)')"
 
 $(DISTDIR):
 	@mkdir -p $(DISTDIR)
