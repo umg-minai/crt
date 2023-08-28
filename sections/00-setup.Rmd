@@ -11,6 +11,7 @@ knitr::opts_chunk$set(
 knitr::write_bib(
     c(
         "base",
+        "consort",
         "gtsummary",
         "survival",
         "survminer"
@@ -23,8 +24,6 @@ knitr::write_bib(
 library("survival")
 library("gtsummary")
 library("survminer")
-library("DiagrammeR")
-library("DiagrammeRsvg")
 ```
 
 ```{r definitions, include = FALSE}
@@ -89,8 +88,8 @@ isLowN <- cvc$ManLu %in% names(nManLu)[nManLu < 5]
 cvc$ExclusionReason[isLowN] <-
     paste0("Lumen: ", cvc$Lumens[isLowN], ", ", cvc$Manufacturer[isLowN])
 
-cvc$ExclusionReason[duplicated(cvc$CaseId)] <- "Not the first CVC"
 cvc$ExclusionReason[cvc$AnticoagulationGroup == "DOAC"] <- "Anticoagulation: DOAC"
+cvc$ExclusionReason[duplicated(cvc$CaseId)] <- "Not the first CVC"
 
 cvc$isExcluded <- !is.na(cvc$ExclusionReason)
 ```

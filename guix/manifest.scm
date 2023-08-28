@@ -6,12 +6,9 @@
     "r-beeswarm"
     "r-bookdown"
     "r-codetools"
-    "r-diagrammer"
-    "r-diagrammersvg"
-    ;; "r-consort" ;; version 1.2.0 doesn't support multiple splits
+    "r-consort"
     "r-gtsummary"
     "r-rprojroot"
     "r-survival"
     "r-survminer"
-    "r-viridislite"
-    "r-webshot"))
+    "r-viridislite"))
