@@ -70,7 +70,7 @@ cvc$FirstExam <- as.numeric(cvc$FirstExam)
 
 fcts <- c(
     "Sex", "Manufacturer", "Site", "Side", "Incision", "Attempts2",
-    "Speciality", "AdmissionType",
+    "PerioperativePlacement", "Speciality", "AdmissionType",
     "AnticoagulationGroup"
 )
 cvc[fcts] <- lapply(cvc[fcts], as.factor)
@@ -83,6 +83,12 @@ cvc$Experience <- factor(
 )
 
 cvc$ManLu <- factor(paste0(cvc$Manufacturer, cvc$Lumens))
+
+cvc$Side <- relevel(cvc$Side, ref = "right")
+cvc$AdmissionType <- relevel(cvc$AdmissionType, ref = "surgical")
+cvc$AnticoagulationGroup <- relevel(cvc$AnticoagulationGroup, ref = "LMWH")
+cvc$Sepsis <- factor(cvc$Sepsis, levels = c(0, 1), labels = c("no", "yes"))
+cvc$Cancer <- factor(cvc$Cancer, levels = c(0, 1), labels = c("no", "yes"))
 ```
 
 ```{r exclusion, include = FALSE}
@@ -235,4 +241,17 @@ tbl1 <-  tbl1 |>
 
 ```{r model, include = FALSE}
 m <- .model(cvc)
+```
+
+```{r regression, include = FALSE}
+rd <- droplevels(m$data)
+rd$WBC1 <- log(rd$WBC1)
+
+rgcx <- coxph(
+    Surv(FUP, CRT) ~
+        Sex + Age + BMI + ManLu +
+        Side + PerioperativePlacement + PerioperativePlacement +
+        Sepsis + Cancer + DVT + AnticoagulationGroup,
+    data = rd
+)
 ```

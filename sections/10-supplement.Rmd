@@ -123,6 +123,15 @@
 )
 ```
 
+## Hazard ratios
+
+```{r hrtable, echo = FALSE, message = FALSE}
+theme_gtsummary_journal()
+theme_gtsummary_compact(font_size = 8L)
+
+tbl_regression(rgcx, exponentiate = TRUE)
+```
+
 ## LOT numbers
 
 ```{r lottable, echo = FALSE}
