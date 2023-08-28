@@ -250,7 +250,7 @@ rd$WBC1 <- log(rd$WBC1)
 rgcx <- coxph(
     Surv(FUP, CRT) ~
         Sex + Age + BMI + ManLu +
-        Side + PerioperativePlacement + PerioperativePlacement +
+        Side + PerioperativePlacement +
         Sepsis + Cancer + DVT + AnticoagulationGroup,
     data = rd
 )
