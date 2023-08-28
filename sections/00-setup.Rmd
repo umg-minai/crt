@@ -94,6 +94,92 @@ cvc$ExclusionReason[duplicated(cvc$CaseId)] <- "Not the first CVC"
 cvc$isExcluded <- !is.na(cvc$ExclusionReason)
 ```
 
+```{r tbl1, include = FALSE}
+.manlu2txt <- function(x)paste0(
+    substring(x, 1, 5), "/", substring(x, 6, 6), " Lumens"
+)
+
+tbl1 <- cvc |>
+    dplyr::filter(!isExcluded) |>
+    droplevels() |>
+    dplyr::mutate(
+        ManLu = factor(
+            ManLu,
+            levels = levels(.data$ManLu),
+            labels = .manlu2txt(levels(.data$ManLu))
+        )
+    ) |>
+    select(
+        CRT,
+        Sex,
+        Age,
+        BMI,
+        ManLu,
+        Side,
+        Incision,
+        Attempts2,
+        Experience,
+        PerioperativePlacement,
+        AdmissionType,
+        Speciality,
+        Sepsis,
+        Cancer,
+        DVT,
+        AnticoagulationGroup,
+        FirstExam,
+        WBC1,
+        CRP1,
+        DDimer1
+    ) |>
+    tbl_summary(
+        by = CRT,
+        missing_text = "(Missing)",
+        type = list(
+            Sex ~ "dichotomous",
+            DVT ~ "dichotomous",
+            Side ~ "dichotomous",
+            Attempts2 ~ "dichotomous",
+            AnticoagulationGroup ~ "categorical"
+        ),
+        label = list(
+            Sex ~ "Sex (male)",
+            ManLu ~ "Type (Manufacturer/Lumens)",
+            DVT ~ "History of venous thrombosis",
+            Side ~ "Side of insertion (left)",
+            Attempts2 ~ "More than one insertion attempt",
+            PerioperativePlacement ~ "Perioperative placement",
+            AnticoagulationGroup ~ "Type of anticoagulation drug",
+            FirstExam ~ "Time to first exam [hours]",
+            WBC1 ~ "WBC day 1 [Gpt/L]",
+            DDimer1 ~ "D-dimer day 1 [mg/L]",
+            CRP1 ~ "CRP day 1 [mg/L]"
+        ),
+        value = list(
+            Sex ~ "male",
+            DVT ~ "yes",
+            Side ~ "left",
+            Attempts2 ~ ">1",
+            Incision ~ "yes"
+        )
+    ) |>
+    add_overall() |>
+    add_p(test.args = c(Speciality) ~ list(simulate.p.value = TRUE))
+
+uvar <- unique(sort(c(tbl1$table_body$variable, tbl1$table_body$label)))
+.abbr <- Filter(nchar, abbr[uvar])
+
+tbl1 <-  tbl1 |>
+    modify_caption(
+    paste0(
+        "Baseline characteristics of all analysed central venous catheters ",
+        "in the internal jugular vene.<br />",
+        "Values are given as ",
+        "median (lower quartile - upper quartile) or n (percent).<br />",
+        paste(names(.abbr), .abbr, sep = ", ", collapse = "; ")
+    )
+)
+```
+
 ```{r modelhelper, include = FALSE}
 .followup <- function(x)ifelse(x$CRT, x$CRTday, x$FollowUp)
 .model <- function(x) {

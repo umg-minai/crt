@@ -8,10 +8,7 @@ library("consort")
 .txt <- function(label, n)paste0(label, "\n (n = ", n, ")")
 narms <- table(cvc$ManLu[!cvc$isExcluded])
 narms <- narms[narms > 0]
-arms <- paste0(
-    substring(names(narms), 1, 5), ", ",
-    substring(names(narms), 6, 6), " Lumens"
-)
+arms <- .manlu2txt(names(narms))
 excl <- table(cvc$ExclusionReason)
 eord <- c(
     grep("Site", names(excl)),
