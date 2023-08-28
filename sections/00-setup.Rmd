@@ -47,6 +47,7 @@ times <- c(1, 3, 5, 7, 9, 11, 13)
 ```{r import, include = FALSE}
 cvc <- read.csv(frf("data", "extdata", "cvc.csv"))
 ```
+
 ```{r abbreviations, include = FALSE}
 abbr <- setNames(character(ncol(cvc)), colnames(cvc))
 
@@ -69,11 +70,18 @@ abbr <- c(abbr,
 cvc$FirstExam <- as.numeric(cvc$FirstExam)
 
 fcts <- c(
-    "Sex", "Manufacturer", "Site", "Side", "Incision", "Attempts2",
+    "Sex", "Manufacturer", "Site", "Side", "Incision",
     "PerioperativePlacement", "Speciality", "AdmissionType",
+    "DVT", "DVT.CVC", "Sepsis", "Cancer", "Smoking",
     "AnticoagulationGroup"
 )
 cvc[fcts] <- lapply(cvc[fcts], as.factor)
+
+cvc$Attempts2 <- factor(
+    ifelse(
+        is.na(cvc$Attempts), NA, ifelse(cvc$Attempts > 1, ">1", "1")
+    ), levels = c("1", ">1")
+)
 
 cvc$Experience[!nchar(cvc$Experience)] <- NA
 cvc$Experience <- factor(
@@ -87,8 +95,6 @@ cvc$ManLu <- factor(paste0(cvc$Manufacturer, cvc$Lumens))
 cvc$Side <- relevel(cvc$Side, ref = "right")
 cvc$AdmissionType <- relevel(cvc$AdmissionType, ref = "surgical")
 cvc$AnticoagulationGroup <- relevel(cvc$AnticoagulationGroup, ref = "LMWH")
-cvc$Sepsis <- factor(cvc$Sepsis, levels = c(0, 1), labels = c("no", "yes"))
-cvc$Cancer <- factor(cvc$Cancer, levels = c(0, 1), labels = c("no", "yes"))
 ```
 
 ```{r exclusion, include = FALSE}
