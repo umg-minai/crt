@@ -33,11 +33,6 @@ approved this study (reference number: B006/22).
 - Vygon: multicath up 5
 - Arrow: CVC 3 and 5 lumens, CVC ARROWgard blue (1st generation; chlorhexidine acetate and silver sulfadiazine) 4 lumens
 
-## Electron microscopic images (TODO: Sebastian Engelhardt)
-
-- unused CVCs: Braun certofix trio, Arrow CVC 3, Vygon multicath up 5 and Arrow 5 CVC
-- no information, TODO: Sebastian Engelhardt
-
 ## Statistical analysis
 
 - analysis in R, using survival package, summary tables gtsummary

@@ -9,10 +9,6 @@ TODO: find material of CVCs, may ask manufacturers
 - no communication to clinicians, CRT without treatment didn't yield negative outcome
 - guidelines suggest catheter removal, no negative outcome, unnecessary, following CVC with CRT in a few hours, even under anticoagulation, additional vessel with thrombosis, conclusion just leave in place if without critical symptoms (intracranial edema, CLABSI, ...)
 
-TODO: what to say about the EM images?
-
-- surface Braun/Vygon rougher than Arrow? (but Braun seems rougher than Vygon ...)
-
 ## Limitations
 
 - nearly half excluded, resulting in a small sample size
