@@ -27,10 +27,12 @@ author:
         email: sven-olaf.kuhn@med.uni-greifswald.de
         institute: [KAINS]
         correspondence: false
-
 bibliography:
     - bibliography/bibliography.bib
     - bibliography/rpackages.bib
+csl: pandoc/csl/springer-basic-brackets.csl
+link-citations: yes
+linkcolor: blue
 output:
     bookdown::html_document2:
         pandoc_args:

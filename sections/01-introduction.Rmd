@@ -1,10 +1,16 @@
 # Introduction
 
-- Central venous catheters (CVC) commonly used in surgery and ICU
-- Catheter-related thrombosis (CRT) are major complications/risk factors for PE/bloodstream infections
-- Incidence varies widely (6 - 56 %) medical vs surgical patients
-- No screening: time to CRT unknown, except study Wu et al 2023 in medical critical ill patients: median time 4 days ~ 17 % CRT
-- Incidence in surgical patients higher, time to onset not investigated
-- No information about different manufacturers of CVCs
-- Therefore, we designed a prospective single center study to detect the onset of CRT and its dependency on the material or manufacturer of the CVCs in critical ill surgical patients.
+Central venous catheters (CVCs) are commonly used during larger surgical procedures and in critical ill patients [@Geerts2014].
+Catheter-related thrombosis (CRT) is one of the major complications of CVCs and a major risk factor of pulmonary embolism and catheter-related bloodstream infections [@Geerts2014;@Malinoski2013].
 
+Most of the CRTs are asymptomatic and patients with CVCs are infrequently screened for CRT.
+The incidence of CRT varies widely between medical and surgical patients from 6 to 56%, respectively [@Haggstrom2020;@Wu2023;@Malinoski2013;@Yamashita2020;@Wu1999].
+A recently published study applied a daily ultrasound-assessment and found a median time to CRT of four days in mostly medical critical ill patients with an incidence of 16.9% [@Wu2023].
+The perioperative hypercoagulability in surgical patients may explain the higher incidence of CRT with more than 50%.
+However despite the much higher incidence the onset of CRT in surgical patients is still unkown.
+
+Patient-related risk factors like a cancer disease or a previous venous thrombosis are commonly accpeted [@Geerts2014].
+In contrast catheter-related risk factors beside site of insertion and diameter of the catheter are poorly investigated.
+Only one small and nearly 30 years old study looked at the impact of the catheter material and found a lower CRT incidence for polyruethane/siliconized catheters in comparision to polyvinyle chloride/polyethylene [@Monreal1994].
+
+Therefore, we designed a prospective singlecenter study to detect the onset of CRT and its dependency on the material or manufacturer of the CVCs in critical ill surgical patients.
