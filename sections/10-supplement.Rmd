@@ -131,18 +131,31 @@
 theme_gtsummary_journal()
 theme_gtsummary_compact(font_size = 8L)
 
-tbl_regression(rgcx, exponentiate = TRUE)
+tbl_regression(rgcx, exponentiate = TRUE) |>
+    modify_caption(
+        paste0(
+            "Hazard ratios for Cox regression on all N=", rgcx$n,
+            " analysed central venous catheters."
+        )
+    )
 ```
 
 ```{r supplhrtablefull, echo = FALSE, message = FALSE}
 theme_gtsummary_journal()
 theme_gtsummary_compact(font_size = 8L)
 
-tbl_regression(rgcx.full, exponentiate = TRUE)
+tbl_regression(rgcx.full, exponentiate = TRUE) |>
+    modify_caption(
+        paste0(
+            "Hazard ratios for Cox regression using all available variables ",
+            "but with a reduced sample size of N=", rgcx.full$n,
+            " central venous catheters due to missing values."
+        )
+    )
 ```
 
 ```{r forestplotfull, echo = FALSE, fig.width = 12, fig.height = 8, fig.cap = "Hazard ratios"}
-ggforest(rgcx.full, data = rd)
+ggforest(rgcx.full, data = rd.na)
 ```
 
 ## LOT numbers

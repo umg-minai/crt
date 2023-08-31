@@ -265,18 +265,15 @@ rgcx <- coxph(
 )
 
 rd$Experience <- factor(rd$Experience, ordered = FALSE)
+rd.na <- na.omit(rd[c(
+    "FUP", "CRT", "Sex", "Age", "BMI", "ManLu", "Side",
+    "PerioperativePlacement", "Incision", "Attempts2", "Experience",
+    "Speciality", "Sepsis", "Cancer", "DVT", "AnticoagulationGroup",
+    "WBC1", "DDimer1", "CRP1")]
+)
 
 ## all variables (reduced N, due to NA)
-rgcx.full <- coxph(
-    Surv(FUP, CRT) ~
-        Sex + Age + BMI + ManLu +
-        Side + PerioperativePlacement +
-        Incision + Attempts2 + Experience +
-        Sepsis + Cancer + DVT +
-        AnticoagulationGroup +
-        WBC1 + DDimer1 + CRP1,
-    data = rd
-)
+rgcx.full <- coxph(Surv(FUP, CRT) ~ ., data = rd.na)
 ```
 
 ```{r glmnet, include = FALSE}
