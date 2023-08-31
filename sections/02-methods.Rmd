@@ -2,41 +2,52 @@
 
 ## Study design and population
 
-- prospective singlecenter observational study
-- criticall ill patients, surgical ICU
-- six month period, March 2022 to August 2022
-- enrolled consecutive adult patients with a CVC on our ICU
+In this prospective singlecenter observational study we screened
+critical ill patients with CVCs for CRT
+in or admitted to our surgical intensive care unit (ICU)
+in a six month period, from March 2022 to August 2022.
 
-- CVCs placed with ultrasound in the OR or on the ICU
-- documented: manufacturer, serial number, lumens, site, side, number of attempts, complications, expertise
-- additional laboratory values (WBC, CRP, DDimer) at every screening day
+We enrolled all consecutive adult patients with a CVC on our ICU during the study period.
+All CVCs were placed in the operation theatre or on the ICU using ultrasound-assisted insertion approach and maximal barrier precautions according to local guidelines.
+Skin antiseptic was done with octenidine dihydrochlordie, 1-propanol, 2-propanol (octeniderm colourless, Schülke & Mayr GmbH, Norderstedt, Germany).
+The clinicians inserting the CVCs chose the appropriated CVC size, number of lumens, insertion site and side at their discretion.
+They were asked to document the manufacturer, the LOT (identification) number, the number of attempts, any complications and their expertise.
+If the patient had a blood collection on the screening day we ordered White blood cells (WBC), C-related peptide (CRP) and D-dimers.
 
 The Ethics Committee at the University Medicine Greifswald
-approved this study (reference number: B006/22).
+approved this study (reference number: BB 006/22).
 
 ## Ultrasound assessment
 
-- No screening of arterial catheters or catheters for renal replacement or extracorporeal membrane oxygenation therapy
-- Screening every second day, starting within 24 hours after placement
-- linear probe 8-12 MHz
-- examination performed by one of the authors (SE), independent (not involved in placement of the CVCs or treatment of the patients), trained in point-of-care ultrasound
-- patients examined in the supine position
-- images were recorded if thrombosis detected and/or it size changed in short- and long-axis view
-- images were reviewed by second intensivist (SG)
-- CRT was diagnosed if an echogenic structure attached to the CVC was detected that is non-compressible and showed an pathological (gap in the) color doppler image
-- thrombosis size was measured by the largest diameter in short-axis and longest lenght in long-axis
-- findings not communicated to the treating clinicians
+CVCs were examined for CRT by ultrasound on every second day, starting within 24 hours after placement.
+We used a linear probe with a frequency of 8-12 MHz.
+All patients were examined in the supine position.
+The vein with the CVC were recorded in a short- and long-axis view.
+A CRT was diagnosed if an echogenic structure attached to the CVC was detected that was non-compressible and showed a pathological color doppler image.
+We measured the thrombosis size by the largest dimension (height) in short-axis and the longest one (length) in the long-axis view.
+We didn't screen arterial catheters or catheters for renal replacement or extracorporeal membrane oxygenation therapy.
+The ultrasound examination was always performed by one of the authors (SE), trained in point-of-care ultrasound
+and intensive care medicine with an experience of more than two years.
+Subsequently the recorded images and videos were reviewed by a second independent intensivist (SG) with more than seven years experience in point-of-care ultrasound.
+Neither of them was involved in the placement of the CVCs nor in the treatment of the critical ill patients.
+The findings were not communicated to the treating clinician.
 
-## Catheter types (TODO: Sebastian Engelhardt)
+## Catheter types
 
-- Braun: TODO: certofix trio and quinto
-- Vygon: multicath up 5
-- Arrow: CVC 3 and 5 lumens, CVC ARROWgard blue (1st generation; chlorhexidine acetate and silver sulfadiazine) 4 lumens
+Due to supply shortage various types of CVCs of different manufacturer were used.
+We observed three different types of Arrow CVCs (Teleflex Medical GmbH, Germany), namely the classic polyurethane CVCs with three and five lumens (referred as Arrow3 and Arrow5), and the chlorhexidine acetate and silver sulfadiazine coated polyurethan catheters ARROWgard Blue (1st generation) with 4 lumens (referred as Arrow4).
+The three lumen Certofix trio (B. Braun SE, Germany; referred as Braun3) and the five lumen multicath CVC (VYGON GmbH & Co. KG, Germany; referred as Vygon5) were made of polyurethan.
 
 ## Statistical analysis
 
-- analysis in R, using survival package, summary tables gtsummary
-- log transformation of lab values, approximate normal distribution
-- CRT free time modelled using Kaplan-Meier estimate
-- (univariate) Comparison between different manufacturer Gehan-Wilcoxon test, p < 0.05 sign.
-- multiple regression to estimate hazard ratios for different variables
+All data processing and statistical analyses wer performed using R version
+`r paste0(sessionInfo()$R.version[c("major", "minor")], collapse = ".")`
+[@R-base].
+
+Prior to the analyses, all laboratory values were *log* transformed to
+approximate a normal distribution.
+CRT-free time was modelled using Kaplan-Meier estimates and comparison between different CVC types was done by applying the Gehan-Wilcoxon test with the Peto and Peto modification for different censoring patterns as implemented in the *survival* R package [@survival-book; @R-survival].
+For the estimation of hazard ratios we used multiple Cox proportional hazards regression models as provided by the *survival* R package [@Cox1972; @survival-book; @R-survival].
+A $p$-value less than 0.05 was considered as statistical significant difference.
+Summary tables were built using the *gtsummary* package
+[@gtsummary; @R-gtsummary].

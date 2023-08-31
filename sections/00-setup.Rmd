@@ -208,7 +208,7 @@ tbl1 <-  tbl1 |>
     x$FUP <- .followup(x)
 
     svf <- survfit(Surv(FUP, CRT) ~ ManLu, data = x)
-    svd <- survdiff(Surv(FUP, CRT) ~ ManLu, data = x, rho = 0)
+    svd <- survdiff(Surv(FUP, CRT) ~ ManLu, data = x, rho = 1)
 
     list(data = x, svf = svf, svd = svd)
 }
