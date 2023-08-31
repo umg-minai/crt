@@ -18,11 +18,11 @@ PerioperativePlacement,Placement of the CVC before/during/after surgery?
 Experience,"Experience of the CVC placing phyisician, < 25 CVCs, 25-50 CVCs, > 50 CVCs"
 Speciality,"Type of speciality treating the patient (general surgery, medical, …)"
 AdmissionType,Admitted to the medical or any surgical speciality (medical/surgical)
-Sepsis,Did the patient have sepsis (0/1)
-Cancer,Did the patient have cancer (0/1)
-Smoking,Did the patient smoke (0/1)
-DVT,Did the patient have deep vene thrombosis before (0/1)
-DVT-CVC,Did the patient have deep vene thrombosis before caused by a CVC (0/1)
+Sepsis,Did the patient have sepsis (no/yes)
+Cancer,Did the patient have cancer (no/yes)
+Smoking,Did the patient smoke (no/yes)
+DVT,Did the patient have deep vene thrombosis before (no/yes)
+DVT-CVC,Did the patient have deep vene thrombosis before caused by a CVC (no/yes)
 Anticoagulation,Anticoagulation drug used
 AnticoagulationGroup,Pharmacological group of anticoaglation
 FirstExam,Time in hours between the placement of the CVC and the first ultrasound exam
