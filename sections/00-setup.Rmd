@@ -241,9 +241,22 @@ tbl1 <-  tbl1 |>
     apply(a, 2, cumsum)
 }
 
-.medLU <- function(x) {
+.medLU <- function(x, prec=".1") {
     q <- quantile(x, probs = c(0.5, 0.25, 0.75), na.rm = TRUE)
-    sprintf("%.1f (%.1f, %.1f)", q[1L], q[2L], q[3L])
+    sprintf(
+        paste0("%", prec, "f (%", prec, "f, %", prec, "f)"),
+        q[1], q[2], q[3]
+    )
+}
+
+.medCI <- function(x, prec=".1") {
+    q <- quantile(
+        x, probs = 0.5, na.rm = TRUE, conf.int = TRUE
+    )
+    sprintf(
+        paste0("%", prec, "f (%", prec, "f-%", prec, "f)"),
+        q$quantile, q$lower, q$upper
+    )
 }
 ```
 
