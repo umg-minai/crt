@@ -70,7 +70,7 @@ abbr <- c(abbr,
 cvc$FirstExam <- as.numeric(cvc$FirstExam)
 
 fcts <- c(
-    "Sex", "Manufacturer", "Site", "Side", "Incision",
+    "Sex", "Manufacturer", "Site", "Side", "External", "Incision",
     "PerioperativePlacement", "Speciality", "AdmissionType",
     "DVT", "DVT.CVC", "Sepsis", "Cancer", "Smoking",
     "AnticoagulationGroup"
@@ -100,6 +100,8 @@ cvc$AnticoagulationGroup <- relevel(cvc$AnticoagulationGroup, ref = "LMWH")
 ```{r exclusion, include = FALSE}
 cvc$ExclusionReason[cvc$Site != "IJV"] <-
     paste("Site:", as.character(cvc$Site[cvc$Site != "IJV"]))
+
+cvc$ExclusionReason[cvc$External == "yes"] <- paste("Not inserted in-house")
 
 nManLu <- table(cvc$ManLu)
 isLowN <- cvc$ManLu %in% names(nManLu)[nManLu < 5]
