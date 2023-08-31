@@ -10,6 +10,7 @@ Variant,Is the CVC coated? (we had only 4-lumens CVC with ARROWgard Blue)
 Lumens,Number of Lumens
 Site,"Site of CVC (EJV: external jugular vene, FV: femoral vene, IJV: internal jugular vene, SCV: subclavian vene)"
 Side,"Side of CVC, left/right"
+External,"Placement of the CVC in an external/different hospital (no/yes)"
 Incision,Incision with scapel or just dilatation without any cut?
 Attempts,Number of attempts to place the CVC
 Attempts2,More than one attempt?
