@@ -1,6 +1,8 @@
 # Acknowledgement
 
-# Author Contributions
+We thank Katrin Singer (Teleflex), Silvia Metz (B. Braun), Stephan Schopka (B. Braun) and Tobias Neels (Vygon) for information about the material and properties of the CVCs.
+
+## Author Contributions
 
 Conceptualization, S.G. and S.K.;
 data acquisition, S.E;
@@ -9,7 +11,15 @@ writing - draft preparation, S.G.;
 writing - review and editing, S.E., S.K. and S.G.;
 All authors have read and agreed to the published version of the manuscript.
 
-# Data and software availability
+## Competing interests
+
+All authors state no conflict of interest.
+
+## Ethical approval
+
+Research involving human subjects complied with all relevant national regulations and institutional policies, as well as the tenets of the Helsinki Declaration (as revised in 2013), and was approved by the Ethics Committee at the University Medicine Greifswald (reference number: BB 006/22).
+
+## Data and software availability
 
 The complete data, code and reproducible analysis can be found at
 https://github.com/umg-minai/crt.
