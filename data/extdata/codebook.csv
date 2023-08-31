@@ -6,7 +6,8 @@ Age,Age in years
 BMI,BMI
 Manufacturer,Manufacturer of the examined CVC
 LOT,LOT number of the examined CVC
-Variant,Is the CVC coated? (we had only 4-lumens CVC with ARROWgard Blue)
+PN,part number of the examined CVC
+Type,Name/Type of the CVC
 Lumens,Number of Lumens
 Site,"Site of CVC (EJV: external jugular vene, FV: femoral vene, IJV: internal jugular vene, SCV: subclavian vene)"
 Side,"Side of CVC, left/right"

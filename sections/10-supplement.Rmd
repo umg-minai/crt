@@ -161,14 +161,18 @@ ggforest(rgcx.full, data = rd.na)
 ## LOT numbers
 
 ```{r lottable, echo = FALSE}
-lottbl <- cvc[c("Id", "Lumens", "Manufacturer", "LOT", "isExcluded")]
+lottbl <- cvc[c(
+    "Id", "Manufacturer", "Type", "Lumens", "LOT", "PN", "isExcluded"
+)]
 lottbl$isExcluded <- factor(
     lottbl$isExcluded, levels = c(TRUE, FALSE), labels = c("yes", "no")
 )
 knitr::kable(
     lottbl,
-    col.names = c("Id", "Lumens", "Manufacturer", "LOT", "Excluded"),
-    caption = "LOT numbers of screened central venous catheters."
+    col.names = c(
+        "Id", "Manufacturer", "Type", "Lumens", "LOT", "PN", "Excluded"
+    ),
+    caption = "LOT and part numbers (PN) of screened central venous catheters."
 )
 ```
 
