@@ -49,5 +49,5 @@ approximate a normal distribution.
 CRT-free time was modelled using Kaplan-Meier estimates and comparison between different CVC types was done by applying the Gehan-Wilcoxon test with the Peto and Peto modification for different censoring patterns as implemented in the *survival* R package [@survival-book; @R-survival].
 For the estimation of hazard ratios we used multiple Cox proportional hazards regression models as provided by the *survival* R package [@Cox1972; @survival-book; @R-survival].
 A $p$-value less than 0.05 was considered as statistical significant difference.
-Summary tables were built using the *gtsummary* package
-[@gtsummary; @R-gtsummary].
+Summary tables, the CONSORT and the forest plots were built using the *gtsummary*, *consort*, and *survminer* package, respectively
+[@gtsummary; @R-gtsummary; @R-consort; @R-survminer].
