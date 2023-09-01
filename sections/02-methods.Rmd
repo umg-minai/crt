@@ -22,21 +22,20 @@ approved this study (reference number: BB 006/22).
 CVCs were examined for CRT by ultrasound on every second day, starting within 24 hours after placement.
 We used a linear probe with a frequency of 8-12 MHz.
 All patients were examined in the supine position.
-The vein with the CVC were recorded in a short- and long-axis view.
 A CRT was diagnosed if an echogenic structure attached to the CVC was detected that was non-compressible and showed a pathological color doppler image.
-We measured the thrombosis size by the largest dimension (height) in short-axis and the longest one (length) in the long-axis view.
+To determine the thrombosis size we measured the largest dimension (height) in short-axis and the longest one (length) in the long-axis view.
 We didn't screen arterial catheters or catheters for renal replacement or extracorporeal membrane oxygenation therapy.
-The ultrasound examination was always performed by one of the authors (SE), trained in point-of-care ultrasound
-and intensive care medicine with an experience of more than two years.
+To ensure constant and high image quality the ultrasound examination was always performed by one of the authors (SE),
+trained in point-of-care ultrasound and intensive care medicine with an experience of more than two years.
 Subsequently the recorded images and videos were reviewed by a second independent intensivist (SG) with more than seven years experience in point-of-care ultrasound.
 Neither of them was involved in the placement of the CVCs nor in the treatment of the critical ill patients.
 The findings were not communicated to the treating clinician.
 
 ## Catheter types
 
-Due to supply shortage various types of CVCs of different manufacturer were used.
+Due to supply shortage a controlled randomisation was not feasible and various types of CVCs of different manufacturer were used.
 We observed three different types of Arrow CVCs (Teleflex Medical GmbH, Germany), namely the classic polyurethane CVCs with three and five lumens (referred as Arrow3 and Arrow5), and the chlorhexidine acetate and silver sulfadiazine coated polyurethan catheters ARROWgard Blue (1st generation) with 4 lumens (referred as Arrow4).
-The three lumen Certofix protect trio (B. Braun SE, Germany) is mode of a silikonized polyurethane, an embedded contrast medium barium sulfate and coated with
+The three lumen Certofix protect trio (B. Braun SE, Germany) was made of a silikonized polyurethane, an embedded contrast medium barium sulfate and coated with
 antiseptic polyhexamethylene biguanide (polyhexanide; referred as Braun3).
 The five lumen multicath CVC (VYGON GmbH & Co. KG, Germany; referred as Vygon5) were made of polyurethane.
 
@@ -51,5 +50,6 @@ approximate a normal distribution.
 CRT-free time was modelled using Kaplan-Meier estimates and comparison between different CVC types was done by applying the Gehan-Wilcoxon test with the Peto and Peto modification for different censoring patterns as implemented in the *survival* R package [@survival-book; @R-survival].
 For the estimation of hazard ratios we used multiple Cox proportional hazards regression models as provided by the *survival* R package [@Cox1972; @survival-book; @R-survival].
 A $p$-value less than 0.05 was considered as statistical significant difference.
+We didn't correct for multiple testing.
 Summary tables, the CONSORT and the forest plots were built using the *gtsummary*, *consort*, and *survminer* package, respectively
 [@gtsummary; @R-gtsummary; @R-consort; @R-survminer].
