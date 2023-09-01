@@ -62,7 +62,10 @@ abbr <- c(abbr,
     SCV = "subclavian vene",
     DOAC = "direct oral anticoagulation",
     LMWH = "low molecular weight heparin",
-    UFH = "unfractionated heparin"
+    UFH = "unfractionated heparin",
+    OR = "operating room",
+    PE = "pulmonary embolism",
+    CLABSI = "central line associated bloodstream infection"
 )
 ```
 
@@ -73,7 +76,7 @@ fcts <- c(
     "Sex", "Manufacturer", "Site", "Side", "External", "Incision",
     "PerioperativePlacement", "Speciality", "AdmissionType",
     "DVT", "DVT.CVC", "Sepsis", "Cancer", "Smoking",
-    "AnticoagulationGroup"
+    "AnticoagulationGroup", "Complications"
 )
 cvc[fcts] <- lapply(cvc[fcts], as.factor)
 
@@ -95,6 +98,7 @@ cvc$ManLu <- factor(paste0(cvc$Manufacturer, cvc$Lumens))
 cvc$Side <- relevel(cvc$Side, ref = "right")
 cvc$AdmissionType <- relevel(cvc$AdmissionType, ref = "surgical")
 cvc$AnticoagulationGroup <- relevel(cvc$AnticoagulationGroup, ref = "LMWH")
+cvc$Complications <- relevel(cvc$Complications, ref = "None")
 ```
 
 ```{r exclusion, include = FALSE}
@@ -107,6 +111,8 @@ nManLu <- table(cvc$ManLu)
 isLowN <- cvc$ManLu %in% names(nManLu)[nManLu < 5]
 cvc$ExclusionReason[isLowN] <-
     paste0("Lumen: ", cvc$Lumens[isLowN], ", ", cvc$Manufacturer[isLowN])
+cvc$ExclusionReason[cvc$ManLu == "Arrow5" & grepl("ARROWgard", cvc$Type)] <- 
+    "Lumen: 5, Arrow"
 
 cvc$ExclusionReason[cvc$AnticoagulationGroup == "DOAC"] <- "Anticoagulation: DOAC"
 cvc$ExclusionReason[duplicated(cvc$CaseId)] <- "Not the first CVC"
@@ -140,13 +146,16 @@ tbl1 <- cvc |>
         Attempts2,
         Experience,
         PerioperativePlacement,
+        FirstExam,
+        FollowUp,
         AdmissionType,
         Speciality,
         Sepsis,
         Cancer,
         DVT,
+        Smoking,
         AnticoagulationGroup,
-        FirstExam,
+        Complications,
         WBC1,
         CRP1,
         DDimer1
@@ -155,6 +164,7 @@ tbl1 <- cvc |>
         by = CRT,
         missing_text = "(Missing)",
         type = list(
+            FollowUp ~ "continuous",
             Sex ~ "dichotomous",
             DVT ~ "dichotomous",
             Side ~ "dichotomous",
@@ -162,14 +172,16 @@ tbl1 <- cvc |>
             AnticoagulationGroup ~ "categorical"
         ),
         label = list(
+            FollowUp ~ "Follow-up time [days]",
+            FirstExam ~ "Time to first exam [hours]",
             Sex ~ "Sex (male)",
             ManLu ~ "Type (Manufacturer/Lumens)",
             DVT ~ "History of venous thrombosis",
             Side ~ "Side of insertion (left)",
+            Experience ~ "Experience (number of CVCs in the past)",
             Attempts2 ~ "More than one insertion attempt",
-            PerioperativePlacement ~ "Perioperative placement",
+            PerioperativePlacement ~ "Placement outside the OR",
             AnticoagulationGroup ~ "Type of anticoagulation drug",
-            FirstExam ~ "Time to first exam [hours]",
             WBC1 ~ "WBC day 1 [Gpt/L]",
             DDimer1 ~ "D-dimer day 1 [mg/L]",
             CRP1 ~ "CRP day 1 [mg/L]"
@@ -185,8 +197,8 @@ tbl1 <- cvc |>
     add_overall() |>
     add_p(test.args = c(Speciality) ~ list(simulate.p.value = TRUE))
 
-uvar <- unique(sort(c(tbl1$table_body$variable, tbl1$table_body$label)))
-.abbr <- Filter(nchar, abbr[uvar])
+uvar <- unique(c(tbl1$table_body$variable, tbl1$table_body$label))
+.abbr <- sort(c(Filter(nchar, abbr[uvar]), OR = "operating room"))
 
 tbl1 <-  tbl1 |>
     modify_caption(
