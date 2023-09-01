@@ -28,6 +28,7 @@ Anticoagulation,Anticoagulation drug used
 AnticoagulationGroup,Pharmacological group of anticoaglation
 FirstExam,Time in hours between the placement of the CVC and the first ultrasound exam
 FollowUp,Days of follow up
+Complications,Complications after CVC placement
 CRT,Did the patient have a CRT (CRT-free/CRT)
 CRTday,On which day a CRT was found.
 CRTgrowing,Did the CRT growed (1/NA)
