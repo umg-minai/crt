@@ -122,102 +122,10 @@ cvc$ExclusionReason[duplicated(cvc$CaseId)] <- "Not the first CVC"
 cvc$isExcluded <- !is.na(cvc$ExclusionReason)
 ```
 
-```{r tbl1, include = FALSE}
-.manlu2txt <- function(x)paste0(
-    substring(x, 1, 5), "/", substring(x, 6, 6), " Lumens"
-)
-
-tbl1 <- cvc |>
-    dplyr::filter(!isExcluded) |>
-    droplevels() |>
-    dplyr::mutate(
-        ManLu = factor(
-            ManLu,
-            levels = levels(.data$ManLu),
-            labels = .manlu2txt(levels(.data$ManLu))
-        )
-    ) |>
-    select(
-        CRT,
-        Sex,
-        Age,
-        BMI,
-        ManLu,
-        Side,
-        Incision,
-        Attempts2,
-        Experience,
-        PerioperativePlacement,
-        FirstExam,
-        FollowUp,
-        AdmissionType,
-        Speciality,
-        Sepsis,
-        Cancer,
-        DVT,
-        Smoking,
-        AnticoagulationGroup,
-        Complications,
-        WBC1,
-        CRP1,
-        DDimer1
-    ) |>
-    tbl_summary(
-        by = CRT,
-        missing_text = "(Missing)",
-        type = list(
-            FollowUp ~ "continuous",
-            Sex ~ "dichotomous",
-            DVT ~ "dichotomous",
-            Side ~ "dichotomous",
-            Attempts2 ~ "dichotomous",
-            AnticoagulationGroup ~ "categorical"
-        ),
-        label = list(
-            FollowUp ~ "Follow-up time [days]",
-            FirstExam ~ "Time to first exam [hours]",
-            Sex ~ "Sex (male)",
-            ManLu ~ "Type (Manufacturer/Lumens)",
-            DVT ~ "History of venous thrombosis",
-            Side ~ "Side of insertion (left)",
-            Experience ~ "Experience (number of CVCs in the past)",
-            Attempts2 ~ "More than one insertion attempt",
-            PerioperativePlacement ~ "Placement outside the OR",
-            AnticoagulationGroup ~ "Type of anticoagulation drug",
-            WBC1 ~ "WBC day 1 [Gpt/L]",
-            DDimer1 ~ "D-dimer day 1 [mg/L]",
-            CRP1 ~ "CRP day 1 [mg/L]"
-        ),
-        value = list(
-            Sex ~ "male",
-            DVT ~ "yes",
-            Side ~ "left",
-            Attempts2 ~ ">1",
-            Incision ~ "yes"
-        )
-    ) |>
-    add_overall() |>
-    add_p(test.args = c(Speciality) ~ list(simulate.p.value = TRUE))
-
-uvar <- unique(c(tbl1$table_body$variable, tbl1$table_body$label))
-.abbr <- sort(c(Filter(nchar, abbr[uvar]), OR = "operating room"))
-
-tbl1 <-  tbl1 |>
-    modify_caption(
-    paste0(
-        "Baseline characteristics of all analysed central venous catheters ",
-        "in the internal jugular vene.<br />",
-        "Values are given as ",
-        "median (lower quartile - upper quartile) or n (percent).<br />",
-        paste(names(.abbr), .abbr, sep = ", ", collapse = "; ")
-    )
-)
-```
-
 ```{r helper, include = FALSE}
 .followup <- function(x)ifelse(x$CRT, x$CRTday, x$FollowUp)
 .model <- function(x) {
-    x <- x[!x$isExcluded,]
+    x <- droplevels(x[!x$isExcluded,])
     x$CRT <- x$CRT == "CRT"
     x$FUP <- .followup(x)
 
@@ -323,6 +231,134 @@ rd.na <- na.omit(rd[c(
 
 ## all variables (reduced N, due to NA)
 rgcx.full <- coxph(Surv(FUP, CRT) ~ ., data = rd.na)
+```
+
+```{r tbl1, include = FALSE}
+.manlu2txt <- function(x)paste0(
+    substring(x, 1, 5), "/", substring(x, 6, 6), " Lumens"
+)
+
+tbl1 <- m$data |>
+    dplyr::mutate(
+        CRT = factor(
+            CRT,
+            levels = c(TRUE, FALSE),
+            labels = c("CRT", "CRT-free")
+        ),
+        ManLu = factor(
+            ManLu,
+            levels = levels(.data$ManLu),
+            labels = .manlu2txt(levels(.data$ManLu))
+        )
+    ) |>
+    select(
+        CRT,
+        Sex,
+        Age,
+        BMI,
+        ManLu,
+        Side,
+        Incision,
+        Attempts2,
+        Experience,
+        PerioperativePlacement,
+        FirstExam,
+        FollowUp,
+        AdmissionType,
+        Speciality,
+        Sepsis,
+        Cancer,
+        DVT,
+        Smoking,
+        AnticoagulationGroup,
+        Complications,
+        WBC1,
+        CRP1,
+        DDimer1
+    ) |>
+    tbl_summary(
+        by = CRT,
+        missing_text = "(Missing)",
+        type = list(
+            FollowUp ~ "continuous",
+            Sex ~ "dichotomous",
+            DVT ~ "dichotomous",
+            Side ~ "dichotomous",
+            Attempts2 ~ "dichotomous",
+            AnticoagulationGroup ~ "categorical"
+        ),
+        label = list(
+            FollowUp ~ "Follow-up time [days]",
+            FirstExam ~ "Time to first exam [hours]",
+            Sex ~ "Sex (male)",
+            ManLu ~ "Type (Manufacturer/Lumens)",
+            DVT ~ "History of venous thrombosis",
+            Side ~ "Side of insertion (left)",
+            Experience ~ "Experience (number of CVCs in the past)",
+            Attempts2 ~ "More than one insertion attempt",
+            PerioperativePlacement ~ "Placement outside the OR",
+            AnticoagulationGroup ~ "Type of anticoagulation drug",
+            WBC1 ~ "WBC day 1 [Gpt/L]",
+            DDimer1 ~ "D-dimer day 1 [mg/L]",
+            CRP1 ~ "CRP day 1 [mg/L]"
+        ),
+        value = list(
+            Sex ~ "male",
+            DVT ~ "yes",
+            Side ~ "left",
+            Attempts2 ~ ">1",
+            Incision ~ "yes"
+        )
+    ) |>
+    add_overall() |>
+    add_p(test.args = c(Speciality) ~ list(simulate.p.value = TRUE))
+
+uvar <- unique(c(tbl1$table_body$variable, tbl1$table_body$label))
+.abbr <- sort(c(Filter(nchar, abbr[uvar]), abbr[c("CRT", "OR")]))
+
+tbl1 <-  tbl1 |>
+    modify_caption(
+    paste0(
+        "Baseline characteristics of all analysed central venous catheters ",
+        "in the internal jugular vene.<br />",
+        "Values are given as ",
+        "median (lower quartile - upper quartile) or n (percent).<br />",
+        paste(names(.abbr), .abbr, sep = ", ", collapse = "; "), "."
+    )
+)
+```
+
+```{r tablesurv, include = FALSE, message = FALSE, warning = FALSE}
+tblsrv <-
+    list(
+        Overall = survfit(Surv(FUP, CRT) ~ 1, data = m$data),
+        ManLu = survfit(
+            Surv(FUP, CRT) ~ ManLu,
+            data = m$data |> dplyr::mutate(
+                ManLu = factor(
+                    ManLu,
+                    levels = levels(.data$ManLu),
+                    labels = .manlu2txt(levels(.data$ManLu))
+                )
+            )
+        )
+    ) |>
+    tbl_survfit(
+        probs = 0.5,
+        label = list(
+            ManLu ~ "Type (Manufacturer/Lumens)"
+        ),
+        label_header = "**Median CRT-free time**"
+    ) |>
+    modify_caption(
+    paste0(
+        "Median CRT-free time for all central venous catheters ",
+        "in the internal jugular vene and for their different types.<br />",
+        "median (lower quartile - upper quartile).<br />",
+        paste("CRT, ", .abbr["CRT"]), "."
+    )
+)
+
 ```
 
 ```{r glmnet, include = FALSE}
