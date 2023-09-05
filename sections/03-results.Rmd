@@ -7,7 +7,7 @@ During the six month study period we examined `r nrow(cvc)` CVCs of
 
 We had to exclude `r sum(cvc$isExcluded)` CVCs (\@ref(fig:consort-flowchart)).
 Initially we decided to include just the first CVC for each patient and excluded `r sum(cvc$ExclusionReason == "Not the first CVC", na.rm = TRUE)` consecutive CVCs.
-Because the entrance of the catheter into the femoral or the subclavian vene is often challenging to visualize with ultrasound
+Because the entrance of the catheter into the femoral or the subclavian vene was often challenging to visualize with ultrasound
 we focus on the internal jugular vene (IVJ) and ignored `r sum(cvc$ExclusionReason == "Site: FV", na.rm = TRUE)` and `r sum(cvc$ExclusionReason == "Site: SCV", na.rm = TRUE)` CVCs, respectively.
 Additionally we had to exclude in total `r .as.word(length(grep("Lumen", cvc$ExclusionReason)) + sum(cvc$ExclusionReason == "Not inserted in-house", na.rm = TRUE))` CVCs because of the very small number of catheters of this type (e.g. `r ncvc <- .as.word(sum(cvc$ManLu == "Arrow5" & grepl("ARROWgard", cvc$Type))); .cli_text("{ncvc} CVC{?s}")` by Arrow, 5 lumens with ARROWgard Blue (1st generation) coating) or because they were inserted in a foreign hospital and we were unable to verify the time of insertion.
 Drugs for direct oral anticoagulation (DOACs) are an inhomogeneous group and we screened just `r s <- length(grep("DOAC", cvc$ExclusionReason)); .cli_text("{(.as.word(s))} {qty(s)}patient{?s}")` with different DOACs and exclude both.
@@ -22,22 +22,22 @@ Most of them were inserted in the right IJV (`r r <- m$data$Side == "right"; spr
 In a little more than half of the cases a skin incision was done prior to CVC introduction.
 Two third of all CVCs were placed by experienced physicians who had inserted more than 50 CVCs.
 The same amount of CVCs was indicated on the ICU and outside the operating room.
-We examined the catheters by ultrasound after `r .tbl1("FirstExam")` hours.
+We examined the catheters by ultrasound `r .tbl1("FirstExam")` hours after insertion.
 
 Over 80% of the patients admitted to our ICU had a surgery before.
 One third was affected by sepsis and around 40% had a cancer disease.
 Just a minority of `r .tbl1("DVT")` had a venous thrombosis in their medical history.
 
 The patients got a prophylactic anticoagulation with low molecular weighted heparins in two third of all cases and just in a few unfractionated heparin was used.
-However, nearly one third had no thrombotic prophylaxis.
+However, nearly one third had no thrombotic prophylaxis at the time of CVC placement.
 
-In general the patients had an elevated WBC (median (IQR): `r .tbl1("WBC1")`, [Gpt/L]), CRP (`r .tbl1("CRP1")`, [mg/L]), and D-dimer (`r .tbl1("DDimer1")`, [mg/L]) on the first day.
+In general the patients had an elevated WBC (median (IQR): `r .tbl1("WBC1")`, [Gpt/L]), CRP (`r .tbl1("CRP1")`, [mg/L]), and D-dimer (`r .tbl1("DDimer1")`, [mg/L]) on the first day after CVC insertion.
 
 ## Analysis of CRT-free time
 
-The median to the first diagnosed CRT was one day for Arrow4, Braun3 and Vygon5.
+The median CRT-free time to the first diagnosed CRT was one day for Arrow4, Braun3 and Vygon5.
 A longer median CRT-free time was observered for Arrow3 and Arrow5 with `r .as.word(median(m$svf["ManLu=Arrow3"]))` and `r .as.word(median(m$svf["ManLu=Arrow5"]))` days, respectively (see table \@ref(tab:tablemedsurv) for details).
-Due to catheter withdrawal or discharge from the ICU in the median we could do follow-up ultrasound examinations just for `r .tbl1("FollowUp")` days.
+Due to catheter withdrawal or discharge from the ICU we could do follow-up ultrasound examinations just for `r .tbl1("FollowUp")` days.
 
 In detail we seen CRTs in `r crt <- sort(1 - .survival(m$svf, times = 1)); crt <- paste0(round(crt * 100), "% of all ", sub("^ManLu=", "", names(crt))); .cli_text("{ {crt}}")` CVCs on the first examination (within 24 hours; see also figure \@ref(fig:survplot)).
 Within a week after catheterization `r paste0(range(round((1 - .survival(m$svf, times = 7)) * 100)), collapse = " to ")`% of CVCs developed a CRT.
@@ -52,7 +52,7 @@ Adjusting the $p$-values for all `r ncmb <- ncol(combn(nlevels(m$data$ManLu), 2)
 
 ## Complications
 
-Despite the high CRT rate none of the patients got a PE or CLABSI.
+Despite the high CRT rate none of the patients got a pulmonary embolism or central line associated bloodstream infection.
 But we observed `r s <- sum(m$data$Complications == "symptomatic thrombosis", na.rm = TRUE); .cli_text("{(.as.word(s))} symptomatic {qty(s)}thrombos{?is/es}")`
 and `r s <- sum(m$data$Complications == "removal, suspected infection", na.rm = TRUE); .cli_text("{(.as.word(s))} {qty(s)}CVC{?s} {qty(s)}{?was/were} removed")` due to an suspected infection.
 In `r s <- sum(m$data$Complications == "closed lumen", na.rm = TRUE); .cli_text("{(.as.word(s))} {qty(s)}CVC{?s} closed lumens {qty(s)}{?was/were}")` reported.
@@ -60,10 +60,10 @@ In `r s <- sum(m$data$Complications == "closed lumen", na.rm = TRUE); .cli_text(
 ## Analysis of CRT risk factors
 
 In addition we applied multiple regression to determine the impact of different variables (see figure \@ref(fig:forestplot)).
-Therefore we keep just variables without missing values to keep the sample size.
+Therefore we ignore all variables with missing values to keep the sample size.
 Nevertheless even when we took all variables into account the results didn't changed much (see supplement for a regression with half the number of samples but all variables).
 
-As evident from the survival plots the type Arrow4 and Vygon5 are associated with an CRT.
+As evident from the survival plots the type Arrow4 and Vygon5 were associated with an CRT.
 Their hazard ratios were `r format(exp(rgcx$coefficients["ManLuArrow4"]), digits = 2)` and `r format(exp(rgcx$coefficients["ManLuVygon5"]), digits = 2)`.
 Beside the CVC types a cancer disease was another risk factor associated with CRT with an hazard ratio of `r format(exp(rgcx$coefficients["Canceryes"]), digits = 2)`.
 Cancer is an inhomogeneous category of diseases that was always diagnosed before the CVC was inserted.
@@ -71,4 +71,4 @@ Nevertheless we didn't stratified our regression model for cancer because of ver
 (`r paste(round(c(m$svd$chisq, m$svd.strata.cancer$chisq), 1), collapse = " vs ")`).
 While sex was not a significant risk factor we also test and reject stratification for sex for the same reason
 (`r paste(round(c(m$svd$chisq, m$svd.strata.sex$chisq), 1), collapse = " vs ")`).
-Because it is very unlikely the investigated covariates, with exception of the laboratory measurements, change of the time of this short observation period we didn't inspect the time dependency of them.
+Because it is very unlikely that the investigated covariates, with exception of the laboratory measurements, change over the time of this short observation period we didn't inspect the time dependency of them.

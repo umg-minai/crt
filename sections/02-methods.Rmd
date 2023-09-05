@@ -29,7 +29,7 @@ To ensure constant and high image quality the ultrasound examination was always 
 trained in point-of-care ultrasound and intensive care medicine with an experience of more than two years.
 Subsequently the recorded images and videos were reviewed by a second independent intensivist (SG) with more than seven years experience in point-of-care ultrasound.
 Neither of them was involved in the placement of the CVCs nor in the treatment of the critical ill patients.
-The findings were not communicated to the treating clinician.
+The findings were not communicated to the treating clinicians.
 
 ## Catheter types
 
