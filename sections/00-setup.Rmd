@@ -137,7 +137,7 @@ cvc$isExcluded <- !is.na(cvc$ExclusionReason)
 
 #' @param svf survfit object
 #' @param times numeric, times to evaluate
-.survsummary <- function(svf, times, type = c("n.event", "n.risk")) {
+.survsummary <- function(svf, times, type = c("surv", "n.event", "n.risk")) {
     type <- match.arg(type, several.ok = TRUE)
     ntype <- length(type)
 
@@ -155,7 +155,11 @@ cvc$isExcluded <- !is.na(cvc$ExclusionReason)
 }
 
 .nrisk <- function(svf, times = c(1, 3, 5, 7, 9, 11, 13)) {
-    .survsummary(svf, times, type = "n.risk")
+    apply(.survsummary(svf, times, type = "n.risk"), 2, identity)
+}
+
+.survival <- function(svf, times = c(1, 3, 5, 7, 9, 11, 13)) {
+    apply(.survsummary(svf, times, type = "surv"), 2, identity)
 }
 
 .ncumevents <- function(svf, times = c(1, 3, 5, 7, 9, 11, 13)) {
