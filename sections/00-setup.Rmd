@@ -233,7 +233,7 @@ rgcx <- coxph(
     Surv(FUP, CRT) ~
         Sex + Age + ManLu +
         Side + PerioperativePlacement +
-        Sepsis + Cancer + DVT + AnticoagulationGroup,
+        Sepsis + Cancer + DVT + AnticoagulationGroup + WBC1,
     data = rd
 )
 
