@@ -53,9 +53,10 @@ cvc <- read.csv(frf("data", "extdata", "cvc.csv"))
 abbr <- setNames(character(ncol(cvc)), colnames(cvc))
 
 ## labels where the column names are identical to the abbreviation
-abbr["BMI"] <- "body mass index"
-abbr["DVT"] <- "deep vene thrombosis"
-abbr <- c(abbr,
+abbr <- c(
+    BMI = "body mass index",
+    CRT = "catheters-related thrombosis",
+    DVT = "deep vene thrombosis",
     WBC = "white blood counts",
     CRP = "C-related peptide",
     FV = "femoral vene",
