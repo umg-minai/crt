@@ -210,6 +210,18 @@ cvc$isExcluded <- !is.na(cvc$ExclusionReason)
 m <- .model(cvc)
 ```
 
+```{r stratified, include = FALSE}
+m$svd.strata.cancer <-
+    survdiff(Surv(FUP, CRT) ~ ManLu + strata(Cancer), data = m$data)
+m$svd.strata.sex <-
+    survdiff(Surv(FUP, CRT) ~ ManLu + strata(Sex), data = m$data)
+```
+
+```{r alternativemodels, include = FALSE}
+m.a5v5 <- .model(cvc[cvc$ManLu %in% c("Arrow5", "Vygon5"),])
+m.a4a5 <- .model(cvc[cvc$ManLu %in% c("Arrow4", "Arrow5"),])
+```
+
 ```{r regression, include = FALSE}
 rd <- droplevels(m$data)
 rd$WBC1 <- log(rd$WBC1)
