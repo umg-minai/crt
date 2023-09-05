@@ -378,6 +378,14 @@ tblsrv <-
 ```
 
 ```{r glmnet, include = FALSE}
+#step(
+#    rgcx,
+#    scope = list(
+#                 upper=~Sex + Age + ManLu + Manufacturer:Lumens + Lumens + Manufacturer + Side + PerioperativePlacement + Sepsis + Cancer + DVT + AnticoagulationGroup + WBC1 + DVT.CVC,
+#        lower=~ManLu
+#    )
+#)
+#
 #x <- model.matrix(
 #    Surv(FUP, CRT) ~
 #        Sex + Age + BMI + ManLu +
@@ -391,4 +399,5 @@ tblsrv <-
 #y <- Surv(rd$FUP[i], rd$CRT[i])
 #fit <- ameld::rcv.glmnet(x = x, y = y, family = "cox")
 #coef(fit, s = "lambda.min")
+#coef(fit)
 ```
