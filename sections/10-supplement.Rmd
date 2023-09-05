@@ -166,6 +166,112 @@ tbl_regression(rgcx.full, exponentiate = TRUE) |>
 ggforest(rgcx.full, data = rd.na)
 ```
 
+## Comparison CRT-free time
+
+### Comparison CRT-free time Arrow5 vs Vygon5
+
+```{r survplota5v5, echo = FALSE, fig.width = 12, fig.height = 7, fig.cap = "Survival plot showing CRT-free time for 5 lumen central venous catheters."}
+xlim <- c(0.8, max(times))
+mar <- c(0.1, 10.1, 1.1, 2.1)
+nms <- .manlu2txt(gsub("ManLu=", "", names(m.a5v5$svf$strata)))
+col <- c("#115dde", mcol["Vygon"])
+names(col) <- nms
+
+layout(matrix(1:3, nrow = 3), height = c(6, 1.0, 1.0))
+par(mar = c(5.1, mar[-1]))
+plot_surv(
+    m.a5v5$svf,
+    times = times,
+    xlim = xlim,
+    ylim = c(0, 1),
+    mark.time = TRUE,
+    conf.int = TRUE,
+    col = col,
+    lwd = 1,
+    main = "Thrombus free time of CVCs",
+    xlab = "time [days]"
+)
+legend(
+    "topright",
+    legend = c(nms, "95% confidence intervals"),
+    col = c(col, "black"),
+    lty = c("solid", "solid", "dotted"),
+    lwd = 1, seg.len = 3, bty = "n"
+)
+
+.revcol <- function(x)x[, rev(seq_len(ncol(x)))]
+nr <- drop(.nrisk(m.a5v5$svf))
+nce <- drop(.ncumevents(m.a5v5$svf))
+colnames(nr) <- colnames(nce) <- nms
+nr <- .revcol(nr)
+nce <- .revcol(nce)
+
+par(mar = mar)
+plot_table(
+    nr, at = times, xlim = xlim,
+    main = "Number at risk",
+    xaxis = FALSE, cex.text = 1.5, col = col[colnames(nr)]
+)
+par(mar = mar)
+plot_table(
+    nce, at = times, xlim = xlim,
+    main = "Cumulative number of events",
+    xaxis = FALSE, cex.text = 1.5, col = col[colnames(nce)]
+)
+```
+
+### Comparison CRT-free time Arrow4 vs Arrow5
+
+```{r survplota4a5, echo = FALSE, fig.width = 12, fig.height = 7, fig.cap = "Survival plot showing CRT-free time for 4 and 5 lumen central venous catheters."}
+xlim <- c(0.8, max(times))
+mar <- c(0.1, 10.1, 1.1, 2.1)
+nms <- .manlu2txt(gsub("ManLu=", "", names(m.a4a5$svf$strata)))
+col <- c(paste0("#115d", c("9e", "de")))
+names(col) <- nms
+
+layout(matrix(1:3, nrow = 3), height = c(6, 1.0, 1.0))
+par(mar = c(5.1, mar[-1]))
+plot_surv(
+    m.a5v5$svf,
+    times = times,
+    xlim = xlim,
+    ylim = c(0, 1),
+    mark.time = TRUE,
+    conf.int = TRUE,
+    col = col,
+    lwd = 1,
+    main = "Thrombus free time of CVCs",
+    xlab = "time [days]"
+)
+legend(
+    "topright",
+    legend = c(nms, "95% confidence intervals"),
+    col = c(col, "black"),
+    lty = c("solid", "solid", "dotted"),
+    lwd = 1, seg.len = 3, bty = "n"
+)
+
+.revcol <- function(x)x[, rev(seq_len(ncol(x)))]
+nr <- drop(.nrisk(m.a4a5$svf))
+nce <- drop(.ncumevents(m.a4a5$svf))
+colnames(nr) <- colnames(nce) <- nms
+nr <- .revcol(nr)
+nce <- .revcol(nce)
+
+par(mar = mar)
+plot_table(
+    nr, at = times, xlim = xlim,
+    main = "Number at risk",
+    xaxis = FALSE, cex.text = 1.5, col = col[colnames(nr)]
+)
+par(mar = mar)
+plot_table(
+    nce, at = times, xlim = xlim,
+    main = "Cumulative number of events",
+    xaxis = FALSE, cex.text = 1.5, col = col[colnames(nce)]
+)
+```
+
 ## LOT numbers
 
 ```{r lottable, echo = FALSE}
