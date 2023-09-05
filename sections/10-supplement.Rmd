@@ -40,11 +40,11 @@
     old.par <- par(no.readonly = TRUE)
     on.exit(par(old.par))
 
-    at.bp <- seq_len(ceiling(max(l$Day[!is.na(l$Size)]) / 2) * 4L)
-    at.bp <- at.bp[as.logical(at.bp %% 4)]
+    at.bp <- seq_len(ceiling(max(l$Day[!is.na(l$Size)]) / 2) * 6L)
+    at.bp <- at.bp[as.logical(at.bp %% 6)]
 
     boxplot(
-        Size ~ Manufacturer + Day,
+        Size ~ ManLu + Day,
         data = l,
         at = at.bp,
         col = paste0(col, "66"),
@@ -53,7 +53,7 @@
         main = NULL, xlab = NULL, ylab = NULL
     )
     beeswarm::beeswarm(
-        Size ~ Manufacturer + Day,
+        Size ~ ManLu + Day,
         data = l,
         at = at.bp,
         add = TRUE,
@@ -62,7 +62,7 @@
     )
     legend(
         "topright",
-        legend = levels(l$Manufacturer),
+        legend = .manlu2txt(levels(l$ManLu)),
         col = col,
         pch = 20,
         bty = "n"
@@ -72,7 +72,7 @@
     title(ylab = ylab, adj = 1L, col.lab = "#808080")
     axis(
         1L,
-        at = seq(from = 2, to = tail(at.bp, 1), by = 4),
+        at = seq(from = 2, to = tail(at.bp, 1), by = 6),
         labels = unique(l$Day[!is.na(l$Size)]),
         lwd.ticks = 0,
         col = "#808080"
@@ -84,40 +84,48 @@
 ## CRT height
 
 ```{r crtheight, fig.width = 15, fig.height = 10, echo = FALSE}
+cols <- c(paste0("#115d", c("6e", "9e", "de")), mcol[2:3])
 .crtplots(
-    cvc[c("Id", "Manufacturer", paste0("Height", 1:17))],
+    droplevels(cvc[!cvc$isExcluded, c("Id", "ManLu", paste0("Height", 1:17))]),
+    col = cols,
     xlab = "DAY",
     ylab = "HEIGHT [mm]"
 )
 .cmain(
     c(
-        "CRT height over time for ",
-        "Arrow", ", ", "Braun", " and ", "Vygon"
+        "CRT width over time for ",
+        "Arrow3", ", ", "Arrow4", ", ", "Arrow5", ", ",
+        "Braun", " and ", "Vygon"
     ),
     c(
         "black",
-        mcol["Arrow"], "black", mcol["Braun"], "black", mcol["Vygon"]
+        col[1], "black", cols[2], "black", cols[3], "black",
+        col[4], "black", cols[5]
     ),
     adj = 0L
 )
+
 ```
 
 ## CRT width
 
 ```{r crtwidth, fig.width = 15, fig.height = 10, echo = FALSE}
 .crtplots(
-    cvc[c("Id", "Manufacturer", paste0("Width", 1:17))],
+    droplevels(cvc[!cvc$isExcluded, c("Id", "ManLu", paste0("Width", 1:17))]),
+    col = cols,
     xlab = "DAY",
     ylab = "WIDTH [mm]"
 )
 .cmain(
     c(
         "CRT width over time for ",
-        "Arrow", ", ", "Braun", " and ", "Vygon"
+        "Arrow3", ", ", "Arrow4", ", ", "Arrow5", ", ",
+        "Braun", " and ", "Vygon"
     ),
     c(
         "black",
-        mcol["Arrow"], "black", mcol["Braun"], "black", mcol["Vygon"]
+        col[1], "black", cols[2], "black", cols[3], "black",
+        col[4], "black", cols[5]
     ),
     adj = 0L
 )
@@ -172,7 +180,7 @@ knitr::kable(
     col.names = c(
         "Id", "Manufacturer", "Type", "Lumens", "LOT", "PN", "Excluded"
     ),
-    caption = "LOT and part numbers (PN) of screened central venous catheters."
+    caption = "LOT and part numbers (PN) of examined central venous catheters."
 )
 ```
 
