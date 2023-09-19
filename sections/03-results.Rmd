@@ -44,7 +44,7 @@ Within a week after catheterization `r paste0(range(round((1 - .survival(m$svf, 
 
 The height and length of the thrombosis were largely constant over time.
 On the first day the median (IQR) height and length were `r .medLU(m$data$Height1)` mm and `r .medLU(m$data$Width1)` mm.
-However, the median (IRQ) largest dimenson of the thrombosis over all examinations were nearly identical: `r .medLU(m$data$HeightMax)` mm and `r .medLU(m$data$WidthMax)` mm (see supplement for a detailed figure).
+However, the median (IRQ) largest dimension of the thrombosis over all examinations were nearly identical: `r .medLU(m$data$HeightMax)` mm and `r .medLU(m$data$WidthMax)` mm (see supplement for a detailed figure).
 
 A statistical comparison between the CVC with the lowest CRT rate, Arrow5, against the ones with the highest CRT rate, yield an unadjusted $p$-value of `r round(m.a4a5$svd$pvalue, 2)` for Arrow4 and `r round(m.a5v5$svd$pvalue, 2)` for Vygon5.
 Adjusting the $p$-values for all `r ncmb <- ncol(combn(nlevels(m$data$ManLu), 2)); .as.word(ncmb)` possible comparisons of CVC types yield a $p$-value of
