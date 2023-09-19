@@ -79,6 +79,66 @@
     )
     axis(2L, col = "#808080", las = 2)
 }
+.crtovertime <- function(x, col, ylab) {
+    l <- reshape(
+        x,
+        idvar = "Id",
+        timevar = "Day",
+        v.names = "Size",
+        varying = list(seq_len(ncol(x))[-(1:2)]),
+        direction = "long"
+    )
+
+    mday <- max(l$Day[!is.na(l$Size)])
+    days <- seq_len(mday)
+    nl <- nlevels(l$ManLu)
+    group <- as.numeric(l$ManLu)
+    at <- ((group - 1) * (mday + 2)) + l$Day
+    l <- cbind(l, at)
+    rng <- tapply(l$at, l$ManLu, range)
+
+    plot(NA,
+        xlim = range(at), ylim = c(0, max(l$Size, na.rm = TRUE)),
+        frame = FALSE, xaxt = "n", yaxt = "n", ann = FALSE
+    )
+    points(at, l$Size, col = cols[l$ManLu], pch = 20, cex = 1.5)
+    for (i in unique(l$Id)) {
+        cur <- l[l$Id == i & !is.na(l$Size),]
+        if (nrow(cur))
+            arrows(
+                cur$at[-nrow(cur)], cur$Size[-nrow(cur)],
+                cur$at[-1], cur$Size[-1],
+                col = paste0(cols[cur$ManLu], "80"),
+                angle = 20, length = 0.1, lwd = 1.5
+            )
+    }
+
+    for (i in seq(along = rng))
+        lines(rng[[i]], c(0, 0), col = "#808080", lty = "dotted")
+    text(
+        x = vapply(rng, head, NA_real_, n = 1),
+        y = 0,
+        labels = "Day 1",
+        col = "#808080",
+        adj = c(0, 1)
+    )
+    text(
+        x = vapply(rng, tail, NA_real_, n = 1),
+        y = 0,
+        labels = paste0("DAY ", mday),
+        col = "#808080",
+        adj = c(1, 1)
+    )
+    text(
+        x = vapply(rng, head, NA_real_, n = 1),
+        y = 0,
+        labels = names(rng),
+        col = cols,
+        adj = c(0, 0)
+    )
+    title(ylab = ylab, adj = 1L, col.lab = "#808080")
+    axis(2L, col = "#808080", las = 2)
+}
 ```
 
 ## CRT height
@@ -91,11 +151,16 @@ cols <- c(paste0("#115d", c("6e", "9e", "de")), mcol[2:3])
     xlab = "DAY",
     ylab = "HEIGHT [mm]"
 )
+.crtovertime(
+    droplevels(cvc[!cvc$isExcluded, c("Id", "ManLu", paste0("Height", 1:17))]),
+    col = cols,
+    ylab = "HEIGHT [mm]"
+)
 .cmain(
     c(
-        "CRT width over time for ",
+        "CRT height over time for ",
         "Arrow3", ", ", "Arrow4", ", ", "Arrow5", ", ",
-        "Braun", " and ", "Vygon"
+        "Braun3", " and ", "Vygon5"
     ),
     c(
         "black",
@@ -104,7 +169,6 @@ cols <- c(paste0("#115d", c("6e", "9e", "de")), mcol[2:3])
     ),
     adj = 0L
 )
-
 ```
 
 ## CRT width
@@ -129,6 +193,26 @@ cols <- c(paste0("#115d", c("6e", "9e", "de")), mcol[2:3])
     ),
     adj = 0L
 )
+
+.crtovertime(
+    droplevels(cvc[!cvc$isExcluded, c("Id", "ManLu", paste0("Width", 1:17))]),
+    col = cols,
+    ylab = "WIDTH [mm]"
+)
+.cmain(
+    c(
+        "CRT width over time for ",
+        "Arrow3", ", ", "Arrow4", ", ", "Arrow5", ", ",
+        "Braun3", " and ", "Vygon5"
+    ),
+    c(
+        "black",
+        col[1], "black", cols[2], "black", cols[3], "black",
+        col[4], "black", cols[5]
+    ),
+    adj = 0L
+)
+
 ```
 
 ## Hazard ratios
