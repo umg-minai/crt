@@ -24,6 +24,7 @@ We used a linear probe with a frequency of 8-12 MHz.
 All patients were examined in the supine position.
 A CRT was diagnosed if an echogenic structure attached to the CVC was detected that was non-compressible and showed a pathological color doppler image.
 To determine the thrombosis size we measured the largest dimension (height) in short-axis and the longest one (length) in the long-axis view.
+An image or video was recorded if the size changed obviously or a thrombosis was found for the first time.
 We didn't screen arterial catheters or catheters for renal replacement or extracorporeal membrane oxygenation therapy.
 To ensure constant and high image quality the ultrasound examination was always performed by one of the authors (SE),
 trained in point-of-care ultrasound and intensive care medicine with an experience of more than two years.
@@ -38,6 +39,14 @@ We observed three different types of Arrow CVCs (Teleflex Medical GmbH, Germany)
 The three lumen Certofix protect trio (B. Braun SE, Germany) was made of a silikonized polyurethane, an embedded contrast medium barium sulfate and coated with
 antiseptic polyhexamethylene biguanide (polyhexanide; referred as Braun3).
 The five lumen multicath CVC (VYGON GmbH & Co. KG, Germany; referred as Vygon5) were made of polyurethane.
+
+## Outcome
+
+The primary outcome was the onset of CRT for each type of CVC.
+Because the reported CRT rates were very inhomogeneous we planned an
+observational study for a six month period and didn't estimate a sample size.
+Secondary outcomes were (1) difference between CRT-free time depending on the
+type of CVC and (2) risk factors for CRT.
 
 ## Statistical analysis
 
