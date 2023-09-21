@@ -257,6 +257,18 @@ rd.na <- na.omit(rd[c(
 
 ## all variables (reduced N, due to NA)
 rgcx.full <- coxph(Surv(FUP, CRT) ~ ., data = rd.na)
+
+## keep missing LOTs
+cvc.lots <- cvc
+cvc.lots$isExcluded[cvc$ExclusionReason == "Missing LOT"] <- FALSE
+rd.lots = droplevels(.model(cvc.lots)$data)
+rgcx.lots <- coxph(
+    Surv(FUP, CRT) ~
+        Sex + Age + ManLu +
+        Side + PerioperativePlacement +
+        Sepsis + Cancer + DVT + AnticoagulationGroup + WBC1,
+    data = rd.lots
+)
 ```
 
 ```{r tbl1, include = FALSE}

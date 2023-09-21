@@ -143,7 +143,7 @@
 
 ## CRT height
 
-```{r crtheight, fig.width = 15, fig.height = 10, echo = FALSE}
+```{r crtheightbp, fig.width = 15, fig.height = 10, echo = FALSE, fig.cap = "Boxplots of CRT height"}
 cols <- c(paste0("#115d", c("6e", "9e", "de")), mcol[2:3])
 .crtplots(
     droplevels(cvc[!cvc$isExcluded, c("Id", "ManLu", paste0("Height", 1:17))]),
@@ -151,6 +151,8 @@ cols <- c(paste0("#115d", c("6e", "9e", "de")), mcol[2:3])
     xlab = "DAY",
     ylab = "HEIGHT [mm]"
 )
+```
+```{r crtheightovertime, fig.width = 15, fig.height = 10, echo = FALSE, fig.cap = "CRT height over time"}
 .crtovertime(
     droplevels(cvc[!cvc$isExcluded, c("Id", "ManLu", paste0("Height", 1:17))]),
     col = cols,
@@ -173,27 +175,15 @@ cols <- c(paste0("#115d", c("6e", "9e", "de")), mcol[2:3])
 
 ## CRT width
 
-```{r crtwidth, fig.width = 15, fig.height = 10, echo = FALSE}
+```{r crtwidthbp, fig.width = 15, fig.height = 10, echo = FALSE, fig.cap = "Boxplots of CRT width"}
 .crtplots(
     droplevels(cvc[!cvc$isExcluded, c("Id", "ManLu", paste0("Width", 1:17))]),
     col = cols,
     xlab = "DAY",
     ylab = "WIDTH [mm]"
 )
-.cmain(
-    c(
-        "CRT width over time for ",
-        "Arrow3", ", ", "Arrow4", ", ", "Arrow5", ", ",
-        "Braun", " and ", "Vygon"
-    ),
-    c(
-        "black",
-        col[1], "black", cols[2], "black", cols[3], "black",
-        col[4], "black", cols[5]
-    ),
-    adj = 0L
-)
-
+```
+```{r crtwidthovertime, fig.width = 15, fig.height = 10, echo = FALSE, fig.cap = "CRT width over time"}
 .crtovertime(
     droplevels(cvc[!cvc$isExcluded, c("Id", "ManLu", paste0("Width", 1:17))]),
     col = cols,
@@ -212,7 +202,6 @@ cols <- c(paste0("#115d", c("6e", "9e", "de")), mcol[2:3])
     ),
     adj = 0L
 )
-
 ```
 
 ## Hazard ratios
@@ -232,6 +221,20 @@ tbl_regression(rgcx, exponentiate = TRUE) |>
     )
 ```
 
+```{r supplhrtablelots, echo = FALSE, message = FALSE}
+theme_gtsummary_journal()
+theme_gtsummary_compact(font_size = 8L)
+
+tbl_regression(rgcx.lots, exponentiate = TRUE) |>
+    modify_caption(
+        paste0(
+            "Hazard ratios for Cox regression using assuming that ",
+            "central venous catheters with missing LOTs where of the major type ",
+            "each manufacturer. Sample size of N=", rgcx.lots$n, "."
+        )
+    )
+```
+
 ```{r supplhrtablefull, echo = FALSE, message = FALSE}
 theme_gtsummary_journal()
 theme_gtsummary_compact(font_size = 8L)
@@ -246,7 +249,11 @@ tbl_regression(rgcx.full, exponentiate = TRUE) |>
     )
 ```
 
-```{r forestplotfull, echo = FALSE, fig.width = 12, fig.height = 12, fig.cap = "Hazard ratios"}
+```{r forestplotlots, echo = FALSE, fig.width = 12, fig.height = 12, fig.cap = "Hazard ratios for all central venous catheters assuming missing LOTs where major types of each manufacturer."}
+ggforest(rgcx.lots, data = rd.lots)
+```
+
+```{r forestplotfull, echo = FALSE, fig.width = 12, fig.height = 12, fig.cap = "Hazard ratios for all available variables but with reduced sample size."}
 ggforest(rgcx.full, data = rd.na)
 ```
 
