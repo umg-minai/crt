@@ -103,21 +103,32 @@ cvc$Complications <- relevel(cvc$Complications, ref = "None")
 ```
 
 ```{r exclusion, include = FALSE}
+cvc$ExclusionReason[duplicated(cvc$CaseId)] <-
+    "Not the first CVC"
+cvc$isExcluded <- !is.na(cvc$ExclusionReason)
+
 cvc$ExclusionReason[cvc$Site != "IJV"] <-
     paste("Site:", as.character(cvc$Site[cvc$Site != "IJV"]))
+cvc$isExcluded <- !is.na(cvc$ExclusionReason)
 
-cvc$ExclusionReason[cvc$External == "yes"] <- paste("Not inserted in-house")
+cvc$ExclusionReason[cvc$External == "yes" & !cvc$isExcluded] <-
+    paste("Not inserted in-house")
+cvc$isExcluded <- !is.na(cvc$ExclusionReason)
 
 nManLu <- table(cvc$ManLu)
-isLowN <- cvc$ManLu %in% names(nManLu)[nManLu < 5]
+isLowN <- cvc$ManLu %in% names(nManLu)[nManLu < 5] & !cvc$isExcluded
 cvc$ExclusionReason[isLowN] <-
     paste0("Lumen: ", cvc$Lumens[isLowN], ", ", cvc$Manufacturer[isLowN])
 cvc$ExclusionReason[cvc$ManLu == "Arrow5" & grepl("ARROWgard", cvc$Type)] <-
     "Lumen: 5, Arrow"
+cvc$isExcluded <- !is.na(cvc$ExclusionReason)
 
-cvc$ExclusionReason[cvc$AnticoagulationGroup == "DOAC"] <- "Anticoagulation: DOAC"
-cvc$ExclusionReason[duplicated(cvc$CaseId)] <- "Not the first CVC"
+cvc$ExclusionReason[cvc$AnticoagulationGroup == "DOAC" & !cvc$isExcluded] <-
+    "Anticoagulation: DOAC"
+cvc$isExcluded <- !is.na(cvc$ExclusionReason)
 
+cvc$ExclusionReason[is.na(cvc$LOT) & !cvc$isExcluded] <-
+    "Missing LOT"
 cvc$isExcluded <- !is.na(cvc$ExclusionReason)
 ```
 

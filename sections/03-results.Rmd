@@ -3,14 +3,15 @@
 ## Baseline characteristics
 
 During the six month study period we examined `r nrow(cvc)` CVCs of
-`r sum(!duplicated(cvc$CaseId))` consecutive critical ill patients on our ICU for CRT (see supplement for a complete list).
+`r sum(!duplicated(cvc$CaseId))` consecutive critical ill patients on our ICU for CRT (see supplement \@ref(tab:lottable) for a complete list).
 
 We had to exclude `r sum(cvc$isExcluded)` CVCs (\@ref(fig:consort-flowchart)).
-Initially we decided to include just the first CVC for each patient and excluded `r sum(cvc$ExclusionReason == "Not the first CVC", na.rm = TRUE)` consecutive CVCs.
+Initially we decided to include just the first CVC of each patient and excluded `r sum(cvc$ExclusionReason == "Not the first CVC", na.rm = TRUE)` consecutive CVCs.
 Because the entrance of the catheter into the femoral or the subclavian vene was often challenging to visualize with ultrasound
 we focus on the internal jugular vene (IVJ) and ignored `r sum(cvc$ExclusionReason == "Site: FV", na.rm = TRUE)` and `r sum(cvc$ExclusionReason == "Site: SCV", na.rm = TRUE)` CVCs, respectively.
 Additionally we had to exclude in total `r .as.word(length(grep("Lumen", cvc$ExclusionReason)) + sum(cvc$ExclusionReason == "Not inserted in-house", na.rm = TRUE))` CVCs because of the very small number of catheters of this type (e.g. `r ncvc <- .as.word(sum(cvc$ManLu == "Arrow5" & grepl("ARROWgard", cvc$Type))); .cli_text("{ncvc} CVC{?s}")` by Arrow, 5 lumens with ARROWgard Blue (1st generation) coating) or because they were inserted in a foreign hospital and we were unable to verify the time of insertion.
-Drugs for direct oral anticoagulation (DOACs) are an inhomogeneous group and we screened just `r s <- length(grep("DOAC", cvc$ExclusionReason)); .cli_text("{(.as.word(s))} {qty(s)}patient{?s}")` with different DOACs and exclude both.
+Drugs for direct oral anticoagulation (DOACs) are an inhomogeneous group and uncommon on our ICU. We screened just `r s <- length(grep("DOAC", cvc$ExclusionReason)); .cli_text("{(.as.word(s))} {qty(s)}patient{?s} with {qty(s)}{?a/different} {qty(s)}DOAC{?s} and decided to exclude {qty(s)}{?this/these} {qty(s)}CVC{?s}")`.
+Due to missing or unreadable LOT information we had to exclude `r sum(cvc$ExclusionReason == "Missing LOT")` CVCs.
 Finally we kept `r sum(!cvc$isExcluded)` first-time CVCs and patients for our analysis (see \@ref(tab:table1)).
 
 Of the `r sum(!cvc$isExcluded)` analyzed patients,
@@ -44,7 +45,7 @@ Within a week after catheterization `r paste0(range(round((1 - .survival(m$svf, 
 
 The height and length of the thrombosis were largely constant over time.
 On the first day the median (IQR) height and length were `r .medLU(m$data$Height1)` mm and `r .medLU(m$data$Width1)` mm.
-However, the median (IRQ) largest dimension of the thrombosis over all examinations were nearly identical: `r .medLU(m$data$HeightMax)` mm and `r .medLU(m$data$WidthMax)` mm (see supplement for a detailed figure).
+However, the median (IRQ) largest dimension of the thrombosis over all examinations were nearly identical: `r .medLU(m$data$HeightMax)` mm and `r .medLU(m$data$WidthMax)` mm (see supplement \@ref(fig:crtheightbp) to \@ref(fig:crtwidthovertime) for detailed figures).
 
 A statistical comparison between the CVC with the lowest CRT rate, Arrow5, against the ones with the highest CRT rate, yield an unadjusted $p$-value of `r round(m.a4a5$svd$pvalue, 2)` for Arrow4 and `r round(m.a5v5$svd$pvalue, 2)` for Vygon5.
 Adjusting the $p$-values for all `r ncmb <- ncol(combn(nlevels(m$data$ManLu), 2)); .as.word(ncmb)` possible comparisons of CVC types yield a $p$-value of

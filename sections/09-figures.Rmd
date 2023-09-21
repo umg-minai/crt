@@ -11,8 +11,12 @@ narms <- narms[narms > 0]
 arms <- .manlu2txt(names(narms))
 excl <- table(cvc$ExclusionReason)
 eord <- c(
+    grep("Not the first", names(excl)),
     grep("Site", names(excl)),
-    grep("Lumen", names(excl))
+    grep("Not inserted ", names(excl)),
+    grep("Lumen", names(excl)),
+    grep("Missing LOT", names(excl)),
+    grep("DOAC", names(excl))
 )
 eord <- c(seq_len(length(excl))[eord], seq_len(length(excl))[-eord])
 excl <- excl[eord]
