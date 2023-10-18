@@ -8,11 +8,11 @@ in or admitted to our surgical intensive care unit (ICU)
 in a six month period, from March 2022 to August 2022.
 
 We enrolled all consecutive adult patients with a CVC on our ICU during the study period.
-All CVCs were placed in the operation theatre or on the ICU using ultrasound-assisted insertion approach and maximal barrier precautions according to local guidelines.
+All CVCs were placed in the operation theatre or the ICU using ultrasound-assisted insertion approach and maximal barrier precautions according to local guidelines.
 Skin antiseptic was done with octenidine dihydrochlordie, 1-propanol, 2-propanol (octeniderm colourless, Schülke & Mayr GmbH, Norderstedt, Germany).
 The clinicians inserting the CVCs chose the appropriated CVC size, number of lumens, insertion site and side at their discretion.
 They were asked to document the manufacturer, the LOT (identification) number, the number of attempts, any complications and their expertise.
-If the patient had a blood collection on the screening day we ordered White blood cells (WBC), C-related peptide (CRP) and D-dimers.
+If the patient had a blood collection on the screening day we ordered white blood cells (WBC), C-related peptide (CRP) and D-dimers.
 
 The Ethics Committee at the University Medicine Greifswald
 approved this study (reference number: BB 006/22).
@@ -38,7 +38,7 @@ Due to supply shortage a controlled randomisation was not feasible and various t
 We observed three different types of Arrow CVCs (Teleflex Medical GmbH, Germany), namely the classic polyurethane CVCs with three and five lumens (referred as Arrow3 and Arrow5), and the chlorhexidine acetate and silver sulfadiazine coated polyurethane catheters ARROWgard Blue (1st generation) with 4 lumens (referred as Arrow4).
 The three lumen Certofix protect trio (B. Braun SE, Germany) was made of a silikonized polyurethane, an embedded contrast medium barium sulfate and coated with
 antiseptic polyhexamethylene biguanide (polyhexanide; referred as Braun3).
-The five lumen multicath CVC (VYGON GmbH & Co. KG, Germany; referred as Vygon5) were made of polyurethane.
+The five lumen multicath CVC (VYGON GmbH & Co. KG, Germany; referred as Vygon5) were made of polyurethane without any special coating.
 
 ## Outcome
 
@@ -50,7 +50,7 @@ type of CVC and (2) risk factors for CRT.
 
 ## Statistical analysis
 
-All data processing and statistical analyses wer performed using R version
+All data processing and statistical analyses were performed using R version
 `r paste0(sessionInfo()$R.version[c("major", "minor")], collapse = ".")`
 [@R-base].
 

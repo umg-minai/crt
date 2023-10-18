@@ -3,15 +3,15 @@
 ## Baseline characteristics
 
 During the six month study period we examined `r nrow(cvc)` CVCs of
-`r sum(!duplicated(cvc$CaseId))` consecutive critical ill patients on our ICU for CRT (see supplement \@ref(tab:lottable) for a complete list).
+`r sum(!duplicated(cvc$CaseId))` consecutive critical ill patients in our ICU for CRT (see supplement \@ref(tab:lottable) for a complete list).
 
 We had to exclude `r sum(cvc$isExcluded)` CVCs (\@ref(fig:consort-flowchart)).
 Initially we decided to include just the first CVC of each patient and excluded `r sum(cvc$ExclusionReason == "Not the first CVC", na.rm = TRUE)` consecutive CVCs.
 Because the entrance of the catheter into the femoral or the subclavian vene was often challenging to visualize with ultrasound
 we focus on the internal jugular vene (IVJ) and ignored `r sum(cvc$ExclusionReason == "Site: FV", na.rm = TRUE)` and `r sum(cvc$ExclusionReason == "Site: SCV", na.rm = TRUE)` CVCs, respectively.
 Additionally we had to exclude in total `r .as.word(length(grep("Lumen", cvc$ExclusionReason)) + sum(cvc$ExclusionReason == "Not inserted in-house", na.rm = TRUE))` CVCs because of the very small number of catheters of this type (e.g. `r ncvc <- .as.word(sum(cvc$ManLu == "Arrow5" & grepl("ARROWgard", cvc$Type))); .cli_text("{ncvc} CVC{?s}")` by Arrow, 5 lumens with ARROWgard Blue (1st generation) coating) or because they were inserted in a foreign hospital and we were unable to verify the time of insertion.
-Drugs for direct oral anticoagulation (DOACs) are an inhomogeneous group and uncommon on our ICU. We screened just `r s <- length(grep("DOAC", cvc$ExclusionReason)); .cli_text("{(.as.word(s))} {qty(s)}patient{?s} with {qty(s)}{?a/different} {qty(s)}DOAC{?s} and decided to exclude {qty(s)}{?this/these} {qty(s)}CVC{?s}")`.
-Due to missing or unreadable LOT information we had to exclude `r sum(cvc$ExclusionReason == "Missing LOT")` CVCs.
+Drugs for direct oral anticoagulation (DOACs) are an inhomogeneous group and uncommon in our ICU. We screened just `r s <- length(grep("DOAC", cvc$ExclusionReason)); .cli_text("{(.as.word(s))} {qty(s)}patient{?s} with {qty(s)}{?a/different} {qty(s)}DOAC{?s} and decided to exclude {qty(s)}{?this/these} {qty(s)}CVC{?s}")`.
+Due to missing or unreadable LOT information we had to exclude `r sum(cvc$ExclusionReason == "Missing LOT", na.rm = TRUE)` CVCs.
 Finally we kept `r sum(!cvc$isExcluded)` first-time CVCs and patients for our analysis (see \@ref(tab:table1)).
 
 Of the `r sum(!cvc$isExcluded)` analyzed patients,
@@ -22,12 +22,12 @@ The median (IQR) age was `r .tbl1("Age")` and the median body mass index (BMI) (
 Most of them were inserted in the right IJV (`r r <- m$data$Side == "right"; sprintf("%i (%s)", sum(r), gtsummary::style_percent(mean(r), symbol = TRUE))`).
 In a little more than half of the cases a skin incision was done prior to CVC introduction.
 Two third of all CVCs were placed by experienced physicians who had inserted more than 50 CVCs.
-The same amount of CVCs was indicated on the ICU and outside the operating room.
+The same amount of CVCs was indicated in the ICU and outside the operating room.
 We examined the catheters by ultrasound `r .tbl1("FirstExam")` hours after insertion.
 
 Over 80% of the patients admitted to our ICU had a surgery before.
 One third was affected by sepsis and around 40% had a cancer disease.
-Just a minority of `r .tbl1("DVT")` had a venous thrombosis in their medical history.
+Just a minority of `r .tbl1("DVT")` patients had a venous thrombosis in their medical history.
 
 The patients got a prophylactic anticoagulation with low molecular weighted heparins in two third of all cases and just in a few unfractionated heparin was used.
 However, nearly one third had no thrombotic prophylaxis at the time of CVC placement.

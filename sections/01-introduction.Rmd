@@ -1,10 +1,10 @@
 # Introduction
 
-Central venous catheters (CVCs) are commonly used during larger surgical procedures and in critical ill patients [@Geerts2014].
+Central venous catheters (CVCs) are commonly used during major surgical procedures and in critical ill patients [@Geerts2014].
 Catheter-related thrombosis (CRT) is one of the major complications of CVCs and a major risk factor of pulmonary embolism and catheter-related bloodstream infections [@Geerts2014;@Malinoski2013].
 
-Most of the CRTs are asymptomatic and patients with CVCs are infrequently screened for CRT.
-The incidence of CRT varies widely between medical and surgical patients from 6 to 56%, respectively [@Haggstrom2020;@Wu2023;@Malinoski2013;@Yamashita2020;@Wu1999].
+Most of the CRTs are asymptomatic and patients with CVCs are infrequently screened for CRT in daily routine.
+The incidence of CRT in previous studies varies widely between medical and surgical patients from 6 to 56%, respectively [@Haggstrom2020;@Wu2023;@Malinoski2013;@Yamashita2020;@Wu1999].
 A recently published study applied a daily ultrasound-assessment and found a median time to CRT of four days in mostly medical critical ill patients with an incidence of 16.9% [@Wu2023].
 The perioperative hypercoagulability in surgical patients may explain the higher incidence of CRT with more than 50%.
 However despite the much higher incidence the onset of CRT in surgical patients is still unkown.

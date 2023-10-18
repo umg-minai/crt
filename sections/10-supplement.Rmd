@@ -230,7 +230,7 @@ tbl_regression(rgcx.lots, exponentiate = TRUE) |>
         paste0(
             "Hazard ratios for Cox regression using assuming that ",
             "central venous catheters with missing LOTs where of the major type ",
-            "each manufacturer. Sample size of N=", rgcx.lots$n, "."
+            "of each manufacturer. Sample size of N=", rgcx.lots$n, "."
         )
     )
 ```
