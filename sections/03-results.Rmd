@@ -66,10 +66,12 @@ Nevertheless even when we took all variables into account the results didn't cha
 
 As evident from the survival plots the type Arrow4 and Vygon5 were associated with an CRT.
 Their hazard ratios were `r format(exp(rgcx$coefficients["ManLuArrow4"]), digits = 2)` and `r format(exp(rgcx$coefficients["ManLuVygon5"]), digits = 2)`.
-Beside the CVC types a cancer disease was another risk factor associated with CRT with an hazard ratio of `r format(exp(rgcx$coefficients["Canceryes"]), digits = 2)`.
-Cancer is an inhomogeneous category of diseases that was always diagnosed before the CVC was inserted.
+Beside the CVC types no therapeutic anticoagulation prior to CVC placement was another risk factor associated with CRT with an hazard ratio of `r format(exp(rgcx$coefficients["AnticoagulationGroupNone"]), digits = 2)`.
+Cancer was also associated with CRT (hazard ratio `r format(exp(rgcx$coefficients["AnticoagulationGroupNone"]), digits = 2)`) but is an inhomogeneous category of diseases.
+In our cases it was always diagnosed before the CVC was inserted.
 Nevertheless we didn't stratified our regression model for cancer because of very similar chi-square values for the (un)stratified models
 (`r paste(round(c(m$svd$chisq, m$svd.strata.cancer$chisq), 1), collapse = " vs ")`).
 While sex was not a significant risk factor we also test and reject stratification for sex for the same reason
 (`r paste(round(c(m$svd$chisq, m$svd.strata.sex$chisq), 1), collapse = " vs ")`).
-Because it is very unlikely that the investigated covariates, with exception of the laboratory measurements, change over the time of this short observation period we didn't inspect the time dependency of them.
+Neither age, side, sepsis, previous deep venous thrombosis (DVT), nor WBC on the first day were associated with an higher CRT rate.
+Because it is very unlikely that the investigated covariates, with exception of the laboratory measurements, change over the time of this short observation period we didn't inspect any time dependency.
