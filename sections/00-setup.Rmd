@@ -103,10 +103,6 @@ cvc$Complications <- relevel(cvc$Complications, ref = "None")
 ```
 
 ```{r exclusion, include = FALSE}
-cvc$ExclusionReason[duplicated(cvc$CaseId)] <-
-    "Not the first CVC"
-cvc$isExcluded <- !is.na(cvc$ExclusionReason)
-
 cvc$ExclusionReason[cvc$Site != "IJV"] <-
     paste("Site:", as.character(cvc$Site[cvc$Site != "IJV"]))
 cvc$isExcluded <- !is.na(cvc$ExclusionReason)
@@ -130,6 +126,11 @@ cvc$isExcluded <- !is.na(cvc$ExclusionReason)
 cvc$ExclusionReason[is.na(cvc$LOT) & !cvc$isExcluded] <-
     "Missing LOT"
 cvc$isExcluded <- !is.na(cvc$ExclusionReason)
+
+cvc$ExclusionReason[duplicated(cvc$CaseId)] <-
+    "Not the first CVC"
+cvc$isExcluded <- !is.na(cvc$ExclusionReason)
+
 ```
 
 ```{r helper, include = FALSE}
