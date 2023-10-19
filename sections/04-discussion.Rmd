@@ -6,35 +6,35 @@ This incidence of CRT is much higher than previous reported 28 to 56% for IVJ CV
 To our knowledge the time of thrombosis onset was not investigated in surgical patients before.
 The median (IQR) time from CVC insertion to CRT diagnosis over all CVCs was `r .medLU(survfit(Surv(FUP, CRT) ~ 1, data = m$data), prec = ".0")` days which is comparable to the previous reported 4 (2, 7) days
 for CRT onset in medical critical ill patients [@Wu2023].
-While in critical ill patients the CRT develops slowly and just 12% of CRTs were seen on day one we have found CRT in up to `r .pct(1 - min(.survsummary(m$svf, times = 1, type = "surv")))` CVCs within the first 24 hours.
+While in critical ill patients the CRT develops slowly and just 12% of CRTs were seen on day one we have found depending on the type of CVC a CRT in up to `r .pct(1 - min(.survsummary(m$svf, times = 1, type = "surv")))` CVCs within the first 24 hours.
 That highlights the importance to check the indication for a CVC critically in the first place, scrutinize it on a daily basis and remove the CVC as early as possible.
 
 Depending on the type of CVC the median onset of CRT varies
 varies from `r paste0(.as.word(range(median(m$svf))), c(" day for Arrow4 and Vygon5", " days for Arrow5 and Braun3"), collapse = " to ")`.
 It is difficult to argue about causes due to different manufacturers and material.
-Previously different incidences of pulmonary embolism due to CRT were reported for patients with
+Previously different incidences of PE due to CRT were reported for patients with
 polyvinyle chloride or polyvinyle catheters compared to patients with
 polyurethane or siliconized catheters favouring the latter [@Monreal1994].
-For Arrow we had two different type of CVCs, namely the classic polyurethane and the
+We had two different types of CVCs by Arrow, namely the classic polyurethane and the
 chlorhexidine acetate and silver sulfadiazine coated polyurethane catheters ARROWgard Blue (1st generation).
 Others have reported a reduced CRT rate with a chlorhexidine gluconate gel dressing alone [@Yamashita2020].
 In contrast we have seen a higher CRT rate in the chlorhexidine acetate coated CVCs.
-While the chlorhexidine should reduce central line-associated bloodstream infection (CLABSI) it may yield more CRT which is itself a risk factor for CLABSI.
+While the chlorhexidine should reduce CLABSI it may yield more CRT which is itself a major risk factor for CLABSI.
 
 Most CRT was associated directly to the vascular endothel.
 We assume that vascular damage due to the CVC inseration in combination with
 the perioperative hypercoagulability and inflammation promote CRT development and could explain the higher incidence and faster onset in comparison to medical patients in other studies.
 
-The guideline antithrombotic therapy for venous thrombotic embolism (VTE) of American College of Chest Physicians defines an extensive VTE with a diameter of more than 7 mm and a length of more than 50 mm [@Kearon2012].
+The guideline "antithrombotic therapy for venous thrombotic embolism (VTE)" of the American College of Chest Physicians defines an extensive VTE with a diameter of more than 7 mm and a length of more than 50 mm [@Kearon2012].
 Using these thresholds our CRTs were small.
 None of our CRTs were longer than 50 mm and just `r .pct(mean(cvc$HeightMax[!cvc$isExcluded] > 7, na.rm = TRUE))` had a maximal height larger than 7 mm.
 Because of the irregular, non-circular shape of the CRT, which is often attached on one side of the CVC the largest height is not necessarily identical to the diameter.
-In comparison in medical critical ill patients the CRTs were of similar size with a higher rate of thicker CRTs (30% above 7 mm) and none longer than 50 mm as well.
+In comparison to medical critical ill patients the CRTs were of similar size with a higher rate of thicker CRTs (30% above 7 mm) and none longer than 50 mm as well [@Wu2023].
 
 While the size of CRT and its progression was neither our primary nor secondary outcome and we didn't measure the size every day if it was not obviously different to the already recorded image most CRT where stable in size.
 This is in line with results previously reported [@Wu2023].
 We assume that the main reason for CRT development is the initial endothelian/vascular trauma and the inflammation state.
-Obstruction and catheter-to-vessel ratio may play an inferior role.
+Obstruction, catheter-to-vessel ratio and volume status may play an inferior role.
 
 In our ICU CVCs aren't routinely screened for CRT and we didn't inform the treating clinicians about our findings.
 Despite the high incidence of CRT we didn't observe any negative outcome.
@@ -66,5 +66,5 @@ Cancer is a well know risk factor for CRT [@Geerts2014; @Kahale2018; @Haggstrom2
 However cancer includes different type of malignancies but due to our relative small sample size we could not do any subgroup analysis on the type of cancer.
 We did not record the type and duration of the surgery which may have an influence on the incidence of CRT as well.
 
-Due to many missing information our study is underpowered to investigate the effect of multiple insertion attempts and the experience of the operator.
-However previous studies have shown that the number of insertion attempts and experience of the operator may be unrelated to CRT [@Timsit1998; @Leung2016].
+Due to missing information our study is underpowered to give a conclusion on the effect of multiple insertion attempts and the experience of the operator.
+However in the reduced sample size we not seen any difference (see supplement) which is in line with previous studies that have shown that the number of insertion attempts and experience of the operator may be unrelated to CRT [@Timsit1998; @Leung2016].

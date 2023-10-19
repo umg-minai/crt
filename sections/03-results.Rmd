@@ -22,7 +22,7 @@ The median (IQR) age was `r .tbl1("Age")` and the median body mass index (BMI) (
 Most of them were inserted in the right IJV (`r r <- m$data$Side == "right"; sprintf("%i (%s)", sum(r), gtsummary::style_percent(mean(r), symbol = TRUE))`).
 In a little more than half of the cases a skin incision was done prior to CVC introduction.
 Two third of all CVCs were placed by experienced physicians who had inserted more than 50 CVCs.
-The same amount of CVCs was indicated in the ICU and outside the operating room.
+Roughly the same amount of CVCs was indicated in the ICU and outside the operating room.
 We examined the catheters by ultrasound `r .tbl1("FirstExam")` hours after insertion.
 
 Over 80% of the patients admitted to our ICU had a surgery before.
@@ -53,7 +53,7 @@ Adjusting the $p$-values for all `r ncmb <- ncol(combn(nlevels(m$data$ManLu), 2)
 
 ## Complications
 
-Despite the high CRT rate none of the patients got a pulmonary embolism or central line associated bloodstream infection.
+Despite the high CRT rate none of the patients got a PE or CLABSI.
 But we observed `r s <- sum(m$data$Complications == "symptomatic thrombosis", na.rm = TRUE); .cli_text("{(.as.word(s))} symptomatic {qty(s)}thrombos{?is/es}")`
 and `r s <- sum(m$data$Complications == "removal, suspected infection", na.rm = TRUE); .cli_text("{(.as.word(s))} {qty(s)}CVC{?s} {qty(s)}{?was/were} removed")` due to an suspected infection.
 In `r s <- sum(m$data$Complications == "closed lumen", na.rm = TRUE); .cli_text("{(.as.word(s))} {qty(s)}CVC{?s} closed lumens {qty(s)}{?was/were}")` reported.
