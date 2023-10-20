@@ -343,7 +343,7 @@ tbl1 <- m$data |>
             Side ~ "Side of insertion (left)",
             Experience ~ "Experience (number of CVCs in the past)",
             Attempts2 ~ "More than one insertion attempt",
-            PerioperativePlacement ~ "Placement outside the OR",
+            PerioperativePlacement ~ "Placement in the OR",
             AnticoagulationGroup ~ "Type of anticoagulation drug",
             WBC1 ~ "WBC day 1 [Gpt/L]",
             DDimer1 ~ "D-dimer day 1 [mg/L]",
