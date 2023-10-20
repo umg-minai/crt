@@ -38,8 +38,9 @@ $(OUTPUTDIR)/%.docx: %.Rmd $(RMD) $(DATA) guix/channels.pinned.scm guix/manifest
 $(DISTDIR):
 	@mkdir -p $(DISTDIR)
 
-dist: $(OUTPUTDIR)/$(MANUSCRIPT).docx | $(DISTDIR)
-	@cp $< $(DISTDIR)/"$(DATE)_$(GITHEAD)_$(MANUSCRIPT).docx"
+dist: $(OUTPUTDIR)/$(MANUSCRIPT).docx $(OUTPUTDIR)/$(MANUSCRIPT).html | $(DISTDIR)
+	cp $(OUTPUTDIR)/$(MANUSCRIPT).docx $(DISTDIR)/"$(DATE)_$(GITHEAD)_$(MANUSCRIPT).docx"
+	cp $(OUTPUTDIR)/$(MANUSCRIPT).html $(DISTDIR)/"$(DATE)_$(GITHEAD)_$(MANUSCRIPT).html"
 
 ## start guix development environment
 env: guix/channels.pinned.scm
