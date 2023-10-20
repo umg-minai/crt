@@ -22,21 +22,19 @@ In contrast we have seen a higher CRT rate in the chlorhexidine acetate coated C
 While the chlorhexidine should reduce CLABSI it may yield more CRT which is itself a major risk factor for CLABSI.
 
 Most CRT was associated directly to the vascular endothel.
-We assume that vascular damage due to the CVC inseration in combination with
-the perioperative hypercoagulability and inflammation promote CRT development and could explain the higher incidence and faster onset in comparison to medical patients in other studies.
+We assume that the major factors of the Virchow's triad of thrombosis for CRT development are the initial endothelian trauma and the hypercoagulability due to perioperative stress and the inflammation state.
+Venous stasis due to obstruction, catheter-to-vessel ratio and volume status may play an inferior role in the first days but may be more important in the long term.
+These could explain the higher incidence and faster onset in comparison to medical patients in other studies.
 
 The guideline "antithrombotic therapy for venous thrombotic embolism (VTE)" of the American College of Chest Physicians defines an extensive VTE with a diameter of more than 7 mm and a length of more than 50 mm [@Kearon2012].
 Using these thresholds our CRTs were small.
 None of our CRTs were longer than 50 mm and just `r .pct(mean(cvc$HeightMax[!cvc$isExcluded] > 7, na.rm = TRUE))` had a maximal height larger than 7 mm.
 Because of the irregular, non-circular shape of the CRT, which is often attached on one side of the CVC the largest height is not necessarily identical to the diameter.
-In comparison to medical critical ill patients the CRTs were of similar size with a higher rate of thicker CRTs (30% above 7 mm) and none longer than 50 mm as well [@Wu2023].
+In comparison to medical critical ill patients the CRTs were of similar size with a higher rate of thicker CRTs (30% above 7 mm) and none longer than 50 mm [@Wu2023].
 
 While the size of CRT and its progression was neither our primary nor secondary outcome and we didn't measure the size every day if it was not obviously different to the already recorded image most CRT where stable in size.
 This is in line with results previously reported [@Wu2023].
-We assume that the main reason for CRT development is the initial endothelian/vascular trauma and the inflammation state.
-Obstruction, catheter-to-vessel ratio and volume status may play an inferior role.
 
-In our ICU CVCs aren't routinely screened for CRT and we didn't inform the treating clinicians about our findings.
 Despite the high incidence of CRT we didn't observe any negative outcome.
 Based on this observation we can confirm the recommendation of the guidelines to leave the catheter in place [@Kearon2012].
 A removal due to the CRT and reinsertion of a new CVC is not necessary and not recommended [@Kearon2012; @Geerts2014].
@@ -53,7 +51,7 @@ That's why the application of prophylactic or therapeutic anticoagulation should
 Because this was a pragmatical prospective observational trial the number of catheters per type and manufacturer are very different.
 The missing randomisation could yield biased results.
 We had to exclude more than the half of all CVCs due to poorly accessiblity by ultrasound, missing LOT information or small number of catheter types.
-If we assign the CVCs with missing LOT information to the major type of each manufacturer the results are similar (see supplement \@ref(tab:supplhrtablelots)).
+If we assign the CVCs with missing LOT information to the major type of each manufacturer the sample size increases from `r sum(!cvc$isExcluded)` to `r rgcx.lots$n` and we get very similar results (see supplement \@ref(tab:supplhrtablelots)).
 Depending on the vessel the sensitivity and specifity of ultrasound for diagnosing a DVT vary from 87-94% and 85-97%, respectively.
 However serial ultrasound assessments as done in our study increase both sensitivity and specifity up to 97.9% and 99.8% [@Patel2020; @Bhatt2020].
 Nevertheless the true accuraccy of ultrasound in diagnosis of CRT in the IVJ is not known.
@@ -63,7 +61,7 @@ Although we focused on the IVJ our ultrasound based accessment was limited to th
 If the patient was discharged from the ICU we stopped the ultrasound examination which may be another reason for a potential underestimation of the CRT incidence.
 
 Cancer is a well know risk factor for CRT [@Geerts2014; @Kahale2018; @Haggstrom2020].
-However cancer includes different type of malignancies but due to our relative small sample size we could not do any subgroup analysis on the type of cancer.
+However cancer includes different types of malignancies but due to our relative small sample size we could not do any subgroup analysis on the type of cancer.
 We did not record the type and duration of the surgery which may have an influence on the incidence of CRT as well.
 
 Due to missing information our study is underpowered to give a conclusion on the effect of multiple insertion attempts and the experience of the operator.
