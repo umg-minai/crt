@@ -223,6 +223,10 @@ cvc$isExcluded <- !is.na(cvc$ExclusionReason)
           "nine", "ten", "eleven", "twelve")[x]
     )
 }
+.as.Word <- function(x) {
+    x <- .as.word(x)
+    paste0(toupper(substring(x, 1, 1)), substring(x, 2))
+}
 ```
 
 ```{r model, include = FALSE}
