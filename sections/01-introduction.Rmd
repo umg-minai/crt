@@ -11,7 +11,7 @@ The perioperative hypercoagulability in surgical patients may explain the higher
 However despite the much higher incidence the onset of CRT in surgical patients is still unkown.
 
 Patient-related risk factors like a cancer disease or a previous venous thrombosis are commonly accpeted [@Geerts2014].
-In contrast catheter-related risk factors beside site of insertion and diameter of the catheter are poorly investigated.
-Only one small and nearly 30 years old study looked at the impact of the catheter material and found a lower CRT incidence for polyruethane/siliconized catheters in comparison to polyvinyle chloride/polyethylene [@Monreal1994].
+In contrast catheter-related risk factors other than insertion site and catheter diameter have rarely been studied.
+Only a small study, almost 30 years old, looked at the effect of catheter material and found a lower incidence of CRT for polyruethane/siliconized catheters compared with polyvinyle chloride/polyethylene [@Monreal1994].
 
-Therefore, we designed a prospective singlecenter study to detect the onset of CRT and its dependency on the material or manufacturer of the CVCs in critical ill surgical patients.
+Therefore, we conducted a prospective single-center study to determine the incidence, onset of CRT and its dependency on the material or manufacturer of the CVCs in critical ill surgical patients.

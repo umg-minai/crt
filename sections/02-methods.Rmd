@@ -2,35 +2,35 @@
 
 ## Study design and population
 
-In this prospective singlecenter observational study we screened
+In this prospective single-center observational study we screened
 critical ill patients with CVCs for CRT
 in or admitted to our surgical intensive care unit (ICU)
-in a six month period, from March 2022 to August 2022.
+in a six-month period, March 2022 to August 2022.
 
-We enrolled all consecutive adult patients with a CVC on our ICU during the study period.
-All CVCs were placed in the operation theatre or the ICU using ultrasound-assisted insertion approach and maximal barrier precautions according to local guidelines.
-Skin antiseptic was done with octenidine dihydrochlordie, 1-propanol, 2-propanol (octeniderm colourless, Schülke & Mayr GmbH, Norderstedt, Germany).
-The clinicians inserting the CVCs chose the appropriated CVC size, number of lumens, insertion site and side at their discretion.
-They were asked to document the manufacturer, the LOT (identification) number, the number of attempts, any complications and their expertise.
-If the patient had a blood collection on the screening day we ordered white blood cells (WBC), C-related peptide (CRP) and D-dimers.
+We enrolled all consecutive adult patients (&le; 18 years) who required a CVC for 48 h or longer.
+All CVCs were placed in the operation theatre or ICU using an ultrasound-guided insertion approach and maximum barrier precautions according to local guidelines.
+Skin antiseptis was performed with octenidine dihydrochlordie, 1-propanol, 2-propanol (octeniderm colourless, Schülke & Mayr GmbH, Norderstedt, Germany).
+The choice of the appropriate CVC and location was made by the clinicians.
+They were asked to complete a questionnare and document the manufacturer, the LOT (identification) number, the number of attempts, complications and their expertise.
+If the patient had a blood sample taken on day of screening we ordered white blood cells (WBC), C-related peptide (CRP) and D-dimer.
 
-The Ethics Committee at the University Medicine Greifswald
-approved this study (reference number: BB 006/22).
+The study was approved by the ethics committee of the University Medicine Greifswald
+(reference number: BB 006/22).
 
 ## Ultrasound assessment
 
-CVCs were examined for CRT by ultrasound on every second day, starting within 24 hours after placement.
+CVCs were ultrasound scanned for CRT every other days, starting within 24 hours of placement. examined for CRT by ultrasound on every second day, starting within 24 hours after placement.
 We used a linear probe with a frequency of 8-12 MHz.
 All patients were examined in the supine position.
-A CRT was diagnosed if an echogenic structure attached to the CVC was detected that was non-compressible and showed a pathological color doppler image.
-To determine the thrombosis size we measured the largest dimension (height) in short-axis and the longest one (length) in the long-axis view.
-An image or video was recorded if the size changed obviously or a thrombosis was found for the first time.
-We didn't screen arterial catheters or catheters for renal replacement or extracorporeal membrane oxygenation therapy.
-To ensure constant and high image quality the ultrasound examination was always performed by one of the authors (SE),
-trained in point-of-care ultrasound and intensive care medicine with an experience of more than two years.
-Subsequently the recorded images and videos were reviewed by a second independent intensivist (SG) with more than seven years experience in point-of-care ultrasound.
-Neither of them was involved in the placement of the CVCs nor in the treatment of the critical ill patients.
-The findings were not communicated to the treating clinicians.
+A CRT was diagnosed when an echogenic structure attached to the CVC was detected that was non-compressible and showed a pathological color Doppler.
+To determine the size of the thrombosis we measured the largest dimension (height) in short-axis and the longest one (length) in the long-axis view.
+A picture or video was taken if there was an obvious change in size or if a thrombosis was found for the first time.
+We didn't look at arterial catheters or catheters for renal replacement or extracorporeal membrane oxygenation therapy.
+To ensure consistent and high image quality the ultrasound examination was always performed by one of the authors (SE),
+who was trained in point-of-care ultrasound and intensive care medicine and had more than two years experience.
+The recorded images and videos were then reviewed by a second independent intensivist (SG) with more than seven years experience in point-of-care ultrasound.
+Neither was involved in placing the CVCs or treating the critical ill patients.
+The findings were not reported to the treating clinicians.
 
 ## Catheter types
 
@@ -42,11 +42,11 @@ The five lumen multicath CVC (VYGON GmbH & Co. KG, Germany; referred as Vygon5) 
 
 ## Outcome
 
-The primary outcome was the onset of CRT for each type of CVC.
-Because the reported CRT rates were very inhomogeneous we planned an
-observational study for a six month period and didn't estimate a sample size.
-Secondary outcomes were (1) difference between CRT-free time depending on the
-type of CVC and (2) risk factors for CRT.
+The primary outcome was the time of onset of CRT for each type of CVC.
+As the reported CRT rates were very inhomogeneous, we planned an
+observational study over a six-month period and didn't estimate a sample size.
+Secondary outcomes were (1) difference between CRT-free time according to the type
+of CVC and (2) risk factors for CRT.
 
 ## Statistical analysis
 
@@ -57,9 +57,9 @@ All data processing and statistical analyses were performed using R version
 Prior to the analyses, all laboratory values were *log* transformed to
 approximate a normal distribution.
 CRT-free time was modelled using Kaplan-Meier estimates and comparison between different CVC types was done by applying the Gehan-Wilcoxon test with the Peto and Peto modification for different censoring patterns as implemented in the *survival* R package [@survival-book; @R-survival].
-For the estimation of hazard ratios we used multiple Cox proportional hazards regression models as provided by the *survival* R package [@Cox1972; @survival-book; @R-survival].
-A $p$-value less than 0.05 was considered as statistical significant difference.
-We correct for multiple testing using the Benjamini-Hochberg approach [@Benjamini1995].
-Summary tables, the CONSORT and the forest plots were built using the *gtsummary*, *consort*, and *survminer* package, respectively
+Multiple Cox proportional hazards regression models were used to estimate hazard ratios, as provided by the *survival* R package [@Cox1972; @survival-book; @R-survival].
+A $p$-value less than 0.05 was considered a statistical significant difference.
+Multiple testing was corrected apply the Benjamini-Hochberg procedure [@Benjamini1995].
+Summary tables, the CONSORT and the forest plots were generated using the *gtsummary*, *consort*, and *survminer* package, respectively
 [@gtsummary; @R-gtsummary; @R-consort; @R-survminer].
-The whole data and analysis could be found at https://github.com/umg-minai/crt **TODO** (add zenodo citation link).
+All data and analysis can be found at https://github.com/umg-minai/crt **TODO** (add zenodo citation link).
