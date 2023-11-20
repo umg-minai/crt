@@ -1,11 +1,7 @@
 (specifications->manifest
-  '("bash-minimal"
-    "coreutils"
-    "nss-certs"
-    "r-minimal"
+  '("r-minimal"
     "r-beeswarm"
     "r-bookdown"
-    "r-codetools"
     "r-consort"
     "r-gtsummary"
     "r-rprojroot"

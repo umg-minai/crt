@@ -7,7 +7,6 @@ MANUSCRIPT:=manuscript
 SECTIONDIR:=sections
 OUTPUTDIR:=output
 DISTDIR:=distribute
-CACHEDIR:=cache
 RMD=$(wildcard $(SECTIONDIR)/*.Rmd)
 
 DATE=$(shell date +'%Y%m%d')
@@ -42,10 +41,6 @@ dist: $(OUTPUTDIR)/$(MANUSCRIPT).docx $(OUTPUTDIR)/$(MANUSCRIPT).html | $(DISTDI
 	cp $(OUTPUTDIR)/$(MANUSCRIPT).docx $(DISTDIR)/"$(DATE)_$(GITHEAD)_$(MANUSCRIPT).docx"
 	cp $(OUTPUTDIR)/$(MANUSCRIPT).html $(DISTDIR)/"$(DATE)_$(GITHEAD)_$(MANUSCRIPT).html"
 
-## start guix development environment
-env: guix/channels.pinned.scm
-	${GUIXTM}
-
 ## manual pinning guix channels to latest commits
 guix-pin-channels: FORCE guix/channels.pinned.scm
 	${GUIX} time-machine --channels=guix/channels.scm -- \
@@ -64,10 +59,7 @@ regenerate-data: \
 		shell --manifest=guix/manifest-data-preparation.scm -- \
 		Rscript data/scripts/01-anonymize-and-prepare.R
 
-clean: clean-cache clean-dist clean-output
-
-clean-cache:
-	@rm -rf $(CACHEDIR)
+clean: clean-dist clean-output
 
 clean-dist:
 	@rm -rf $(DISTDIR)
