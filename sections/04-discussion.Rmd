@@ -1,7 +1,7 @@
 # Discussion
 
 In this prospective observational study,
-we found asymptomatic CRT in `r sum(cvc$CRT[!cvc$isExcluded] == "CRT")` of `r sum(!cvc$isExcluded)` CVCs (`r .pct(mean(cvc$CRT[!cvc$isExcluded] == "CRT"))`) in the IVJ of critically ill, mostly surgical patients.
+we found asymptomatic CRT in `r sum(cvc$CRT[!cvc$isExcluded] == "CRT")` of `r sum(!cvc$isExcluded)` CVCs (`r .pct(mean(cvc$CRT[!cvc$isExcluded] == "CRT"))`) in the IVJ of critically ill patients.
 This incidence of CRT is much higher than previously reported 28 to 56% for IVJ CVCs in general surgical ICU or cardiac surgery patients [@Malinoski2013; @Timsit1998; @Wu1999].
 To our knowledge, the time of thrombosis onset has not been previously studied in surgical patients.
 The median (IQR) time from CVC insertion to CRT diagnosis for all CVCs was `r .medLU(survfit(Surv(FUP, CRT) ~ 1, data = m$data), prec = ".0")` days, which is comparable to the previously reported 4 (2, 7) days for CRT onset in critically ill medical patients [@Wu2023].

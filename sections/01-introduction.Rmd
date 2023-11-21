@@ -1,7 +1,7 @@
 # Introduction
 
 Central venous catheters (CVCs) are commonly used during surgery and in critically ill patients [@Geerts2014].
-Catheter-related thrombosis (CRT) is one major complication of CVCs and an important risk factor of pulmonary embolism (PE) and
+Catheter-related thrombosis (CRT) is a major complication of CVCs and an important risk factor for pulmonary embolism (PE) and
 central line-associated bloodstream infections (CLABSI)[@Geerts2014;@Malinoski2013].
 
 The majority of the CRTs are asymptomatic and patients with CVCs are rarely screened for CRT in routine clinical practice.

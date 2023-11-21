@@ -6,7 +6,6 @@ During the six-month study period `r nrow(cvc)` CVCs from
 `r sum(!duplicated(cvc$CaseId))` consecutive critically ill patients
 were eligible for inclusion.
 We enrolled `r sum(!cvc$isExcluded)` patients
-(see Supplement  \@ref(tab:lottable) for a complete list)
 
 `r sum(cvc$isExcluded)` CVCs were excluded (see CONSORT flow chart for details: \@ref(fig:consort-flowchart)).
 Initially, we decided to include only the first CVC of each patient and excluded `r sum(cvc$ExclusionReason == "Not the first CVC", na.rm = TRUE)` consecutive CVCs.
@@ -16,7 +15,7 @@ In addition, we had to exclude a total of `r .as.word(length(grep("Lumen", cvc$E
 Direct oral anticoagulants (DOACs) are an inhomogeneous group and uncommon in our ICU.
 We examined only `r s <- length(grep("DOAC", cvc$ExclusionReason)); .cli_text("{(.as.word(s))} {qty(s)}patient{?s} with {qty(s)}{?a/different} {qty(s)}DOAC{?s} and decided to exclude {qty(s)}{?this/these} {qty(s)}CVC{?s}")`.
 We also had to exclude `r sum(cvc$ExclusionReason == "Missing LOT", na.rm = TRUE)` CVCs due to missing or unreadable LOT information.
-Finally, we retained  `r sum(!cvc$isExcluded)` first-time CVCs and patients for our analysis (see table \@ref(tab:table1)).
+Finally, we retained  `r sum(!cvc$isExcluded)` first-time CVCs and patients for our analysis (see Table 1 \@ref(tab:table1)).
 
 `r s <- sort(table(m$data$ManLu), decreasing = TRUE); s <- paste(.as.word(s), names(s)); .cli_text("{ {s}}")` CVCs were used.
 Most of them were placed in the right IJV (`r r <- m$data$Side == "right"; sprintf("%i (%s)", sum(r), gtsummary::style_percent(mean(r), symbol = TRUE))`).
@@ -25,7 +24,7 @@ Two thirds of all CVCs were inserted by experienced practitioners who had insert
 About the same number of CVCs were placed in the ICU and outside the operating room.
 We examined the catheters by ultrasound `r .tbl1("FirstExam")` hours after insertion.
 
-More than 80% of the patients admitted to our ICU had previously undergone surgery.
+About 80% of the patients admitted to our ICU had previously undergone surgery.
 One third had sepsis and about 40% had cancer.
 Only `r .tbl1("DVT")` patients had a history of venous thrombosis.
 
