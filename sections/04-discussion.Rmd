@@ -28,7 +28,7 @@ These may explain the higher incidence and faster onset compared to medical pati
 The American College of Chest Physicians guideline "Antithrombotic therapy for venous thrombotic embolism (VTE)" defines a large VTE as greater than 7 mm in diameter and greater than 50 mm in length [@Kearon2012].
 None of the thrombosis we found were longer than 50 mm and only `r .pct(mean(cvc$HeightMax[!cvc$isExcluded] > 7, na.rm = TRUE))` had a maximum height of more than 7 mm.
 Due to the irregular, non-circular shape of the CRT, which is often placed on one side of the CVC, the maximum height does not necessarily correspond to the diameter.
-In comparison with medical critically ill patients, CRTs were similar in size, with a higher proportion of thicker CRTs (30% over 7 mm) and none were longer than 50 mm [@Wu2023].
+In comparison with critically ill medical patients, CRTs were similar in size, with a higher proportion of thicker CRTs (30% over 7 mm) and none were longer than 50 mm [@Wu2023].
 
 Although CRT size and progression was neither our primary nor secondary outcome, and we did not measure the size every day unless it was obviously different from the previous image, most CRTs where stable in size.
 This is in line with the results previously reported [@Wu2023].

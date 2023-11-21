@@ -6,7 +6,7 @@ central line-associated bloodstream infections (CLABSI)[@Geerts2014;@Malinoski20
 
 The majority of the CRTs are asymptomatic and patients with CVCs are rarely screened for CRT in routine clinical practice.
 The incidence of CRT in previous studies varies widely between medical and surgical patients, ranging from 6 to 56% [@Haggstrom2020;@Wu2023;@Malinoski2013;@Yamashita2020;@Wu1999].
-A recently published study used a daily ultrasound assessment and found a median time to CRT of four days in mostly medical critically ill patients with an incidence of 16.9% [@Wu2023].
+A recently published study used a daily ultrasound assessment and found a median time to CRT of four days in mostly critically ill medical patients with an incidence of 16.9% [@Wu2023].
 Perioperative hypercoagulability in surgical patients may explain the higher incidence of CRT with more than 50%.
 However despite the much higher incidence the onset of CRT in surgical patients is still unknown.
 
