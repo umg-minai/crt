@@ -1,7 +1,7 @@
 # Acknowledgement
 
 We thank Katrin Singer (Teleflex/Arrow), Androniki Graf (B. Braun), Johannes Haga Jäger (B. Braun), Silvia Metz (B. Braun), Stephan Schopka (B. Braun) and Tobias Neels (Vygon) for information about the material and properties of the CVCs.
-Additional we like to thank Marcus Vollmer for helpful discussions about survival analysis and proofreading the manuscript.
+We would also thank Marcus Vollmer for helpful discussions on survival analysis and for proofreading the manuscript.
 
 ## Author Contributions
 
