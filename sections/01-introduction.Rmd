@@ -4,14 +4,14 @@ Central venous catheters (CVCs) are commonly used during surgery and in critical
 Catheter-related thrombosis (CRT) is a major complication of CVCs and an important risk factor for pulmonary embolism (PE) and
 central line-associated bloodstream infections (CLABSI)[@Geerts2014;@Malinoski2013].
 
-The majority of the CRTs are asymptomatic and patients with CVCs are rarely screened for CRT in routine clinical practice.
+The majority of CRTs are asymptomatic and patients with CVCs are rarely screened for CRT in routine clinical practice.
 The incidence of CRT in previous studies varies widely between medical and surgical patients, ranging from 6 to 56% [@Haggstrom2020;@Wu2023;@Malinoski2013;@Yamashita2020;@Wu1999].
-A recently published study used a daily ultrasound assessment and found a median time to CRT of four days in mostly critically ill medical patients with an incidence of 16.9% [@Wu2023].
+A recently published study used a daily ultrasound assessment on mostly critically ill medical patients and found a median time to CRT of four days with an incidence of 16.9% [@Wu2023].
 Perioperative hypercoagulability in surgical patients may explain the higher incidence of CRT with more than 50%.
 However despite the much higher incidence the onset of CRT in surgical patients is still unknown.
 
-Patient-related risk factors such as cancer or a previous venous thrombosis are commonly accepted [@Geerts2014].
+Regarding risk factors for CRT, patient-related aspects such as cancer or a previous venous thrombosis are well-known [@Geerts2014].
 In contrast catheter-related risk factors other than insertion site and catheter diameter have rarely been studied.
 Only one small study, almost 30 years old, looked at the effect of catheter material and found a lower incidence of CRT for polyruethane/siliconized catheters compared with polyvinyle chloride/polyethylene [@Monreal1994].
 
-Therefore, we conducted a prospective single-center study to determine the incidence, onset, and dependence of CRT on CVC material or manufacturer in postoperative critically ill patients.
+Therefore, we conducted a prospective single-center study to determine the incidence, onset, and dependence of CRT on CVC material and/or manufacturer in postoperative critically ill patients.

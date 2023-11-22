@@ -23,6 +23,10 @@ author:
         email: sebastian.engelhardt@med.uni-greifswald.de
         institute: [KAINS]
         correspondence: false
+    - 'Falk von Dincklage, MD':
+        email: falk.vondincklage@med.uni-greifswald.de
+        institute: [KAINS]
+        correspondence: false
     - 'Sven-Olaf Kuhn, MD':
         email: sven-olaf.kuhn@med.uni-greifswald.de
         institute: [KAINS]
