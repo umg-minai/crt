@@ -141,7 +141,7 @@
 }
 ```
 
-## CRT height
+### CRT height
 
 ```{r crtheightbp, fig.width = 15, fig.height = 10, echo = FALSE, fig.cap = "Boxplots of CRT height"}
 cols <- c(paste0("#115d", c("6e", "9e", "de")), mcol[2:3])
@@ -173,7 +173,7 @@ cols <- c(paste0("#115d", c("6e", "9e", "de")), mcol[2:3])
 )
 ```
 
-## CRT width
+### CRT width
 
 ```{r crtwidthbp, fig.width = 15, fig.height = 10, echo = FALSE, fig.cap = "Boxplots of CRT width"}
 .crtplots(
