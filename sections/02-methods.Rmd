@@ -25,7 +25,7 @@ All patients were examined in the supine position.
 CRT was diagnosed when an echogenic structure attached to the CVC was detected that was non-compressible and showed pathological color Doppler.
 To determine the size of the thrombosis, we measured the largest dimension (height) in the short axis and the longest dimension (length) in the long axis view.
 If the length was longer than the probe/scan window we set the length to 60 mm.
-A picture or video was taken if there was an obvious change in size or if a thrombosis was found for the first time.
+A picture or video was taken if a thrombosis was found for the first time.
 We didn't look at arterial catheters or catheters for renal replacement or extracorporeal membrane oxygenation therapy.
 To ensure consistent and high image quality the ultrasound examination was always performed by one of the authors (SE),
 who was trained in point-of-care ultrasound and intensive care medicine and had more than two years' experience.
