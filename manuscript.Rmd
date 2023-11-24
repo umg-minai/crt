@@ -45,6 +45,7 @@ author:
             - Writing - review & editing
             - Validation
             - Supervision
+ethics_committee: BB 006/22
 bibliography:
     - bibliography/bibliography.bib
     - bibliography/rpackages.bib

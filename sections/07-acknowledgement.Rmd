@@ -41,8 +41,8 @@ authors <- unlist(rmarkdown::metadata$author, recursive = FALSE)
 roles <- lapply(authors, "[[", "role")
 nn <- lengths(roles)
 ctbs <- data.frame(
-    author = rep(names(roles), nn), 
-    contribution = unlist(roles), 
+    author = rep(names(roles), nn),
+    contribution = unlist(roles),
     row.names = seq_len(sum(nn))
 )
 ctbs <- ctbs[order(ctbs$contribution, ctbs$author),]
@@ -62,13 +62,13 @@ cois <- vapply(authors, "[[", "competing_interest", FUN.VALUE = NA_character_)
 names(cois) <- .drop_author_title(names(cois))
 is_none <- cois == "none"
 
-if (all(is_none)) { 
+if (all(is_none)) {
     cat("All authors state no conflict of interest.")
 } else if (all(!is_none)) {
     cat(paste(names(cois), cois))
 } else {
     cat(
-        paste(names(cois)[!is_none], cois[!is_none]), 
+        paste(names(cois)[!is_none], cois[!is_none]),
         "All other authors state no conflict of interest."
     )
 }
@@ -76,7 +76,8 @@ if (all(is_none)) {
 
 ## Ethical approval
 
-Research involving human subjects complied with all relevant national regulations and institutional policies, as well as the tenets of the Helsinki Declaration (as revised in 2013), and was approved by the Ethics Committee at the University Medicine Greifswald (reference number: BB 006/22).
+Research involving human subjects complied with all relevant national regulations and institutional policies, as well as the tenets of the Helsinki Declaration (as revised in 2013), and was approved by the ethics committee of the University Medicine Greifswald
+(reference number: `r rmarkdown::metadata[["ethics_committee"]]`).
 
 ## Data and software availability
 
