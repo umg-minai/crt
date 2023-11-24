@@ -14,4 +14,4 @@ Regarding risk factors for CRT, patient-related aspects such as cancer or a prev
 In contrast catheter-related risk factors other than insertion site and catheter diameter have rarely been studied.
 Only one small study, almost 30 years old, looked at the effect of catheter material and found a lower incidence of CRT for polyruethane/siliconized catheters compared with polyvinyle chloride/polyethylene [@Monreal1994].
 
-Therefore, we conducted a prospective single-center study to determine the incidence, onset, and dependence of CRT on CVC material and/or manufacturer in postoperative critically ill patients.
+Therefore, we conducted a prospective observational single-center study to determine the incidence, onset, and dependence of CRT on CVC material and/or manufacturer in postoperative critically ill patients.

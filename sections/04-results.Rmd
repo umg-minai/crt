@@ -5,7 +5,6 @@
 During the six-month study period `r nrow(cvc)` CVCs from
 `r sum(!duplicated(cvc$CaseId))` consecutive critically ill patients
 were eligible for inclusion.
-We enrolled `r sum(!cvc$isExcluded)` patients
 
 `r sum(cvc$isExcluded)` CVCs were excluded (see CONSORT flow chart for details: \@ref(fig:consort-flowchart)).
 Initially, we decided to include only the first CVC of each patient and excluded `r sum(cvc$ExclusionReason == "Not the first CVC", na.rm = TRUE)` consecutive CVCs.
