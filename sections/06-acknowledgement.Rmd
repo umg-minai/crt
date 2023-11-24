@@ -5,16 +5,74 @@ We would also thank Marcus Vollmer for helpful discussions on survival analysis 
 
 ## Author Contributions
 
-Conceptualization, S.G. and S.K.;
-data acquisition, S.E;
-data analysis, S.G.;
-writing - draft preparation, S.G.;
-writing - review and editing, S.E., S.K. and S.G.;
-All authors have read and agreed to the published version of the manuscript.
+```{r author-contributions, echo = FALSE, results = "asis"}
+#' taken from ameld
+#' Format enumeration
+#'
+#' Helper function to format an enumeration.
+#'
+#' @param ... one or more objects, converted to characters
+#' @param conjunction `character`, final conjunction
+#' @param oxford `logical`, oxford comma?
+#' @importFrom utils head tail
+#' @export
+#' @examples
+#' enum(letters[1:2])
+#' enum(letters[1:3])
+enum <- function(..., conjunction = "and", oxford = TRUE) {
+    words <- vapply(..., as.character, NA_character_)
+
+    if (length(words) == 1L)
+        return(words)
+
+    if (oxford && length(words) > 2L)
+        conjunction <- paste0(", ", conjunction, " ")
+    else
+        conjunction <- paste0(" ", conjunction, " ")
+
+    paste0(
+        paste0(head(words, -1L), collapse = ", "), conjunction, tail(words, 1L)
+    )
+}
+
+.drop_author_title <- function(x)gsub(",.*$", "", x)
+
+authors <- unlist(rmarkdown::metadata$author, recursive = FALSE)
+roles <- lapply(authors, "[[", "role")
+nn <- lengths(roles)
+ctbs <- data.frame(
+    author = rep(names(roles), nn), 
+    contribution = unlist(roles), 
+    row.names = seq_len(sum(nn))
+)
+ctbs <- ctbs[order(ctbs$contribution, ctbs$author),]
+l <- lapply(split(.drop_author_title(ctbs$author), ctbs$contribution), enum)
+cat(
+    paste0(names(l), ", ",  l, ";"),
+    "All authors have read and agreed to the published version",
+    "of the manuscript."
+)
+```
 
 ## Competing interests
 
-All authors state no conflict of interest.
+```{r competing-interests, echo = FALSE, results = "asis"}
+cois <- vapply(authors, "[[", "competing_interest", FUN.VALUE = NA_character_)
+
+names(cois) <- .drop_author_title(names(cois))
+is_none <- cois == "none"
+
+if (all(is_none)) { 
+    cat("All authors state no conflict of interest.")
+} else if (all(!is_none)) {
+    cat(paste(names(cois), cois))
+} else {
+    cat(
+        paste(names(cois)[!is_none], cois[!is_none]), 
+        "All other authors state no conflict of interest."
+    )
+}
+```
 
 ## Ethical approval
 

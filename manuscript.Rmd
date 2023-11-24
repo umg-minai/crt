@@ -15,22 +15,47 @@ abstract: >
 institute:
     - KAINS: Department of Anesthesiology and Intensive Care Medicine, University Hospital Greifswald, Ferdinand-Sauerbruch-Straße, D-17475 Greifswald, Germany.
 author:
+    # Contributorship roles (e.g. CRediT, https://credit.niso.org/)
     - 'Sebastian Gibb, MD':
         email: mail@sebastiangibb.de
         institute: [KAINS]
+        orcid_id: 0000-0001-7406-4443
         correspondence: true
+        competing_interest: none
+        role:
+            - Conceptualization
+            - Data curation
+            - Formal analysis
+            - Validation
+            - Writing - original draft
+            - Writing - review & editing
+            - Supervision
     - 'Sebastian Engelhardt':
         email: sebastian.engelhardt@med.uni-greifswald.de
         institute: [KAINS]
         correspondence: false
+        competing_interest: none
+        role:
+            - Investigation
+            - Data curation
+            - Writing - review & editing
     - 'Falk von Dincklage, MD':
         email: falk.vondincklage@med.uni-greifswald.de
         institute: [KAINS]
         correspondence: false
+        competing_interest: none
+        role:
+            - Writing - review & editing
     - 'Sven-Olaf Kuhn, MD':
         email: sven-olaf.kuhn@med.uni-greifswald.de
         institute: [KAINS]
         correspondence: false
+        competing_interest: none
+        role:
+            - Conceptualization
+            - Writing - review & editing
+            - Validation
+            - Supervision
 bibliography:
     - bibliography/bibliography.bib
     - bibliography/rpackages.bib
