@@ -2,7 +2,7 @@
 
 ## Flowchart
 
-```{r consort-flowchart, echo = FALSE, fig.width = 12, fig.cap = "The flowchart depicts the inclusion and exclusion criteria. CVC, central venous catheter; FV, femoral vein; SCV, subclavian vein."}
+```{r consort-flowchart, echo = FALSE, fig.width = 12, fig.cap = "The flowchart depicts the inclusion and exclusion criteria. CVC, central venous catheter; DOAC, direct oral anticoagulants; FV, femoral vein; SCV, subclavian vein."}
 library("consort")
 
 .txt <- function(label, n)paste0(label, "\n (n = ", n, ")")
