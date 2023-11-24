@@ -1,11 +1,27 @@
 # Abstract
 
-**Objectives**:
+**Purpose**:
+Catheter-related thrombosis (CRT) is a major complication of central venous catheters (CVCs).
+However, the incidence, onset, and dependence of CRT on CVC material and/or manufacturer in critically ill surgial patients is unkown.
 
 **Methods**:
+In this prospective observational single-center study we included all critical ill patients with CVCs during a six-month period.
+We did an ultrasound-based examination of the CVCs for CRT every other day, starting within 24 hours of placement.
+The primary outcome was the time of onset of CRT depending on the type of CVC.
 
 **Results**:
+We screened `r nrow(cvc)` CVCs and finally included
+`r sum(!cvc$isExcluded)` first-time CVCs in the internal jugular vein.
+The median time to CRT
+varies from `r mr <- range(median(m$svf)); wmr <- .as.word(mr); .cli_text("{ {wmr[1]}} {qty(mr[1])}day{?s} to { {wmr[2]}} {qty(mr[2])}day{?s}")` for the different type of CVCs.
+`r paste0(range(round((1 - .survival(m$svf, times = 1)) * 100)), collapse = " to ")`% of CVCs developed a CRT within one day
+and `r paste0(range(round((1 - .survival(m$svf, times = 7)) * 100)), collapse = " to ")`% of CVCs within one week of catheterization, respectively.
+Generally, the CRT were asymptomatic and caused no complications.
+Beside cancer and no prophylactic anticoagulation some CVC types were associated with a higher risk for CRT.
 
 **Conclusion**:
+Almost all CVCs in critically ill surgical patients developed an asymptomatic CRT in the first days after catheterization.
+Depending on the type of CVC the median CRT-free period varies considerably.
 
 **Keywords**:
+Central venous catheter, Catheter-related thrombosis, Ultrasound, Intensive care medicine
