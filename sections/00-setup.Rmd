@@ -259,6 +259,10 @@ rgcx <- coxph(
         Sepsis + Cancer + DVT + AnticoagulationGroup + WBC1,
     data = rd
 )
+rgcx.nms <- setNames(names(rgcx$xlevels), names(rgcx$xlevels))
+rgcx.nms["ManLu"] <- "CVC Type"
+rgcx.nms["PerioperativePlacement"] <- "Perioperative placement"
+rgcx.nms["AnticoagulationGroup"] <- "Anticoagulation"
 
 rd$Experience <- factor(rd$Experience, ordered = FALSE)
 rd.na <- na.omit(rd[c(

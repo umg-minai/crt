@@ -389,13 +389,9 @@ plot_table(
 }
 ```
 
-```{r forestplot, echo = FALSE, fig.width = 12, fig.height = 8, fig.cap = "Hazard ratios. DVT, deep venous thrombosis; LMWH, low-molecular-weighted heparins; UFH, unfractionated heparin; WBC1, white blood count on day one."}
+```{r forestplot, echo = FALSE, fig.width = 12, fig.height = 8, fig.cap = "Hazard ratios of CRT adjusted for different covariates. CRT, catheter-related thrombosis; CVC, central venous catheter; DVT, deep venous thrombosis; LMWH, low-molecular-weighted heparins; UFH, unfractionated heparin; WBC1, white blood count on day one."}
 .ggforest(
     rgcx, data = rd,
-    rename = c(
-        ManLu = "Type",
-        PerioperativePlacement = "Perioperative placement",
-        AnticoagulationGroup = "Anticoagulation"
-    )
+    rename = rgcx.nms
 )
 ```

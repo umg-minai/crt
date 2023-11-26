@@ -255,11 +255,7 @@ tbl_regression(rgcx.full, exponentiate = TRUE) |>
 .ggforest(
     rgcx.lots,
     data = rd.lots,
-    rename = c(
-        ManLu = "Type",
-        PerioperativePlacement = "Perioperative placement",
-        AnticoagulationGroup = "Anticoagulation"
-    )
+    rename = rgcx.nms
 )
 ```
 
