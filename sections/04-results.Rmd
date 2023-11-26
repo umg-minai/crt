@@ -71,5 +71,5 @@ Nevertheless,  we didn't stratify our regression model for cancer because the ch
 (`r paste(round(c(m$svd$chisq, m$svd.strata.cancer$chisq), 1), collapse = " vs ")`).
 Although sex was not a significant risk factor, we tested and rejected stratification for sex for the same reason
 (`r paste(round(c(m$svd$chisq, m$svd.strata.sex$chisq), 1), collapse = " vs ")`).
-Neither age, side, sepsis, previous deep vein thrombosis (DVT), nor WBC day one were associated with a higher rate of CRT.
+Neither age, side, sepsis, previous DVT, nor WBC day one were associated with a higher rate of CRT.
 Because it is very unlikely that any of the covariates studied, except for laboratory measurements, would change over the short observation period, we didn't look for any time-dependence.

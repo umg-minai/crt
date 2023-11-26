@@ -4,7 +4,7 @@
 
 In this prospective observational single-center study we assessed
 CRT occurrence in critically ill patients with CVCs that were treated
-in our surgical intensive care unit (ICU)
+in our surgical intensive care unit (ICU) at a university hospital
 during a six-month period from March 2022 to August 2022.
 
 We enrolled all adult patients (&ge; 18 years) who required a CVC for at least 48 hours.
@@ -58,9 +58,11 @@ All data processing and all statistical analyses were performed using R version
 Prior to the analyses, all laboratory values were *log* transformed to
 approximate normal distributions.
 CRT-free time was modelled using Kaplan-Meier estimates, and comparisons between different CVC types were made using the Gehan-Wilcoxon test with the Peto and Peto modification for different censoring patterns as implemented in the *survival* R package [@survival-book; @R-survival].
-Multiple Cox proportional hazards regression models were used to estimate hazard ratios, as provided by the *survival* R package [@Cox1972; @survival-book; @R-survival].
+Multivariable Cox proportional hazards regression models were used to estimate hazard ratios of CRT
+as provided by the *survival* R package [@Cox1972; @survival-book; @R-survival].
+Adjustment was done for `r s <- gsub("cvc", "CVC", gsub("dvt", "previous deep vein thrombosis (DVT)", tolower(rgcx.nms))); .cli_text("{ {s}}")`.
 A $p$-value less than 0.05 was considered a statistically significant difference.
-Multiple testing was corrected by applying the Benjamini-Hochberg procedure [@Benjamini1995].
+Benjamini-Hochberg procedure was used to correct for multiple testing [@Benjamini1995].
 Summary tables, the CONSORT and the forest plots were generated using the *gtsummary*, *consort*, and *survminer* package, respectively
 [@gtsummary; @R-gtsummary; @R-consort; @R-survminer].
 All data and analyses can be found at https://github.com/umg-minai/crt **TODO** (add zenodo citation link).
