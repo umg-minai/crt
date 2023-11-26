@@ -219,12 +219,13 @@ knitr::kable(
         "Chi-square independence test between scaled Schoenfeld residuals ",
         "and time for each covariate ",
         "(as implemented by `cox.zph` in the *survival* package). ",
-        "DF, degree of freedom."
+        "CVC, central venous catheters; DF, degree of freedom; ",
+        "DVT, deep venous thrombosis; WBC1, white blood count on day one."
     )
 )
 ```
 
-```{r pha-plot, echo = FALSE, fig.width = 12, fig.height = 12, fig.cap = "Scaled Schoenfeld residuals over transformed time for each covariate. Depicted $p$-values were calculated applying chi-square independence test."}
+```{r pha-plot, echo = FALSE, fig.width = 12, fig.height = 12, fig.cap = "Scaled Schoenfeld residuals over transformed time for each covariate. Depicted $p$-values were calculated applying chi-square independence test. CVC, central venous catheters; DVT, deep venous thrombosis; WBC1, white blood count on day one."}
 ggcoxzph(pha, df = 2)
 ```
 
