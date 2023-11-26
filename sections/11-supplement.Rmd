@@ -206,6 +206,28 @@ cols <- c(paste0("#115d", c("6e", "9e", "de")), mcol[2:3])
 )
 ```
 
+## Proportional hazards assumption
+
+```{r pha-table, echo = FALSE}
+pha <- cox.zph(rgcx)
+rownames(pha$table)[match(names(rgcx.nms), rownames(pha$table))] <- rgcx.nms
+knitr::kable(
+    pha$table,
+    digits = 2,
+    col.names = c("Chi-square", "DF", "$p$-value"),
+    caption = paste0(
+        "Chi-square independence test between scaled Schoenfeld residuals ",
+        "and time for each covariate ",
+        "(as implemented by `cox.zph` in the *survival* package). ",
+        "DF, degree of freedom."
+    )
+)
+```
+
+```{r pha-plot, echo = FALSE, fig.width = 12, fig.height = 12, fig.cap = "Scaled Schoenfeld residuals over transformed time for each covariate. Depicted $p$-values were calculated applying chi-square independence test."}
+ggcoxzph(pha, df = 2)
+```
+
 ## Hazard ratios
 
 ### Tables
