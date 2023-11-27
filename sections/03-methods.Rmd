@@ -61,6 +61,9 @@ CRT-free time was modelled using Kaplan-Meier estimates, and comparisons between
 Multivariable Cox proportional hazards regression models were used to estimate hazard ratios of CRT
 as provided by the *survival* R package [@Cox1972; @survival-book; @R-survival].
 Adjustment was done for `r s <- gsub("cvc", "CVC", gsub("dvt", "previous deep vein thrombosis (DVT)", tolower(rgcx.nms))); .cli_text("{ {s}}")`.
+The proportional hazard assumption was tested with the chi-square
+test for independence of the scaled Schoenfeld residuals and transformed time
+for each covariate (see Supplement).
 A $p$-value less than 0.05 was considered a statistically significant difference.
 Benjamini-Hochberg procedure was used to correct for multiple testing [@Benjamini1995].
 Summary tables, the CONSORT and the forest plots were generated using the *gtsummary*, *consort*, and *survminer* package, respectively
