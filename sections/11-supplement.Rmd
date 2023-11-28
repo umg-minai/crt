@@ -286,6 +286,7 @@ tbl_regression(rgcx.full, exponentiate = TRUE) |>
 .ggforest(
     rgcx.full,
     data = rd.na,
+    labpos = c(0.1, 10),
     rename = c(
         ManLu = "Type",
         Attempts2 = "More than one attempt",

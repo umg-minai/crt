@@ -241,7 +241,8 @@ plot_table(
 ```{r ggforest-mod, include = FALSE}
 ## taken from survminer::ggforest, added rename argument to change labels
 .ggforest <- function(model, data = NULL,
-  main = "Hazard ratio", cpositions=c(0.02, 0.22, 0.4),
+  main = "Hazard ratio of CRT", cpositions=c(0.02, 0.22, 0.4),
+  labpos = c(0.5, 2),
   fontsize = 0.7, refLabel = "reference", noDigits=2,
   rename = NULL) {
   conf.high <- conf.low <- estimate <- NULL
@@ -379,7 +380,9 @@ plot_table(
       label = paste0("# Events: ", gmodel$nevent, "; Global p-value (Log-Rank): ",
         format.pval(gmodel$p.value.log, eps = ".001"), " \nAIC: ", round(gmodel$AIC,2),
         "; Concordance Index: ", round(gmodel$concordance,2)),
-      size = annot_size_mm, hjust = 0, vjust = 1.2,  fontface = "italic")
+      size = annot_size_mm, hjust = 0, vjust = 1.2,  fontface = "italic") +
+    annotate(geom = "text", x = 0, y = labpos[1], label = "Favours CRT-free") +
+    annotate(geom = "text", x = 0, y = labpos[2], label = "Favours CRT")
   # switch off clipping for p-vals, bottom annotation:
   gt <- ggplot_gtable(ggplot_build(p))
   gt$layout$clip[gt$layout$name == "panel"] <- "off"
