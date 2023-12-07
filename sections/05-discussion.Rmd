@@ -14,7 +14,7 @@ Causes are difficult to discuss due to differences in manufacturer and material.
 Previously, different incidences of PE due to CRT have been reported in patients with
 polyvinyl chloride or polyvinyl catheters compared to those with
 polyurethane or siliconized catheters, favouring the latter [@Monreal1994].
-We studied two different types of ARROW CVCs, the classic polyurethane and the
+We studied two different types of Arrow CVCs, the classic polyurethane and the
 chlorhexidine acetate and silver sulfadiazine coated polyurethane Arrowg+ard Blue (1st generation) catheters.
 Others have reported a lower CRT rate with a chlorhexidine gluconate gel dressing alone [@Yamashita2020].
 In contrast we have seen a higher CRT rate with the chlorhexidine acetate coated CVCs.
