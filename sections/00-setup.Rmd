@@ -56,12 +56,12 @@ abbr <- setNames(character(ncol(cvc)), colnames(cvc))
 abbr <- c(
     BMI = "body mass index",
     CRT = "catheters-related thrombosis",
-    DVT = "deep vene thrombosis",
-    WBC = "white blood counts",
+    DVT = "deep vein thrombosis",
+    WBC = "white blood cell counts",
     CRP = "C-related peptide",
-    FV = "femoral vene",
-    IJV = "internal jugular vene",
-    SCV = "subclavian vene",
+    FV = "femoral vein",
+    IJV = "internal jugular vein",
+    SCV = "subclavian vein",
     DOAC = "direct oral anticoagulation",
     LMWH = "low molecular weight heparin",
     UFH = "unfractionated heparin",
@@ -115,7 +115,7 @@ nManLu <- table(cvc$ManLu)
 isLowN <- cvc$ManLu %in% names(nManLu)[nManLu < 5] & !cvc$isExcluded
 cvc$ExclusionReason[isLowN] <-
     paste0("Lumen: ", cvc$Lumens[isLowN], ", ", cvc$Manufacturer[isLowN])
-cvc$ExclusionReason[cvc$ManLu == "Arrow5" & grepl("ARROWgard", cvc$Type)] <-
+cvc$ExclusionReason[cvc$ManLu == "Arrow5" & grepl("Arrowg\+ard", cvc$Type)] <-
     "Lumen: 5, Arrow"
 cvc$isExcluded <- !is.na(cvc$ExclusionReason)
 
@@ -347,7 +347,7 @@ tbl1 <- m$data |>
             FirstExam ~ "Time to first exam [hours]",
             Sex ~ "Sex (male)",
             ManLu ~ "Type (Manufacturer/Lumens)",
-            DVT ~ "History of venous thrombosis",
+            DVT ~ "History of vein thrombosis",
             Side ~ "Side of insertion (left)",
             Experience ~ "Experience (number of CVCs in the past)",
             Attempts2 ~ "More than one insertion attempt",
@@ -375,9 +375,9 @@ tbl1 <-  tbl1 |>
     modify_caption(
     paste0(
         "Baseline characteristics of all analysed central venous catheters ",
-        "in the internal jugular vene.<br />",
+        "in the internal jugular vein.<br /> ",
         "Values are given as ",
-        "median (lower quartile - upper quartile) or n (percent).<br />",
+        "median (lower quartile - upper quartile) or n (percent).<br /> ",
         paste(names(.abbr), .abbr, sep = ", ", collapse = "; "), "."
     )
 )
@@ -408,8 +408,8 @@ tblsrv <-
     modify_caption(
     paste0(
         "Median CRT-free time for all central venous catheters ",
-        "in the internal jugular vene and for their different types.<br />",
-        "median (lower quartile - upper quartile).<br />",
+        "in the internal jugular vein and for their different types.<br /> ",
+        "Values are given as median (lower quartile - upper quartile).<br /> ",
         paste("CRT, ", .abbr["CRT"]), "."
     )
 )

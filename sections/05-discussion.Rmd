@@ -1,8 +1,8 @@
 # Discussion
 
 In this prospective observational study,
-we found asymptomatic CRT in `r sum(cvc$CRT[!cvc$isExcluded] == "CRT")` of `r sum(!cvc$isExcluded)` CVCs (`r .pct(mean(cvc$CRT[!cvc$isExcluded] == "CRT"))`) in the IVJ of critically ill patients within `r .as.word(ceiling(max(cvc$FollowUp[!cvc$isExcluded], na.rm = TRUE) / 7))` weeks after catheterisation.
-This incidence of CRT is much higher than previously reported 28 to 56% for IVJ CVCs in general surgical ICU or cardiac surgery patients [@Malinoski2013; @Timsit1998; @Wu1999].
+we found asymptomatic CRT in `r sum(cvc$CRT[!cvc$isExcluded] == "CRT")` of `r sum(!cvc$isExcluded)` CVCs (`r .pct(mean(cvc$CRT[!cvc$isExcluded] == "CRT"))`) in the IJV of critically ill patients within `r .as.word(ceiling(max(cvc$FollowUp[!cvc$isExcluded], na.rm = TRUE) / 7))` weeks after catheterisation.
+This incidence of CRT is much higher than previously reported 28 to 56% for IJV CVCs in general surgical ICU or cardiac surgery patients [@Malinoski2013; @Timsit1998; @Wu1999].
 To our knowledge, the time of thrombosis onset has not been previously studied in surgical patients.
 The median (IQR) time from CVC insertion to CRT diagnosis for all CVCs was `r .medLU(survfit(Surv(FUP, CRT) ~ 1, data = m$data), prec = ".0")` days, which is comparable to the previously reported 4 (2, 7) days for CRT onset in critically ill medical patients [@Wu2023].
 While CRT developed slowly in critically ill medical patients with only 12% of CRTs observed on day one, we found CRT in up to `r .pct(1 - min(.survsummary(m$svf, times = 1, type = "surv")))` of CVCs in critically ill surgical patients within the first 24 hours, depending on the type of CVC.
@@ -15,23 +15,23 @@ Previously, different incidences of PE due to CRT have been reported in patients
 polyvinyl chloride or polyvinyl catheters compared to those with
 polyurethane or siliconized catheters, favouring the latter [@Monreal1994].
 We studied two different types of ARROW CVCs, the classic polyurethane and the
-chlorhexidine acetate and silver sulfadiazine coated polyurethane ARROWgard Blue (1st generation) catheters.
+chlorhexidine acetate and silver sulfadiazine coated polyurethane Arrowg+ard Blue (1st generation) catheters.
 Others have reported a lower CRT rate with a chlorhexidine gluconate gel dressing alone [@Yamashita2020].
 In contrast we have seen a higher CRT rate with the chlorhexidine acetate coated CVCs.
 While chlorhexidine should reduce CLABSI it may result in more CRT, which is itself a major risk factor for CLABSI.
 
-Most CRTs have been directly associated with vascular endothelial injury.
+Most CRTs are directly associated with vascular endothelial injury.
 We believe that the most important factors in the development of CRT are the initial endothelial trauma and the hypercoagulability due to perioperative inflammatory stress.
 Venous stasis due to obstruction, catheter-to-vessel ratio and volume status may play a minor role in the first days but may be more important in the long term.
-These may explain the higher incidence and faster onset compared to medical patients in other studies.
+This may explain the higher incidence and earlier onset of CRT compared to medical patients in other studies.
 
 The American College of Chest Physicians guideline "Antithrombotic therapy for venous thrombotic embolism (VTE)" defines a large VTE as greater than 7 mm in diameter and greater than 50 mm in length [@Kearon2012].
 Only `r s <- sum(cvc$WidthMax[!cvc$isExcluded] > 50, na.rm = TRUE); .cli_text("{(.as.word(s))} of the thromboses we found {qty(s)}{?was/were}")`
 longer than 50 mm and `r .as.word(sum(cvc$HeightMax[!cvc$isExcluded] > 7, na.rm = TRUE))` (`r .pct(mean(cvc$HeightMax[!cvc$isExcluded] > 7, na.rm = TRUE))` had a maximum height of more than 7 mm, respectively.
 Due to the irregular, non-circular shape of the CRT, which is often placed on one side of the CVC, the maximum height does not necessarily correspond to the diameter.
-In comparison with critically ill medical patients, CRTs were similar in size, with a higher proportion of thicker CRTs (30% over 7 mm) and 0.5% were longer than 50 mm [@Wu2023].
+Compared to critically ill medical patients, CRTs were similar in size, with a higher proportion of thicker CRTs (30% over 7 mm) and 0.5% were longer than 50 mm [@Wu2023].
 
-Although CRT size and progression was neither our primary nor secondary outcome, and we did not measure the size every day unless it was obviously different from the previous image, most CRTs where stable in size.
+Although CRT size and progression were neither our primary nor secondary outcome, and we did not measure the size every day unless it was obviously different from the previous image, most CRTs where stable in size.
 This is in line with the results previously reported [@Wu2023].
 
 Despite the high incidence of CRT we didn't observe any negative outcome.
@@ -48,22 +48,22 @@ That's why prophylactic or therapeutic anticoagulation should be weighted agains
 ## Limitations
 
 As this was an exploratory observational study and we were limited by
-supply shortages, the number of catheters per type and manufacturer varies widely.
-Also the results could be biased because of the lack of randomisation.
-We had to exclude more than half of all CVCs due to poor ultrasound accessibility, lack of information of LOT or small number of catheter types.
+supply shortages, the number of catheters per type and manufacturer varied widely.
+The lack of randomisation may also have biased the results.
+We had to exclude more than half of all CVCs because of poor ultrasound accessibility, lack of LOT information, or small number of catheter types.
 However, assigning CVCs with missing LOT information to each manufacturer's main type increases the sample size from `r sum(!cvc$isExcluded)` to `r rgcx.lots$n`, with very similar results (see Supplement \@ref(tab:supplhrtablelots)).
-Depending on the vessel, the sensitivity and specificity of ultrasound for the diagnosis of DVT range from 87 to 94% and 85 to 97%, respectively.
-Serial ultrasound, as in our study, increases sensitivity and specificity up 97.9% and 99.8% [@Patel2020; @Bhatt2020].
-Nevertheless, the true accuracy of ultrasonography in the diagnosis of CRT in IVJ is not known.
+Depending on the vessel, the sensitivity and specificity of ultrasound for the diagnosis of DVT are 87 to 94% and 85 to 97%, respectively.
+Serial ultrasound, as in our study, increases sensitivity and specificity up 97.9% and 99.8%, respectively [@Patel2020; @Bhatt2020].
+Nevertheless, the true accuracy of ultrasonography in the diagnosis of CRT in the IJV is not known.
 
-Although we focused on the IVJ, our ultrasound access was limited to the proximal part of the CVC.
-This may lead to an underestimation of the incidence of CRT.
+Although we focused on the IJV, our ultrasound access was limited to the proximal part of the CVC.
+This may led to an underestimation of the incidence of CRT.
 
-When the patient was discharged from the ICU, we stopped the ultrasound examination, which could also underestimate the CRT incidence.
+When the patient was discharged from the ICU, we stopped the ultrasound examination, which may also underestimate the incidence of CRT.
 
 Cancer is a well-known risk factor for CRT [@Geerts2014; @Kahale2018; @Haggstrom2020].
-However, cancer includes different types of malignancies, but due to our relatively small sample size, we were not able to perform a subgroup analysis according to the type of cancer.
+However, cancer includes different types of malignancies, but due to our relatively small sample size, we were not able to perform a subgroup analysis by the type of cancer.
 We did not record the type and duration of the surgery, which may also influence the incidence of CRT.
 
-Due to missing information and its exploratory nature, our study is underpowered to conclude on the effect of multiple insertion attempts and the operator experience.
+Due to missing information and its exploratory nature, our study is underpowered to draw conclusions about the effect of multiple insertion attempts and the operator experience.
 However, in the reduced sample size we found no difference (see Supplement) which is in line with previous studies showing that the number of insertion attempts and operator experience may be unrelated to CRT [@Timsit1998; @Leung2016].

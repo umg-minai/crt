@@ -2,17 +2,15 @@
 
 ## Study design and population
 
-In this prospective observational single-center study we assessed
-CRT occurrence in critically ill patients with CVCs that were treated
-in our surgical intensive care unit (ICU) at a university hospital
-during a six-month period from March 2022 to August 2022.
+In this prospective observational single-center study, we evaluated the occurrence of CRT in critically ill pateints with CVCs treated in our surgical intensive care unit (ICU)
+at a university hospital during a six-month period from March 2022 to August 2022.
 
 We enrolled all adult patients (&ge; 18 years) who required a CVC for at least 48 hours.
 All CVCs were placed in the operating theatre or ICU using an ultrasound-guided insertion approach and maximum barrier precautions according to local guidelines.
 Skin antisepsis was performed with octenidine dihydrochlordie, 1-propanol, 2-propanol (octeniderm colourless, Schülke & Mayr GmbH, Norderstedt, Germany).
-The choice of the appropriate CVC type, site and side were made by the clinicians performing the placement.
-They were asked to complete a questionnaire documenting the manufacturer, the LOT (identification) number, the number of attempts, any complications and their level of expertise in the placement of CVCs.
-If the patient had a blood sample taken on the day of screening we ordered white blood cells (WBC), C-reactive peptide (CRP) and D-dimer.
+The choice of the appropriate CVC type, site and side was made by the clinicians performing the placement.
+They were asked to complete a questionnaire documenting the manufacturer, the LOT (identification) number, the number of attempts, any complications and their level of expertise in CVC placement.
+If the patient had a blood sample taken on the day of the screening we ordered white blood cells counts (WBC), C-reactive peptide (CRP) and D-dimer.
 
 The study was approved by the ethics committee of the University Medicine Greifswald
 (reference number: `r rmarkdown::metadata[["ethics_committee"]]`).
@@ -22,8 +20,8 @@ The study was approved by the ethics committee of the University Medicine Greifs
 CVCs were ultrasound scanned for CRT every other day, starting within 24 hours of placement.
 We used a linear probe with a frequency of 8-12 MHz.
 All patients were examined in the supine position.
-CRT was diagnosed when an echogenic structure attached to the CVC was detected that was non-compressible and showed pathological color Doppler.
-To determine the size of the thrombosis, we measured the largest dimension (height) in the short axis and the longest dimension (length) in the long axis view.
+CRT was diagnosed when an echogenic structure attached to the CVC was detected, which was non-compressible and showed pathological color Doppler.
+To determine the size of the thrombosis, we measured the largest dimension (height) in the short-axis and the longest dimension (length) in the long-axis view.
 If the length was longer than the probe/scan window we set the length to 60 mm.
 A picture or video was taken if a thrombosis was found for the first time.
 We didn't look at arterial catheters or catheters for renal replacement or extracorporeal membrane oxygenation therapy.
@@ -31,20 +29,20 @@ To ensure consistent and high image quality the ultrasound examination was alway
 who was trained in point-of-care ultrasound and intensive care medicine and had more than two years' experience.
 The recorded images and videos were then reviewed by a second independent intensivist (SG) with more than seven years' experience in point-of-care ultrasound.
 Neither was involved in the placement of CVCs or the management of the critically ill patients.
-The findings obtained in these investigations that were performed outside of routine care were not reported to the treating clinicians to not alter the usual care.
+The results of these non-routine investigations were not reported to the treating clinicians so as not to alter usual care.
 
 ## Catheter types
 
 Due to supply constraints, controlled randomisation was not feasible and different types of CVCs from different manufacturers were used.
 We observed three different types of Arrow CVCs (Teleflex Medical GmbH, Germany), namely the classic polyurethane CVCs with three and five lumens (referred to as Arrow3 and Arrow5), and the chlorhexidine acetate and silver sulfadiazine coated polyurethane catheters Arrowg+ard Blue (1st generation) with four lumens (referred to as Arrow4).
 Further we observed the three-lumen Certofix protect trio (B. Braun SE, Germany), consisting of a siliconized polyurethane, embedded barium sulfate contrast agent and an
-antiseptic polyhexamethylene biguanide coating (polyhexanide; referred as Braun3), and
-the five-lumen multicath CVC (VYGON GmbH & Co. KG, Germany; referred as Vygon5), made of polyurethane without any special coating.
+antiseptic polyhexamethylene biguanide coating (polyhexanide; referred to as Braun3), and
+the five-lumen multicath CVC (VYGON GmbH & Co. KG, Germany; referred to as Vygon5), made of polyurethane without any special coating.
 
 ## Outcome
 
 The primary outcome was the time of onset of CRT for each type of CVC.
-As the reported CRT rates were very inhomogeneous, we planned our study as an
+As the reported CRT rates were very inhomogeneous, we designed our study as an
 exploratory observational study over a six-month period and did not estimate a sample size.
 Secondary outcomes were (1) difference in CRT-free time according to the type
 of CVC and (2) risk factors for CRT.
@@ -66,6 +64,6 @@ test for independence of the scaled Schoenfeld residuals and transformed time
 for each covariate (see Supplement).
 A $p$-value less than 0.05 was considered a statistically significant difference.
 Benjamini-Hochberg procedure was used to correct for multiple testing [@Benjamini1995].
-Summary tables, the CONSORT and the forest plots were generated using the *gtsummary*, *consort*, and *survminer* package, respectively
+Summary tables, the CONSORT and the forest plots were generated using the packages *gtsummary*, *consort*, and *survminer*, respectively
 [@gtsummary; @R-gtsummary; @R-consort; @R-survminer].
-All data and analyses can be found at https://github.com/umg-minai/crt **TODO** (add zenodo citation link).
+All data and analyses are available at https://github.com/umg-minai/crt **TODO** (add zenodo citation link).

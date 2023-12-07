@@ -220,12 +220,12 @@ knitr::kable(
         "and time for each covariate ",
         "(as implemented by `cox.zph` in the *survival* package). ",
         "CVC, central venous catheters; DF, degree of freedom; ",
-        "DVT, deep venous thrombosis; WBC1, white blood count on day one."
+        "DVT, deep vein thrombosis; WBC1, white blood count on day one."
     )
 )
 ```
 
-```{r pha-plot, echo = FALSE, fig.width = 12, fig.height = 12, fig.cap = "Scaled Schoenfeld residuals over transformed time for each covariate. Depicted $p$-values were calculated applying chi-square independence test. CVC, central venous catheters; DVT, deep venous thrombosis; WBC1, white blood count on day one."}
+```{r pha-plot, echo = FALSE, fig.width = 12, fig.height = 12, fig.cap = "Scaled Schoenfeld residuals over transformed time for each covariate. Depicted $p$-values were calculated applying chi-square independence test. CVC, central venous catheters; DVT, deep vein thrombosis; WBC1, white blood count on day one."}
 ggcoxzph(pha, df = 2)
 ```
 
@@ -240,8 +240,8 @@ theme_gtsummary_compact(font_size = 8L)
 tbl_regression(rgcx, exponentiate = TRUE) |>
     modify_caption(
         paste0(
-            "Hazard ratios of CRT on all N=", rgcx$n,
-            " analysed central venous catheters."
+            "Hazard ratios for Cox regression of CRT for all analysed central venous catheters",
+            "(N=", rgcx$n, ")."
         )
     )
 ```
@@ -254,8 +254,9 @@ tbl_regression(rgcx.lots, exponentiate = TRUE) |>
     modify_caption(
         paste0(
             "Hazard ratios of CRT assuming that ",
-            "central venous catheters with missing LOTs where of the major type ",
-            "of each manufacturer. Sample size of N=", rgcx.lots$n, "."
+            "central venous catheters with missing LOTs were of ",
+            "each manufacturer's main type. ",
+            "Sample size of N=", rgcx.lots$n, "."
         )
     )
 ```
@@ -274,7 +275,7 @@ tbl_regression(rgcx.full, exponentiate = TRUE) |>
     )
 ```
 
-```{r forestplotlots, echo = FALSE, fig.width = 12, fig.height = 12, fig.cap = "Hazard ratios for all central venous catheters assuming missing LOTs where major types of each manufacturer. DVT, deep venous thrombosis; LMWH, low-molecular-weighted heparins; UFH, unfractionated heparin; WBC1, white blood count on day one."}
+```{r forestplotlots, echo = FALSE, fig.width = 12, fig.height = 12, fig.cap = "Hazard ratios of CRT for all central venous catheters assuming that missing LOTs were of each manufacturer's main type. DVT, deep vein thrombosis; LMWH, low-molecular-weight heparins; UFH, unfractionated heparin; WBC1, white blood cell count on day one."}
 .ggforest(
     rgcx.lots,
     data = rd.lots,
@@ -282,7 +283,7 @@ tbl_regression(rgcx.full, exponentiate = TRUE) |>
 )
 ```
 
-```{r forestplotfull, echo = FALSE, fig.width = 12, fig.height = 12, fig.cap = "Hazard ratios for all available variables but with reduced sample size. CRP1: C-reactive peptide on day one; D-dimer1: d-dimer on day one; DVT, deep venous thrombosis; LMWH, low-molecular-weighted heparins; UFH, unfractionated heparin; WBC1, white blood count on day one."}
+```{r forestplotfull, echo = FALSE, fig.width = 12, fig.height = 12, fig.cap = "Hazard ratios for all available variables but with reduced sample size. CRP1: C-reactive peptide on day one; D-dimer1: d-dimer on day one; DVT, deep vein thrombosis; LMWH, low-molecular-weight heparins; UFH, unfractionated heparin; WBC1, white blood cell count on day one."}
 .ggforest(
     rgcx.full,
     data = rd.na,
