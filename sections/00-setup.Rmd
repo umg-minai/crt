@@ -115,7 +115,7 @@ nManLu <- table(cvc$ManLu)
 isLowN <- cvc$ManLu %in% names(nManLu)[nManLu < 5] & !cvc$isExcluded
 cvc$ExclusionReason[isLowN] <-
     paste0("Lumen: ", cvc$Lumens[isLowN], ", ", cvc$Manufacturer[isLowN])
-cvc$ExclusionReason[cvc$ManLu == "Arrow5" & grepl("Arrowg\+ard", cvc$Type)] <-
+cvc$ExclusionReason[cvc$ManLu == "Arrow5" & grepl("Arrowg\\+ard", cvc$Type)] <-
     "Lumen: 5, Arrow"
 cvc$isExcluded <- !is.na(cvc$ExclusionReason)
 
