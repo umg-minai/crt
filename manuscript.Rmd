@@ -1,6 +1,6 @@
 ---
 title: >
-    TBD
+    Incidence, onset and material dependency of central venous catheter-related thrombosis in critically ill surgical patients: a prospective observational single-center study
 institute:
     - KAINS: Department of Anesthesiology and Intensive Care Medicine, University Hospital Greifswald, Ferdinand-Sauerbruch-Straße, D-17475 Greifswald, Germany.
 author:
