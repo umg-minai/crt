@@ -31,7 +31,7 @@ longer than 50 mm and `r .as.word(sum(cvc$HeightMax[!cvc$isExcluded] > 7, na.rm 
 Due to the irregular, non-circular shape of the CRT, which is often placed on one side of the CVC, the maximum height does not necessarily correspond to the diameter.
 Compared to critically ill medical patients, CRTs were similar in size, with a higher proportion of thicker CRTs (30% over 7 mm) and 0.5% were longer than 50 mm [@Wu2023].
 
-Although CRT size and progression were neither our primary nor secondary outcome, and we did not measure the size every day unless it was obviously different from the previous image, most CRTs where stable in size.
+Although CRT size and progression were neither our primary nor secondary outcome, and we did not measure the size every day unless it was obviously different from the previous image, most CRTs were stable in size.
 This is in line with the results previously reported [@Wu2023].
 
 Despite the high incidence of CRT we didn't observe any negative outcome.
@@ -42,8 +42,8 @@ However, the need for therapeutic anticoagulation in asymptomatic incidental sho
 The benefit of anticoagulation in CRT is support by our results, as prophylactic anticoagulation at the time of catheter placement appears to be associated with a lower rate of CRT.
 Especially in patients with cancer prophylactic anticoagulation could reduce CRT [@Wall2015; @Kahale2018].
 Interestingly, this was not found in some previous studies [@Malinoski2013; @Leung2016; @Wu2023].
-However, as mentioned above, except one all of our and most of the reported CRTs are asymptomatic [@Wu1999; @Malinoski2013; @Wall2015; @Leung2016; @Wu2023].
-That's why prophylactic or therapeutic anticoagulation should be weighted against the potential harm of major bleeding and other risks of anticoagulation [@Kahale2018].
+However, as mentioned above, except one, all of our and most of the reported CRTs are asymptomatic [@Wu1999; @Malinoski2013; @Wall2015; @Leung2016; @Wu2023].
+That's why prophylactic or therapeutic anticoagulation should be weighed against the potential harm of major bleeding and other risks of anticoagulation [@Kahale2018].
 
 ## Limitations
 

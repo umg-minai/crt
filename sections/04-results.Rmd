@@ -54,7 +54,7 @@ Adjusting the $p$-values for all `r ncmb <- ncol(combn(nlevels(m$data$ManLu), 2)
 Despite the high CRT rate none of the patients had a PE or CLABSI.
 However, `r s <- sum(m$data$Complications == "symptomatic thrombosis", na.rm = TRUE); .cli_text("{(.as.word(s))} symptomatic {qty(s)}thrombos{?is/es} {qty(s)}{?was/were}")` observed
 and `r s <- sum(m$data$Complications == "removal, suspected infection", na.rm = TRUE); .cli_text("{(.as.word(s))} {qty(s)}CVC{?s} {qty(s)}{?was/were} removed")` because of suspected infection.
-Lumen occlusion was reported in `r s <- sum(m$data$Complications == "closed lumen", na.rm = TRUE); .cli_text("{(.as.word(s))} {qty(s)}CVC{?s} {qty(s)}{?was/were}")`.
+Lumen occlusion was reported in `r s <- sum(m$data$Complications == "closed lumen", na.rm = TRUE); .cli_text("{(.as.word(s))} {qty(s)}CVC{?s}")`.
 
 ## Analysis of CRT risk factors
 
