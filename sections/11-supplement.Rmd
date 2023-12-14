@@ -427,3 +427,10 @@ knitr::kable(
 ```{r sessioninfo, echo = FALSE}
 sessionInfo()
 ```
+
+## Git commit hash
+
+```{r gitcommithash, echo = FALSE}
+sprintf("Git commit revision: %s", system("git rev-parse HEAD", intern = TRUE))
+```
+
