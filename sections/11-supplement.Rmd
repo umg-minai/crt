@@ -1,6 +1,10 @@
-# Supplement
+# `r paste(gsub("\\n$", "", rmarkdown::metadata$title), "- Supplementary Information")`
 
-## CRT size over time
+```{r knitr_setup_word, eval = !knitr::is_html_output(), include = FALSE}
+knitr::opts_chunk$set(dpi = 1200, echo = FALSE)
+```
+
+## Catheter-related thrombosis size over time
 
 ```{r crtplots, include = FALSE}
 .cmain <- function(main, col.main = rep(1, length(main)), ...) {
@@ -143,9 +147,9 @@
 }
 ```
 
-### CRT height
+### Catheter-related thrombosis height
 
-```{r crtheightbp, fig.width = 15, fig.height = 10, echo = FALSE, fig.cap = "Boxplots of CRT height over time."}
+```{r crtheightbp, fig.width = 15, fig.height = 10, echo = FALSE, fig.cap = "Boxplots of catheter-related thrombosis height over time."}
 cols <- c(paste0("#115d", c("6e", "9e", "de")), mcol[2:3])
 .crtplots(
     droplevels(cvc[!cvc$isExcluded, c("Id", "ManLu", paste0("Height", 1:17))]),
@@ -154,7 +158,7 @@ cols <- c(paste0("#115d", c("6e", "9e", "de")), mcol[2:3])
     ylab = "HEIGHT [mm]"
 )
 ```
-```{r crtheightovertime, fig.width = 15, fig.height = 10, echo = FALSE, fig.cap = "CRT height over time."}
+```{r crtheightovertime, fig.width = 15, fig.height = 10, echo = FALSE, fig.cap = "Catheter-related thrombosis height over time."}
 .crtovertime(
     droplevels(cvc[!cvc$isExcluded, c("Id", "ManLu", paste0("Height", 1:17))]),
     col = cols,
@@ -175,9 +179,9 @@ cols <- c(paste0("#115d", c("6e", "9e", "de")), mcol[2:3])
 )
 ```
 
-### CRT width
+### Catheter-related thrombosis width
 
-```{r crtwidthbp, fig.width = 15, fig.height = 10, echo = FALSE, fig.cap = "Boxplots of CRT width over time."}
+```{r crtwidthbp, fig.width = 15, fig.height = 10, echo = FALSE, fig.cap = "Boxplots of catheters-related thrombosis width over time."}
 .crtplots(
     droplevels(cvc[!cvc$isExcluded, c("Id", "ManLu", paste0("Width", 1:17))]),
     col = cols,
@@ -185,7 +189,7 @@ cols <- c(paste0("#115d", c("6e", "9e", "de")), mcol[2:3])
     ylab = "WIDTH [mm]"
 )
 ```
-```{r crtwidthovertime, fig.width = 15, fig.height = 10, echo = FALSE, fig.cap = "CRT width over time."}
+```{r crtwidthovertime, fig.width = 15, fig.height = 10, echo = FALSE, fig.cap = "Catheters-related thrombosis width over time."}
 .crtovertime(
     droplevels(cvc[!cvc$isExcluded, c("Id", "ManLu", paste0("Width", 1:17))]),
     col = cols,
