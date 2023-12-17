@@ -241,8 +241,6 @@ ggcoxzph(pha, df = 2)
 
 ## Hazard ratios
 
-### Tables
-
 ```{r supplhrtable, echo = FALSE, message = FALSE}
 theme_gtsummary_journal()
 theme_gtsummary_compact(font_size = 8L)
