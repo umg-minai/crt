@@ -60,4 +60,4 @@ Research involving human subjects complied with all relevant national regulation
 
 ## Data and software availability
 
-All data and analyses are available at https://github.com/umg-minai/crt.
+All data and analyses are available at https://github.com/umg-minai/crt [@crtdata].

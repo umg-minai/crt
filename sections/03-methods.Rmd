@@ -65,4 +65,4 @@ A $p$-value less than 0.05 was considered a statistically significant difference
 Benjamini-Hochberg procedure was used to correct for multiple testing [@Benjamini1995].
 Summary tables, the CONSORT and the forest plots were generated using the packages *gtsummary*, *consort*, and *survminer*, respectively
 [@gtsummary; @R-gtsummary; @R-consort; @R-survminer].
-All data and analyses are available at https://github.com/umg-minai/crt **TODO** (add zenodo citation link).
+All data and analyses are available at https://github.com/umg-minai/crt [@crtdata].
