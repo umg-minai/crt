@@ -2,7 +2,7 @@
 
 ## Study design and population
 
-In this prospective observational single-center study, we evaluated the occurrence of CRT in critically ill pateints with CVCs treated in our surgical intensive care unit (ICU)
+In this prospective observational single-center study, we evaluated the occurrence of CRT in critically ill patients with CVCs treated in our surgical intensive care unit (ICU)
 at a university hospital during a six-month period from March 2022 to August 2022.
 
 We enrolled all adult patients (&ge; 18 years) who required a CVC for at least 48 hours.
