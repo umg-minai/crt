@@ -155,18 +155,18 @@ cols <- c(paste0("#115d", c("6e", "9e", "de")), mcol[2:3])
     droplevels(cvc[!cvc$isExcluded, c("Id", "ManLu", paste0("Height", 1:17))]),
     col = cols,
     xlab = "DAY",
-    ylab = "HEIGHT [mm]"
+    ylab = "THROMBOSIS HEIGHT [mm]"
 )
 ```
 ```{r crtheightovertime, fig.width = 15, fig.height = 10, echo = FALSE, fig.cap = "Catheter-related thrombosis height over time."}
 .crtovertime(
     droplevels(cvc[!cvc$isExcluded, c("Id", "ManLu", paste0("Height", 1:17))]),
     col = cols,
-    ylab = "HEIGHT [mm]"
+    ylab = "THROMBOSIS HEIGHT [mm]"
 )
 .cmain(
     c(
-        "CRT height over time for ",
+        "Catheter-related thrombosis height over time for ",
         "Arrow3", ", ", "Arrow4", ", ", "Arrow5", ", ",
         "Braun3", " and ", "Vygon5"
     ),
@@ -186,18 +186,18 @@ cols <- c(paste0("#115d", c("6e", "9e", "de")), mcol[2:3])
     droplevels(cvc[!cvc$isExcluded, c("Id", "ManLu", paste0("Width", 1:17))]),
     col = cols,
     xlab = "DAY",
-    ylab = "WIDTH [mm]"
+    ylab = "THROMBOSIS WIDTH [mm]"
 )
 ```
 ```{r crtwidthovertime, fig.width = 15, fig.height = 10, echo = FALSE, fig.cap = "Catheters-related thrombosis width over time."}
 .crtovertime(
     droplevels(cvc[!cvc$isExcluded, c("Id", "ManLu", paste0("Width", 1:17))]),
     col = cols,
-    ylab = "WIDTH [mm]"
+    ylab = "THROMBOSIS WIDTH [mm]"
 )
 .cmain(
     c(
-        "CRT width over time for ",
+        "Catheter-related thrombosis width over time for ",
         "Arrow3", ", ", "Arrow4", ", ", "Arrow5", ", ",
         "Braun3", " and ", "Vygon5"
     ),
@@ -420,9 +420,12 @@ lottbl$isExcluded <- factor(
 knitr::kable(
     lottbl,
     col.names = c(
-        "Id", "Manufacturer", "Type", "Lumens", "LOT", "PN", "Excluded"
+        "Id", "MF", "Type", "LM", "LOT", "PN", "EXCL"
     ),
-    caption = "LOT and part numbers (PN) of examined central venous catheters."
+    caption = paste0(
+        "LOT and part numbers (PN) of examined central venous catheters.",
+        " EXCL: Excluded, LM: Lumens, MF: Manufacturer, PN: part number."
+    )
 )
 ```
 
