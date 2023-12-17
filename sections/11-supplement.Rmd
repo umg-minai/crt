@@ -184,7 +184,7 @@ cols <- c(paste0("#115d", c("6e", "9e", "de")), mcol[2:3])
 
 ### Catheter-related thrombosis width
 
-```{r crtwidthbp, fig.width = 15, fig.height = 10, echo = FALSE, fig.cap = "Boxplots of catheters-related thrombosis width over time."}
+```{r crtwidthbp, fig.width = 15, fig.height = 10, echo = FALSE, fig.cap = "Boxplots of catheter-related thrombosis width over time."}
 .crtplots(
     droplevels(cvc[!cvc$isExcluded, c("Id", "ManLu", paste0("Width", 1:17))]),
     col = cols,
@@ -194,7 +194,7 @@ cols <- c(paste0("#115d", c("6e", "9e", "de")), mcol[2:3])
 ```
 
 
-```{r crtwidthovertime, fig.width = 15, fig.height = 10, echo = FALSE, fig.cap = "Catheters-related thrombosis width over time."}
+```{r crtwidthovertime, fig.width = 15, fig.height = 10, echo = FALSE, fig.cap = "Catheter-related thrombosis width over time."}
 .crtovertime(
     droplevels(cvc[!cvc$isExcluded, c("Id", "ManLu", paste0("Width", 1:17))]),
     col = cols,
