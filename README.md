@@ -1,6 +1,6 @@
 # Observational study of central venous catheter-related thrombosis (CRT)
 
-[![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10396907.svg)](https://doi.org/10.5281/zenodo.10396907)
 
 We use [guix](https://guix.gnu.org) to ensure an reproducible computing environment.
