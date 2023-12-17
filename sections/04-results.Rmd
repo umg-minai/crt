@@ -38,7 +38,7 @@ The median CRT-free time to the first diagnosed CRT was one day for Arrow4, Brau
 Arrow3 and Arrow5 had longer median CRT-free periods of `r .as.word(median(m$svf["ManLu=Arrow3"]))` and `r .as.word(median(m$svf["ManLu=Arrow5"]))` days, respectively (see Table \@ref(tab:tablemedsurv) for details).
 Due to catheter removal or ICU discharge, we were only able to perform follow-up ultrasound examinations for `r .tbl1("FollowUp")` days.
 
-Specifically, we found CRTs in `r crt <- sort(1 - .survival(m$svf, times = 1)); crt <- paste0(round(crt * 100), "% of all ", sub("^ManLu=", "", names(crt))); .cli_text("{ {crt}}")` CVCs at the first examination (within 24 hours; see also Figure \@ref(fig:survplot)).
+Specifically, we found CRTs in `r crt <- sort(1 - .survival(m$svf, times = 1)); crt <- paste0(round(crt * 100), "% of all ", sub("^ManLu=", "", names(crt))); .cli_text("{ {crt}}")` CVCs at the first examination (within 24 hours; see also Fig. \@ref(fig:survplot)).
 Within one week of catheterization `r paste0(range(round((1 - .survival(m$svf, times = 7)) * 100)), collapse = " to ")`% of CVCs developed a CRT.
 
 The height and length of the thrombosis remained largely constant over time.
@@ -58,11 +58,11 @@ Lumen occlusion was reported in `r s <- sum(m$data$Complications == "closed lume
 
 ## Analysis of CRT risk factors
 
-In addition to the univariate analyses we applied multiple regression analyses to determine the impact of different variables (see Figure \@ref(fig:forestplot)).
+In addition to the univariate analyses we applied multiple regression analyses to determine the impact of different variables (see Fig. \@ref(fig:forestplot)).
 All variables with missing values were omitted to maintain the sample size.
 However, the results don't vary much even when all variables are included (see Supplementary Information for a regression with half the number of samples but all the variables, Table \@ref(tab:supplhrtablefull)).
 
-As shown in the forest plot (see Figure \@ref(fig:forestplot)), the Arrow4 and Vygon5 CVC types were significantly associated with higher rates of CRT.
+As shown in the forest plot (see Fig. \@ref(fig:forestplot)), the Arrow4 and Vygon5 CVC types were significantly associated with higher rates of CRT.
 Their hazard ratios were `r format(exp(rgcx$coefficients["ManLuArrow4"]), digits = 2)` and `r format(exp(rgcx$coefficients["ManLuVygon5"]), digits = 2)`, respectively.
 In addition to CVC type, no prophylactic anticoagulation prior to CVC placement was another significant risk factor for CRT, with a hazard ratio of `r format(exp(rgcx$coefficients["AnticoagulationGroupNone"]), digits = 2)`.
 Cancer was also significantly associated with CRT (hazard ratio `r format(exp(rgcx$coefficients["AnticoagulationGroupNone"]), digits = 2)`), but is an inhomogeneous disease category.
