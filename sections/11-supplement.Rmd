@@ -158,6 +158,8 @@ cols <- c(paste0("#115d", c("6e", "9e", "de")), mcol[2:3])
     ylab = "THROMBOSIS HEIGHT [mm]"
 )
 ```
+
+
 ```{r crtheightovertime, fig.width = 15, fig.height = 10, echo = FALSE, fig.cap = "Catheter-related thrombosis height over time."}
 .crtovertime(
     droplevels(cvc[!cvc$isExcluded, c("Id", "ManLu", paste0("Height", 1:17))]),
@@ -179,6 +181,7 @@ cols <- c(paste0("#115d", c("6e", "9e", "de")), mcol[2:3])
 )
 ```
 
+
 ### Catheter-related thrombosis width
 
 ```{r crtwidthbp, fig.width = 15, fig.height = 10, echo = FALSE, fig.cap = "Boxplots of catheters-related thrombosis width over time."}
@@ -189,6 +192,8 @@ cols <- c(paste0("#115d", c("6e", "9e", "de")), mcol[2:3])
     ylab = "THROMBOSIS WIDTH [mm]"
 )
 ```
+
+
 ```{r crtwidthovertime, fig.width = 15, fig.height = 10, echo = FALSE, fig.cap = "Catheters-related thrombosis width over time."}
 .crtovertime(
     droplevels(cvc[!cvc$isExcluded, c("Id", "ManLu", paste0("Width", 1:17))]),
@@ -209,6 +214,7 @@ cols <- c(paste0("#115d", c("6e", "9e", "de")), mcol[2:3])
     adj = 0L
 )
 ```
+
 
 ## Proportional hazards assumption
 
@@ -250,6 +256,7 @@ tbl_regression(rgcx, exponentiate = TRUE) |>
     )
 ```
 
+
 ```{r supplhrtablelots, echo = FALSE, message = FALSE}
 theme_gtsummary_journal()
 theme_gtsummary_compact(font_size = 8L)
@@ -265,6 +272,7 @@ tbl_regression(rgcx.lots, exponentiate = TRUE) |>
     )
 ```
 
+
 ```{r supplhrtablefull, echo = FALSE, message = FALSE}
 theme_gtsummary_journal()
 theme_gtsummary_compact(font_size = 8L)
@@ -279,6 +287,7 @@ tbl_regression(rgcx.full, exponentiate = TRUE) |>
     )
 ```
 
+
 ```{r forestplotlots, echo = FALSE, fig.width = 12, fig.height = 12, fig.cap = "Hazard ratios of CRT for all central venous catheters assuming that missing LOTs were of each manufacturer's main type. DVT, deep vein thrombosis; LMWH, low-molecular-weight heparins; UFH, unfractionated heparin; WBC1, white blood cell count on day one."}
 .ggforest(
     rgcx.lots,
@@ -286,6 +295,7 @@ tbl_regression(rgcx.full, exponentiate = TRUE) |>
     rename = rgcx.nms
 )
 ```
+
 
 ```{r forestplotfull, echo = FALSE, fig.width = 12, fig.height = 12, fig.cap = "Hazard ratios for all available variables but with reduced sample size. CRP1: C-reactive peptide on day one; D-dimer1: d-dimer on day one; DVT, deep vein thrombosis; LMWH, low-molecular-weight heparins; UFH, unfractionated heparin; WBC1, white blood cell count on day one."}
 .ggforest(
@@ -301,6 +311,7 @@ tbl_regression(rgcx.full, exponentiate = TRUE) |>
     )
 )
 ```
+
 
 ## Comparison CRT-free time
 
@@ -356,6 +367,7 @@ plot_table(
 )
 ```
 
+
 ### Comparison CRT-free time Arrow4 vs Arrow5
 
 ```{r survplota4a5, echo = FALSE, fig.width = 12, fig.height = 7, fig.cap = "Survival plot showing CRT-free time for four- and five-lumen central venous catheters."}
@@ -407,6 +419,7 @@ plot_table(
     xaxis = FALSE, cex.text = 1.5, col = col[colnames(nce)]
 )
 ```
+
 
 ## LOT numbers
 
