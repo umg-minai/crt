@@ -245,7 +245,17 @@ ggcoxzph(pha, df = 2)
 theme_gtsummary_journal()
 theme_gtsummary_compact(font_size = 8L)
 
-tbl_regression(rgcx, exponentiate = TRUE) |>
+tbl_regression(
+    rgcx,
+    exponentiate = TRUE,
+    label = list(
+        ManLu ~ "Type (Manufacturer/Lumens)",
+        DVT ~ "History of vein thrombosis",
+        AdmissionType ~ "Admission type",
+        PerioperativePlacement ~ "Placement in the OR",
+        AnticoagulationGroup ~ "Type of anticoagulation drug",
+        WBC1 ~ "WBC day 1 [Gpt/L]"
+    )) |>
     modify_caption(
         paste0(
             "Hazard ratios for Cox regression of CRT for all analysed central venous catheters",
@@ -259,7 +269,17 @@ tbl_regression(rgcx, exponentiate = TRUE) |>
 theme_gtsummary_journal()
 theme_gtsummary_compact(font_size = 8L)
 
-tbl_regression(rgcx.lots, exponentiate = TRUE) |>
+tbl_regression(
+    rgcx.lots,
+    exponentiate = TRUE,
+    label = list(
+        ManLu ~ "Type (Manufacturer/Lumens)",
+        DVT ~ "History of vein thrombosis",
+        AdmissionType ~ "Admission type",
+        PerioperativePlacement ~ "Placement in the OR",
+        AnticoagulationGroup ~ "Type of anticoagulation drug",
+        WBC1 ~ "WBC day 1 [Gpt/L]"
+    )) |>
     modify_caption(
         paste0(
             "Hazard ratios of CRT assuming that ",
@@ -275,7 +295,21 @@ tbl_regression(rgcx.lots, exponentiate = TRUE) |>
 theme_gtsummary_journal()
 theme_gtsummary_compact(font_size = 8L)
 
-tbl_regression(rgcx.full, exponentiate = TRUE) |>
+tbl_regression(
+    rgcx.full,
+    exponentiate = TRUE,
+    label = list(
+        ManLu ~ "Type (Manufacturer/Lumens)",
+        DVT ~ "History of vein thrombosis",
+        Experience ~ "Experience (number of CVCs in the past)",
+        Attempts2 ~ "More than one insertion attempt",
+        AdmissionType ~ "Admission type",
+        PerioperativePlacement ~ "Placement in the OR",
+        AnticoagulationGroup ~ "Type of anticoagulation drug",
+        WBC1 ~ "WBC day 1 [Gpt/L]",
+        DDimer1 ~ "D-dimer day 1 [mg/L]",
+        CRP1 ~ "CRP day 1 [mg/L]"
+    )) |>
     modify_caption(
         paste0(
             "Hazard ratios of CRT using all available variables ",
@@ -304,6 +338,7 @@ tbl_regression(rgcx.full, exponentiate = TRUE) |>
         ManLu = "Type",
         Attempts2 = "More than one attempt",
         DDimer1 = "D-dimer1",
+        AdmissionType = "Admission type",
         PerioperativePlacement = "Perioperative placement",
         AnticoagulationGroup = "Anticoagulation"
     )

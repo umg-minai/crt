@@ -256,8 +256,7 @@ rd$DDimer1 <- log(rd$DDimer1 + 1)
 ## complete cases
 rgcx <- coxph(
     Surv(FUP, CRT) ~
-        Sex + Age + ManLu +
-        Side + PerioperativePlacement +
+        Sex + Age + ManLu + Side + AdmissionType + PerioperativePlacement +
         Sepsis + Cancer + DVT + AnticoagulationGroup + WBC1,
     data = rd
 )
@@ -265,11 +264,13 @@ rgcx.nms <- setNames(names(rgcx$xlevels), names(rgcx$xlevels))
 rgcx.nms["ManLu"] <- "CVC Type"
 rgcx.nms["PerioperativePlacement"] <- "Perioperative placement"
 rgcx.nms["AnticoagulationGroup"] <- "Anticoagulation"
+rgcx.nms["AdmissionType"] <- "Admission type"
 
 rd$Experience <- factor(rd$Experience, ordered = FALSE)
 rd.na <- na.omit(rd[c(
     "FUP", "CRT", "Sex", "Age", "BMI", "ManLu", "Side",
-    "PerioperativePlacement", "Incision", "Attempts2", "Experience",
+    "AdmissionType", "PerioperativePlacement",
+    "Incision", "Attempts2", "Experience",
     "Speciality", "Sepsis", "Cancer", "DVT", "AnticoagulationGroup",
     "WBC1", "DDimer1", "CRP1")]
 )
@@ -283,8 +284,7 @@ cvc.lots$isExcluded[cvc$ExclusionReason == "Missing LOT"] <- FALSE
 rd.lots = droplevels(.model(cvc.lots)$data)
 rgcx.lots <- coxph(
     Surv(FUP, CRT) ~
-        Sex + Age + ManLu +
-        Side + PerioperativePlacement +
+        Sex + Age + ManLu + Side + AdmissionType + PerioperativePlacement +
         Sepsis + Cancer + DVT + AnticoagulationGroup + WBC1,
     data = rd.lots
 )
@@ -311,6 +311,11 @@ tbl1 <- m$data |>
             Speciality,
             levels = levels(.data$Speciality),
             labels = .toupper.first(levels(.data$Speciality))
+        ),
+        AdmissionType = factor(
+            AdmissionType,
+            levels = levels(.data$AdmissionType),
+            labels = .toupper.first(levels(.data$AdmissionType))
         ),
         Complications = factor(
             Complications,
@@ -363,6 +368,7 @@ tbl1 <- m$data |>
             Side ~ "Side of insertion (left)",
             Experience ~ "Experience (number of CVCs in the past)",
             Attempts2 ~ "More than one insertion attempt",
+            AdmissionType ~ "Admission type",
             PerioperativePlacement ~ "Placement in the OR",
             AnticoagulationGroup ~ "Type of anticoagulation drug",
             WBC1 ~ "WBC day 1 [Gpt/L]",
