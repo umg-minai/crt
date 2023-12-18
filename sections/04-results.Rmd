@@ -67,7 +67,7 @@ Their hazard ratios were `r format(exp(rgcx$coefficients["ManLuArrow4"]), digits
 In addition to CVC type, no prophylactic anticoagulation prior to CVC placement was another significant risk factor for CRT, with a hazard ratio of `r format(exp(rgcx$coefficients["AnticoagulationGroupNone"]), digits = 2)`.
 Cancer was also significantly associated with CRT (hazard ratio `r format(exp(rgcx$coefficients["AnticoagulationGroupNone"]), digits = 2)`), but is an inhomogeneous disease category.
 In our cases, cancer was always diagnosed before the CVC insertion.
-Nevertheless,  we didn't stratify our regression model for cancer because the chi-square values for the (un)stratified models were very similar
+Nevertheless, we didn't stratify our regression model for cancer because the chi-square values for the (un)stratified models were very similar
 (`r paste(round(c(m$svd$chisq, m$svd.strata.cancer$chisq), 1), collapse = " vs ")`).
 We tested and rejected stratification for sex for the same reason
 (`r paste(round(c(m$svd$chisq, m$svd.strata.sex$chisq), 1), collapse = " vs ")`).
