@@ -431,11 +431,11 @@ lottbl$isExcluded <- factor(
 knitr::kable(
     lottbl,
     col.names = c(
-        "Id", "MF", "Type", "LM", "LOT", "PN", "EXCL"
+        "Id", "MF", "Type", "LM", "LOT", "PN", "EX"
     ),
     caption = paste0(
-        "LOT and part numbers (PN) of examined central venous catheters.",
-        " EXCL: Excluded, LM: Lumens, MF: Manufacturer, PN: part number."
+        "LOT and part numbers of examined central venous catheters.",
+        " EX: Excluded, LM: Lumens, MF: Manufacturer, PN: part number."
     )
 )
 ```
