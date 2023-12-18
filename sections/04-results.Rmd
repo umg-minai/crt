@@ -71,6 +71,6 @@ Nevertheless, we didn't stratify our regression model for cancer because the chi
 (`r paste(round(c(m$svd$chisq, m$svd.strata.cancer$chisq), 1), collapse = " vs ")`).
 We tested and rejected stratification for sex for the same reason
 (`r paste(round(c(m$svd$chisq, m$svd.strata.sex$chisq), 1), collapse = " vs ")`).
-However, men had a significant less risk of CRT (hazard ratio `r format(exp(rgcx$coefficients["AnticoagulationGroupNone"]), digits = 2)`) than women.
+However, men had a significant less risk of CRT (hazard ratio `r format(exp(rgcx$coefficients["Sexmale"]), digits = 2)`) than women.
 Neither age, side, sepsis, previous DVT, nor WBC on day one were associated with a higher rate of CRT.
 Because it is very unlikely that any of the covariates studied, except for laboratory measurements, would change over the short observation period, we didn't look for any time-dependence.
