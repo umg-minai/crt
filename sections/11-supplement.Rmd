@@ -224,7 +224,7 @@ rownames(pha$table)[match(names(rgcx.nms), rownames(pha$table))] <- rgcx.nms
 knitr::kable(
     pha$table,
     digits = 2,
-    col.names = c("Chi-square", "DF", "$p$-value"),
+    col.names = c("Chi-square", "DF", "*p*-value"),
     caption = paste0(
         "Chi-square independence test between scaled Schoenfeld residuals ",
         "and time for each covariate ",
@@ -235,7 +235,7 @@ knitr::kable(
 )
 ```
 
-```{r pha-plot, echo = FALSE, fig.width = 12, fig.height = 12, fig.cap = "Scaled Schoenfeld residuals over transformed time for each covariate. Depicted $p$-values were calculated applying chi-square independence test. CVC, central venous catheters; DVT, deep vein thrombosis; WBC1, white blood count on day one."}
+```{r pha-plot, echo = FALSE, fig.width = 12, fig.height = 12, fig.cap = "Scaled Schoenfeld residuals over transformed time for each covariate. Depicted *p*-values were calculated applying chi-square independence test. CVC, central venous catheters; DVT, deep vein thrombosis; WBC1, white blood count on day one."}
 ggcoxzph(pha, df = 2)
 ```
 

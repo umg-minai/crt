@@ -45,8 +45,8 @@ The height and length of the thrombosis remained largely constant over time.
 On day one, the median (IQR) height and length were `r .medLU(m$data$Height1)` mm and `r .medLU(m$data$Width1)` mm, respectively.
 However, the median (IQR) largest dimension of the thrombosis was almost identical across all examinations: `r .medLU(m$data$HeightMax)` mm and `r .medLU(m$data$WidthMax)` mm, respectively (see Supplementary Information, Fig. \@ref(fig:crtheightbp) to \@ref(fig:crtwidthovertime) for detailed figures).
 
-A statistical comparison between the CVC type with the lowest CRT rate, Arrow5, and those with the highest CRT rate, gives an unadjusted $p$-value of `r round(m.a4a5$svd$pvalue, 2)` for Arrow4 and `r round(m.a5v5$svd$pvalue, 2)` for Vygon5.
-Adjusting the $p$-values for all `r ncmb <- ncol(combn(nlevels(m$data$ManLu), 2)); .as.word(ncmb)` possible comparisons of CVC types gives a $p$-value of
+A statistical comparison between the CVC type with the lowest CRT rate, Arrow5, and those with the highest CRT rate, gives an unadjusted *p*-value of `r round(m.a4a5$svd$pvalue, 2)` for Arrow4 and `r round(m.a5v5$svd$pvalue, 2)` for Vygon5.
+Adjusting the *p*-values for all `r ncmb <- ncol(combn(nlevels(m$data$ManLu), 2)); .as.word(ncmb)` possible comparisons of CVC types gives a *p*-value of
 `r round(p.adjust(m.a4a5$svd$pvalue, method = "BH", n = ncmb), 2)` for Arrow4 and `r round(p.adjust(m.a5v5$svd$pvalue, method = "BH", n = ncmb), 2)` for Vygon5 (see the Supplementary Information for survival plots of these comparisons, Fig. \@ref(fig:survplota5v5) and \@ref(fig:survplota4a5)).
 
 ## Complications

@@ -61,7 +61,7 @@ Adjustment was done for `r s <- gsub("cvc", "CVC", gsub("dvt", "previous deep ve
 The proportional hazard assumption was tested with the chi-square
 test for independence of the scaled Schoenfeld residuals and transformed time
 for each covariate (see Supplementary Information, Table \@ref(tab:pha-table) and Fig. \@ref(fig:pha-plot)).
-A $p$-value less than 0.05 was considered a statistically significant difference.
+A *p*-value less than 0.05 was considered a statistically significant difference.
 Benjamini-Hochberg procedure was used to correct for multiple testing [@Benjamini1995].
 Summary tables, the CONSORT and the forest plots were generated using the packages *gtsummary*, *consort*, and *survminer*, respectively
 [@gtsummary; @R-gtsummary; @R-consort; @R-survminer].
