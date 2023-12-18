@@ -258,7 +258,7 @@ tbl_regression(
     )) |>
     modify_caption(
         paste0(
-            "Hazard ratios for Cox regression of CRT for all analysed central venous catheters",
+            "Hazard ratios for Cox regression of CRT for all analysed central venous catheters ",
             "(N=", rgcx$n, ")."
         )
     )
