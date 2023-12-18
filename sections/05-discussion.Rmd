@@ -65,5 +65,7 @@ Cancer is a well-known risk factor for CRT [@Geerts2014; @Kahale2018; @Haggstrom
 However, cancer includes different types of malignancies, but due to our relatively small sample size, we were not able to perform a subgroup analysis by the type of cancer.
 We did not record the type and duration of the surgery, which may also influence the incidence of CRT.
 
+While our data suggest that women had a higher risk of CRT, the numbers of different CVCs in both sex subgroups are too heterogeneous and the subgroups are too small for any meaningful conclusion. A recent meta-analysis found no association between sex and CRT [@Liu2022].
+
 Due to missing information and its exploratory nature, our study is underpowered to draw conclusions about the effect of multiple insertion attempts and the operator experience.
 However, in the reduced sample size we found no difference (see Supplementary Information, Table \@ref(tab:supplhrtablefull)) which is in line with previous studies showing that the number of insertion attempts and operator experience may be unrelated to CRT [@Timsit1998; @Leung2016].

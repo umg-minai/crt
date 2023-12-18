@@ -69,7 +69,8 @@ Cancer was also significantly associated with CRT (hazard ratio `r format(exp(rg
 In our cases, cancer was always diagnosed before the CVC insertion.
 Nevertheless,  we didn't stratify our regression model for cancer because the chi-square values for the (un)stratified models were very similar
 (`r paste(round(c(m$svd$chisq, m$svd.strata.cancer$chisq), 1), collapse = " vs ")`).
-Although sex was not a significant risk factor, we tested and rejected stratification for sex for the same reason
+We tested and rejected stratification for sex for the same reason
 (`r paste(round(c(m$svd$chisq, m$svd.strata.sex$chisq), 1), collapse = " vs ")`).
-Neither age, side, sepsis, previous DVT, nor WBC day one were associated with a higher rate of CRT.
+However, men had a significant less risk of CRT (hazard ratio `r format(exp(rgcx$coefficients["AnticoagulationGroupNone"]), digits = 2)`) than women.
+Neither age, side, sepsis, previous DVT, nor WBC on day one were associated with a higher rate of CRT.
 Because it is very unlikely that any of the covariates studied, except for laboratory measurements, would change over the short observation period, we didn't look for any time-dependence.
