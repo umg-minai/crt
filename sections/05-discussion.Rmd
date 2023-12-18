@@ -61,7 +61,7 @@ This may led to an underestimation of the incidence of CRT.
 
 When the patient was discharged from the ICU, we stopped the ultrasound examination, which may also underestimate the incidence of CRT.
 
-Cancer is a well-known risk factor for CRT [@Geerts2014; @Kahale2018; @Haggstrom2020].
+Cancer is a well-known risk factor for CRT [@Geerts2014; @Kahale2018; @Haggstrom2020; @Liu2022].
 However, cancer includes different types of malignancies, but due to our relatively small sample size, we were not able to perform a subgroup analysis by the type of cancer.
 We did not record the type and duration of the surgery, which may also influence the incidence of CRT.
 

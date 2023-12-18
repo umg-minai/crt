@@ -10,7 +10,7 @@ A recently published study used a daily ultrasound assessment on mostly critical
 Perioperative hypercoagulability in surgical patients may explain the higher incidence of CRT with more than 50%.
 However, despite the much higher incidence the onset of CRT in surgical patients is still unknown.
 
-Patient-related risk factors for CRT, such as cancer or previous vein thrombosis, are well-known [@Geerts2014].
+Patient-related risk factors for CRT, such as cancer or previous vein thrombosis, are well-known [@Geerts2014; @Liu2022].
 In contrast, catheter-related risk factors other than insertion site and catheter diameter have rarely been studied.
 Only one small study, almost 30 years old, looked at the effect of catheter material and found a lower incidence of CRT for polyurethane/siliconized catheters compared with polyvinyl chloride/polyethylene [@Monreal1994].
 
