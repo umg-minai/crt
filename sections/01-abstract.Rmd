@@ -26,3 +26,6 @@ Depending on the type of CVC the median CRT-free period varied considerably.
 
 **Keywords**:
 Central venous catheter, Catheter-related thrombosis, Ultrasound, Intensive care medicine
+
+**Take-home message**:
+Thrombosis is one of the most common complications of central venous catheters (CVC) and is caused by a variety of factors. The incidence of catheter-related thrombosis (CRT) is even higher in surgical than in medical critically ill patients. The median CRT-free period varies from one to five days depending on the type of CVC. In general, these thromboses are asymptomatic and don't require treatment. However, the differences in CVC material and the resulting CRTs have been neglected in clinical research and need to be further investigated.
