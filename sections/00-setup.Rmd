@@ -77,7 +77,7 @@ cvc$FirstExam <- as.numeric(cvc$FirstExam)
 
 fcts <- c(
     "Sex", "Manufacturer", "Site", "Side", "External", "Incision",
-    "PerioperativePlacement", "Speciality", "AdmissionType",
+    "PerioperativePlacement", "Specialty", "AdmissionType",
     "DVT", "DVT.CVC", "Sepsis", "Cancer", "Smoking",
     "AnticoagulationGroup", "Complications"
 )
@@ -272,7 +272,7 @@ rd.na <- na.omit(rd[c(
     "FUP", "CRT", "Sex", "Age", "BMI", "ManLu", "Side",
     "AdmissionType", "PerioperativePlacement",
     "Incision", "Attempts2", "Experience",
-    "Speciality", "Sepsis", "Cancer", "DVT", "AnticoagulationGroup",
+    "Specialty", "Sepsis", "Cancer", "DVT", "AnticoagulationGroup",
     "WBC1", "DDimer1", "CRP1")]
 )
 
@@ -308,10 +308,10 @@ tbl1 <- m$data |>
             levels = levels(.data$ManLu),
             labels = .manlu2txt(levels(.data$ManLu))
         ),
-        Speciality = factor(
-            Speciality,
-            levels = levels(.data$Speciality),
-            labels = .toupper.first(levels(.data$Speciality))
+        Specialty = factor(
+            Specialty,
+            levels = levels(.data$Specialty),
+            labels = .toupper.first(levels(.data$Specialty))
         ),
         AdmissionType = factor(
             AdmissionType,
@@ -338,7 +338,7 @@ tbl1 <- m$data |>
         FirstExam,
         FollowUp,
         AdmissionType,
-        Speciality,
+        Specialty,
         Sepsis,
         Cancer,
         DVT,
@@ -385,7 +385,7 @@ tbl1 <- m$data |>
         )
     ) |>
     add_overall() |>
-    add_p(test.args = c(Speciality) ~ list(simulate.p.value = TRUE))
+    add_p(test.args = c(Specialty) ~ list(simulate.p.value = TRUE))
 
 uvar <- unique(c(tbl1$table_body$variable, tbl1$table_body$label))
 .abbr <- sort(c(Filter(nchar, abbr[uvar]), abbr[c("CRT", "OR")]))
