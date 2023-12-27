@@ -60,6 +60,7 @@ abbr <- c(
     DOAC = "direct oral anticoagulation",
     DVT = "deep vein thrombosis",
     FV = "femoral vein",
+    ICU = "intensive care unit",
     IQR = "inter-quartile range",
     IJV = "internal jugular vein",
     LMWH = "low molecular weight heparin",
