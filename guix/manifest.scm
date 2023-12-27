@@ -1,6 +1,7 @@
 (specifications->manifest
   '("r-minimal"
     "r-beeswarm"
+    "r-bibtex"
     "r-bookdown"
     "r-consort"
     "r-gtsummary"
