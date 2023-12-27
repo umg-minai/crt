@@ -50,24 +50,25 @@ cvc <- read.csv(frf("data", "extdata", "cvc.csv"), na.strings = c("NA", ""))
 ```
 
 ```{r abbreviations, include = FALSE}
-abbr <- setNames(character(ncol(cvc)), colnames(cvc))
-
 ## labels where the column names are identical to the abbreviation
 abbr <- c(
     BMI = "body mass index",
-    CRT = "catheters-related thrombosis",
-    DVT = "deep vein thrombosis",
-    WBC = "white blood cell counts",
+    CLABSI = "central line associated bloodstream infection",
     CRP = "C-related peptide",
-    FV = "femoral vein",
-    IJV = "internal jugular vein",
-    SCV = "subclavian vein",
+    CRT = "catheters-related thrombosis",
+    CVC = "central venous catheters",
     DOAC = "direct oral anticoagulation",
+    DVT = "deep vein thrombosis",
+    FV = "femoral vein",
+    IQR = "inter-quartile range",
+    IJV = "internal jugular vein",
     LMWH = "low molecular weight heparin",
-    UFH = "unfractionated heparin",
     OR = "operating room",
     PE = "pulmonary embolism",
-    CLABSI = "central line associated bloodstream infection"
+    SCV = "subclavian vein",
+    UFH = "unfractionated heparin",
+    VTE = "venous thrombotic embolism",
+    WBC = "white blood cell counts"
 )
 ```
 
