@@ -49,7 +49,7 @@ ethics_committee: BB 006/22
 bibliography:
     - bibliography/bibliography.bib
     - bibliography/rpackages.bib
-csl: pandoc/csl/intensive-care-medicine.csl
+csl: pandoc/csl/springer-vancouver-brackets.csl
 link-citations: yes
 linkcolor: blue
 output:
