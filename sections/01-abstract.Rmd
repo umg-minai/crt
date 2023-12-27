@@ -1,6 +1,6 @@
 # Abstract
 
-**Purpose**:
+**Background**:
 Catheter-related thrombosis (CRT) is a major complication of central venous catheters (CVCs).
 However, the incidence, onset, and dependence of CRT on CVC material and/or type in critically ill surgical patients is unknown.
 Therefore, we here investigated incidence, onset, and dependence of CRT on a variety of risk factors including CVC material and type in critically ill surgical patients.
@@ -20,7 +20,7 @@ and within one week, `r paste0(range(round((1 - .survival(m$svf, times = 7)) * 1
 All but one of the observed CRT were asymptomatic and caused no complications.
 Multiple regression analyses of CRT risk factors showed that beside cancer and omitting prophylactic anticoagulation, also some CVC types were associated with a higher risk for CRT.
 
-**Conclusion**:
+**Conclusions**:
 Almost all CVCs in critically ill surgical patients developed an asymptomatic CRT in the first days after catheterization.
 Depending on the type of CVC the median CRT-free period varied considerably.
 
