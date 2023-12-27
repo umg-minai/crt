@@ -64,6 +64,7 @@ output:
     bookdown::word_document2:
         keep_md: true # keep images for submission
         number_sections: false
+        reference_docx: pandoc/reference/20231219_92fa427_manuscript.docx
         pandoc_args:
             - --lua-filter=pandoc/lua-filters/abstract-section.lua
             - --lua-filter=pandoc/lua-filters/scholarly-metadata.lua
