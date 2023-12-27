@@ -23,7 +23,7 @@ excl <- excl[eord]
 
 excl <- paste0(
     "Excluded (n = ", sum(excl), ")",
-    paste0("\n\u2022 ", names(excl), " (n = ", excl, ")", collapse = "")
+    paste0("\n- ", names(excl), " (n = ", excl, ")", collapse = "")
 )
 
 cnsrt <-
