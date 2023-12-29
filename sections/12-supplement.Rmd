@@ -1,6 +1,57 @@
 # `r paste(gsub("\\n$", "", rmarkdown::metadata$title), "- Supplementary Information")`
 
+
+## Proportional hazards assumption
+
+
+```{r pha-table, echo = FALSE}
+pha <- cox.zph(rgcx)
+rownames(pha$table)[match(names(rgcx.nms), rownames(pha$table))] <- rgcx.nms
+knitr::kable(
+    pha$table,
+    digits = 2,
+    col.names = c("Chi-square", "DF", "*p*-value"),
+    caption = paste0(
+        "Chi-square independence test between scaled Schoenfeld residuals ",
+        "and time for each covariate ",
+        "(as implemented by `cox.zph` in the *survival* package). ",
+        "CVC, central venous catheters; DF, degree of freedom; ",
+        "DVT, deep vein thrombosis; WBC1, white blood count on day one."
+    )
+)
+```
+
+
+```{r pha-plot, dev = ifelse_is_docx("pdf", "png"), echo = FALSE, fig.width = 12, fig.height = 12, fig.cap = "Scaled Schoenfeld residuals over transformed time for each covariate. Depicted *p*-values were calculated applying chi-square independence test. CVC, central venous catheters; DVT, deep vein thrombosis; WBC1, white blood count on day one."}
+ggcoxzph(pha, df = 2)
+```
+
+
+## LOT numbers
+
+
+```{r lottable, echo = FALSE}
+lottbl <- cvc[c(
+    "Id", "Manufacturer", "Type", "Lumens", "LOT", "PN", "isExcluded"
+)]
+lottbl$isExcluded <- factor(
+    lottbl$isExcluded, levels = c(TRUE, FALSE), labels = c("yes", "no")
+)
+knitr::kable(
+    lottbl,
+    col.names = c(
+        "Id", "MF", "Type", "LM", "LOT", "PN", "EX"
+    ),
+    caption = paste0(
+        "LOT and part numbers of examined central venous catheters.",
+        " EX: Excluded, LM: Lumens, MF: Manufacturer, PN: part number."
+    )
+)
+```
+
+
 ## Catheter-related thrombosis size over time
+
 
 ```{r crtplots, include = FALSE}
 .cmain <- function(main, col.main = rep(1, length(main)), ...) {
@@ -143,7 +194,9 @@
 }
 ```
 
+
 ### Catheter-related thrombosis height
+
 
 ```{r crtheightbp, dev = ifelse_is_docx("pdf", "png"), fig.width = 15, fig.height = 10, echo = FALSE, fig.cap = "Boxplots of catheter-related thrombosis height over time."}
 cols <- c(paste0("#115d", c("6e", "9e", "de")), mcol[2:3])
@@ -180,6 +233,7 @@ cols <- c(paste0("#115d", c("6e", "9e", "de")), mcol[2:3])
 
 ### Catheter-related thrombosis width
 
+
 ```{r crtwidthbp, dev = ifelse_is_docx("pdf", "png"), fig.width = 15, fig.height = 10, echo = FALSE, fig.cap = "Boxplots of catheter-related thrombosis width over time."}
 .crtplots(
     droplevels(cvc[!cvc$isExcluded, c("Id", "ManLu", paste0("Width", 1:17))]),
@@ -212,139 +266,11 @@ cols <- c(paste0("#115d", c("6e", "9e", "de")), mcol[2:3])
 ```
 
 
-## Proportional hazards assumption
-
-```{r pha-table, echo = FALSE}
-pha <- cox.zph(rgcx)
-rownames(pha$table)[match(names(rgcx.nms), rownames(pha$table))] <- rgcx.nms
-knitr::kable(
-    pha$table,
-    digits = 2,
-    col.names = c("Chi-square", "DF", "*p*-value"),
-    caption = paste0(
-        "Chi-square independence test between scaled Schoenfeld residuals ",
-        "and time for each covariate ",
-        "(as implemented by `cox.zph` in the *survival* package). ",
-        "CVC, central venous catheters; DF, degree of freedom; ",
-        "DVT, deep vein thrombosis; WBC1, white blood count on day one."
-    )
-)
-```
-
-```{r pha-plot, dev = ifelse_is_docx("pdf", "png"), echo = FALSE, fig.width = 12, fig.height = 12, fig.cap = "Scaled Schoenfeld residuals over transformed time for each covariate. Depicted *p*-values were calculated applying chi-square independence test. CVC, central venous catheters; DVT, deep vein thrombosis; WBC1, white blood count on day one."}
-ggcoxzph(pha, df = 2)
-```
-
-## Hazard ratios
-
-```{r supplhrtable, echo = FALSE, message = FALSE}
-theme_gtsummary_journal()
-theme_gtsummary_compact(font_size = 8L)
-
-tbl_regression(
-    rgcx,
-    exponentiate = TRUE,
-    label = list(
-        ManLu ~ "Type (Manufacturer/Lumens)",
-        DVT ~ "History of vein thrombosis",
-        AdmissionType ~ "Admission type",
-        PerioperativePlacement ~ "Placement in the OR",
-        AnticoagulationGroup ~ "Type of anticoagulation drug",
-        WBC1 ~ "WBC day 1 [Gpt/L]"
-    )) |>
-    modify_caption(
-        paste0(
-            "Hazard ratios for Cox regression of CRT for all analysed central venous catheters ",
-            "(N=", rgcx$n, ")."
-        )
-    )
-```
-
-
-```{r supplhrtablelots, echo = FALSE, message = FALSE}
-theme_gtsummary_journal()
-theme_gtsummary_compact(font_size = 8L)
-
-tbl_regression(
-    rgcx.lots,
-    exponentiate = TRUE,
-    label = list(
-        ManLu ~ "Type (Manufacturer/Lumens)",
-        DVT ~ "History of vein thrombosis",
-        AdmissionType ~ "Admission type",
-        PerioperativePlacement ~ "Placement in the OR",
-        AnticoagulationGroup ~ "Type of anticoagulation drug",
-        WBC1 ~ "WBC day 1 [Gpt/L]"
-    )) |>
-    modify_caption(
-        paste0(
-            "Hazard ratios of CRT assuming that ",
-            "central venous catheters with missing LOTs were of ",
-            "each manufacturer's main type. ",
-            "Sample size of N=", rgcx.lots$n, "."
-        )
-    )
-```
-
-
-```{r supplhrtablefull, echo = FALSE, message = FALSE}
-theme_gtsummary_journal()
-theme_gtsummary_compact(font_size = 8L)
-
-tbl_regression(
-    rgcx.full,
-    exponentiate = TRUE,
-    label = list(
-        ManLu ~ "Type (Manufacturer/Lumens)",
-        DVT ~ "History of vein thrombosis",
-        Experience ~ "Experience (number of CVCs in the past)",
-        Attempts2 ~ "More than one insertion attempt",
-        AdmissionType ~ "Admission type",
-        PerioperativePlacement ~ "Placement in the OR",
-        AnticoagulationGroup ~ "Type of anticoagulation drug",
-        WBC1 ~ "WBC day 1 [Gpt/L]",
-        DDimer1 ~ "D-dimer day 1 [mg/L]",
-        CRP1 ~ "CRP day 1 [mg/L]"
-    )) |>
-    modify_caption(
-        paste0(
-            "Hazard ratios of CRT using all available variables ",
-            "but with a reduced sample size of N=", rgcx.full$n,
-            " central venous catheters due to missing values."
-        )
-    )
-```
-
-
-```{r forestplotlots, echo = FALSE, dev = ifelse_is_docx("pdf", "png"), fig.width = 12, fig.height = 12, fig.cap = "Hazard ratios of CRT for all central venous catheters assuming that missing LOTs were of each manufacturer's main type. DVT, deep vein thrombosis; LMWH, low-molecular-weight heparins; UFH, unfractionated heparin; WBC1, white blood cell count on day one."}
-.ggforest(
-    rgcx.lots,
-    data = rd.lots,
-    rename = rgcx.nms
-)
-```
-
-
-```{r forestplotfull, echo = FALSE, dev = ifelse_is_docx("pdf", "png"), fig.width = 12, fig.height = 12, fig.cap = "Hazard ratios for all available variables but with reduced sample size. CRP1: C-reactive peptide on day one; D-dimer1: d-dimer on day one; DVT, deep vein thrombosis; LMWH, low-molecular-weight heparins; UFH, unfractionated heparin; WBC1, white blood cell count on day one."}
-.ggforest(
-    rgcx.full,
-    data = rd.na,
-    labpos = c(0.1, 10),
-    rename = c(
-        ManLu = "Type",
-        Attempts2 = "More than one attempt",
-        DDimer1 = "D-dimer1",
-        AdmissionType = "Admission type",
-        PerioperativePlacement = "Perioperative placement",
-        AnticoagulationGroup = "Anticoagulation"
-    )
-)
-```
-
-
 ## Comparison CRT-free time
 
+
 ### Comparison CRT-free time Arrow5 vs Vygon5
+
 
 ```{r survplota5v5, echo = FALSE, dev = ifelse_is_docx("pdf", "png"), fig.width = 12, fig.height = 7, fig.cap = "Survival plot showing CRT-free time for five-lumen central venous catheters."}
 xlim <- c(0.8, max(times))
@@ -399,6 +325,7 @@ plot_table(
 
 ### Comparison CRT-free time Arrow4 vs Arrow5
 
+
 ```{r survplota4a5, echo = FALSE, dev = ifelse_is_docx("pdf", "png"), fig.width = 12, fig.height = 7, fig.cap = "Survival plot showing CRT-free time for four- and five-lumen central venous catheters."}
 xlim <- c(0.8, max(times))
 mar <- c(0.1, 10.1, 1.1, 2.1)
@@ -450,28 +377,116 @@ plot_table(
 ```
 
 
-## LOT numbers
+## Hazard ratios
 
-```{r lottable, echo = FALSE}
-lottbl <- cvc[c(
-    "Id", "Manufacturer", "Type", "Lumens", "LOT", "PN", "isExcluded"
-)]
-lottbl$isExcluded <- factor(
-    lottbl$isExcluded, levels = c(TRUE, FALSE), labels = c("yes", "no")
-)
-knitr::kable(
-    lottbl,
-    col.names = c(
-        "Id", "MF", "Type", "LM", "LOT", "PN", "EX"
-    ),
-    caption = paste0(
-        "LOT and part numbers of examined central venous catheters.",
-        " EX: Excluded, LM: Lumens, MF: Manufacturer, PN: part number."
+
+```{r supplhrtablefull, echo = FALSE, message = FALSE}
+theme_gtsummary_journal()
+theme_gtsummary_compact(font_size = 8L)
+
+tbl_regression(
+    rgcx.full,
+    exponentiate = TRUE,
+    label = list(
+        ManLu ~ "Type (Manufacturer/Lumens)",
+        DVT ~ "History of vein thrombosis",
+        Experience ~ "Experience (number of CVCs in the past)",
+        Attempts2 ~ "More than one insertion attempt",
+        AdmissionType ~ "Admission type",
+        PerioperativePlacement ~ "Placement in the OR",
+        AnticoagulationGroup ~ "Type of anticoagulation drug",
+        WBC1 ~ "WBC day 1 [Gpt/L]",
+        DDimer1 ~ "D-dimer day 1 [mg/L]",
+        CRP1 ~ "CRP day 1 [mg/L]"
+    )) |>
+    modify_caption(
+        paste0(
+            "Hazard ratios of CRT using all available variables ",
+            "but with a reduced sample size of N=", rgcx.full$n,
+            " central venous catheters due to missing values."
+        )
+    )
+```
+
+
+```{r forestplotfull, echo = FALSE, dev = ifelse_is_docx("pdf", "png"), fig.width = 12, fig.height = 12, fig.cap = "Hazard ratios for all available variables but with reduced sample size. CRP1: C-reactive peptide on day one; D-dimer1: d-dimer on day one; DVT, deep vein thrombosis; LMWH, low-molecular-weight heparins; UFH, unfractionated heparin; WBC1, white blood cell count on day one."}
+.ggforest(
+    rgcx.full,
+    data = rd.na,
+    labpos = c(0.1, 10),
+    rename = c(
+        ManLu = "Type",
+        Attempts2 = "More than one attempt",
+        DDimer1 = "D-dimer1",
+        AdmissionType = "Admission type",
+        PerioperativePlacement = "Perioperative placement",
+        AnticoagulationGroup = "Anticoagulation"
     )
 )
 ```
 
+
+```{r supplhrtable, echo = FALSE, message = FALSE}
+theme_gtsummary_journal()
+theme_gtsummary_compact(font_size = 8L)
+
+tbl_regression(
+    rgcx,
+    exponentiate = TRUE,
+    label = list(
+        ManLu ~ "Type (Manufacturer/Lumens)",
+        DVT ~ "History of vein thrombosis",
+        AdmissionType ~ "Admission type",
+        PerioperativePlacement ~ "Placement in the OR",
+        AnticoagulationGroup ~ "Type of anticoagulation drug",
+        WBC1 ~ "WBC day 1 [Gpt/L]"
+    )) |>
+    modify_caption(
+        paste0(
+            "Hazard ratios for Cox regression of CRT for all analysed central venous catheters ",
+            "(N=", rgcx$n, ")."
+        )
+    )
+```
+
+
+```{r supplhrtablelots, echo = FALSE, message = FALSE}
+theme_gtsummary_journal()
+theme_gtsummary_compact(font_size = 8L)
+
+tbl_regression(
+    rgcx.lots,
+    exponentiate = TRUE,
+    label = list(
+        ManLu ~ "Type (Manufacturer/Lumens)",
+        DVT ~ "History of vein thrombosis",
+        AdmissionType ~ "Admission type",
+        PerioperativePlacement ~ "Placement in the OR",
+        AnticoagulationGroup ~ "Type of anticoagulation drug",
+        WBC1 ~ "WBC day 1 [Gpt/L]"
+    )) |>
+    modify_caption(
+        paste0(
+            "Hazard ratios of CRT assuming that ",
+            "central venous catheters with missing LOTs were of ",
+            "each manufacturer's main type. ",
+            "Sample size of N=", rgcx.lots$n, "."
+        )
+    )
+```
+
+
+```{r forestplotlots, echo = FALSE, dev = ifelse_is_docx("pdf", "png"), fig.width = 12, fig.height = 12, fig.cap = "Hazard ratios of CRT for all central venous catheters assuming that missing LOTs were of each manufacturer's main type. DVT, deep vein thrombosis; LMWH, low-molecular-weight heparins; UFH, unfractionated heparin; WBC1, white blood cell count on day one."}
+.ggforest(
+    rgcx.lots,
+    data = rd.lots,
+    rename = rgcx.nms
+)
+```
+
+
 ## R session information
+
 
 ```{r sessioninfo, echo = FALSE}
 sessionInfo()
@@ -479,7 +494,7 @@ sessionInfo()
 
 ## Git commit hash
 
+
 ```{r gitcommithash, echo = FALSE}
 sprintf("Git commit revision: %s", system("git rev-parse HEAD", intern = TRUE))
 ```
-

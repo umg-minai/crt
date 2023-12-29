@@ -13,7 +13,7 @@ we focused on the internal jugular vein (IJV) and excluded  `r sum(cvc$Exclusion
 In addition, we had to exclude a total of `r .as.word(length(grep("Lumen", cvc$ExclusionReason)) + sum(cvc$ExclusionReason == "Not inserted in-house", na.rm = TRUE))` CVCs because of the very small number of catheters of this type (e.g. `r ncvc <- .as.word(sum(cvc$ManLu == "Arrow5" & grepl("Arrowg\\+ard", cvc$Type))); .cli_text("{ncvc} CVC{?s}")` Arrow, 5 lumen with Arrowg+ard Blue (1st generation) coating) or because they were inserted in an external hospital and we were unable to verify the time of insertion.
 As direct oral anticoagulants (DOACs) are an inhomogeneous group and uncommon in our ICU,
 we examined only `r s <- length(grep("DOAC", cvc$ExclusionReason)); .cli_text("{(.as.word(s))} {qty(s)}patient{?s} with {qty(s)}{?a/different} {qty(s)}DOAC{?s} and decided to exclude {qty(s)}{?this/these} {qty(s)}CVC{?s}")` as well.
-We also had to exclude `r sum(cvc$ExclusionReason == "Missing LOT", na.rm = TRUE)` CVCs due to missing or unreadable LOT information.
+We also had to exclude `r sum(cvc$ExclusionReason == "Missing LOT", na.rm = TRUE)` CVCs due to missing or unreadable LOT information (see Supplementary Information, Table \@ref(tab:lottable), for a full list).
 Finally, we retained  `r sum(!cvc$isExcluded)` first-time CVCs and patients for our analysis (see Table \@ref(tab:table1)).
 
 `r s <- sort(table(m$data$ManLu), decreasing = TRUE); s <- paste(.as.word(s), names(s)); .cli_text("{ {s}}")` CVCs were used.
@@ -60,7 +60,7 @@ Lumen occlusion was reported in `r s <- sum(m$data$Complications == "closed lume
 
 In addition to the univariate analyses we applied multiple regression analyses to determine the impact of different variables (see Fig. \@ref(fig:forestplot)).
 All variables with missing values were omitted to maintain the sample size.
-However, the results don't vary much even when all variables are included (see Supplementary Information for a regression with half the number of samples but all the variables, Table \@ref(tab:supplhrtablefull)).
+However, the results don't vary much even when all variables are included (see Supplementary Information for a regression with half the number of samples but all the variables, Table \@ref(tab:supplhrtablefull) and Fig. \@ref(fig:forestplotfull)).
 
 As shown in the forest plot (see Fig. \@ref(fig:forestplot)), the Arrow4 and Vygon5 CVC types were significantly associated with higher rates of CRT.
 Their hazard ratios were `r format(exp(rgcx$coefficients["ManLuArrow4"]), digits = 2)` and `r format(exp(rgcx$coefficients["ManLuVygon5"]), digits = 2)`, respectively.
