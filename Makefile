@@ -18,7 +18,7 @@ GITHEADL=$(shell git rev-parse HEAD)
 .PHONEY: \
 	clean clean-dist clean-output \
 	dist guix-pin-channels \
-	regenerate-data env
+	regenerate-data
 
 all: manuscript
 
