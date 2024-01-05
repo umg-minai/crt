@@ -1,10 +1,5 @@
 # Declarations
 
-## Ethical approval
-
-Research involving human subjects complied with all relevant national regulations and institutional policies, as well as the tenets of the Helsinki Declaration (as revised in 2013), and was approved by the ethics committee of the University Medicine Greifswald
-(reference number: `r rmarkdown::metadata[["ethics_committee"]]`).
-
 ## Consent for publication
 
 Not applicable.
