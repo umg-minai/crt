@@ -13,7 +13,9 @@ They were asked to complete a questionnaire documenting the manufacturer, the LO
 If the patient had a blood sample taken on the day of the screening we ordered white blood cells counts (WBC), C-reactive peptide (CRP) and D-dimer.
 
 The study was approved by the ethics committee of the University Medicine Greifswald
-(reference number: `r rmarkdown::metadata[["ethics_committee"]]`).
+(reference number: `r rmarkdown::metadata[["ethics_committee"]][["reference_number"]]`;
+approval date: `r rmarkdown::metadata[["ethics_committee"]][["approval_date"]]`;
+title: `r rmarkdown::metadata[["ethics_committee"]][["study_title"]]`).
 
 ## Ultrasound assessment
 

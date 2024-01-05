@@ -45,7 +45,10 @@ author:
             - Writing - review & editing
             - Validation
             - Supervision
-ethics_committee: BB 006/22
+ethics_committee:
+    reference_number: BB 006/22
+    approval_date: February 1, 2022
+    study_title: Catheter-related thrombosis in critically ill patients in a surgical intensive care unit.
 bibliography:
     - bibliography/bibliography.bib
     - bibliography/rpackages.bib
