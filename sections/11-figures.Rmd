@@ -25,7 +25,8 @@ knitr::opts_chunk$set(
         ),
         tiff = list(
             family = "ArialMT",
-            pointsize = 18
+            pointsize = 18,
+            compression = "zip"
         )
     )
 )
