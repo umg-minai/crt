@@ -309,11 +309,6 @@ tbl1 <- m$data |>
             levels = levels(.data$ManLu),
             labels = .manlu2txt(levels(.data$ManLu))
         ),
-        Specialty = factor(
-            Specialty,
-            levels = levels(.data$Specialty),
-            labels = .toupper.first(levels(.data$Specialty))
-        ),
         AdmissionType = factor(
             AdmissionType,
             levels = levels(.data$AdmissionType),
@@ -337,13 +332,10 @@ tbl1 <- m$data |>
         Experience,
         PerioperativePlacement,
         FirstExam,
-        FollowUp,
         AdmissionType,
-        Specialty,
         Sepsis,
         Cancer,
         DVT,
-        Smoking,
         AnticoagulationGroup,
         Complications,
         WBC1,
@@ -354,7 +346,6 @@ tbl1 <- m$data |>
         by = CRT,
         missing_text = "(Missing)",
         type = list(
-            FollowUp ~ "continuous",
             Sex ~ "dichotomous",
             DVT ~ "dichotomous",
             Side ~ "dichotomous",
@@ -362,7 +353,6 @@ tbl1 <- m$data |>
             AnticoagulationGroup ~ "categorical"
         ),
         label = list(
-            FollowUp ~ "Follow-up time [days]",
             FirstExam ~ "Time to first exam [hours]",
             Sex ~ "Sex (male)",
             ManLu ~ "Type (Manufacturer/Lumens)",
@@ -385,13 +375,12 @@ tbl1 <- m$data |>
             Incision ~ "yes"
         )
     ) |>
-    add_overall() |>
-    add_p(test.args = c(Specialty) ~ list(simulate.p.value = TRUE))
+    add_overall()
 
 uvar <- unique(c(tbl1$table_body$variable, tbl1$table_body$label))
 .abbr <- sort(c(Filter(nchar, abbr[uvar]), abbr[c("CRT", "OR")]))
 
-tbl1 <-  tbl1 |>
+tbl1 <- tbl1 |>
     modify_caption(
     paste0(
         "Baseline characteristics of all analysed central venous catheters ",
@@ -401,6 +390,11 @@ tbl1 <-  tbl1 |>
         paste(names(.abbr), .abbr, sep = ", ", collapse = "; "), "."
     )
 )
+
+tbl1 <- tbl1 |>
+    remove_row_type(Complications, type = "level", "None") |>
+    remove_row_type(AnticoagulationGroup, type = "level", "None")
+
 ```
 
 ```{r tablesurv, include = FALSE, message = FALSE, warning = FALSE}
