@@ -25,15 +25,6 @@ We believe that the most important factors in the development of CRT are the ini
 Venous stasis due to obstruction, catheter-to-vessel ratio and volume status may play a minor role in the first days but may be more important in the long term.
 This may explain the higher incidence and earlier onset of CRT compared to medical patients in other studies.
 
-The American College of Chest Physicians guideline "Antithrombotic therapy for venous thrombotic embolism (VTE)" defines a large VTE as greater than 7 mm in diameter and greater than 50 mm in length [@Kearon2012].
-Only `r s <- sum(cvc$WidthMax[!cvc$isExcluded] > 50, na.rm = TRUE); .cli_text("{(.as.word(s))} of the thromboses we found {qty(s)}{?was/were}")`
-longer than 50 mm and `r .as.word(sum(cvc$HeightMax[!cvc$isExcluded] > 7, na.rm = TRUE))` (`r .pct(mean(cvc$HeightMax[!cvc$isExcluded] > 7, na.rm = TRUE))` had a maximum height of more than 7 mm, respectively.
-Due to the irregular, non-circular shape of the CRT, which is often placed on one side of the CVC, the maximum height does not necessarily correspond to the diameter.
-Compared to critically ill medical patients, CRTs were similar in size, with a higher proportion of thicker CRTs (30% over 7 mm) and 0.5% were longer than 50 mm [@Wu2023].
-
-Although CRT size and progression were neither our primary nor secondary outcome, and we did not measure the size every day unless it was obviously different from the previous image, most CRTs were stable in size.
-This is in line with the results previously reported [@Wu2023].
-
 Despite the high incidence of CRT we didn't observe any negative outcome.
 Thus, our results confirm the guideline recommendation to leave catheters with CRT in place [@Kearon2012; @Wall2015].
 Removal for thrombosis and reinsertion of a new CVC does not seem necessary and is not recommended [@Kearon2012; @Geerts2014; @Wall2015].
