@@ -31,7 +31,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-```{r consort-flowchart, echo = FALSE, warning = FALSE, dev = ifelse_is_docx(c("tiff", "pdf"), "png"), fig.width = 14, fig.height = 7, fig.cap = "The flowchart shows the inclusion and exclusion criteria. CVC, central venous catheter; DOAC, direct oral anticoagulants; FV, femoral vein; SCV, subclavian vein."}
+```{r consort-flowchart, echo = FALSE, warning = FALSE, dev = ifelse_is_docx(c("tiff", "pdf"), "png"), fig.width = 14, fig.height = 7, fig.cap = "CONSORT diagram: the flowchart shows the inclusion and exclusion criteria. CVC, central venous catheter; DOAC, direct oral anticoagulants; FV, femoral vein; SCV, subclavian vein."}
 library("consort")
 
 .txt <- function(label, n)paste0(label, "\n (n = ", n, ")")
