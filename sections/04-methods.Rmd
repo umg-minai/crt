@@ -1,5 +1,12 @@
 # Material and Methods
 
+## Ethics Approval
+
+The study complied with all relevant national regulations and institutional policies, as well as the tenets of the Helsinki Declaration (as revised in 2013), and was approved by the ethics committee of the University Medicine Greifswald
+(reference number: `r rmarkdown::metadata[["ethics_committee"]][["reference_number"]]`;
+approval date: `r rmarkdown::metadata[["ethics_committee"]][["approval_date"]]`;
+title: `r rmarkdown::metadata[["ethics_committee"]][["study_title"]]`).
+
 ## Study design and population
 
 In this prospective observational single-center study, we evaluated the occurrence of CRT in critically ill patients with CVCs treated in our surgical intensive care unit (ICU)
@@ -11,11 +18,6 @@ Skin antisepsis was performed with octenidine dihydrochlordie, 1-propanol, 2-pro
 The choice of the appropriate CVC type, site and side was made by the clinicians performing the placement.
 They were asked to complete a questionnaire documenting the manufacturer, the LOT (identification) number, the number of attempts, any complications and their level of expertise in CVC placement.
 If the patient had a blood sample taken on the day of the screening we ordered white blood cells counts (WBC), C-reactive peptide (CRP) and D-dimer.
-
-The study was approved by the ethics committee of the University Medicine Greifswald
-(reference number: `r rmarkdown::metadata[["ethics_committee"]][["reference_number"]]`;
-approval date: `r rmarkdown::metadata[["ethics_committee"]][["approval_date"]]`;
-title: `r rmarkdown::metadata[["ethics_committee"]][["study_title"]]`).
 
 ## Ultrasound assessment
 
