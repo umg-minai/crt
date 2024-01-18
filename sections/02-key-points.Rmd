@@ -1,3 +1,4 @@
+<!--
 # Key points
 
 ## Question
@@ -17,3 +18,4 @@ week, 64 to 100% of CVCs developed a thrombosis.
 
 Almost all CVCs in critically ill surgical patients developed an asymptomatic
 CRT in the first days after catheterization.
+-->
