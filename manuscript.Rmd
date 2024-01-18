@@ -52,7 +52,7 @@ ethics_committee:
 bibliography:
     - bibliography/bibliography.bib
     - bibliography/rpackages.bib
-csl: pandoc/csl/critical-care-medicine.csl
+csl: pandoc/csl/journal-of-thrombosis-and-haemostasis.csl
 link-citations: yes
 linkcolor: blue
 output:
