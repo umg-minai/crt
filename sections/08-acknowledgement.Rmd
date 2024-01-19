@@ -1,5 +1,12 @@
 # Declarations
 
+## Ethics approval and consent to participate
+
+The study complied with all relevant national regulations and institutional policies, as well as the tenets of the Helsinki Declaration (as revised in 2013), and was approved by the ethics committee of the University Medicine Greifswald
+(reference number: `r rmarkdown::metadata[["ethics_committee"]][["reference_number"]]`;
+approval date: `r rmarkdown::metadata[["ethics_committee"]][["approval_date"]]`;
+title: `r rmarkdown::metadata[["ethics_committee"]][["study_title"]]`).
+
 ## Consent for publication
 
 Not applicable.
@@ -37,7 +44,7 @@ if (all(is_none)) {
 
 None.
 
-## Author Contributions
+## Authors' Contributions
 
 ```{r author-contributions, echo = FALSE, results = "asis"}
 roles <- lapply(authors, "[[", "role")
@@ -65,7 +72,7 @@ cat(
 )
 ```
 
-## Acknowledgement
+## Acknowledgements
 
 We thank Katrin Singer (Teleflex/Arrow), Androniki Graf (B. Braun), Johannes Haga Jäger (B. Braun), Silvia Metz (B. Braun), Stephan Schopka (B. Braun) and Tobias Neels (Vygon) for information on CVC materials and properties.
 We would also thank Marcus Vollmer for helpful discussions on survival analysis and for proofreading the manuscript.
