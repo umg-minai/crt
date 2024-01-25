@@ -52,7 +52,7 @@ ethics_committee:
 bibliography:
     - bibliography/bibliography.bib
     - bibliography/rpackages.bib
-csl: pandoc/csl/journal-of-intensive-care.csl
+csl: pandoc/csl/journal-of-clinical-anesthesia.csl
 link-citations: yes
 linkcolor: blue
 output:
