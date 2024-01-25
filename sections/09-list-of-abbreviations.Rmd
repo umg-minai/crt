@@ -1,3 +1,4 @@
+<!--
 # List of abbreviations
 
 ```{r list-of-abbreviations, echo = FALSE, results = "asis"}
@@ -7,3 +8,4 @@ cat(paste0(
     sep = "", collapse = "\n")
 )
 ```
+-->
