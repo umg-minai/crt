@@ -1,4 +1,4 @@
-# Background
+# Introduction
 
 Central venous catheters (CVCs) are commonly used during surgery and in critically ill patients [@Geerts2014].
 Catheter-related thrombosis (CRT) is a major complication of central venous access and an important risk factor for pulmonary embolism (PE) and
