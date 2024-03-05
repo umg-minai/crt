@@ -119,6 +119,8 @@ cvc$ExclusionReason[isLowN] <-
     paste0("Lumen: ", cvc$Lumens[isLowN], ", ", cvc$Manufacturer[isLowN])
 cvc$ExclusionReason[cvc$ManLu == "Arrow5" & grepl("Arrowg\\+ard", cvc$Type)] <-
     "Lumen: 5, Arrow"
+cvc$ExclusionReason[cvc$ManLu == "Vygon5" & grepl("expert", cvc$Type)] <-
+    "Lumen: 5, Vygon multicath expert"
 cvc$isExcluded <- !is.na(cvc$ExclusionReason)
 
 cvc$ExclusionReason[cvc$AnticoagulationGroup == "DOAC" & !cvc$isExcluded] <-
@@ -132,7 +134,6 @@ cvc$isExcluded <- !is.na(cvc$ExclusionReason)
 cvc$ExclusionReason[duplicated(cvc$CaseId)] <-
     "Not the first CVC"
 cvc$isExcluded <- !is.na(cvc$ExclusionReason)
-
 ```
 
 ```{r helper, include = FALSE}
