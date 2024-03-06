@@ -67,6 +67,8 @@ abbr <- c(
     LMWH = "low molecular weight heparin",
     OR = "operating room",
     PE = "pulmonary embolism",
+    Q1 = "first quartile",
+    Q3 = "third quartile",
     SCV = "subclavian vein",
     UFH = "unfractionated heparin",
     VTE = "venous thrombotic embolism",
@@ -377,7 +379,8 @@ tbl1 <- m$data |>
             Incision ~ "yes"
         )
     ) |>
-    add_overall()
+    add_overall() |>
+    modify_footnote(all_stat_cols() ~ "n (%), Median (Q1, Q3)")
 
 uvar <- unique(c(tbl1$table_body$variable, tbl1$table_body$label))
 .abbr <- sort(c(Filter(nchar, abbr[uvar]), abbr[c("CRT", "OR")]))
@@ -388,7 +391,8 @@ tbl1 <- tbl1 |>
         "Baseline characteristics of all analysed central venous catheters ",
         "in the internal jugular vein.<br /> ",
         "Values are given as ",
-        "median (lower quartile - upper quartile) or n (percent).<br /> ",
+        "median (lower quartile (Q1), upper quartile (Q2)) or n (percent).",
+        "<br /> ",
         paste(names(.abbr), .abbr, sep = ", ", collapse = "; "), "."
     )
 )

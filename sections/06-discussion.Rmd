@@ -4,7 +4,7 @@ In this prospective observational study,
 we found asymptomatic CRT in `r sum(cvc$CRT[!cvc$isExcluded] == "CRT")` of `r sum(!cvc$isExcluded)` CVCs (`r .pct(mean(cvc$CRT[!cvc$isExcluded] == "CRT"))`) in the IJV of critically ill patients within `r .as.word(ceiling(max(cvc$FollowUp[!cvc$isExcluded], na.rm = TRUE) / 7))` weeks after catheterisation.
 This incidence of CRT is much higher than previously reported 28 to 56% for IJV CVCs in general surgical ICU or cardiac surgery patients [@Malinoski2013; @Timsit1998; @Wu1999].
 To our knowledge, the time of thrombosis onset has not been previously studied in surgical patients.
-The median (IQR) time from CVC insertion to CRT diagnosis for all CVCs was `r .medLU(survfit(Surv(FUP, CRT) ~ 1, data = m$data), prec = ".0")` days, which is comparable to the previously reported 4 (2, 7) days for CRT onset in critically ill medical patients [@Wu2023].
+The median (Q1, Q3) time from CVC insertion to CRT diagnosis for all CVCs was `r .medLU(survfit(Surv(FUP, CRT) ~ 1, data = m$data), prec = ".0")` days, which is comparable to the previously reported 4 (2, 7) days for CRT onset in critically ill medical patients [@Wu2023].
 While CRT developed slowly in critically ill medical patients with only 12% of CRTs observed on day one, we found CRT in up to `r .pct(1 - min(.survsummary(m$svf, times = 1, type = "surv")))` of CVCs in critically ill surgical patients within the first 24 hours, depending on the type of CVC.
 This underscores the importance of clinically reviewing the indication for a CVC critically in the first place, reviewing it on a daily basis, and removing the CVC as early as possible.
 
