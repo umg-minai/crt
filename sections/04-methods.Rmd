@@ -31,9 +31,9 @@ The results of these non-routine investigations were not reported to the treatin
 ## Catheter types
 
 Due to supply constraints, controlled randomisation was not feasible and different types of CVCs from different manufacturers were used.
-We observed three different types of Arrow CVCs (Teleflex Medical GmbH, Germany), namely the classic polyurethane CVCs with three and five lumens (referred to as Arrow3 and Arrow5), and the chlorhexidine acetate and silver sulfadiazine coated polyurethane catheters Arrowg+ard Blue (1st generation) with four lumens (referred to as Arrow4).
-Further we observed the three-lumen Certofix protect Trio catheter (B. Braun SE, Germany), consisting of a thermoplastic polyurethane, embedded Barium Sulphate as contrast agent and an antimicrobial coating containing polyhexamethylene biguanide (Polyhexanide or PHMB, referred to as Braun3), and
-the five-lumen multicath CVC (VYGON GmbH & Co. KG, Germany; referred to as Vygon5), made of polyurethane without any special coating.
+We observed three different types of Arrow CVCs (Teleflex Medical GmbH, Germany), namely the classic polyurethane CVCs with three and five lumens (7 and 9.5 French; referred to as Arrow3 and Arrow5), and the chlorhexidine acetate and silver sulfadiazine coated polyurethane catheters Arrowg+ard Blue (1st generation) with four lumens (8.5 French, referred to as Arrow4).
+Further we observed the three-lumen Certofix protect Trio catheter (7 French; B. Braun SE, Germany), consisting of a thermoplastic polyurethane, embedded Barium Sulphate as contrast agent and an antimicrobial coating containing polyhexamethylene biguanide (Polyhexanide or PHMB, referred to as Braun3), and
+the five-lumen multicath CVC (9.5 French; VYGON GmbH & Co. KG, Germany; referred to as Vygon5), made of polyurethane without any special coating.
 
 ## Outcome
 
