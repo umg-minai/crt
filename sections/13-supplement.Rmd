@@ -163,7 +163,7 @@ knitr::kable(
     ),
     caption = paste0(
         "LOT and part numbers of examined central venous catheters.",
-        " EX: Excluded, LM: Lumens, MF: Manufacturer, PN: part number."
+        " EX, Excluded; LM, Lumens; MF, Manufacturer; PN, part number."
     )
 )
 ```
