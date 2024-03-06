@@ -8,7 +8,7 @@ The majority of CRTs are asymptomatic and patients with CVCs are rarely screened
 The incidence of CRT in previous studies varies widely between medical and surgical patients, ranging from 6 to 56% [@Haggstrom2020;@Wu2023;@Malinoski2013;@Yamashita2020;@Wu1999].
 A recently published study used a daily ultrasound assessment on mostly critically ill medical patients and found a median time to CRT of four days with an incidence of 16.9% [@Wu2023].
 Perioperative hypercoagulability in surgical patients may explain the higher incidence of CRT with more than 50%.
-However, despite the much higher incidence the onset of CRT in surgical patients is still unknown.
+However, despite the much higher incidence, the onset of CRT in surgical patients is still unknown.
 
 Patient-related risk factors for CRT, such as cancer or previous vein thrombosis, are well-known [@Geerts2014; @Liu2022].
 In contrast, catheter-related risk factors other than insertion site and catheter diameter have rarely been studied.
