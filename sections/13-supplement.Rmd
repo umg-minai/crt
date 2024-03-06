@@ -1,6 +1,125 @@
 # `r paste(gsub("\\n$", "", rmarkdown::metadata$title), "- Supplementary Information")`
 
 
+## Penalized regression
+
+
+```{r coxnet, include = FALSE}
+library("ameld")
+coxnet.x  <- model.matrix(
+    Surv(FUP, CRT) ~
+        Sex + Age + ManLu +
+        Side + AdmissionType + PerioperativePlacement +
+        Sepsis + Cancer + DVT +
+        AnticoagulationGroup + WBC1,
+    data = rd
+)[, -1]
+i <- rownames(rd) %in% rownames(coxnet.x)
+coxnet.y <- Surv(rd$FUP[i], rd$CRT[i])
+set.seed(20240306)
+coxnet <- rcv.glmnet(
+    x = coxnet.x, y = coxnet.y, family = "cox", nfolds = 10,
+    trace.it = FALSE
+)
+
+cfnms <- c(
+    "Sex, male", "Age", "Arrow4", "Arrow5", "Braun3", "Vygon5", "Side, left",
+    "Admission type, medical", "Perioperative placement, yes", 
+    "Sepsis, yes", "Cancer, yes", "DVT, yes", "Anticoagulation, none",
+    "Anticoagulation, UFH", "WBC1"
+)
+rownames(coxnet$glmnet.fit$beta) <- cfnms
+```
+
+```{r coxnet-cv-plot, dev = ifelse_is_docx("pdf", "png"), echo = FALSE, warning = FALSE, fig.width = 12, fig.height = 7, fig.cap = "Cross-validation curve. Plot of cross-validation curve for least absolute shrinkage and selection operator (lasso) regression for cox proportional hazards models with 100 repeated cross-validations each with 10 folds. The dotted vertical lines mark the best model (minimal lambda) and the model with the lowest number of predictors and an error within one standard deviation (1se lambda)."}
+plot(coxnet)
+mtext(text = "Number of predictors", side = 3, line = 3)
+```
+
+```{r coxnet-path-plot, dev = ifelse_is_docx("pdf", "png"), echo = FALSE, warning = FALSE, fig.width = 12, fig.height = 7, fig.cap = paste0("Coefficient profile plot. Plot of coefficient path for least absolute shrinkage and selection operator (lasso) regression for cox proportional hazards models with the minimal lambda found in a 100 repeated cross-validation each with 10 folds. The dotted vertical line marks the used logarithmised lambda of ", round(log(coxnet$lambda.min), 2), ".; DVT, deep vein thrombosis; UFH, unfractionated heparins; WBC1, white blood count on day one.")}
+## taken from ameld 0.0.31 and glmnet 4.1.8, plotCoef
+.plot.path.lambda <- function(x, nlabel = 9, cex.lab = 1,
+                         col = viridisLite::cividis(nlabel),
+                         ...) {
+    beta <- x$glmnet.fit$beta
+    nr <- nrow(beta)
+    col <- rep_len(col, nr)
+    which <- ameld:::.nonzero(beta)
+    betalab <- beta[which, ncol(beta)]
+    o <- order(-abs(betalab))
+    o <- o[seq_len(min(c(nlabel, length(o))))]
+    betalab <- betalab[o]
+
+    old.par <- par(no.readonly = TRUE)
+    on.exit(par(old.par))
+
+    mai <- par("mai")
+    w <- max(strwidth(names(betalab), "inch") * cex.lab, na.rm = TRUE) + 1/8
+    if (mai[2L] < w)
+        mai[2L] <- mai[2L] + w # taken from dotchart
+    mai[4L] <- mai[4] + 1
+    old.par <- par(mai = mai, no.readonly = TRUE)
+
+    ## from plotCoef
+    beta <- as.matrix(beta[which, , drop = FALSE])
+    index <- log(x$glmnet.fit$lambda)
+    matplot(
+        index, t(beta), 
+        lty = 1, xlab = expression(Log(lambda)), ylab = "", yaxt = "n", 
+        type = "l", ..., col = col
+    )
+    axis(4)
+
+    atdf <- pretty(index)
+    prettydf <- approx(
+        x = index, y = x$glmnet.fit$df, xout = atdf, rule = 2, 
+        method = "constant", f = 0
+    )$y
+    axis(3, at = atdf, labels = prettydf, tcl = NA)
+    mtext(text = "Number of predictors", side = 3, line = 3)
+    mtext("Coefficients", side = 4, line = 3)
+
+    abline(h = 0, lty = "dotted", col = "#808080")
+
+    betalab <- ameld:::.avoid_ylab_overlap(betalab, strheight("X") * cex.lab)
+
+    for (i in seq_along(betalab))
+        axis(
+            2L,
+            at = betalab[i], labels = names(betalab)[i],
+            las = 1,
+            cex.axis = cex.lab,
+            col.axis = col[o[i]],
+            col = col[o[i]]
+        )
+}
+.plot.path.lambda(coxnet, nlabel = 15)
+abline(v = log(coxnet$lambda.min), col = "#808080", lty = "dotted")
+```
+
+```{r coxnet-cf, echo = FALSE}
+cf <- coef(coxnet, s = "lambda.min")
+nnzero <- as.logical(cf != 0L)
+cfs <- cf[nnzero]
+cfd <- data.frame(cf = cfs, hr = exp(cfs))
+rownames(cfd) <- cfnms[nnzero]
+knitr::kable(
+    cfd,
+    row.names = TRUE,
+    col.names = c("Coefficient", "Hazard ratio"),
+    caption = paste0(
+        "Coefficient of ",
+        "least absolute shrinkage and selection operator (lasso) ",
+        "regression for cox proportional hazards models with the ",
+        "minimal logarithmised lambda ", round(log(coxnet$lambda.min), 2), 
+        " found in a 100 repeated cross-validation each with 10 folds. ",
+        "DVT, deep vein thrombosis."
+    ),
+    digits = 3
+)
+```
+
+
 ## Proportional hazards assumption
 
 

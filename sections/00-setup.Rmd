@@ -12,6 +12,7 @@ knitr::write_bib(
     c(
         "base",
         "consort",
+        "glmnet",
         "gtsummary",
         "survival",
         "survminer"
@@ -429,29 +430,4 @@ tblsrv <-
     )
 )
 
-```
-
-```{r glmnet, include = FALSE}
-#step(
-#    rgcx,
-#    scope = list(
-#                 upper=~Sex + Age + ManLu + Manufacturer:Lumens + Lumens + Manufacturer + Side + PerioperativePlacement + Sepsis + Cancer + DVT + AnticoagulationGroup + WBC1 + DVT.CVC,
-#        lower=~ManLu
-#    )
-#)
-#
-#x <- model.matrix(
-#    Surv(FUP, CRT) ~
-#        Sex + Age + BMI + ManLu +
-#        Side + PerioperativePlacement +
-#        Incision + Experience +
-#        Sepsis + Cancer + DVT + DVT.CVC +
-#        AnticoagulationGroup + WBC1,
-#    data = rd
-#)[, -1]
-#i <- rownames(rd) %in% rownames(x)
-#y <- Surv(rd$FUP[i], rd$CRT[i])
-#fit <- ameld::rcv.glmnet(x = x, y = y, family = "cox")
-#coef(fit, s = "lambda.min")
-#coef(fit)
 ```
