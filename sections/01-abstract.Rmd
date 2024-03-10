@@ -15,7 +15,8 @@ Therefore, we here investigated incidence, onset, and dependence of CRT on a var
 
 **Measurements**:
 All CVCs were examined for CRT every other day using ultrasound, starting within 24 hours of placement.
-The primary outcome was the time of onset of CRT depending on the type of CVC.
+The primary outcome was the time of onset of CRT depending on the type of CVC
+(three to five lumens, three different manufacturers).
 CRT risk factors were analyzed using multiple Cox proportional hazards regression models.
 
 **Main Results**:
