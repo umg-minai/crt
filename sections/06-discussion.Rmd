@@ -26,9 +26,10 @@ Venous stasis due to obstruction, catheter-to-vessel ratio and volume status may
 This may explain the higher incidence and earlier onset of CRT compared to medical patients in other studies.
 
 Despite the high incidence of CRT we didn't observe any negative outcome.
-Thus, our results confirm the guideline recommendation to leave catheters with CRT in place [@Kearon2012; @Wall2015].
+Thus, our results support the guideline recommendation to leave catheters with CRT in place [@Kearon2012; @Wall2015].
 Removal for thrombosis and reinsertion of a new CVC does not seem necessary and is not recommended [@Kearon2012; @Geerts2014; @Wall2015].
-However, the need for therapeutic anticoagulation in asymptomatic incidental should be debated.
+However, the early removal of CVCs regardless of visible CRTs is of major importance to ensure venous blood flow and reduce serious adverse events.
+Nevertheless the need for therapeutic anticoagulation in asymptomatic incidental should be debated.
 
 The benefit of anticoagulation in CRT is support by our results, as prophylactic anticoagulation at the time of catheter placement appears to be associated with a lower rate of CRT.
 Especially in patients with cancer prophylactic anticoagulation could reduce CRT [@Wall2015; @Kahale2018].
@@ -51,7 +52,7 @@ Serial ultrasound, as in our study, increases sensitivity and specificity up 97.
 Nevertheless, the true accuracy of ultrasonography in the diagnosis of CRT in the IJV is not known.
 
 Although we focused on the IJV, our ultrasound access was limited to the proximal part of the CVC.
-This may led to an underestimation of the incidence of CRT.
+This may led to an underestimation of the incidence of CRT as a recent autopsy study found most of the CRTs at the catheter tip [@Rockholt2024].
 
 When the patient was discharged from the ICU, we stopped the ultrasound examination, which may also underestimate the incidence of CRT.
 
