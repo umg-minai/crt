@@ -52,7 +52,7 @@ Serial ultrasound, as in our study, increases sensitivity and specificity up 97.
 Nevertheless, the true accuracy of ultrasonography in the diagnosis of CRT in the IJV is not known.
 
 Although we focused on the IJV, our ultrasound access was limited to the proximal part of the CVC.
-This may led to an underestimation of the incidence of CRT as a recent autopsy study found most of the CRTs at the catheter tip [@Rockholt2024].
+This may have led to an underestimation of the incidence of CRT as a recent autopsy study found most of the CRTs at the catheter tip [@Rockholt2024].
 
 When the patient was discharged from the ICU, we stopped the ultrasound examination, which may also underestimate the incidence of CRT.
 
@@ -66,4 +66,4 @@ Due to missing information and its exploratory nature, our study is underpowered
 However, in the reduced sample size we found no difference (Supplemental eTable \@ref(tab:supplhrtablefull)) which is in line with previous studies showing that the number of insertion attempts and operator experience may be unrelated to CRT [@Timsit1998; @Leung2016].
 
 Especially for low-prevalence variables, e.g. Braun3 (`r .pct(mean(m$data$ManLu == "Braun3"))`), previous DVT (`r .tbl1("DVT", pattern = "{p}%")`), and anticoagulation with UFH (`r .pct(mean(m$data$AnticoagulationGroup == "UFH"))`), there is a substantial risk for type I errors due to the low number of events per predictor variable [@Vittinghoff2007].
-However none of these was statistically significant.
+However, none of these was statistically significant.
