@@ -9,7 +9,8 @@ Therefore, we here investigated incidence, onset, and dependence of CRT on a var
 
 **Setting**: A surgical ICU at an university hospital.
 
-**Patients**: All critically ill patients with CVCs that were treated in our surgical ICU during a six-month period.
+**Patients**: All critically ill patients with CVCs (`r paste0(c("surgical", "medical"), ": ", .pct(c(mean(m$data$AdmissionType == "surgical"), mean(m$data$AdmissionType == "medical"))), collapse = "/")`)
+that were treated in our surgical ICU during a six-month period.
 
 **Interventions**: None.
 
