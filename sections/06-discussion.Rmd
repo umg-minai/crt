@@ -20,16 +20,25 @@ Others have reported a lower CRT rate with a chlorhexidine gluconate gel dressin
 In contrast we have seen a higher CRT rate with the chlorhexidine acetate coated CVCs.
 While chlorhexidine should reduce CLABSI it may result in more CRT, which is itself a major risk factor for CLABSI.
 
+We did not see a correlation between the number of lumens (the diameter) and the risk of CRT.
+For example, the Arrow4 CVC had a higher risk of CRT than the Arrow3 and Arrow5 CVCs.
+
 Most CRTs are directly associated with vascular endothelial injury.
 We believe that the most important factors in the development of CRT are the initial endothelial trauma and the hypercoagulability due to perioperative inflammatory stress.
 Venous stasis due to obstruction, catheter-to-vessel ratio and volume status may play a minor role in the first days but may be more important in the long term.
 This may explain the higher incidence and earlier onset of CRT compared to medical patients in other studies.
 
-Despite the high incidence of CRT we didn't observe any negative outcome.
-Thus, our results support the guideline recommendation to leave catheters with CRT in place [@Kearon2012; @Wall2015].
-Removal for thrombosis and reinsertion of a new CVC does not seem necessary and is not recommended [@Kearon2012; @Geerts2014; @Wall2015].
-However, the early removal of CVCs regardless of visible CRTs is of major importance to ensure venous blood flow and reduce serious adverse events.
-Nevertheless the need for therapeutic anticoagulation in asymptomatic incidental should be debated.
+Despite the high incidence of CRT, we did not observe any adverse outcomes.
+Therefore, our results support the guideline recommendation to leave the
+thrombosed catheter in place,
+at least when placed in the jugular vein [@Kearon2012; @Wall2015].
+Removal in case of thrombosis and reinsertion of a new CVC does not seem
+necessary and is not recommended [@Kearon2012; @Geerts2014; @Wall2015].
+
+However, the early removal of CVCs regardless of visible CRT, is important
+to ensure venous blood flow and reduce serious adverse events.
+Nevertheless, the need for therapeutic anticoagulation in asymptomatic
+incidental cases should be discussed.
 
 The benefit of anticoagulation in CRT is support by our results, as prophylactic anticoagulation at the time of catheter placement appears to be associated with a lower rate of CRT.
 Especially in patients with cancer prophylactic anticoagulation could reduce CRT [@Wall2015; @Kahale2018].
@@ -51,8 +60,11 @@ Depending on the vessel, the sensitivity and specificity of ultrasound for the d
 Serial ultrasound, as in our study, increases sensitivity and specificity up 97.9% and 99.8%, respectively [@Patel2020; @Bhatt2020].
 Nevertheless, the true accuracy of ultrasonography in the diagnosis of CRT in the IJV is not known.
 
-Although we focused on the IJV, our ultrasound access was limited to the proximal part of the CVC.
-This may have led to an underestimation of the incidence of CRT as a recent autopsy study found most of the CRTs at the catheter tip [@Rockholt2024].
+In this study we focused on the IJV.
+Unfortunately, for anatomical reasons, ultrasound examination of the CVC tip is
+usually not possible.
+Since a recent autopsy study found most CRTs at the catheter tip,
+this may underestimate the incidence of CRT [@Rockholt2024].
 
 When the patient was discharged from the ICU, we stopped the ultrasound examination, which may also underestimate the incidence of CRT.
 
