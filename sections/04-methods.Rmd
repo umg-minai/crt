@@ -62,5 +62,5 @@ for each covariate (Supplemental Table S\@ref(tab:pha-table) and Figure S\@ref(f
 A *p*-value less than 0.05 was considered a statistically significant difference.
 The Benjamini-Hochberg procedure was used to correct for multiple testing [@Benjamini1995].
 Summary tables, the CONSORT and the forest plots were generated using the packages *gtsummary*, *consort*, and *survminer*, respectively
-[@gtsummary; @R-gtsummary; @R-consort; @R-survminer].
+[@Sjoberg2021; @R-gtsummary; @R-consort; @R-survminer].
 All data and analyses are available at https://github.com/umg-minai/crt [@crtdata].
