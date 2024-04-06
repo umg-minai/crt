@@ -23,9 +23,12 @@ knitr::write_bib(
 
 ```{r libraries, include = FALSE}
 library("cli")
+library("english")
 library("gtsummary")
 library("survival")
 library("survminer")
+
+options(english.UK = FALSE)
 ```
 
 ```{r definitions, include = FALSE}
@@ -222,16 +225,9 @@ cvc$isExcluded <- !is.na(cvc$ExclusionReason)
 .cli_text <- function(...)cli_format_method(cli_text(...))
 
 #' return numbers as words
-.as.word <- function(x) {
-    ifelse(
-        x > 12, x,
-        c("one", "two", "three", "four", "five", "six", "seven", "eight",
-          "nine", "ten", "eleven", "twelve")[x]
-    )
-}
-.as.Word <- function(x) {
-    .toupper.first(.as.word(x))
-}
+.as.word <- function(x)
+    ifelse(x > 12, as.character(x), as.character(as.english(x)))
+.as.Word <- function(x).toupper.first(.as.word(x))
 .toupper.first <- function(x) {
     paste0(toupper(substring(x, 1, 1)), substring(x, 2))
 }
