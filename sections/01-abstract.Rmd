@@ -3,31 +3,31 @@
 **Study Objective**:
 Catheter-related thrombosis (CRT) is a major complication of central venous catheters (CVCs).
 However, the incidence, onset, and dependence of CRT on CVC material and/or type in critically ill surgical patients is unknown.
-Therefore, we here investigated incidence, onset, and dependence of CRT on a variety of risk factors including CVC material and type in critically ill surgical patients.
+Therefore, we here investigated the incidence, onset, and dependence of CRT on a variety of risk factors, including CVC material and type, in critically ill surgical patients.
 
 **Design**: Prospective, investigator-initiated, observational study.
 
-**Setting**: A surgical ICU at an university hospital.
+**Setting**: A surgical intensive care unit at a university hospital.
 
 **Patients**: All critically ill patients with CVCs (`r paste0(c("surgical", "medical"), ": ", .pct(c(mean(m$data$AdmissionType == "surgical"), mean(m$data$AdmissionType == "medical"))), collapse = "/")`)
-that were treated in our surgical ICU during a six-month period.
+who were treated in our surgical intensive care unit during a six-month period.
 
 **Interventions**: None.
 
 **Measurements**:
 All CVCs were examined for CRT every other day using ultrasound, starting within 24 hours of placement.
-The primary outcome was the time of onset of CRT depending on the type of CVC
+The primary outcome was the time of onset of CRT, depending on the type of CVC
 (three to five lumens, three different manufacturers).
-CRT risk factors were analyzed using multiple Cox proportional hazards regression models.
+The CRT risk factors were analyzed using multiple Cox proportional hazards regression models.
 
 **Main Results**:
 We included `r sum(!cvc$isExcluded)` first-time CVCs in the internal jugular vein.
 The median time to CRT
-varied from `r mr <- range(median(m$svf)); wmr <- .as.word(mr); .cli_text("{ {wmr[1]}} {qty(mr[1])}day{?s} to { {wmr[2]}} {qty(mr[2])}day{?s}")` for different types of CVCs.
-Within one day, `r paste0(range(round((1 - .survival(m$svf, times = 1)) * 100)), collapse = " to ")`% of CVCs
-and within one week, `r paste0(range(round((1 - .survival(m$svf, times = 7)) * 100)), collapse = " to ")`% of CVCs developed a CRT.
-All but one of the observed CRT were asymptomatic and caused no complications.
-Multiple regression analyses of CRT risk factors showed that beside cancer and omitting prophylactic anticoagulation, also some CVC types were associated with a higher risk for CRT.
+varied from `r mr <- range(median(m$svf)); wmr <- .as.word(mr); .cli_text("{ {wmr[1]}} to { {wmr[2]}} {qty(mr[2])}day{?s}")` for different types of CVCs.
+Within one day, `r paste0(range(round((1 - .survival(m$svf, times = 1)) * 100)), collapse = " to ")` % of CVCs
+and within one week, `r paste0(range(round((1 - .survival(m$svf, times = 7)) * 100)), collapse = " to ")` % of CVCs developed a CRT.
+All but one of the CRT observed were asymptomatic and caused no complications.
+Multiple regression analyses of CRT risk factors showed that beside cancer and omitting prophylactic anticoagulation, some types of CVC were also associated with a higher risk of CRT.
 
 **Conclusions**:
 Almost all CVCs in critically ill surgical patients developed an asymptomatic CRT in the first days after catheterization.

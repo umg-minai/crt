@@ -24,7 +24,7 @@ coxnet <- rcv.glmnet(
 
 cfnms <- c(
     "Sex, male", "Age", "Arrow4", "Arrow5", "Braun3", "Vygon5", "Side, left",
-    "Admission type, medical", "Perioperative placement, yes", 
+    "Admission type, medical", "Perioperative placement, yes",
     "Sepsis, yes", "Cancer, yes", "DVT, yes", "Anticoagulation, none",
     "Anticoagulation, UFH", "WBC1"
 )
@@ -36,7 +36,7 @@ plot(coxnet)
 mtext(text = "Number of predictors", side = 3, line = 3)
 ```
 
-```{r coxnet-path-plot, dev = ifelse_is_docx("pdf", "png"), echo = FALSE, warning = FALSE, fig.width = 12, fig.height = 7, fig.cap = paste0("Coefficient profile plot. Plot of coefficient path for least absolute shrinkage and selection operator (lasso) regression for cox proportional hazards models with the minimal lambda found in a 100 repeated cross-validation each with 10 folds. The dotted vertical line marks the used logarithmised lambda of ", round(log(coxnet$lambda.min), 2), ".; DVT, deep vein thrombosis; UFH, unfractionated heparins; WBC1, white blood count on day one.")}
+```{r coxnet-path-plot, dev = ifelse_is_docx("pdf", "png"), echo = FALSE, warning = FALSE, fig.width = 12, fig.height = 7, fig.cap = paste0("Coefficient profile plot. Plot of coefficient path for least absolute shrinkage and selection operator (lasso) regression for cox proportional hazards models with the minimal lambda found in a 100 repeated cross-validation each with 10 folds. The dotted vertical line marks the used logarithmized lambda of ", round(log(coxnet$lambda.min), 2), ".; DVT, deep vein thrombosis; UFH, unfractionated heparins; WBC1, white blood count on day one.")}
 ## taken from ameld 0.0.31 and glmnet 4.1.8, plotCoef
 .plot.path.lambda <- function(x, nlabel = 9, cex.lab = 1,
                          col = viridisLite::cividis(nlabel),
@@ -64,15 +64,15 @@ mtext(text = "Number of predictors", side = 3, line = 3)
     beta <- as.matrix(beta[which, , drop = FALSE])
     index <- log(x$glmnet.fit$lambda)
     matplot(
-        index, t(beta), 
-        lty = 1, xlab = expression(Log(lambda)), ylab = "", yaxt = "n", 
+        index, t(beta),
+        lty = 1, xlab = expression(Log(lambda)), ylab = "", yaxt = "n",
         type = "l", ..., col = col
     )
     axis(4)
 
     atdf <- pretty(index)
     prettydf <- approx(
-        x = index, y = x$glmnet.fit$df, xout = atdf, rule = 2, 
+        x = index, y = x$glmnet.fit$df, xout = atdf, rule = 2,
         method = "constant", f = 0
     )$y
     axis(3, at = atdf, labels = prettydf, tcl = NA)
@@ -111,7 +111,7 @@ knitr::kable(
         "Coefficient of ",
         "least absolute shrinkage and selection operator (lasso) ",
         "regression for cox proportional hazards models with the ",
-        "minimal logarithmised lambda ", round(log(coxnet$lambda.min), 2), 
+        "minimal logarithmized lambda ", round(log(coxnet$lambda.min), 2),
         " found in a 100 repeated cross-validation each with 10 folds. ",
         "DVT, deep vein thrombosis."
     ),
@@ -388,7 +388,7 @@ cols <- c(paste0("#115d", c("6e", "9e", "de")), mcol[2:3])
 ## Comparison CRT-free time
 
 
-### Comparison CRT-free time Arrow5 vs Vygon5
+### Comparison CRT-free time Arrow5 vs. Vygon5
 
 
 ```{r survplota5v5, echo = FALSE, dev = ifelse_is_docx("pdf", "png"), fig.width = 12, fig.height = 7, fig.cap = "Survival plot showing CRT-free time for five-lumen central venous catheters."}
@@ -442,7 +442,7 @@ plot_table(
 ```
 
 
-### Comparison CRT-free time Arrow4 vs Arrow5
+### Comparison CRT-free time Arrow4 vs. Arrow5
 
 
 ```{r survplota4a5, echo = FALSE, dev = ifelse_is_docx("pdf", "png"), fig.width = 12, fig.height = 7, fig.cap = "Survival plot showing CRT-free time for four- and five-lumen central venous catheters."}
@@ -521,10 +521,11 @@ tbl_regression(
     modify_caption(
         paste0(
             "Hazard ratios of CRT using all available variables ",
-            "but with a reduced sample size of N=", rgcx.full$n,
+            "but with a reduced sample size of N = ", rgcx.full$n,
             " central venous catheters due to missing values."
         )
-    )
+    ) |>
+    modify_header(estimate = "**HR** **(95 % CI)**")
 ```
 
 
@@ -562,10 +563,11 @@ tbl_regression(
     )) |>
     modify_caption(
         paste0(
-            "Hazard ratios for Cox regression of CRT for all analysed central venous catheters ",
-            "(N=", rgcx$n, ")."
+            "Hazard ratios for Cox regression of CRT for all analyzed central venous catheters ",
+            "(N = ", rgcx$n, ")."
         )
-    )
+    ) |>
+    modify_header(estimate = "**HR** **(95 % CI)**")
 ```
 
 
@@ -589,9 +591,10 @@ tbl_regression(
             "Hazard ratios of CRT assuming that ",
             "central venous catheters with missing LOTs were of ",
             "each manufacturer's main type. ",
-            "Sample size of N=", rgcx.lots$n, "."
+            "Sample size of N = ", rgcx.lots$n, "."
         )
-    )
+    ) |>
+    modify_header(estimate = "**HR** **(95 % CI)**")
 ```
 
 

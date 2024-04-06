@@ -209,7 +209,7 @@ cvc$isExcluded <- !is.na(cvc$ExclusionReason)
 
 .pct <- function(x, prec=".1") {
     sprintf(
-        paste0("%", prec, "f%%"), x * 100
+        paste0("%", prec, "f %%"), x * 100
     )
 }
 
@@ -296,6 +296,14 @@ rgcx.lots <- coxph(
 .manlu2txt <- function(x)paste0(
     substring(x, 1, 5), "/", substring(x, 6, 6), " Lumens"
 )
+
+customtheme <- list(
+    "tbl_summary-str:categorical_stat" = "{n} ({p} %)"
+)
+
+theme_gtsummary_journal()
+theme_gtsummary_compact(font_size = 8L)
+set_gtsummary_theme(customtheme)
 
 tbl1 <- m$data |>
     dplyr::mutate(

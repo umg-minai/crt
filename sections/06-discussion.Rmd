@@ -1,70 +1,70 @@
 # Discussion
 
-In this prospective observational study,
-we found asymptomatic CRT in `r sum(cvc$CRT[!cvc$isExcluded] == "CRT")` of `r sum(!cvc$isExcluded)` CVCs (`r .pct(mean(cvc$CRT[!cvc$isExcluded] == "CRT"))`) in the IJV of critically ill patients within `r .as.word(ceiling(max(cvc$FollowUp[!cvc$isExcluded], na.rm = TRUE) / 7))` weeks after catheterisation.
-This incidence of CRT is much higher than previously reported 28 to 56% for IJV CVCs in general surgical ICU or cardiac surgery patients [@Malinoski2013; @Timsit1998; @Wu1999].
-To our knowledge, the time of thrombosis onset has not been previously studied in surgical patients.
-The median (Q1, Q3) time from CVC insertion to CRT diagnosis for all CVCs was `r .medLU(survfit(Surv(FUP, CRT) ~ 1, data = m$data), prec = ".0")` days, which is comparable to the previously reported 4 (2, 7) days for CRT onset in critically ill medical patients [@Wu2023].
-While CRT developed slowly in critically ill medical patients with only 12% of CRTs observed on day one, we found CRT in up to `r .pct(1 - min(.survsummary(m$svf, times = 1, type = "surv")))` of CVCs in critically ill surgical patients within the first 24 hours, depending on the type of CVC.
+We found asymptomatic CRT in `r sum(cvc$CRT[!cvc$isExcluded] == "CRT")` of `r sum(!cvc$isExcluded)` CVCs (`r .pct(mean(cvc$CRT[!cvc$isExcluded] == "CRT"))`) in the IJV of critically ill patients within `r .as.word(ceiling(max(cvc$FollowUp[!cvc$isExcluded], na.rm = TRUE) / 7))` weeks after catheterization in this prospective observational study.
+This incidence of CRT is much higher than 28 to 56 % for IJV CVCs in general surgical ICU or cardiac surgery patients reported previously [@Malinoski2013; @Timsit1998; @Wu1999].
+To the best of our knowledge, the time of thrombosis onset has not been studied previously in surgical patients.
+The median (Q1, Q3) time from CVC insertion to CRT diagnosis for all CVCs was `r .medLU(survfit(Surv(FUP, CRT) ~ 1, data = m$data), prec = ".0")` days, which is comparable to the 4 (2, 7) days for CRT onset in critically ill medical patients reported previously [@Wu2023].
+While CRT developed slowly in critically ill medical patients, with only 12 % of CRTs observed on day one, we found CRT in up to `r .pct(1 - min(.survsummary(m$svf, times = 1, type = "surv")))` of CVCs in critically ill surgical patients within the first 24 h, depending on the type of CVC.
 This underscores the importance of clinically reviewing the indication for a CVC critically in the first place, reviewing it on a daily basis, and removing the CVC as early as possible.
 
-Depending on the type of CVC the median time to CRT
+Depending on the type of CVC, the median time to CRT
 varies from `r paste0(.as.word(range(median(m$svf))), c(" day for Arrow4 and Vygon5", " days for Arrow5 and Braun3"), collapse = " to ")`.
-Causes are difficult to discuss due to differences in manufacturer and material.
-Previously, different incidences of PE due to CRT have been reported in patients with
+Causes are difficult to discuss due to differences in the manufacturer and material.
+Different incidences of pulmonary embolism due to CRT have been reported previously in patients with
 polyvinyl chloride or polyvinyl catheters compared to those with
-polyurethane or siliconized catheters, favouring the latter [@Monreal1994].
+polyurethane or siliconized catheters, favoring the latter [@Monreal1994].
 We studied two different types of Arrow CVCs, the classic polyurethane and the
-chlorhexidine acetate and silver sulfadiazine coated polyurethane Arrowg+ard Blue (1st generation) catheters.
+chlorhexidine acetate and silver sulfadiazine coated polyurethane Arrowg+ard Blue (1^st^ generation) catheters.
 Others have reported a lower CRT rate with a chlorhexidine gluconate gel dressing alone [@Yamashita2020].
-In contrast we have seen a higher CRT rate with the chlorhexidine acetate coated CVCs.
-While chlorhexidine should reduce CLABSI it may result in more CRT, which is itself a major risk factor for CLABSI.
+By contrast, we have seen a higher CRT rate with the chlorhexidine acetate coated CVCs.
+While chlorhexidine should reduce CLABSI, it may result in more CRTs, which is itself a major risk factor for CLABSI.
 
 We did not see a correlation between the number of lumens (the diameter) and the risk of CRT.
-For example, the Arrow4 CVC had a higher risk of CRT than the Arrow3 and Arrow5 CVCs.
+The Arrow4 CVC, for example, had a higher risk of CRT than the Arrow3 or Arrow5 CVCs.
 
 Most CRTs are directly associated with vascular endothelial injury.
 We believe that the most important factors in the development of CRT are the initial endothelial trauma and the hypercoagulability due to perioperative inflammatory stress.
-Venous stasis due to obstruction, catheter-to-vessel ratio and volume status may play a minor role in the first days but may be more important in the long term.
+Venous stasis due to obstruction, catheter-to-vessel ratio, and volume status may play a minor role in the first days, but may be more important in the long term.
 This may explain the higher incidence and earlier onset of CRT compared to medical patients in other studies.
 
 Despite the high incidence of CRT, we did not observe any adverse outcomes.
 Therefore, our results support the guideline recommendation to leave the
 thrombosed catheter in place,
-at least when placed in the jugular vein [@Kearon2012; @Wall2015].
+at least, when placed in the jugular vein [@Kearon2012; @Wall2015].
 Removal in case of thrombosis and reinsertion of a new CVC does not seem
 necessary and is not recommended [@Kearon2012; @Geerts2014; @Wall2015].
 
-However, the early removal of CVCs regardless of visible CRT, is important
+However, the early removal of CVCs regardless of visible CRT is important
 to ensure venous blood flow and reduce serious adverse events.
 Nevertheless, the need for therapeutic anticoagulation in asymptomatic
 incidental cases should be discussed.
 
-The benefit of anticoagulation in CRT is support by our results, as prophylactic anticoagulation at the time of catheter placement appears to be associated with a lower rate of CRT.
-Especially in patients with cancer prophylactic anticoagulation could reduce CRT [@Wall2015; @Kahale2018].
+The benefit of anticoagulation in CRT is supported by our results, as prophylactic anticoagulation at the time of catheter placement appears to be associated with a lower rate of CRT.
+Prophylactic anticoagulation could reduce CRT, especially in patients with
+cancer [@Wall2015; @Kahale2018].
 Interestingly, this was not found in some previous studies [@Malinoski2013; @Leung2016; @Wu2023].
-However, as mentioned above, except one, all of our and most of the reported CRTs are asymptomatic [@Wu1999; @Malinoski2013; @Wall2015; @Leung2016; @Wu2023].
-That's why prophylactic or therapeutic anticoagulation should be weighed against the potential harm of major bleeding and other risks of anticoagulation [@Kahale2018].
+However, as mentioned above, except for one, all of our and most of the reported CRTs are asymptomatic [@Wu1999; @Malinoski2013; @Wall2015; @Leung2016; @Wu2023].
+That is why prophylactic or therapeutic anticoagulation should be weighed against the potential harm of major bleeding and other risks of anticoagulation [@Kahale2018].
 
 ## Limitations
 
-Primary limitation of our study is that due to the high number of variables and the limited number of events, the sample-size lacks the power to definitely detect all effects [@Vittinghoff2007].
+The primary limitation of our study is that the sample-size lacks the power to definitely detect all effects due to the high number of variables and the limited number of events [@Vittinghoff2007].
 Therefore, our findings should be regarded as exploratory, indicating a further need for research.
 
-As this was an exploratory observational study and we were limited by
-supply shortages, the number of catheters per type and manufacturer varied widely.
-The lack of randomisation may also have biased the results.
-We had to exclude more than half of all CVCs because of poor ultrasound accessibility, lack of LOT information, or small number of catheter types.
-However, assigning CVCs with missing LOT information to each manufacturer's main type increases the sample size from `r sum(!cvc$isExcluded)` to `r rgcx.lots$n`, with very similar results (Supplemental eTable \@ref(tab:supplhrtablelots)).
-Depending on the vessel, the sensitivity and specificity of ultrasound for the diagnosis of DVT are 87 to 94% and 85 to 97%, respectively.
-Serial ultrasound, as in our study, increases sensitivity and specificity up 97.9% and 99.8%, respectively [@Patel2020; @Bhatt2020].
+This was an exploratory observational study and we were limited by
+supply shortages, therefore, the number of catheters per type and manufacturer varied widely.
+The lack of randomization may also have biased the results.
+We had to exclude more than half of all CVCs because of poor ultrasound accessibility, the lack of LOT information, or the small number of catheter types.
+However, assigning CVCs with missing LOT information to each manufacturer's main type increases the sample size from `r sum(!cvc$isExcluded)` to `r rgcx.lots$n`, with very similar results (Supplemental Table S\@ref(tab:supplhrtablelots)).
+Depending on the vessel, the sensitivity and specificity of ultrasound for the diagnosis of DVT are 87 to 94 % and 85 to 97 %, respectively.
+Serial ultrasound, as in our study, increases the sensitivity and specificity up 97.9 and 99.8 %, respectively [@Patel2020; @Bhatt2020].
 Nevertheless, the true accuracy of ultrasonography in the diagnosis of CRT in the IJV is not known.
 
-In this study we focused on the IJV.
-Unfortunately, for anatomical reasons, ultrasound examination of the CVC tip is
-usually not possible.
-Since a recent autopsy study found most CRTs at the catheter tip,
-this may underestimate the incidence of CRT [@Rockholt2024].
+We focused on the IJV in this study.
+Unfortunately, ultrasound examination of the CVC tip is
+usually not possible for anatomical reasons.
+This may underestimate the incidence of CRT because a recent autopsy study found
+most CRTs at the catheter tip [@Rockholt2024].
 
 When the patient was discharged from the ICU, we stopped the ultrasound examination, which may also underestimate the incidence of CRT.
 
@@ -74,8 +74,9 @@ We did not record the type and duration of the surgery, which may also influence
 
 While our data suggest that women had a higher risk of CRT, the numbers of different CVCs in both sex subgroups are too heterogeneous and the subgroups are too small for any meaningful conclusion. A recent meta-analysis found no association between sex and CRT [@Liu2022].
 
-Due to missing information and its exploratory nature, our study is underpowered to draw conclusions about the effect of multiple insertion attempts and the operator experience.
-However, in the reduced sample size we found no difference (Supplemental eTable \@ref(tab:supplhrtablefull)) which is in line with previous studies showing that the number of insertion attempts and operator experience may be unrelated to CRT [@Timsit1998; @Leung2016].
+Our study is underpowered to draw conclusions about the effect of multiple insertion attempts and the operator experience due to missing information and its exploratory nature.
+However, we found no difference in the reduced sample size (Supplemental Table S\@ref(tab:supplhrtablefull)), which is in line with previous studies showing that the number of insertion attempts and operator experience may be unrelated to CRT [@Timsit1998; @Leung2016].
 
-Especially for low-prevalence variables, e.g. Braun3 (`r .pct(mean(m$data$ManLu == "Braun3"))`), previous DVT (`r .tbl1("DVT", pattern = "{p}%")`), and anticoagulation with UFH (`r .pct(mean(m$data$AnticoagulationGroup == "UFH"))`), there is a substantial risk for type I errors due to the low number of events per predictor variable [@Vittinghoff2007].
+There is a substantial risk of type I errors due to the low number of events per
+predictor variable, especially for low-prevalence variables, for example Braun3 (`r .pct(mean(m$data$ManLu == "Braun3"))`), previous DVT (`r .tbl1("DVT", pattern = "{p} %")`), and anticoagulation with unfractionated heparin (`r .pct(mean(m$data$AnticoagulationGroup == "UFH"))`) [@Vittinghoff2007].
 However, none of these was statistically significant.

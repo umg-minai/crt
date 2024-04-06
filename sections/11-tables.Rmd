@@ -1,15 +1,9 @@
 # Tables
 
 ```{r table1, echo = FALSE, warning = FALSE, message = FALSE, caption = "Baseline characteristics"}
-theme_gtsummary_journal()
-theme_gtsummary_compact(font_size = 8L)
-
 tbl1
 ```
 
 ```{r tablemedsurv, echo = FALSE, warning = FALSE, message = FALSE, caption = "Median CRT-free time"}
-theme_gtsummary_journal()
-theme_gtsummary_compact(font_size = 8L)
-
 tblsrv
 ```

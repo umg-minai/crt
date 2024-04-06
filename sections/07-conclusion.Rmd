@@ -1,7 +1,7 @@
 # Conclusions
 
 The incidence of CRT is much higher in surgical than in medical critically ill patients.
-Depending on the type of CVC the median CRT-free period varies from one to five days.
+Depending on the type of CVC, the median CRT-free period varies from one to five days.
 Possible explanations include vascular trauma and perioperative inflammation.
-In general, these thromboses are asymptomatic and don't require treatment.
+These thromboses are generally asymptomatic and do not require treatment.
 However, the differences in CVC material and the resulting CRTs have been neglected in clinical research and need to be further investigated.

@@ -3,64 +3,64 @@
 ## Study design and population
 
 In this prospective observational single-center study, we evaluated the occurrence of CRT in critically ill patients with CVCs treated in our surgical intensive care unit (ICU)
-at a university hospital during a six-month period from March 2022 to August 2022.
+at a university hospital during a six-month period from March to August 2022.
 
-We enrolled all adult patients (&ge; 18 years) who required a CVC for at least 48 hours.
-All CVCs were placed in the operating theatre or ICU using an ultrasound-guided insertion approach and maximum barrier precautions according to local guidelines.
-Skin antisepsis was performed with octenidine dihydrochlordie, 1-propanol, 2-propanol (octeniderm colourless, Schülke & Mayr GmbH, Norderstedt, Germany).
-The choice of the appropriate CVC type, site and side was made by the clinicians performing the placement.
-They were asked to complete a questionnaire documenting the manufacturer, the LOT (identification) number, the number of attempts, any complications and their level of expertise in CVC placement.
-If the patient had a blood sample taken on the day of the screening we ordered white blood cells counts (WBC), C-reactive peptide (CRP) and D-dimer.
+We enrolled all adult patients (&ge; 18 years) who required a CVC for at least 48 h.
+All CVCs were placed in the operating theatre or ICU using an ultrasound-guided insertion approach and maximum barrier precautions, according to local guidelines.
+Skin antisepsis was performed with octenidine dihydrochlordie, 1-propanol and 2-propanol (octeniderm colourless, Schülke & Mayr GmbH, Norderstedt, Germany).
+The choice of the appropriate CVC type, site, and side was made by the clinicians performing the placement.
+They were asked to complete a questionnaire documenting the manufacturer, the LOT (identification) number, the number of attempts, any complications, and their level of expertise in CVC placement.
+If the patient had a blood sample taken on the day of the screening, we ordered white blood cells counts (WBCs), C-reactive peptide and D-dimer.
 
 ## Ultrasound assessment
 
-CVCs were ultrasound scanned for CRT every other day, starting within 24 hours of placement.
+The CVCs were scanned with ultrasound for CRT every other day, starting within 24 h of placement.
 We used a linear probe with a frequency of 8-12 MHz.
 All patients were examined in the supine position.
-CRT was diagnosed when an echogenic structure attached to the CVC was detected, which was non-compressible and showed pathological color Doppler.
-To determine the size of the thrombosis, we measured the largest dimension (height) in the short-axis and the longest dimension (length) in the long-axis view.
-If the length was longer than the probe/scan window we set the length to 60 mm.
+A CRT was diagnosed when an echogenic structure attached to the CVC was detected which was noncompressible and showed a pathological color Doppler.
+We measured the largest dimension (height) in the short-axis and the longest dimension (length) in the long-axis view to determine the size of the thrombosis.
+If the length was longer than the probe/scan window, we set the length to 60 mm.
 A picture or video was taken if a thrombosis was found for the first time.
-We didn't look at arterial catheters or catheters for renal replacement or extracorporeal membrane oxygenation therapy.
-To ensure consistent and high image quality the ultrasound examination was always performed by one of the authors (SE),
-who was trained in point-of-care ultrasound and intensive care medicine and had more than two years' experience.
-The recorded images and videos were then reviewed by a second independent intensivist (SG) with more than seven years' experience in point-of-care ultrasound.
-Neither was involved in the placement of CVCs or the management of the critically ill patients.
-The results of these non-routine investigations were not reported to the treating clinicians so as not to alter usual care.
+We did not look at arterial catheters or catheters for renal replacement or extracorporeal membrane oxygenation therapy.
+The ultrasound examination was always performed by one of the authors (SE)
+had been trained in point-of-care ultrasound and intensive care medicine and had more than two years' experience in order to ensure consistent and high image quality.
+The images and videos recorded were then reviewed by a second independent intensivist (SG) with more than seven years' experience in point-of-care ultrasound.
+Neither was involved in the placement of the CVCs nor the management of the critically ill patients.
+The results of these nonroutine investigations were not reported to the treating clinicians so as not to alter usual care.
 
 ## Catheter types
 
-Due to supply constraints, controlled randomisation was not feasible and different types of CVCs from different manufacturers were used.
-We observed three different types of Arrow CVCs (Teleflex Medical GmbH, Germany), namely the classic polyurethane CVCs with three and five lumens (7 and 9.5 French; referred to as Arrow3 and Arrow5), and the chlorhexidine acetate and silver sulfadiazine coated polyurethane catheters Arrowg+ard Blue (1st generation) with four lumens (8.5 French; referred to as Arrow4).
-Further we observed the three-lumen Certofix protect Trio catheter (7 French; B. Braun SE, Germany), consisting of a thermoplastic polyurethane, embedded Barium Sulphate as contrast agent and an antimicrobial coating containing polyhexamethylene biguanide (Polyhexanide or PHMB, referred to as Braun3), and
+Due to supply constraints, controlled randomization was unfeasible and different types of CVCs from different manufacturers were used.
+We observed three different types of Arrow CVCs (Teleflex Medical GmbH, Germany): the classic polyurethane CVCs with three and five lumens (7 and 9.5 French; referred to as Arrow3 and Arrow5), and the chlorhexidine acetate and silver sulfadiazine coated polyurethane catheters Arrowg+ard Blue (1^st^ generation) with four lumens (8.5 French; referred to as Arrow4).
+Furthermore we observed the three-lumen Certofix protect Trio catheter (7 French; B. Braun SE, Germany), consisting of a thermoplastic polyurethane, embedded with barium sulphate as a contrast agent and an antimicrobial coating containing polyhexamethylene biguanide (Polyhexanide or PHMB, referred to as Braun3), and
 the five-lumen multicath CVC (9.5 French; VYGON GmbH & Co. KG, Germany; referred to as Vygon5), made of polyurethane without any special coating.
 
 ## Outcome
 
 The primary outcome was the time of onset of CRT for each type of CVC.
-As the reported CRT rates were very inhomogeneous, we designed our study as an
+The CRT rates reported were very inhomogeneous, therefore we designed our study as an
 exploratory observational study over a six-month period and did not estimate a sample size.
-Secondary outcomes were (1) difference in CRT-free time according to the type
+Secondary outcomes were (1) the difference in CRT-free time according to the type
 of CVC and (2) risk factors for CRT.
 
 ## Statistical analysis
 
-All data processing and all statistical analyses were performed using R version
+All data processing and statistical analyses were performed using R version
 `r paste0(sessionInfo()$R.version[c("major", "minor")], collapse = ".")`
 [@R-base].
 
 Prior to the analyses, all laboratory values were *log* transformed to
 approximate normal distributions.
-CRT-free time was modelled using Kaplan-Meier estimates, and comparisons between different CVC types were made using the Gehan-Wilcoxon test with the Peto and Peto modification for different censoring patterns as implemented in the *survival* R package [@survival-book; @R-survival].
+The CRT-free time was modelled using Kaplan-Meier estimates, and comparisons between different CVC types were made using the Gehan-Wilcoxon test with the Peto and Peto modification for different censoring patterns as implemented in the *survival* R package [@survival-book; @R-survival].
 Multivariable Cox proportional hazards regression models were used to estimate hazard ratios of CRT
 as provided by the *survival* R package [@Cox1972; @survival-book; @R-survival].
 Adjustment was done for `r s <- gsub("cvc", "CVC", gsub("dvt", "previous deep vein thrombosis (DVT)", tolower(rgcx.nms))); .cli_text("{ {s}}")`.
-Additional a penalized, the lasso (least absolute shrinkage and selection operator), regression for Cox proportional hazard models was applied [@Simon2011; @R-glmnet] (Supplemental eTable \@ref(tab:coxnet-cf) and eFigures \@ref(fig:coxnet-cv-plot) and \@ref(fig:coxnet-path-plot)).
+Additionally a lasso (least absolute shrinkage and selection operator) penalized regression for Cox proportional hazard models was applied [@Simon2011; @R-glmnet] (Supplemental Table S\@ref(tab:coxnet-cf) and Figures S\@ref(fig:coxnet-cv-plot) and S\@ref(fig:coxnet-path-plot)).
 The proportional hazard assumption was tested with the chi-square
 test for independence of the scaled Schoenfeld residuals and transformed time
-for each covariate (Supplemental eTable \@ref(tab:pha-table) and eFigure \@ref(fig:pha-plot)).
+for each covariate (Supplemental Table S\@ref(tab:pha-table) and Figure S\@ref(fig:pha-plot)).
 A *p*-value less than 0.05 was considered a statistically significant difference.
-Benjamini-Hochberg procedure was used to correct for multiple testing [@Benjamini1995].
+The Benjamini-Hochberg procedure was used to correct for multiple testing [@Benjamini1995].
 Summary tables, the CONSORT and the forest plots were generated using the packages *gtsummary*, *consort*, and *survminer*, respectively
 [@gtsummary; @R-gtsummary; @R-consort; @R-survminer].
 All data and analyses are available at https://github.com/umg-minai/crt [@crtdata].
