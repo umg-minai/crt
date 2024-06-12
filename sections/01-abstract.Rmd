@@ -30,8 +30,7 @@ All but one of the CRT observed were asymptomatic and caused no complications.
 Multiple regression analyses of CRT risk factors showed that beside cancer and omitting prophylactic anticoagulation, some types of CVC were also associated with a higher risk of CRT.
 
 **Conclusions**:
-Almost all CVCs in critically ill surgical patients developed an asymptomatic CRT in the first days after catheterization.
-Depending on the type of CVC the median CRT-free period varied considerably.
+Almost all CVCs in the internal jugular vein in critically ill surgical patients developed an asymptomatic CRT in the first days after catheterization.
 
 **Keywords**:
 Central Venous Catheters, Venous Thrombosis, Ultrasonography, Perioperative Care, Critical Illness

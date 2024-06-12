@@ -8,7 +8,7 @@ While CRT developed slowly in critically ill medical patients, with only 12 % of
 This underscores the importance of clinically reviewing the indication for a CVC critically in the first place, reviewing it on a daily basis, and removing the CVC as early as possible.
 
 Depending on the type of CVC, the median time to CRT
-varies from `r paste0(.as.word(range(median(m$svf))), c(" day for Arrow4 and Vygon5", " days for Arrow5 and Braun3"), collapse = " to ")`.
+varied from `r paste0(.as.word(range(median(m$svf))), c(" day for Arrow4 and Vygon5", " days for Arrow5 and Braun3"), collapse = " to ")`.
 Causes are difficult to discuss due to differences in the manufacturer and material.
 Different incidences of pulmonary embolism due to CRT have been reported previously in patients with
 polyvinyl chloride or polyvinyl catheters compared to those with
@@ -53,7 +53,8 @@ Therefore, our findings should be regarded as exploratory, indicating a further 
 
 This was an exploratory observational study and we were limited by
 supply shortages, therefore, the number of catheters per type and manufacturer varied widely.
-The lack of randomization may also have biased the results.
+The lack of randomization and control for confounding factors may also have biased the results.
+In particular, we are unable to make any statement on the impact of the material or type of catheter.
 We had to exclude more than half of all CVCs because of poor ultrasound accessibility, the lack of LOT information, or the small number of catheter types.
 However, assigning CVCs with missing LOT information to each manufacturer's main type increases the sample size from `r sum(!cvc$isExcluded)` to `r rgcx.lots$n`, with very similar results (Supplemental Table S\@ref(tab:supplhrtablelots)).
 Depending on the vessel, the sensitivity and specificity of ultrasound for the diagnosis of DVT are 87 to 94 % and 85 to 97 %, respectively.
