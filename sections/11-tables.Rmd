@@ -3,7 +3,3 @@
 ```{r table1, echo = FALSE, warning = FALSE, message = FALSE, caption = "Baseline characteristics"}
 tbl1
 ```
-
-```{r tablemedsurv, echo = FALSE, warning = FALSE, message = FALSE, caption = "Median CRT-free time"}
-tblsrv
-```

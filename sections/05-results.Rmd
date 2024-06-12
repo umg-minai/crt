@@ -35,7 +35,7 @@ The patients generally had an elevated WBC (median [Q1, Q3]: `r .tbl1("WBC1", pa
 ## Analysis of CRT-free time
 
 The median CRT-free time to the first diagnosed CRT was one day for Arrow4 and Vygon5.
-Arrow3, Braun3, and Arrow5 had longer median CRT-free periods of `r .as.word(median(m$svf["ManLu=Arrow3"]))`, `r .as.word(median(m$svf["ManLu=Braun3"]))`, and `r .as.word(median(m$svf["ManLu=Arrow5"]))` days, respectively (Table \@ref(tab:tablemedsurv)).
+Arrow3, Braun3, and Arrow5 had longer median CRT-free periods of `r .as.word(median(m$svf["ManLu=Arrow3"]))`, `r .as.word(median(m$svf["ManLu=Braun3"]))`, and `r .as.word(median(m$svf["ManLu=Arrow5"]))` days, respectively.
 
 Specifically, we found CRTs in `r crt <- sort(1 - .survival(m$svf, times = 1)); crt <- paste0(round(crt * 100), " % of all ", sub("^ManLu=", "", names(crt))); .cli_text("{ {crt}}")` CVCs at the first examination (within 24 h; Figure \@ref(fig:survplot)).
 Within one week of catheterization `r paste0(range(round((1 - .survival(m$svf, times = 7)) * 100)), collapse = " to ")` % of CVCs developed a CRT.
