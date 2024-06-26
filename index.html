@@ -12,7 +12,7 @@
 <meta name="author" content="Sebastian Gibb, MD1,✉, Sebastian Engelhardt1, Falk von Dincklage, MD1, and Sven-Olaf Kuhn, MD1" />
 
 
-<title>Incidence, onset and material dependency of central venous catheter-related thrombosis in critically ill surgical patients: a prospective observational single-center study</title>
+<title>Incidence and onset of central venous catheter-related thrombosis in critically ill surgical patients: a prospective observational single-center study</title>
 
 <script>/*!
  * jQuery JavaScript Library v3.6.0
@@ -382,12 +382,12 @@ display: none;
 
 
 
-<h1 class="title toc-ignore"><p>Incidence, onset and material dependency of central venous catheter-related thrombosis in critically ill surgical patients: a prospective observational single-center study</p></h1>
+<h1 class="title toc-ignore"><p>Incidence and onset of central venous catheter-related thrombosis in critically ill surgical patients: a prospective observational single-center study</p></h1>
 <h4 class="author">Sebastian Gibb, MD<sup>1,✉</sup>, Sebastian Engelhardt<sup>1</sup>, Falk von Dincklage, MD<sup>1</sup>, and Sven-Olaf Kuhn, MD<sup>1</sup></h4> 
 <div style="background-color: #ffc107; padding: 10px; text-align: center;"> 
 <strong>This manuscript is work-in-progress!</strong><br /> 
 Please find details at <a href="https://github.com/umg-minai/crt">https://github.com/umg-minai/crt</a>.<br /> 
-Manuscript date: 2024-04-06 21:18; Version: <a href="https://github.com/umg-minai/crt/commit/e5a50a65308d3aa59c4d0eb4cd1c451e2e6107d1">e5a50a6</a> 
+Manuscript date: 2024-06-26 14:44; Version: <a href="https://github.com/umg-minai/crt/commit/2073d4b511655a167c9af9f285fbbee1c1405b8e">2073d4b</a> 
 </div>
 <div class="abstract">
 <p class="abstract">Abstract</p>
@@ -414,8 +414,7 @@ and within one week, 64 to 100 % of CVCs developed a CRT.
 All but one of the CRT observed were asymptomatic and caused no complications.
 Multiple regression analyses of CRT risk factors showed that beside cancer and omitting prophylactic anticoagulation, some types of CVC were also associated with a higher risk of CRT.</p>
 <p><strong>Conclusions</strong>:
-Almost all CVCs in critically ill surgical patients developed an asymptomatic CRT in the first days after catheterization.
-Depending on the type of CVC the median CRT-free period varied considerably.</p>
+Almost all CVCs in the internal jugular vein in critically ill surgical patients developed an asymptomatic CRT in the first days after catheterization.</p>
 <p><strong>Keywords</strong>:
 Central Venous Catheters, Venous Thrombosis, Ultrasonography, Perioperative Care, Critical Illness</p>
 <!--
@@ -515,11 +514,11 @@ approximate normal distributions.
 The CRT-free time was modelled using Kaplan-Meier estimates, and comparisons between different CVC types were made using the Gehan-Wilcoxon test with the Peto and Peto modification for different censoring patterns as implemented in the <em>survival</em> R package <span class="citation">[<a href="#ref-survival-book" role="doc-biblioref">10</a>,<a href="#ref-R-survival" role="doc-biblioref">11</a>]</span>.
 Multivariable Cox proportional hazards regression models were used to estimate hazard ratios of CRT
 as provided by the <em>survival</em> R package <span class="citation">[<a href="#ref-survival-book" role="doc-biblioref">10</a>–<a href="#ref-Cox1972" role="doc-biblioref">12</a>]</span>.
-Adjustment was done for sex, CVC type, side, admission type, perioperative placement, sepsis, cancer, previous deep vein, thrombosis (DVT), and anticoagulation.
-Additionally a lasso (least absolute shrinkage and selection operator) penalized regression for Cox proportional hazard models was applied <span class="citation">[<a href="#ref-Simon2011" role="doc-biblioref">13</a>,<a href="#ref-R-glmnet" role="doc-biblioref">14</a>]</span> (Supplemental Table S<a href="#tab:coxnet-cf">3</a> and Figures S<a href="#fig:coxnet-cv-plot">4</a> and S<a href="#fig:coxnet-path-plot">5</a>).
+Adjustment was done for sex, CVC type, side, admission type, perioperative placement, sepsis, cancer, previous deep vein thrombosis (DVT), and anticoagulation.
+Additionally a lasso (least absolute shrinkage and selection operator) penalized regression for Cox proportional hazard models was applied <span class="citation">[<a href="#ref-Simon2011" role="doc-biblioref">13</a>,<a href="#ref-R-glmnet" role="doc-biblioref">14</a>]</span> (Supplemental Table S<a href="#tab:coxnet-cf">2</a> and Figures S<a href="#fig:coxnet-cv-plot">4</a> and S<a href="#fig:coxnet-path-plot">5</a>).
 The proportional hazard assumption was tested with the chi-square
 test for independence of the scaled Schoenfeld residuals and transformed time
-for each covariate (Supplemental Table S<a href="#tab:pha-table">4</a> and Figure S<a href="#fig:pha-plot">6</a>).
+for each covariate (Supplemental Table S<a href="#tab:pha-table">3</a> and Figure S<a href="#fig:pha-plot">6</a>).
 A <em>p</em>-value less than 0.05 was considered a statistically significant difference.
 The Benjamini-Hochberg procedure was used to correct for multiple testing <span class="citation">[<a href="#ref-Benjamini1995" role="doc-biblioref">15</a>]</span>.
 Summary tables, the CONSORT and the forest plots were generated using the packages <em>gtsummary</em>, <em>consort</em>, and <em>survminer</em>, respectively
@@ -541,7 +540,7 @@ therefore we focused on the internal jugular vein (IJV) and excluded 16 and 49 C
 In addition, we had to exclude seven CVCs because of the very small number of catheters of this type (e.g. one CVC Arrow, 5 lumen with Arrowg+ard Blue [1<sup>st</sup> generation] coating) or because they were inserted in an external hospital and we were unable to verify the time of insertion.
 Direct oral anticoagulants are an inhomogeneous group and uncommon in our ICU;
 we examined only one patient with a direct oral anticoagulant and decided to exclude this CVC as well.
-We also had to exclude 25 CVCs due to missing or unreadable LOT information (Supplemental Table S<a href="#tab:lottable">5</a>).
+We also had to exclude 25 CVCs due to missing or unreadable LOT information (Supplemental Table S<a href="#tab:lottable">4</a>).
 Finally, we retained 94 first-time CVCs and patients for our analysis (Table <a href="#tab:table1">1</a>).</p>
 <p>Thirty Arrow5, 24 Vygon5, 19 Arrow3, 14 Arrow4, and seven Braun3 CVCs were used.
 Most of them were placed in the right IJV (81; 86.2 %).
@@ -559,7 +558,7 @@ However, almost a third had no anti-thrombotic prophylaxis at the time of CVC pl
 <div id="analysis-of-crt-free-time" class="section level2">
 <h2>Analysis of CRT-free time</h2>
 <p>The median CRT-free time to the first diagnosed CRT was one day for Arrow4 and Vygon5.
-Arrow3, Braun3, and Arrow5 had longer median CRT-free periods of three, five, and five days, respectively (Table <a href="#tab:tablemedsurv">2</a>).</p>
+Arrow3, Braun3, and Arrow5 had longer median CRT-free periods of three, five, and five days, respectively.</p>
 <p>Specifically, we found CRTs in 37 % of all Arrow5, 42 % of all Arrow3, 43 % of all Braun3, 62 % of all Vygon5, and 64 % of all Arrow4 CVCs at the first examination (within 24 h; Figure <a href="#fig:survplot">2</a>).
 Within one week of catheterization 64 to 100 % of CVCs developed a CRT.</p>
 <p>The height and length of the thrombosis remained largely constant over time.
@@ -580,9 +579,9 @@ Lumen occlusion was reported in four CVCs.</p>
 <h2>Analysis of CRT risk factors</h2>
 <p>In addition to the univariate analyses, we applied multiple regression analyses to determine the impact of different variables (Figure <a href="#fig:forestplot">3</a>).
 All variables with missing values were omitted to maintain the sample size.
-However, the results do not vary much even when all variables are included (Supplemental Table S<a href="#tab:supplhrtablefull">6</a> and Figure S<a href="#fig:forestplotfull">13</a>) or we used a penalized regression model (Supplemental Table S<a href="#tab:coxnet-cf">3</a> and Figure S<a href="#fig:coxnet-path-plot">5</a>).</p>
+However, the results do not vary much even when all variables are included (Supplemental Table S<a href="#tab:supplhrtablefull">5</a> and Figure S<a href="#fig:forestplotfull">13</a>) or we used a penalized regression model (Supplemental Table S<a href="#tab:coxnet-cf">2</a> and Figure S<a href="#fig:coxnet-path-plot">5</a>).</p>
 <p>The Arrow4 and Vygon5 CVC types were significantly associated with higher rates
-of CRT, as shown in the forest plot (Figure <a href="#fig:forestplot">3</a> and Supplemental Table S<a href="#tab:supplhrtable">7</a>).
+of CRT, as shown in the forest plot (Figure <a href="#fig:forestplot">3</a> and Supplemental Table S<a href="#tab:supplhrtable">6</a>).
 Their hazard ratios were 4.9 and 3, respectively.
 In addition to CVC type, no prophylactic anticoagulation prior to CVC placement was another significant risk factor for CRT, with a hazard ratio of 2.1.
 Cancer was also significantly associated with CRT (hazard ratio 2.1), but is an inhomogeneous disease category.
@@ -605,7 +604,7 @@ The median (Q1, Q3) time from CVC insertion to CRT diagnosis for all CVCs was 3 
 While CRT developed slowly in critically ill medical patients, with only 12 % of CRTs observed on day one, we found CRT in up to 64.3 % of CVCs in critically ill surgical patients within the first 24 h, depending on the type of CVC.
 This underscores the importance of clinically reviewing the indication for a CVC critically in the first place, reviewing it on a daily basis, and removing the CVC as early as possible.</p>
 <p>Depending on the type of CVC, the median time to CRT
-varies from one day for Arrow4 and Vygon5 to five days for Arrow5 and Braun3.
+varied from one day for Arrow4 and Vygon5 to five days for Arrow5 and Braun3.
 Causes are difficult to discuss due to differences in the manufacturer and material.
 Different incidences of pulmonary embolism due to CRT have been reported previously in patients with
 polyvinyl chloride or polyvinyl catheters compared to those with
@@ -643,9 +642,10 @@ That is why prophylactic or therapeutic anticoagulation should be weighed agains
 Therefore, our findings should be regarded as exploratory, indicating a further need for research.</p>
 <p>This was an exploratory observational study and we were limited by
 supply shortages, therefore, the number of catheters per type and manufacturer varied widely.
-The lack of randomization may also have biased the results.
+The lack of randomization and control for confounding factors may also have biased the results.
+In particular, we are unable to make any statement on the impact of the material or type of catheter.
 We had to exclude more than half of all CVCs because of poor ultrasound accessibility, the lack of LOT information, or the small number of catheter types.
-However, assigning CVCs with missing LOT information to each manufacturer’s main type increases the sample size from 94 to 119, with very similar results (Supplemental Table S<a href="#tab:supplhrtablelots">8</a>).
+However, assigning CVCs with missing LOT information to each manufacturer’s main type increases the sample size from 94 to 119, with very similar results (Supplemental Table S<a href="#tab:supplhrtablelots">7</a>).
 Depending on the vessel, the sensitivity and specificity of ultrasound for the diagnosis of DVT are 87 to 94 % and 85 to 97 %, respectively.
 Serial ultrasound, as in our study, increases the sensitivity and specificity up 97.9 and 99.8 %, respectively <span class="citation">[<a href="#ref-Patel2020" role="doc-biblioref">27</a>,<a href="#ref-Bhatt2020" role="doc-biblioref">28</a>]</span>.
 Nevertheless, the true accuracy of ultrasonography in the diagnosis of CRT in the IJV is not known.</p>
@@ -660,7 +660,7 @@ However, cancer includes different types of malignancies, but due to our relativ
 We did not record the type and duration of the surgery, which may also influence the incidence of CRT.</p>
 <p>While our data suggest that women had a higher risk of CRT, the numbers of different CVCs in both sex subgroups are too heterogeneous and the subgroups are too small for any meaningful conclusion. A recent meta-analysis found no association between sex and CRT <span class="citation">[<a href="#ref-Liu2022" role="doc-biblioref">7</a>]</span>.</p>
 <p>Our study is underpowered to draw conclusions about the effect of multiple insertion attempts and the operator experience due to missing information and its exploratory nature.
-However, we found no difference in the reduced sample size (Supplemental Table S<a href="#tab:supplhrtablefull">6</a>), which is in line with previous studies showing that the number of insertion attempts and operator experience may be unrelated to CRT <span class="citation">[<a href="#ref-Timsit1998" role="doc-biblioref">21</a>,<a href="#ref-Leung2016" role="doc-biblioref">25</a>]</span>.</p>
+However, we found no difference in the reduced sample size (Supplemental Table S<a href="#tab:supplhrtablefull">5</a>), which is in line with previous studies showing that the number of insertion attempts and operator experience may be unrelated to CRT <span class="citation">[<a href="#ref-Timsit1998" role="doc-biblioref">21</a>,<a href="#ref-Leung2016" role="doc-biblioref">25</a>]</span>.</p>
 <p>There is a substantial risk of type I errors due to the low number of events per
 predictor variable, especially for low-prevalence variables, for example Braun3 (7.4 %), previous DVT (6.4 %), and anticoagulation with unfractionated heparin (6.4 %) <span class="citation">[<a href="#ref-Vittinghoff2007" role="doc-biblioref">26</a>]</span>.
 However, none of these was statistically significant.</p>
@@ -668,8 +668,7 @@ However, none of these was statistically significant.</p>
 </div>
 <div id="conclusions" class="section level1">
 <h1>Conclusions</h1>
-<p>The incidence of CRT is much higher in surgical than in medical critically ill patients.
-Depending on the type of CVC, the median CRT-free period varies from one to five days.
+<p>The incidence of CRT in the IJV is much higher in surgical than in medical critically ill patients.
 Possible explanations include vascular trauma and perioperative inflammation.
 These thromboses are generally asymptomatic and do not require treatment.
 However, the differences in CVC material and the resulting CRTs have been neglected in clinical research and need to be further investigated.</p>
@@ -827,20 +826,20 @@ We would also thank Marcus Vollmer for helpful discussions on survival analysis 
 </div>
 <div id="tables" class="section level1">
 <h1>Tables</h1>
-<div id="opyejqxzfi" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#opyejqxzfi table {
+<div id="ujprzbqwkx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ujprzbqwkx table {
 font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 -webkit-font-smoothing: antialiased;
 -moz-osx-font-smoothing: grayscale;
 }
-#opyejqxzfi thead, #opyejqxzfi tbody, #opyejqxzfi tfoot, #opyejqxzfi tr, #opyejqxzfi td, #opyejqxzfi th {
+#ujprzbqwkx thead, #ujprzbqwkx tbody, #ujprzbqwkx tfoot, #ujprzbqwkx tr, #ujprzbqwkx td, #ujprzbqwkx th {
 border-style: none;
 }
-#opyejqxzfi p {
+#ujprzbqwkx p {
 margin: 0;
 padding: 0;
 }
-#opyejqxzfi .gt_table {
+#ujprzbqwkx .gt_table {
 display: table;
 border-collapse: collapse;
 line-height: normal;
@@ -865,11 +864,11 @@ border-left-style: none;
 border-left-width: 2px;
 border-left-color: #D3D3D3;
 }
-#opyejqxzfi .gt_caption {
+#ujprzbqwkx .gt_caption {
 padding-top: 4px;
 padding-bottom: 4px;
 }
-#opyejqxzfi .gt_title {
+#ujprzbqwkx .gt_title {
 color: #333333;
 font-size: 125%;
 font-weight: initial;
@@ -880,7 +879,7 @@ padding-right: 5px;
 border-bottom-color: #FFFFFF;
 border-bottom-width: 0;
 }
-#opyejqxzfi .gt_subtitle {
+#ujprzbqwkx .gt_subtitle {
 color: #333333;
 font-size: 85%;
 font-weight: initial;
@@ -891,7 +890,7 @@ padding-right: 5px;
 border-top-color: #FFFFFF;
 border-top-width: 0;
 }
-#opyejqxzfi .gt_heading {
+#ujprzbqwkx .gt_heading {
 background-color: #FFFFFF;
 text-align: center;
 border-bottom-color: #FFFFFF;
@@ -902,12 +901,12 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#opyejqxzfi .gt_bottom_border {
+#ujprzbqwkx .gt_bottom_border {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#opyejqxzfi .gt_col_headings {
+#ujprzbqwkx .gt_col_headings {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -921,7 +920,7 @@ border-right-style: none;
 border-right-width: 1px;
 border-right-color: #D3D3D3;
 }
-#opyejqxzfi .gt_col_heading {
+#ujprzbqwkx .gt_col_heading {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -940,7 +939,7 @@ padding-left: 5px;
 padding-right: 5px;
 overflow-x: hidden;
 }
-#opyejqxzfi .gt_column_spanner_outer {
+#ujprzbqwkx .gt_column_spanner_outer {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -951,13 +950,13 @@ padding-bottom: 0;
 padding-left: 4px;
 padding-right: 4px;
 }
-#opyejqxzfi .gt_column_spanner_outer:first-child {
+#ujprzbqwkx .gt_column_spanner_outer:first-child {
 padding-left: 0;
 }
-#opyejqxzfi .gt_column_spanner_outer:last-child {
+#ujprzbqwkx .gt_column_spanner_outer:last-child {
 padding-right: 0;
 }
-#opyejqxzfi .gt_column_spanner {
+#ujprzbqwkx .gt_column_spanner {
 border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
@@ -968,10 +967,10 @@ overflow-x: hidden;
 display: inline-block;
 width: 100%;
 }
-#opyejqxzfi .gt_spanner_row {
+#ujprzbqwkx .gt_spanner_row {
 border-bottom-style: hidden;
 }
-#opyejqxzfi .gt_group_heading {
+#ujprzbqwkx .gt_group_heading {
 padding-top: 1px;
 padding-bottom: 1px;
 padding-left: 5px;
@@ -996,7 +995,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 text-align: left;
 }
-#opyejqxzfi .gt_empty_group_heading {
+#ujprzbqwkx .gt_empty_group_heading {
 padding: 0.5px;
 color: #333333;
 background-color: #FFFFFF;
@@ -1010,13 +1009,13 @@ border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 vertical-align: middle;
 }
-#opyejqxzfi .gt_from_md > :first-child {
+#ujprzbqwkx .gt_from_md > :first-child {
 margin-top: 0;
 }
-#opyejqxzfi .gt_from_md > :last-child {
+#ujprzbqwkx .gt_from_md > :last-child {
 margin-bottom: 0;
 }
-#opyejqxzfi .gt_row {
+#ujprzbqwkx .gt_row {
 padding-top: 1px;
 padding-bottom: 1px;
 padding-left: 5px;
@@ -1034,7 +1033,7 @@ border-right-color: #D3D3D3;
 vertical-align: middle;
 overflow-x: hidden;
 }
-#opyejqxzfi .gt_stub {
+#ujprzbqwkx .gt_stub {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -1046,7 +1045,7 @@ border-right-color: #D3D3D3;
 padding-left: 5px;
 padding-right: 5px;
 }
-#opyejqxzfi .gt_stub_row_group {
+#ujprzbqwkx .gt_stub_row_group {
 color: #333333;
 background-color: #FFFFFF;
 font-size: 100%;
@@ -1059,13 +1058,13 @@ padding-left: 5px;
 padding-right: 5px;
 vertical-align: top;
 }
-#opyejqxzfi .gt_row_group_first td {
+#ujprzbqwkx .gt_row_group_first td {
 border-top-width: 2px;
 }
-#opyejqxzfi .gt_row_group_first th {
+#ujprzbqwkx .gt_row_group_first th {
 border-top-width: 2px;
 }
-#opyejqxzfi .gt_summary_row {
+#ujprzbqwkx .gt_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -1074,14 +1073,14 @@ padding-bottom: 1px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#opyejqxzfi .gt_first_summary_row {
+#ujprzbqwkx .gt_first_summary_row {
 border-top-style: solid;
 border-top-color: #D3D3D3;
 }
-#opyejqxzfi .gt_first_summary_row.thick {
+#ujprzbqwkx .gt_first_summary_row.thick {
 border-top-width: 2px;
 }
-#opyejqxzfi .gt_last_summary_row {
+#ujprzbqwkx .gt_last_summary_row {
 padding-top: 1px;
 padding-bottom: 1px;
 padding-left: 5px;
@@ -1090,7 +1089,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#opyejqxzfi .gt_grand_summary_row {
+#ujprzbqwkx .gt_grand_summary_row {
 color: #333333;
 background-color: #FFFFFF;
 text-transform: inherit;
@@ -1099,7 +1098,7 @@ padding-bottom: 1px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#opyejqxzfi .gt_first_grand_summary_row {
+#ujprzbqwkx .gt_first_grand_summary_row {
 padding-top: 1px;
 padding-bottom: 1px;
 padding-left: 5px;
@@ -1108,7 +1107,7 @@ border-top-style: double;
 border-top-width: 6px;
 border-top-color: #D3D3D3;
 }
-#opyejqxzfi .gt_last_grand_summary_row_top {
+#ujprzbqwkx .gt_last_grand_summary_row_top {
 padding-top: 1px;
 padding-bottom: 1px;
 padding-left: 5px;
@@ -1117,10 +1116,10 @@ border-bottom-style: double;
 border-bottom-width: 6px;
 border-bottom-color: #D3D3D3;
 }
-#opyejqxzfi .gt_striped {
+#ujprzbqwkx .gt_striped {
 background-color: rgba(128, 128, 128, 0.05);
 }
-#opyejqxzfi .gt_table_body {
+#ujprzbqwkx .gt_table_body {
 border-top-style: solid;
 border-top-width: 2px;
 border-top-color: #D3D3D3;
@@ -1128,7 +1127,7 @@ border-bottom-style: solid;
 border-bottom-width: 2px;
 border-bottom-color: #D3D3D3;
 }
-#opyejqxzfi .gt_footnotes {
+#ujprzbqwkx .gt_footnotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -1141,7 +1140,7 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#opyejqxzfi .gt_footnote {
+#ujprzbqwkx .gt_footnote {
 margin: 0px;
 font-size: 90%;
 padding-top: 1px;
@@ -1149,7 +1148,7 @@ padding-bottom: 1px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#opyejqxzfi .gt_sourcenotes {
+#ujprzbqwkx .gt_sourcenotes {
 color: #333333;
 background-color: #FFFFFF;
 border-bottom-style: none;
@@ -1162,57 +1161,57 @@ border-right-style: none;
 border-right-width: 2px;
 border-right-color: #D3D3D3;
 }
-#opyejqxzfi .gt_sourcenote {
+#ujprzbqwkx .gt_sourcenote {
 font-size: 90%;
 padding-top: 1px;
 padding-bottom: 1px;
 padding-left: 5px;
 padding-right: 5px;
 }
-#opyejqxzfi .gt_left {
+#ujprzbqwkx .gt_left {
 text-align: left;
 }
-#opyejqxzfi .gt_center {
+#ujprzbqwkx .gt_center {
 text-align: center;
 }
-#opyejqxzfi .gt_right {
+#ujprzbqwkx .gt_right {
 text-align: right;
 font-variant-numeric: tabular-nums;
 }
-#opyejqxzfi .gt_font_normal {
+#ujprzbqwkx .gt_font_normal {
 font-weight: normal;
 }
-#opyejqxzfi .gt_font_bold {
+#ujprzbqwkx .gt_font_bold {
 font-weight: bold;
 }
-#opyejqxzfi .gt_font_italic {
+#ujprzbqwkx .gt_font_italic {
 font-style: italic;
 }
-#opyejqxzfi .gt_super {
+#ujprzbqwkx .gt_super {
 font-size: 65%;
 }
-#opyejqxzfi .gt_footnote_marks {
+#ujprzbqwkx .gt_footnote_marks {
 font-size: 75%;
 vertical-align: 0.4em;
 position: initial;
 }
-#opyejqxzfi .gt_asterisk {
+#ujprzbqwkx .gt_asterisk {
 font-size: 100%;
 vertical-align: 0;
 }
-#opyejqxzfi .gt_indent_1 {
+#ujprzbqwkx .gt_indent_1 {
 text-indent: 5px;
 }
-#opyejqxzfi .gt_indent_2 {
+#ujprzbqwkx .gt_indent_2 {
 text-indent: 10px;
 }
-#opyejqxzfi .gt_indent_3 {
+#ujprzbqwkx .gt_indent_3 {
 text-indent: 15px;
 }
-#opyejqxzfi .gt_indent_4 {
+#ujprzbqwkx .gt_indent_4 {
 text-indent: 20px;
 }
-#opyejqxzfi .gt_indent_5 {
+#ujprzbqwkx .gt_indent_5 {
 text-indent: 25px;
 }
 </style>
@@ -1396,423 +1395,6 @@ text-indent: 25px;
   </tfoot>
 </table>
 </div>
-<div id="bmyejhnsmh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#bmyejhnsmh table {
-font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
--webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
-}
-#bmyejhnsmh thead, #bmyejhnsmh tbody, #bmyejhnsmh tfoot, #bmyejhnsmh tr, #bmyejhnsmh td, #bmyejhnsmh th {
-border-style: none;
-}
-#bmyejhnsmh p {
-margin: 0;
-padding: 0;
-}
-#bmyejhnsmh .gt_table {
-display: table;
-border-collapse: collapse;
-line-height: normal;
-margin-left: auto;
-margin-right: auto;
-color: #333333;
-font-size: 8px;
-font-weight: normal;
-font-style: normal;
-background-color: #FFFFFF;
-width: auto;
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #A8A8A8;
-border-right-style: none;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #A8A8A8;
-border-left-style: none;
-border-left-width: 2px;
-border-left-color: #D3D3D3;
-}
-#bmyejhnsmh .gt_caption {
-padding-top: 4px;
-padding-bottom: 4px;
-}
-#bmyejhnsmh .gt_title {
-color: #333333;
-font-size: 125%;
-font-weight: initial;
-padding-top: 4px;
-padding-bottom: 4px;
-padding-left: 5px;
-padding-right: 5px;
-border-bottom-color: #FFFFFF;
-border-bottom-width: 0;
-}
-#bmyejhnsmh .gt_subtitle {
-color: #333333;
-font-size: 85%;
-font-weight: initial;
-padding-top: 3px;
-padding-bottom: 5px;
-padding-left: 5px;
-padding-right: 5px;
-border-top-color: #FFFFFF;
-border-top-width: 0;
-}
-#bmyejhnsmh .gt_heading {
-background-color: #FFFFFF;
-text-align: center;
-border-bottom-color: #FFFFFF;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-}
-#bmyejhnsmh .gt_bottom_border {
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-}
-#bmyejhnsmh .gt_col_headings {
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-}
-#bmyejhnsmh .gt_col_heading {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: normal;
-text-transform: inherit;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-vertical-align: bottom;
-padding-top: 5px;
-padding-bottom: 6px;
-padding-left: 5px;
-padding-right: 5px;
-overflow-x: hidden;
-}
-#bmyejhnsmh .gt_column_spanner_outer {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: normal;
-text-transform: inherit;
-padding-top: 0;
-padding-bottom: 0;
-padding-left: 4px;
-padding-right: 4px;
-}
-#bmyejhnsmh .gt_column_spanner_outer:first-child {
-padding-left: 0;
-}
-#bmyejhnsmh .gt_column_spanner_outer:last-child {
-padding-right: 0;
-}
-#bmyejhnsmh .gt_column_spanner {
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-vertical-align: bottom;
-padding-top: 5px;
-padding-bottom: 5px;
-overflow-x: hidden;
-display: inline-block;
-width: 100%;
-}
-#bmyejhnsmh .gt_spanner_row {
-border-bottom-style: hidden;
-}
-#bmyejhnsmh .gt_group_heading {
-padding-top: 1px;
-padding-bottom: 1px;
-padding-left: 5px;
-padding-right: 5px;
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-text-transform: inherit;
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-vertical-align: middle;
-text-align: left;
-}
-#bmyejhnsmh .gt_empty_group_heading {
-padding: 0.5px;
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-vertical-align: middle;
-}
-#bmyejhnsmh .gt_from_md > :first-child {
-margin-top: 0;
-}
-#bmyejhnsmh .gt_from_md > :last-child {
-margin-bottom: 0;
-}
-#bmyejhnsmh .gt_row {
-padding-top: 1px;
-padding-bottom: 1px;
-padding-left: 5px;
-padding-right: 5px;
-margin: 10px;
-border-top-style: solid;
-border-top-width: 1px;
-border-top-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 1px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 1px;
-border-right-color: #D3D3D3;
-vertical-align: middle;
-overflow-x: hidden;
-}
-#bmyejhnsmh .gt_stub {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-text-transform: inherit;
-border-right-style: solid;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-padding-left: 5px;
-padding-right: 5px;
-}
-#bmyejhnsmh .gt_stub_row_group {
-color: #333333;
-background-color: #FFFFFF;
-font-size: 100%;
-font-weight: initial;
-text-transform: inherit;
-border-right-style: solid;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-padding-left: 5px;
-padding-right: 5px;
-vertical-align: top;
-}
-#bmyejhnsmh .gt_row_group_first td {
-border-top-width: 2px;
-}
-#bmyejhnsmh .gt_row_group_first th {
-border-top-width: 2px;
-}
-#bmyejhnsmh .gt_summary_row {
-color: #333333;
-background-color: #FFFFFF;
-text-transform: inherit;
-padding-top: 1px;
-padding-bottom: 1px;
-padding-left: 5px;
-padding-right: 5px;
-}
-#bmyejhnsmh .gt_first_summary_row {
-border-top-style: solid;
-border-top-color: #D3D3D3;
-}
-#bmyejhnsmh .gt_first_summary_row.thick {
-border-top-width: 2px;
-}
-#bmyejhnsmh .gt_last_summary_row {
-padding-top: 1px;
-padding-bottom: 1px;
-padding-left: 5px;
-padding-right: 5px;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-}
-#bmyejhnsmh .gt_grand_summary_row {
-color: #333333;
-background-color: #FFFFFF;
-text-transform: inherit;
-padding-top: 1px;
-padding-bottom: 1px;
-padding-left: 5px;
-padding-right: 5px;
-}
-#bmyejhnsmh .gt_first_grand_summary_row {
-padding-top: 1px;
-padding-bottom: 1px;
-padding-left: 5px;
-padding-right: 5px;
-border-top-style: double;
-border-top-width: 6px;
-border-top-color: #D3D3D3;
-}
-#bmyejhnsmh .gt_last_grand_summary_row_top {
-padding-top: 1px;
-padding-bottom: 1px;
-padding-left: 5px;
-padding-right: 5px;
-border-bottom-style: double;
-border-bottom-width: 6px;
-border-bottom-color: #D3D3D3;
-}
-#bmyejhnsmh .gt_striped {
-background-color: rgba(128, 128, 128, 0.05);
-}
-#bmyejhnsmh .gt_table_body {
-border-top-style: solid;
-border-top-width: 2px;
-border-top-color: #D3D3D3;
-border-bottom-style: solid;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-}
-#bmyejhnsmh .gt_footnotes {
-color: #333333;
-background-color: #FFFFFF;
-border-bottom-style: none;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 2px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-}
-#bmyejhnsmh .gt_footnote {
-margin: 0px;
-font-size: 90%;
-padding-top: 1px;
-padding-bottom: 1px;
-padding-left: 5px;
-padding-right: 5px;
-}
-#bmyejhnsmh .gt_sourcenotes {
-color: #333333;
-background-color: #FFFFFF;
-border-bottom-style: none;
-border-bottom-width: 2px;
-border-bottom-color: #D3D3D3;
-border-left-style: none;
-border-left-width: 2px;
-border-left-color: #D3D3D3;
-border-right-style: none;
-border-right-width: 2px;
-border-right-color: #D3D3D3;
-}
-#bmyejhnsmh .gt_sourcenote {
-font-size: 90%;
-padding-top: 1px;
-padding-bottom: 1px;
-padding-left: 5px;
-padding-right: 5px;
-}
-#bmyejhnsmh .gt_left {
-text-align: left;
-}
-#bmyejhnsmh .gt_center {
-text-align: center;
-}
-#bmyejhnsmh .gt_right {
-text-align: right;
-font-variant-numeric: tabular-nums;
-}
-#bmyejhnsmh .gt_font_normal {
-font-weight: normal;
-}
-#bmyejhnsmh .gt_font_bold {
-font-weight: bold;
-}
-#bmyejhnsmh .gt_font_italic {
-font-style: italic;
-}
-#bmyejhnsmh .gt_super {
-font-size: 65%;
-}
-#bmyejhnsmh .gt_footnote_marks {
-font-size: 75%;
-vertical-align: 0.4em;
-position: initial;
-}
-#bmyejhnsmh .gt_asterisk {
-font-size: 100%;
-vertical-align: 0;
-}
-#bmyejhnsmh .gt_indent_1 {
-text-indent: 5px;
-}
-#bmyejhnsmh .gt_indent_2 {
-text-indent: 10px;
-}
-#bmyejhnsmh .gt_indent_3 {
-text-indent: 15px;
-}
-#bmyejhnsmh .gt_indent_4 {
-text-indent: 20px;
-}
-#bmyejhnsmh .gt_indent_5 {
-text-indent: 25px;
-}
-</style>
-<table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <caption><span id="tab:tablemedsurv">Table 2: </span>Median CRT-free time for all central venous catheters in the internal jugular vein and for their different types.<br /> Values are given as median (lower quartile - upper quartile).<br /> CRT,  catheters-related thrombosis.</caption>
-  <thead>
-    <tr class="gt_col_headings">
-      <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Characteristic&lt;/strong&gt;"><strong>Characteristic</strong></th>
-      <th class="gt_col_heading gt_columns_bottom_border gt_center" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Median CRT-free time&lt;/strong&gt;"><strong>Median CRT-free time</strong></th>
-    </tr>
-  </thead>
-  <tbody class="gt_table_body">
-    <tr><td headers="label" class="gt_row gt_left">Overall</td>
-<td headers="stat_1" class="gt_row gt_center">3.0 (1.0 to 3.0)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">Type (Manufacturer/Lumens)</td>
-<td headers="stat_1" class="gt_row gt_center"><br /></td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Arrow/3 Lumens</td>
-<td headers="stat_1" class="gt_row gt_center">3.0 (1.0 to —)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Arrow/4 Lumens</td>
-<td headers="stat_1" class="gt_row gt_center">1.0 (1.0 to —)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Arrow/5 Lumens</td>
-<td headers="stat_1" class="gt_row gt_center">5.0 (1.0 to 11)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Braun/3 Lumens</td>
-<td headers="stat_1" class="gt_row gt_center">5.0 (1.0 to —)</td></tr>
-    <tr><td headers="label" class="gt_row gt_left">    Vygon/5 Lumens</td>
-<td headers="stat_1" class="gt_row gt_center">1.0 (1.0 to 3.0)</td></tr>
-  </tbody>
-  
-  
-</table>
-</div>
 </div>
 <div id="figures" class="section level1">
 <h1>Figures</h1>
@@ -1844,8 +1426,8 @@ Figure 3: Hazard ratios of CRT adjusted for different covariates. CRT, catheter-
 </div>
 </div>
 </div>
-<div id="incidence-onset-and-material-dependency-of-central-venous-catheter-related-thrombosis-in-critically-ill-surgical-patients-a-prospective-observational-single-center-study---supplementary-information" class="section level1">
-<h1>Incidence, onset and material dependency of central venous catheter-related thrombosis in critically ill surgical patients: a prospective observational single-center study - Supplementary Information</h1>
+<div id="incidence-and-onset-of-central-venous-catheter-related-thrombosis-in-critically-ill-surgical-patients-a-prospective-observational-single-center-study---supplementary-information" class="section level1">
+<h1>Incidence and onset of central venous catheter-related thrombosis in critically ill surgical patients: a prospective observational single-center study - Supplementary Information</h1>
 <div id="penalized-regression" class="section level2">
 <h2>Penalized regression</h2>
 <div class="figure"><span style="display:block;" id="fig:coxnet-cv-plot"></span>
@@ -1861,7 +1443,7 @@ Figure 5: Coefficient profile plot. Plot of coefficient path for least absolute 
 </p>
 </div>
 <table>
-<caption><span id="tab:coxnet-cf">Table 3: </span>Coefficient of least absolute shrinkage and selection operator (lasso) regression for cox proportional hazards models with the minimal logarithmized lambda -3.02 found in a 100 repeated cross-validation each with 10 folds. DVT, deep vein thrombosis.</caption>
+<caption><span id="tab:coxnet-cf">Table 2: </span>Coefficient of least absolute shrinkage and selection operator (lasso) regression for cox proportional hazards models with the minimal logarithmized lambda -3.02 found in a 100 repeated cross-validation each with 10 folds. DVT, deep vein thrombosis.</caption>
 <thead>
 <tr class="header">
 <th align="left"></th>
@@ -1911,7 +1493,7 @@ Figure 5: Coefficient profile plot. Plot of coefficient path for least absolute 
 <div id="proportional-hazards-assumption" class="section level2">
 <h2>Proportional hazards assumption</h2>
 <table>
-<caption><span id="tab:pha-table">Table 4: </span>Chi-square independence test between scaled Schoenfeld residuals and time for each covariate (as implemented by <code>cox.zph</code> in the <em>survival</em> package). CVC, central venous catheters; DF, degree of freedom; DVT, deep vein thrombosis; WBC1, white blood count on day one.</caption>
+<caption><span id="tab:pha-table">Table 3: </span>Chi-square independence test between scaled Schoenfeld residuals and time for each covariate (as implemented by <code>cox.zph</code> in the <em>survival</em> package). CVC, central venous catheters; DF, degree of freedom; DVT, deep vein thrombosis; WBC1, white blood count on day one.</caption>
 <thead>
 <tr class="header">
 <th align="left"></th>
@@ -2005,7 +1587,7 @@ Figure 6: Scaled Schoenfeld residuals over transformed time for each covariate. 
 <div id="lot-numbers" class="section level2">
 <h2>LOT numbers</h2>
 <table>
-<caption><span id="tab:lottable">Table 5: </span>LOT and part numbers of examined central venous catheters. EX, Excluded; LM, Lumens; MF, Manufacturer; PN, part number.</caption>
+<caption><span id="tab:lottable">Table 4: </span>LOT and part numbers of examined central venous catheters. EX, Excluded; LM, Lumens; MF, Manufacturer; PN, part number.</caption>
 <colgroup>
 <col width="5%" />
 <col width="7%" />
@@ -4411,7 +3993,7 @@ text-indent: 25px;
 }
 </style>
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <caption><span id="tab:supplhrtablefull">Table 6: </span>Hazard ratios of CRT using all available variables but with a reduced sample size of N = 57 central venous catheters due to missing values.</caption>
+  <caption><span id="tab:supplhrtablefull">Table 5: </span>Hazard ratios of CRT using all available variables but with a reduced sample size of N = 57 central venous catheters due to missing values.</caption>
   <thead>
     <tr class="gt_col_headings">
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Characteristic&lt;/strong&gt;"><strong>Characteristic</strong></th>
@@ -4996,7 +4578,7 @@ text-indent: 25px;
 }
 </style>
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <caption><span id="tab:supplhrtable">Table 7: </span>Hazard ratios for Cox regression of CRT for all analyzed central venous catheters (N = 94).</caption>
+  <caption><span id="tab:supplhrtable">Table 6: </span>Hazard ratios for Cox regression of CRT for all analyzed central venous catheters (N = 94).</caption>
   <thead>
     <tr class="gt_col_headings">
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Characteristic&lt;/strong&gt;"><strong>Characteristic</strong></th>
@@ -5503,7 +5085,7 @@ text-indent: 25px;
 }
 </style>
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
-  <caption><span id="tab:supplhrtablelots">Table 8: </span>Hazard ratios of CRT assuming that central venous catheters with missing LOTs were of each manufacturer’s main type. Sample size of N = 119.</caption>
+  <caption><span id="tab:supplhrtablelots">Table 7: </span>Hazard ratios of CRT assuming that central venous catheters with missing LOTs were of each manufacturer’s main type. Sample size of N = 119.</caption>
   <thead>
     <tr class="gt_col_headings">
       <th class="gt_col_heading gt_columns_bottom_border gt_left" rowspan="1" colspan="1" scope="col" id="&lt;strong&gt;Characteristic&lt;/strong&gt;"><strong>Characteristic</strong></th>
@@ -5688,7 +5270,7 @@ Figure 14: Hazard ratios of CRT for all central venous catheters assuming that m
 </div>
 <div id="git-commit-hash" class="section level2">
 <h2>Git commit hash</h2>
-<pre><code>## [1] &quot;Git commit revision: af634df7a26ca6339aacd5068aa3f61ff07b8e34&quot;</code></pre>
+<pre><code>## [1] &quot;Git commit revision: 2073d4b511655a167c9af9f285fbbee1c1405b8e&quot;</code></pre>
 </div>
 </div>
 
