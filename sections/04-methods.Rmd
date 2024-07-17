@@ -7,7 +7,7 @@ at a university hospital during a six-month period from March to August 2022.
 
 We enrolled all adult patients (&ge; 18 years) who required a CVC for at least 48 h.
 All CVCs were placed in the operating theatre or ICU using an ultrasound-guided insertion approach and maximum barrier precautions, according to local guidelines.
-Skin antisepsis was performed with octenidine dihydrochlordie, 1-propanol and 2-propanol (octeniderm colourless, Schülke & Mayr GmbH, Norderstedt, Germany).
+Skin antisepsis was performed with octenidine dihydrochloride, 1-propanol and 2-propanol (octeniderm colourless, Schülke & Mayr GmbH, Norderstedt, Germany).
 The choice of the appropriate CVC type, site, and side was made by the clinicians performing the placement.
 They were asked to complete a questionnaire documenting the manufacturer, the LOT (identification) number, the number of attempts, any complications, and their level of expertise in CVC placement.
 If the patient had a blood sample taken on the day of the screening, we ordered white blood cells counts (WBCs), C-reactive peptide and D-dimer.
