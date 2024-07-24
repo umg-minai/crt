@@ -3,9 +3,16 @@
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10396907.svg)](https://doi.org/10.5281/zenodo.10396907)
 
-We use [guix](https://guix.gnu.org) to ensure an reproducible computing environment.
+Publication:
+
+Sebastian Gibb, Sebastian Engelhardt, Falk von Dincklage, Sven-Olaf Kuhn, <br />
+Incidence and onset of central venous catheter-related thrombosis in critically ill surgical patients: A prospective observational single-center study, <br />
+Journal of Clinical Anesthesia, Volume 97, 2024,
+[10.1016/j.jclinane.2024.111556](https://doi.org/10.1016/j.jclinane.2024.111556).
 
 ## Bootstrap
+
+We use [guix](https://guix.gnu.org) to ensure an reproducible computing environment.
 
 ### Guix on debian
 
