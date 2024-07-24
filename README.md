@@ -1,6 +1,6 @@
 # Observational study of central venous catheter-related thrombosis (CRT)
 
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Project Status: Inactive – The project has reached a stable, usable state but is no longer being actively developed; support/maintenance will be provided as time allows.](https://www.repostatus.org/badges/latest/inactive.svg)](https://www.repostatus.org/#inactive)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.10396907.svg)](https://doi.org/10.5281/zenodo.10396907)
 
 Publication:
